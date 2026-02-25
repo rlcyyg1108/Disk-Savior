@@ -1,0 +1,576 @@
+{
+	autofocus_id: "38166A02EA474C1E"
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "5C8BCAAFC324DF6C"
+	group: ""
+	icon: "gtlcore:item_infinity_cell"
+	id: "5C8BCAAFC324DF6C"
+	order_index: 5
+	quest_links: [ ]
+	quests: [
+		{
+			dependencies: ["38166A02EA474C1E"]
+			description: [
+				"下调了部分大机器的解锁时期，让上位机器在下位阶段就能投入使用"
+				""
+				"并没有删除原配方"
+				""
+				"很神奇吧"
+				""
+				"但实际上只有控制器是下调了阶段，展示的这俩你都需要更晚的时期才能获得建造材料，也许以后会整个任务送点材料"
+			]
+			icon: "gtceu:glue_bucket"
+			id: "71635B58E5ED57C9"
+			subtitle: "胶水……"
+			tasks: [
+				{
+					id: "667255FD560051CB"
+					optional_task: true
+					type: "checkmark"
+				}
+				{
+					id: "0D38159D442F2A5C"
+					item: "gtceu:petrochemical_plant"
+					optional_task: true
+					type: "item"
+				}
+				{
+					id: "3C2F0E0B9F8A6230"
+					item: "gtceu:wood_distillation"
+					optional_task: true
+					type: "item"
+				}
+			]
+			title: "搅拌机科技"
+			x: -1.5d
+			y: 0.0d
+		}
+		{
+			description: [
+				"这是我给GregTech Leisure整合包写的私货"
+				""
+				"当前并不完善，因为我自己只玩到UV，还是一周目"
+				""
+				"最开始是因为我存档因各种维度跑图体积过大，才写的这个私货"
+				""
+				"用了此私货你几乎不用跑图了，存档大小可能到毕业都只有100MB出头"
+				""
+				"给一些我觉得机制不太行的机器，通过配方调整提升效率"
+				""
+				"给一些我游玩过程中遇到的无合适配方的内容，做了配方格雷化处理"
+			]
+			icon: {
+				Count: 1
+				id: "computercraft:disk"
+				tag: {
+					Color: 3368652
+				}
+			}
+			id: "38166A02EA474C1E"
+			shape: "none"
+			size: 2.0d
+			subtitle: "蒸汽是我最后的生命……"
+			tasks: [{
+				id: "268C6F78E6B1C04E"
+				title: "荷移微？"
+				type: "checkmark"
+			}]
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["38166A02EA474C1E"]
+			description: [""]
+			icon: "minecraft:cobblestone"
+			id: "651E6BC0E1CE24AB"
+			tasks: [{
+				id: "2EE827101AC70A3A"
+				type: "checkmark"
+			}]
+			x: 5.0d
+			y: -2.5d
+		}
+		{
+			dependencies: ["38166A02EA474C1E"]
+			description: [""]
+			icon: "minecraft:cobblestone"
+			id: "731B214F76D693A3"
+			tasks: [
+				{
+					id: "214F2C88CFDC723B"
+					type: "checkmark"
+				}
+				{
+					id: "5A8135DD09F1BFAB"
+					item: "minecraft:oak_log"
+					optional_task: true
+					type: "item"
+				}
+			]
+			x: 4.0d
+			y: -4.0d
+		}
+		{
+			dependencies: ["38166A02EA474C1E"]
+			description: [""]
+			icon: "minecraft:cobblestone"
+			id: "70E1F4D106B8A383"
+			tasks: [
+				{
+					id: "49CE0C30FA7D7150"
+					type: "checkmark"
+				}
+				{
+					id: "38B20CA4217AC844"
+					item: "minecraft:oak_log"
+					optional_task: true
+					type: "item"
+				}
+			]
+			x: 0.0d
+			y: 1.5d
+		}
+		{
+			dependencies: ["38166A02EA474C1E"]
+			description: [""]
+			icon: "minecraft:cobblestone"
+			id: "4B7BA4B00F4A93B6"
+			tasks: [
+				{
+					id: "5C87CADA0D82F441"
+					type: "checkmark"
+				}
+				{
+					id: "68296AA93F6BD3C8"
+					item: "minecraft:oak_log"
+					optional_task: true
+					type: "item"
+				}
+			]
+			x: 1.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["38166A02EA474C1E"]
+			description: [""]
+			icon: "minecraft:cobblestone"
+			id: "42546E3C5E202BCF"
+			tasks: [
+				{
+					id: "09D2B78574A50185"
+					type: "checkmark"
+				}
+				{
+					id: "7F965E9F47CCD962"
+					item: "minecraft:oak_log"
+					optional_task: true
+					type: "item"
+				}
+			]
+			x: 0.0d
+			y: -1.5d
+		}
+		{
+			dependencies: ["38166A02EA474C1E"]
+			description: [""]
+			icon: "minecraft:cobblestone"
+			id: "782F836B271246CA"
+			tasks: [
+				{
+					id: "322A2B7DA094876B"
+					type: "checkmark"
+				}
+				{
+					id: "107AF4D44991EA23"
+					item: "minecraft:oak_log"
+					optional_task: true
+					type: "item"
+				}
+			]
+			x: 1.0d
+			y: -1.0d
+		}
+		{
+			dependencies: ["38166A02EA474C1E"]
+			description: [""]
+			icon: "minecraft:cobblestone"
+			id: "506573D651A914EB"
+			tasks: [
+				{
+					id: "62776D49938A0122"
+					type: "checkmark"
+				}
+				{
+					id: "54164CA3366DC168"
+					item: "minecraft:oak_log"
+					optional_task: true
+					type: "item"
+				}
+			]
+			x: -1.0d
+			y: -1.0d
+		}
+		{
+			dependencies: ["38166A02EA474C1E"]
+			description: [""]
+			icon: "minecraft:cobblestone"
+			id: "1A90504BB56D5790"
+			tasks: [
+				{
+					id: "1C952574DA0EA8D5"
+					type: "checkmark"
+				}
+				{
+					id: "10FD0C9B999FCF3D"
+					item: "minecraft:oak_log"
+					optional_task: true
+					type: "item"
+				}
+			]
+			x: -1.0d
+			y: 1.0d
+		}
+		{
+			dependencies: ["38166A02EA474C1E"]
+			description: [""]
+			icon: "minecraft:cobblestone"
+			id: "341BD2640E6DF4E5"
+			tasks: [
+				{
+					id: "235A78662276F79F"
+					type: "checkmark"
+				}
+				{
+					id: "46DFF5CA72A29E73"
+					item: "minecraft:oak_log"
+					optional_task: true
+					type: "item"
+				}
+			]
+			x: 1.0d
+			y: 1.0d
+		}
+		{
+			dependencies: ["38166A02EA474C1E"]
+			description: [""]
+			icon: "minecraft:cobblestone"
+			id: "6ACA30E3CBF35EE8"
+			tasks: [
+				{
+					id: "6B9DC971A850BF4B"
+					type: "checkmark"
+				}
+				{
+					id: "79881CCAFA2129B8"
+					item: "minecraft:oak_log"
+					optional_task: true
+					type: "item"
+				}
+			]
+			x: -1.5d
+			y: -2.5d
+		}
+		{
+			dependencies: ["38166A02EA474C1E"]
+			description: [""]
+			icon: "minecraft:cobblestone"
+			id: "3FDD691A26F93072"
+			tasks: [
+				{
+					id: "25F4C4530394AD8E"
+					type: "checkmark"
+				}
+				{
+					id: "343E4DFE34E4BDCF"
+					item: "minecraft:oak_log"
+					optional_task: true
+					type: "item"
+				}
+			]
+			x: 1.5d
+			y: -2.5d
+		}
+		{
+			dependencies: ["38166A02EA474C1E"]
+			description: [""]
+			icon: "minecraft:cobblestone"
+			id: "684D38E83F2AAE17"
+			tasks: [
+				{
+					id: "72657DE2C806565B"
+					type: "checkmark"
+				}
+				{
+					id: "32383607CA6AF0D7"
+					item: "minecraft:oak_log"
+					optional_task: true
+					type: "item"
+				}
+			]
+			x: -2.5d
+			y: -1.5d
+		}
+		{
+			dependencies: ["38166A02EA474C1E"]
+			description: [""]
+			icon: "minecraft:cobblestone"
+			id: "24B580CECE38C50E"
+			tasks: [
+				{
+					id: "623C57695F22E7EB"
+					type: "checkmark"
+				}
+				{
+					id: "59763268576FA1F2"
+					item: "minecraft:oak_log"
+					optional_task: true
+					type: "item"
+				}
+			]
+			x: -2.5d
+			y: 1.5d
+		}
+		{
+			dependencies: ["38166A02EA474C1E"]
+			description: [""]
+			icon: "minecraft:cobblestone"
+			id: "456108DF3E2A035F"
+			tasks: [
+				{
+					id: "606162B1A0D80C03"
+					type: "checkmark"
+				}
+				{
+					id: "1B305DE38D9DAB48"
+					item: "minecraft:oak_log"
+					optional_task: true
+					type: "item"
+				}
+			]
+			x: -1.5d
+			y: 2.5d
+		}
+		{
+			dependencies: ["38166A02EA474C1E"]
+			description: [""]
+			icon: "minecraft:cobblestone"
+			id: "4B2C74FB285A1936"
+			tasks: [
+				{
+					id: "7E2D4386F92023ED"
+					type: "checkmark"
+				}
+				{
+					id: "0E3C47DA57C46167"
+					item: "minecraft:oak_log"
+					optional_task: true
+					type: "item"
+				}
+			]
+			x: 1.5d
+			y: 2.5d
+		}
+		{
+			dependencies: ["38166A02EA474C1E"]
+			description: [""]
+			icon: "minecraft:cobblestone"
+			id: "0D68227276AC02D5"
+			tasks: [
+				{
+					id: "3DBA0B3806333EBE"
+					type: "checkmark"
+				}
+				{
+					id: "7F5395AFBEFF5EED"
+					item: "minecraft:oak_log"
+					optional_task: true
+					type: "item"
+				}
+			]
+			x: 2.5d
+			y: 1.5d
+		}
+		{
+			dependencies: ["38166A02EA474C1E"]
+			description: [""]
+			icon: "minecraft:cobblestone"
+			id: "67854357137EC9E5"
+			tasks: [
+				{
+					id: "29C49200C71757EF"
+					type: "checkmark"
+				}
+				{
+					id: "417CB5FAB85A3271"
+					item: "minecraft:oak_log"
+					optional_task: true
+					type: "item"
+				}
+			]
+			x: 2.5d
+			y: -1.5d
+		}
+		{
+			dependencies: ["38166A02EA474C1E"]
+			description: [""]
+			icon: "minecraft:cobblestone"
+			id: "42B7898D1064619A"
+			tasks: [
+				{
+					id: "3E43DE575343593A"
+					type: "checkmark"
+				}
+				{
+					id: "3AAE44FC0C03D87C"
+					item: "minecraft:oak_log"
+					optional_task: true
+					type: "item"
+				}
+			]
+			x: -3.0d
+			y: 0.5d
+		}
+		{
+			dependencies: ["38166A02EA474C1E"]
+			description: [""]
+			icon: "minecraft:cobblestone"
+			id: "5B007E834AA24ED6"
+			tasks: [
+				{
+					id: "002E658C4595CA33"
+					type: "checkmark"
+				}
+				{
+					id: "46EF5FC811586F74"
+					item: "minecraft:oak_log"
+					optional_task: true
+					type: "item"
+				}
+			]
+			x: -3.0d
+			y: -0.5d
+		}
+		{
+			dependencies: ["38166A02EA474C1E"]
+			description: [""]
+			icon: "minecraft:cobblestone"
+			id: "410997270524E697"
+			tasks: [
+				{
+					id: "0A67407334A82360"
+					type: "checkmark"
+				}
+				{
+					id: "3021ADE4937FF040"
+					item: "minecraft:oak_log"
+					optional_task: true
+					type: "item"
+				}
+			]
+			x: 3.0d
+			y: -0.5d
+		}
+		{
+			dependencies: ["38166A02EA474C1E"]
+			description: [""]
+			icon: "minecraft:cobblestone"
+			id: "3E9FEB8DF4698E91"
+			tasks: [
+				{
+					id: "053CE882237C6045"
+					type: "checkmark"
+				}
+				{
+					id: "2B53B842E839C9EC"
+					item: "minecraft:oak_log"
+					optional_task: true
+					type: "item"
+				}
+			]
+			x: 3.0d
+			y: 0.5d
+		}
+		{
+			dependencies: ["38166A02EA474C1E"]
+			description: [""]
+			icon: "minecraft:cobblestone"
+			id: "10A75CDB0C5E7F71"
+			tasks: [
+				{
+					id: "61E6E849437A87D8"
+					type: "checkmark"
+				}
+				{
+					id: "4F03E6DA8B413FED"
+					item: "minecraft:oak_log"
+					optional_task: true
+					type: "item"
+				}
+			]
+			x: -0.5d
+			y: 3.0d
+		}
+		{
+			dependencies: ["38166A02EA474C1E"]
+			description: [""]
+			icon: "minecraft:cobblestone"
+			id: "0DD66C85912A4D31"
+			tasks: [
+				{
+					id: "351ED011811F00B7"
+					type: "checkmark"
+				}
+				{
+					id: "5E0AD94F1705C719"
+					item: "minecraft:oak_log"
+					optional_task: true
+					type: "item"
+				}
+			]
+			x: 0.5d
+			y: 3.0d
+		}
+		{
+			dependencies: ["38166A02EA474C1E"]
+			description: [""]
+			icon: "minecraft:cobblestone"
+			id: "58E20C8BC8D0E4A4"
+			tasks: [
+				{
+					id: "01840D7E805FFAD5"
+					type: "checkmark"
+				}
+				{
+					id: "610876D3311C7AA0"
+					item: "minecraft:oak_log"
+					optional_task: true
+					type: "item"
+				}
+			]
+			x: -0.5d
+			y: -3.0d
+		}
+		{
+			dependencies: ["38166A02EA474C1E"]
+			description: [""]
+			icon: "minecraft:cobblestone"
+			id: "0207E7DC60DC4D12"
+			tasks: [
+				{
+					id: "5D7DC859FA30F7E5"
+					type: "checkmark"
+				}
+				{
+					id: "05CB21E7F46FF049"
+					item: "minecraft:oak_log"
+					optional_task: true
+					type: "item"
+				}
+			]
+			x: 0.5d
+			y: -3.0d
+		}
+	]
+	title: "硬盘拯救者"
+}

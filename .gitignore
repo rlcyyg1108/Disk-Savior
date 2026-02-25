@@ -11,27 +11,25 @@
 !LICENSE.txt
 !COPYING
 
-# ====================== 第二步：手动添加你的白名单（示例） ======================
-# 【请根据你的项目修改/添加以下规则】
-# 规则说明：
-# !目录/       → 放行整个目录（必须加 /，否则会匹配文件）
-# !目录/*.js   → 只放行目录下的 .js 文件
-# !文件名      → 放行单个文件
+# ====================== 第二步：手动添加你的白名单（修正版） ======================
+# 【关键修正】放行目录时需先放行父目录，再放行子文件/子目录
+# 规则优先级：父目录必须先放行，否则子文件/子目录的 ! 规则不生效
 
-# ------------------- 示例1：KubeJS 项目（你之前的场景） -------------------
-# 放行脚本目录
-!server_scripts/
-
-# 放行目录下的 js/json 文件（避免放行临时文件）
-!server_scripts/硬盘拯救者.js
-
-# ------------------- 示例2：通用代码项目（可参考） -------------------
-# 放行 src 源码目录
-# !src/
-# 放行 config 目录下的 .yml 配置
-# !config/**/*.yml
-# 放行单个工具脚本
-# !utils.js
+# 1. 放行 KubeJS 脚本相关
+!config/
+!config/ftbquests
+!config/ftbquests/quests/
+!config/ftbquests/quests/chapters/
+!config/ftbquests/quests/chapters/disksavior.snbt
+!KubeJS/
+!KubeJS/server_scripts/
+!KubeJS/server_scripts/硬盘拯救者.js
+!KubeJS/startup_scripts/
+!KubeJS/startup_scripts/disk_savior.js
+# 2. 放行 GitHub Actions 工作流相关（核心修正）
+!.github/
+!.github/workflows/
+!.github/workflows/auto-package.yml
 
 # ====================== 第三步：补充忽略（可选，避免放行无关文件） ======================
 # 系统缓存文件（全局忽略，不受白名单影响）

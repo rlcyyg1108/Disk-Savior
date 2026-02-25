@@ -1,6 +1,24 @@
 ServerEvents.recipes(event => {
     const gtr = event.recipes.gtceu
-    //————————————————————————————————————————————————————————————————————————————————搅拌机科技
+    //原始虚空矿机用水
+    gtr.primitive_void_ore("rlcyyg:water")
+        .inputFluids("minecraft:water 1")
+        .duration(200)
+    //蒸汽涡轮神话级加强，送67108864并行
+    //蒸汽是我最后的生命……
+    //蒸汽即使我，我即是蒸汽……
+    gtr.steam_turbine("rlcyyg:steam_is_my_last_life")
+        .inputFluids("kubejs:compressed_steam 185254")
+        .outputFluids("gtceu:steam 1158")
+        .outputEU(2147483647)
+        .duration(10)
+    //压缩蒸汽化反配方
+    gtr.chemical_reactor("rlcyyg:compressed_steam")
+        .inputFluids("gtceu:steam 185254")
+        .outputFluids("kubejs:compressed_steam 62")
+        .EUt(GTValues.VA[GTValues.ULV])
+        .duration(20)
+    //搅拌机科技
     //搅拌机合木化工厂，加点胶水粘起来就行了真是神奇啊
     gtr.mixer("rlcyyg:wood_distillation")
         .itemInputs(
@@ -656,4 +674,5 @@ ServerEvents.recipes(event => {
         )
         .EUt(GTValues.VA[GTValues.UV])
         .duration(200)
+
 })
