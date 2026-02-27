@@ -4,20 +4,66 @@ ServerEvents.recipes(event => {
     gtr.primitive_void_ore("rlcyyg:water")
         .inputFluids("minecraft:water 1")
         .duration(200)
-    //蒸汽涡轮神话级加强，送67108864并行
-    //蒸汽是我最后的生命……
-    //蒸汽即使我，我即是蒸汽……
-    gtr.steam_turbine("rlcyyg:steam_is_my_last_life")
-        .inputFluids("kubejs:compressed_steam 185254")
-        .outputFluids("gtceu:steam 1158")
-        .outputEU(2147483647)
-        .duration(10)
-    //压缩蒸汽化反配方
-    gtr.chemical_reactor("rlcyyg:compressed_steam")
-        .inputFluids("gtceu:steam 185254")
-        .outputFluids("kubejs:compressed_steam 62")
+    //蒸汽产出加强
+    gtr.fluid_heater("rlcyyg:steam_is_my_last_life")
+        .circuit(2)
+        .inputFluids("minecraft:water 2147483648")
+        .outputFluids("gtceu:steam 343597383680")
         .EUt(GTValues.VA[GTValues.ULV])
-        .duration(20)
+        .duration(200)
+    //单步硫酸铀
+    gtr.electrolyzer("rlcyyg:uranium_sulfate_waste_solution")
+        .itemInputs("gtceu:uraninite_dust")
+        .inputFluids("gtceu:sulfuric_acid 9000")
+        .itemOutputs(
+            "gtceu:lead_dust",
+            "gtceu:barium_dust",
+            "gtceu:strontium_dust",
+            "gtceu:radium_dust"
+        )
+        .outputFluids("gtceu:diluted_sulfuric_acid 9000")
+        .EUt(GTValues.VA[GTValues.HV])
+        .duration(4500)
+    //九倍压缩核废料离心，一号电路
+    gtr.centrifuge("rlcyyg:nuclear_waste_9")
+        .circuit(1)
+        .itemInputs("9x kubejs:nuclear_waste")
+        .itemOutputs(
+            "gtceu:plutonium_dust",
+            "gtceu:polonium_dust",
+            "gtceu:uranium_dust",
+            "gtceu:thorium_dust",
+            "gtceu:protactinium_dust",
+            "gtceu:neptunium_dust"
+        )
+        .EUt(2048)
+        .duration(1800)
+    //四倍压缩稀有金属粉离心，一号电路
+    //虽然jei里显示不下，但是实际上是可以正常工作的
+    gtr.rare_earth_centrifugal("rlcyyg:rec_remember_circuit_1")
+        .itemInputs("4x gtceu:rare_earth_metal_dust")
+        .circuit(1)
+        .itemOutputs(
+            "gtceu:lanthanum_dust",
+            "gtceu:cerium_dust",
+            "gtceu:neodymium_dust",
+            "gtceu:promethium_dust",
+            "gtceu:samarium_dust",
+            "gtceu:europium_dust",
+            "gtceu:praseodymium_dust",
+            "gtceu:gadolinium_dust",
+            "gtceu:terbium_dust",
+            "gtceu:dysprosium_dust",
+            "gtceu:holmium_dust",
+            "gtceu:erbium_dust",
+            "gtceu:thulium_dust",
+            "gtceu:ytterbium_dust",
+            "gtceu:scandium_dust",
+            "gtceu:lutetium_dust",
+            "gtceu:yttrium_dust"
+        )
+        .EUt(GTValues.VA[GTValues.UV])
+        .duration(800)
     //搅拌机科技
     //搅拌机合木化工厂，加点胶水粘起来就行了真是神奇啊
     gtr.mixer("rlcyyg:wood_distillation")
@@ -62,13 +108,19 @@ ServerEvents.recipes(event => {
         .outputFluids("gtceu:liquid_ender_air 64000000")
         .EUt(GTValues.VA[GTValues.ZPM])
         .duration(2000)
+    //巴纳德C空气
+    gtr.large_gas_collector("rlcyyg:10")
+        .notConsumable("kubejs:barnarda_log")
+        .outputFluids("gtceu:barnarda_air 100000")
+        .EUt(GTValues.VA[GTValues.IV])
+        .duration(200)
     //矿粉还原矿处中间产物
     //闪电处理32号电路
     //晶质铀
     gtr.lightning_processor("rlcyyg:old_1")
         .circuit(32)
-        .itemInputs("2x gtceu:impure_uraninite_dust")
-        .itemOutputs("gtceu:uraninite_dust")
+        .itemInputs("2x gtceu:uraninite_dust")
+        .itemOutputs("gtceu:impure_uraninite_dust")
         .EUt(GTValues.VA[GTValues.ULV])
         .duration(20)
     //黝铜

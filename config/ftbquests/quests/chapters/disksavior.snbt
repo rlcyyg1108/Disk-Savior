@@ -18,11 +18,11 @@
 				""
 				"很神奇吧"
 				""
-				"但实际上只有控制器是下调了阶段，展示的这俩你都需要更晚的时期才能获得建造材料，也许以后会整个任务送点材料"
+				"但实际上只有控制器是下调了阶段，你很可能需要更晚的时期才能获得建造材料，也许以后会整个任务送点材料"
 			]
 			icon: "gtceu:glue_bucket"
 			id: "71635B58E5ED57C9"
-			subtitle: "胶水……"
+			subtitle: "救济……"
 			tasks: [
 				{
 					id: "667255FD560051CB"
@@ -113,29 +113,58 @@
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
-			description: [""]
-			icon: "minecraft:cobblestone"
-			id: "70E1F4D106B8A383"
-			tasks: [
-				{
-					id: "49CE0C30FA7D7150"
-					type: "checkmark"
-				}
-				{
-					id: "38B20CA4217AC844"
-					item: "minecraft:oak_log"
-					optional_task: true
-					type: "item"
-				}
+			description: [
+				"&8I am the bone of my steam"
+				"&8Steel is my body,and water is my blood"
+				"&8I have created over a thousand turbines"
+				"&8Unknown to naquadah reactor"
+				"&8Nor known to hyper reactor"
+				"&8Have withstood MSPT to create many mega steam turbine"
+				"&8Yet,those hands will never hold EU"
+				"&8So as I pray"
+				"&8Unlimited steam turbine Works"
 			]
-			x: 0.0d
-			y: 1.5d
+			icon: {
+				Count: 1
+				id: "ftbquests:custom_icon"
+				tag: {
+					Icon: "gtceu:block/fluids/fluid.steam"
+				}
+			}
+			id: "70E1F4D106B8A383"
+			subtitle: "流体加热器二号电路加水，记得水多加点"
+			tasks: [{
+				id: "49CE0C30FA7D7150"
+				type: "checkmark"
+			}]
+			title: "纯粹的热量……"
+			x: -1.0d
+			y: 1.0d
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
-			description: [""]
-			icon: "minecraft:cobblestone"
+			description: [
+				"因为我懒得写每种流体一个配方所以就一个维度一个配方了（库嘻嘻）"
+				"输出量计算公式："
+				"&b1024×超频后倍速（如MV钻机超频为1.5倍）×权重×10&r"
+				""
+				"原版无尽流体钻机用电效率较差"
+				"MV到HV阶段默认赠送1次无损超频并额外提供1次无损超频"
+				"HV到EV阶段再提供1次无损超频"
+				"EV到ZPM阶段强制2次有损超频后耗电×4"
+				"因此针对性加强，改为完全无损超频"
+				"存在数值问题，仅MV到HV阶段的钻机有效率提升；尽管无尽钻机自带无损超频，但等能吃满并行时，大概率已无使用需求"
+				""
+				"&b所以如果你要升级的话换个HV钻机就够了&r"
+				"即&d进阶流体钻机 II&r"
+				"如果你真的很需要哪些流体"
+				"那你就可以使用其他钻机"
+				"更高的功率更高的产出"
+				"&a但我更推荐产线撕裂的无限元件&r"
+			]
+			icon: "gtceu:mv_fluid_drilling_rig"
 			id: "4B7BA4B00F4A93B6"
+			subtitle: "！?虽虽？！"
 			tasks: [
 				{
 					id: "5C87CADA0D82F441"
@@ -143,93 +172,162 @@
 				}
 				{
 					id: "68296AA93F6BD3C8"
-					item: "minecraft:oak_log"
+					item: "gtceu:mv_fluid_drilling_rig"
+					optional_task: true
+					type: "item"
+				}
+				{
+					id: "0DC73AFD4CD9EDC3"
+					item: "gtceu:hv_fluid_drilling_rig"
+					optional_task: true
+					type: "item"
+				}
+				{
+					id: "64B1C6A0C6E89133"
+					item: "gtceu:ev_fluid_drilling_rig"
+					optional_task: true
+					type: "item"
+				}
+				{
+					id: "1282EEB4C15390EA"
+					item: "gtceu:zpm_fluid_drilling_rig"
 					optional_task: true
 					type: "item"
 				}
 			]
+			title: "流体钻机电解"
 			x: 1.5d
 			y: 0.0d
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
-			description: [""]
-			icon: "minecraft:cobblestone"
+			description: [
+				"&a1.高级仓室-GTMAdvancedHatch&2"
+				""
+				"并不独属于GTL的一个格雷科技附属模组"
+				"为GTL中添加了&b电网仓&r和&b自适配电网&r两大神器"
+				"改进了&b无线电网终端的显示&r"
+				"可读性更高，显示更多信息"
+				"前者性能强劲还能打破激光仓和能源仓的界限"
+				"甚至还有&b批处理&r"
+				"&eGTL也有批处理啦！！！！&r"
+				"&4……"
+				"&4没有批处理我活不下去了……&r"
+				"{@pagebreak}"
+				"&4批！批！批！批！批！批！批！批！批！批！批！&r"
+				"&4批！批！批！批！批！批！批！批！批！批！批！&r"
+				"&4批！批！批！批！批！批！批！批！批！批！批！&r"
+				"&4批！批！批！批！批！批！批！批！批！批！批！&r"
+				"&4批！批！批！批！批！批！批！批！批！批！批！&r"
+				"&4我要批处理呀啊啊啊啊我好想要批处理啊哇哇哇哇哇哇啊啊啊啊啊嘚瑟呃呃呃啊没有不让我有批处理啊啊啊啊啊啊啊没有批处理好难受呀呜啊批处理啊啊啊我的批处理啊我要批处理啊没有批处理不能再没有批处理了啊啊啊批处理在哪里？批处理在哪里？批处理在哪里？批处理在哪里？批处理在哪里？批处理在哪里？批处理在哪里？批处理在哪里？批处理在哪里？找不到批处理找不到批处理找不到批处理找不到批处理找不到批处理找不到批处理找不到批处理找不到批处理找不到批处理找不到批处理找不到批处理找不到批处理找不到批处理找不到批处理找不到批处理找不到批处理找不到批处理找不到批处理找不到批处理批处理不够了批处理不够了批处理不够了批处理不够了批处理不够了批处理不够了批处理不够了批处理不够了批处理不够了批处理不够了批处理不够了批处理不够了批处理不够了批处理不够了批处理不够了批处理不够了批处理不够了批处理不够了"
+				"&4……"
+				"{@pagebreak}"
+				"&0批处理？"
+				"&0批处理？批处理？是你吗批处理？"
+				"&0批处理！"
+				"&0是批处理啊！没有错！心爱的批处理就在眼前！"
+				"{@pagebreak}"
+				"&4批处理批处理批处理批处理批处理批处理批处理批处理批处理批处理批处理批处理批处理批处理批处理批处理批处理批处理批处理批处理批处理批处理批处理批处理批处理批处理批处理批处理批处理批处理偪偺怴媄儘偱僶乿僩妝偪崠僒弍乣抧乽儏傔傪偖懧僉帹僗鋜傔侓傘鋜墱乣帹夣偛偑偄偩偒偨偡偛偆傝偞峸傑擖偄偁偲仸偙偺嶌昳偵娷傑傟傞壒惡丒岠壥壒丒夋憸僨乕僞偺柍抐揮嵹摍傪嬛巭偟傑偡ｼ迴ｾ-陲ｫ謇ｾ蛻ｰ-陲ｫ遏･驕?陲ｫ遒ｺ螳?陲ｫ逋ｼ隕ｺ-陲ｫ逵句芦-陲ｫ遒ｺ隱?陲ｫ蟇溯ｦｺ--陲ｫ逅?ｧ｣陲ｫ逋ｼ迴ｾ-陲ｫ逋ｼ迴ｾ-陲ｫ謇ｾ蛻ｰ-陲ｫ遏･驕?陲ｫ遒ｺ螳?陲ｫ逋ｼ隕ｺ-陲ｫ逵句芦-陲ｫ遒ｺ隱?陲ｫ蟇蜈皮噪豢樒ｩｴ荵倶ｸｭ蜿ｯ謔ｲ逧・諢夊｢逧・蟆丞ｧ大ｨ倡鯵荳ｽ荳・蝨ｨ荳榊庄諤晁ｮｮ荵句嵜貍ｫ豁･逹迢よｰ秘先ｸ蝉ｾｵ陏 迪ｫ蜆ｿ蜿大・蝌ｲ隨・譌莨第裏豁｢逧・幻莨壻ｸ・郤｢闌ｶ荵溷ｷｲ扈丞・蜃・蟆ｱ霑櫁ｿ呎ｨ｡讓｡邉顔ｳ顔噪諢剰ｯ・ｹ・豺｡蛹悶∵ｺ｢蜃ｺ 豺ｷ蜷亥惠荳襍・ｵｰ逧・｢ｦ逵句賦 閭悟鋤逧・辷ｱ荳ｽ荳・螟ｱ譛帷噪逵ｼ逾樣㈹ 鬚､謚也捩縲∝ｮｳ諤慕捩縲∝働豕｣逹蟆ｱ霑櫁ｿ咎復蟄宣㈹ 荵滓裏豕墓丐蜃ｺ譴ｦ諠ｳ荳主ｸ梧悍蜻｢逵句操 譏ｯ辷ｱ蜩ｭ鬯ｼ 辷ｱ荳ｽ荳・蜿ｪ譏ｯ蟄伜惠莠取ｭ､螟・ｰｱ蜿ｯ莉･莠・逃蜿ｯ謔ｲ逧・諢夊｢逧・蟆丞ｧ大ｨ倡鯵荳ｽ荳｢繝ｪ繧ｹ�繧｢繝ｪ繧ｹ�｢繝ｪ繧ｹ�繧｢繝ｪ繧ｹ�｢繝ｪ繧ｹ�繧｢繝ｪ繧ｹ�｢繝ｪ繧ｹ�繧｢繝ｪ繧ｹ�｢繝ｪ繧ｹ�繧｢繝ｪ繧ｹ�｢繝ｪ繧ｹ�繧｢繝ｪ繧ｹ�｢繝ｪ繧ｹ�繧｢繝ｪ繧ｹ�｢繝ｪ繧ｹ�繧｢繝ｪ繧ｹ�｢繝ｪ繧ｹ�繧｢繝ｪ繧ｹ�｢繝ｪ繧ｹ���������������������������������������������"
+			]
+			icon: {
+				Count: 1
+				id: "gtmadvancedhatch:net_data_stick"
+				tag: { }
+			}
 			id: "42546E3C5E202BCF"
-			tasks: [
+			rewards: [
 				{
-					id: "09D2B78574A50185"
-					type: "checkmark"
+					id: "315EA6CF5BC7EAB0"
+					item: {
+						Count: 1
+						id: "patchouli:guide_book"
+						tag: {
+							"patchouli:book": "gtmadvancedhatch:gtmah_book"
+						}
+					}
+					type: "item"
 				}
 				{
-					id: "7F965E9F47CCD962"
-					item: "minecraft:oak_log"
-					optional_task: true
+					id: "234F2945ADB95492"
+					item: {
+						Count: 1
+						id: "gtmadvancedhatch:net_data_stick"
+						tag: { }
+					}
 					type: "item"
 				}
 			]
+			subtitle: "前有？？？？？，所以？？？？是必要的"
+			tasks: [{
+				id: "09D2B78574A50185"
+				type: "checkmark"
+			}]
+			title: "一些推荐的模组和私货"
 			x: 0.0d
 			y: -1.5d
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
-			description: [""]
-			icon: "minecraft:cobblestone"
+			description: [
+				"可能有点没用"
+				"但不太可能没用"
+			]
+			icon: "gtceu:primitive_void_ore"
 			id: "782F836B271246CA"
+			subtitle: "可逆的分離態様"
 			tasks: [
 				{
 					id: "322A2B7DA094876B"
 					type: "checkmark"
 				}
 				{
-					id: "107AF4D44991EA23"
-					item: "minecraft:oak_log"
-					optional_task: true
+					id: "2DF633661C1624BD"
+					item: "gtceu:primitive_void_ore"
 					type: "item"
 				}
 			]
+			title: "用水的原始矿机"
 			x: 1.0d
 			y: -1.0d
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
-			description: [""]
-			icon: "minecraft:cobblestone"
-			id: "506573D651A914EB"
-			tasks: [
-				{
-					id: "62776D49938A0122"
-					type: "checkmark"
-				}
-				{
-					id: "54164CA3366DC168"
-					item: "minecraft:oak_log"
-					optional_task: true
-					type: "item"
-				}
+			description: [
+				""
+				"三个维度的数据和大马士革钢粉现在有了不需要维度要求的配方"
+				""
+				"库嘻嘻"
 			]
+			id: "506573D651A914EB"
+			subtitle: "回路OFF 回路ON"
+			tasks: [{
+				id: "62776D49938A0122"
+				type: "checkmark"
+			}]
+			title: "无维度需求的配方"
 			x: -1.0d
 			y: -1.0d
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
 			description: [""]
-			icon: "minecraft:cobblestone"
+			icon: "kubejs:nuclear_waste"
 			id: "1A90504BB56D5790"
+			subtitle: "一号电路"
 			tasks: [
 				{
 					id: "1C952574DA0EA8D5"
 					type: "checkmark"
 				}
 				{
-					id: "10FD0C9B999FCF3D"
-					item: "minecraft:oak_log"
-					optional_task: true
+					id: "2945683BFD464AA6"
+					item: "kubejs:nuclear_waste"
 					type: "item"
 				}
 			]
-			x: -1.0d
-			y: 1.0d
+			title: "九倍压缩核废料离心"
+			x: 0.0d
+			y: 1.5d
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
@@ -452,50 +550,36 @@
 			y: -0.5d
 		}
 		{
-			dependencies: ["38166A02EA474C1E"]
+			dependencies: ["4B7BA4B00F4A93B6"]
 			description: [""]
-			icon: "minecraft:cobblestone"
-			id: "410997270524E697"
-			tasks: [
-				{
-					id: "0A67407334A82360"
-					type: "checkmark"
-				}
-				{
-					id: "3021ADE4937FF040"
-					item: "minecraft:oak_log"
-					optional_task: true
-					type: "item"
-				}
-			]
-			x: 3.0d
-			y: -0.5d
-		}
-		{
-			dependencies: ["38166A02EA474C1E"]
-			description: [""]
-			icon: "minecraft:cobblestone"
 			id: "3E9FEB8DF4698E91"
-			tasks: [
-				{
-					id: "053CE882237C6045"
-					type: "checkmark"
+			rewards: [{
+				id: "1A1D876872E0437F"
+				item: "ad_astra:moon_stone"
+				type: "item"
+			}]
+			tasks: [{
+				id: "4BDAF847523284FA"
+				item: {
+					Count: 1
+					id: "ad_astra:tier_1_rocket"
+					tag: { }
 				}
-				{
-					id: "2B53B842E839C9EC"
-					item: "minecraft:oak_log"
-					optional_task: true
-					type: "item"
-				}
-			]
+				type: "item"
+			}]
+			title: "t1"
 			x: 3.0d
 			y: 0.5d
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
-			description: [""]
-			icon: "minecraft:cobblestone"
+			description: [
+				"虽然jei里显示不下，但是实际上是可以正常工作的"
+				"你只要在输入总线里放入足量稀有金属粉和一号电路"
+			]
+			icon: "gtceu:rare_earth_metal_dust"
 			id: "10A75CDB0C5E7F71"
+			subtitle: "一号电路"
 			tasks: [
 				{
 					id: "61E6E849437A87D8"
@@ -503,11 +587,12 @@
 				}
 				{
 					id: "4F03E6DA8B413FED"
-					item: "minecraft:oak_log"
+					item: "gtceu:rare_earth_metal_dust"
 					optional_task: true
 					type: "item"
 				}
 			]
+			title: "四倍压缩稀有金属粉离心（一号电路）"
 			x: -0.5d
 			y: 3.0d
 		}
@@ -570,6 +655,165 @@
 			]
 			x: 0.5d
 			y: -3.0d
+		}
+		{
+			dependencies: ["4B7BA4B00F4A93B6"]
+			description: [""]
+			id: "3A9419F50C806A36"
+			rewards: [{
+				id: "3B75616ECA1A86BA"
+				item: "ad_astra:mars_stone"
+				type: "item"
+			}]
+			tasks: [{
+				id: "30C5E10EBAEDDA2E"
+				item: {
+					Count: 1
+					id: "ad_astra:tier_2_rocket"
+					tag: { }
+				}
+				type: "item"
+			}]
+			title: "t2"
+			x: 3.0d
+			y: -0.5d
+		}
+		{
+			dependencies: ["4B7BA4B00F4A93B6"]
+			description: [""]
+			id: "009FF2D76F616073"
+			rewards: [{
+				id: "65ADDB05E50A67C2"
+				item: "kubejs:barnarda_log"
+				type: "item"
+			}]
+			tasks: [{
+				id: "7A6A822D1C6DDE70"
+				item: "gtceu:space_elevator"
+				type: "item"
+			}]
+			title: "t8"
+			x: 4.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["4B7BA4B00F4A93B6"]
+			description: [""]
+			id: "49BC08AF06B84ECE"
+			rewards: [
+				{
+					id: "0CEFA1839C468588"
+					item: "ad_astra:venus_stone"
+					type: "item"
+				}
+				{
+					id: "795D611430DA8498"
+					item: "ad_astra:mercury_stone"
+					type: "item"
+				}
+				{
+					id: "35B2EB7A4154F8E3"
+					item: "minecraft:netherrack"
+					type: "item"
+				}
+			]
+			tasks: [{
+				id: "14FAC42EDBC19269"
+				item: {
+					Count: 1
+					id: "ad_astra:tier_3_rocket"
+					tag: { }
+				}
+				type: "item"
+			}]
+			title: "t3"
+			x: 4.0d
+			y: -1.0d
+		}
+		{
+			dependencies: ["4B7BA4B00F4A93B6"]
+			description: [""]
+			id: "47E873DCB7C9F8DE"
+			rewards: [
+				{
+					id: "59B1E61F9CADC61D"
+					item: "kubejs:plutostone"
+					type: "item"
+				}
+				{
+					id: "3F6DC1A026871515"
+					item: "kubejs:enceladusstone"
+					type: "item"
+				}
+				{
+					id: "38C7E626E8B75931"
+					item: "kubejs:titanstone"
+					type: "item"
+				}
+			]
+			tasks: [{
+				id: "6D0A635A3BB53AEB"
+				item: {
+					Count: 1
+					id: "ad_astra_rocketed:tier_6_rocket"
+					tag: { }
+				}
+				type: "item"
+			}]
+			title: "t6"
+			x: 4.0d
+			y: 1.0d
+		}
+		{
+			dependencies: ["4B7BA4B00F4A93B6"]
+			description: [""]
+			id: "3F59E7726DE4459A"
+			rewards: [{
+				id: "561F959351A1694B"
+				item: "kubejs:ceresstone"
+				type: "item"
+			}]
+			tasks: [{
+				id: "0666A1078D0E94E9"
+				item: {
+					Count: 1
+					id: "ad_astra:tier_4_rocket"
+					tag: { }
+				}
+				type: "item"
+			}]
+			title: "t4"
+			x: 5.0d
+			y: -0.5d
+		}
+		{
+			dependencies: ["4B7BA4B00F4A93B6"]
+			description: [""]
+			id: "43E5CAAC983033B9"
+			rewards: [
+				{
+					id: "5C797F264C4125FC"
+					item: "kubejs:iostone"
+					type: "item"
+				}
+				{
+					id: "7CA1FA5B789AD809"
+					item: "kubejs:ganymedestone"
+					type: "item"
+				}
+			]
+			tasks: [{
+				id: "3EE58553B085CD1D"
+				item: {
+					Count: 1
+					id: "ad_astra_rocketed:tier_5_rocket"
+					tag: { }
+				}
+				type: "item"
+			}]
+			title: "t5"
+			x: 5.0d
+			y: 0.5d
 		}
 	]
 	title: "硬盘拯救者"
