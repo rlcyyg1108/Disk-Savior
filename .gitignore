@@ -23,9 +23,10 @@
 !config/ftbquests/quests/chapters/disksavior.snbt
 !KubeJS/
 !KubeJS/server_scripts/
-!KubeJS/server_scripts/硬盘拯救者.js
+!KubeJS/server_scripts/disksavior.js
 !KubeJS/startup_scripts/
 !KubeJS/startup_scripts/disk_savior.js
+!更新日志.txt
 # 2. 放行 GitHub Actions 工作流相关（核心修正）
 !.github/
 !.github/workflows/
