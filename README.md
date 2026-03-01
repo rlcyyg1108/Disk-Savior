@@ -1,4 +1,18 @@
 # Disk-Savior
+写于2026.2.23
+
+安装前请查看kubejs/server_scripts中有无包含以下词条的文件
+
+rlcyyg
+
+硬盘拯救者
+
+rlcyyg的神秘私货
+
+这些是本私货的曾用名，由于我的习惯，我经常在开发初期频繁改名
+
+如果有请删除，仅保留disksavior.js
+***
 这是我给GregTech Leisure整合包写的私货
 
 当前并不完善，因为我自己只玩到UV，还是一周目
