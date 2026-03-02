@@ -15,21 +15,23 @@
 # 【关键修正】放行目录时需先放行父目录，再放行子文件/子目录
 # 规则优先级：父目录必须先放行，否则子文件/子目录的 ! 规则不生效
 
-# 1. 放行 KubeJS 脚本相关
+#任务
 !config/
 !config/ftbquests
 !config/ftbquests/quests/
 !config/ftbquests/quests/chapters/
 !config/ftbquests/quests/chapters/disksavior.snbt
+#kubejs
 !KubeJS/
 !KubeJS/server_scripts/
 !KubeJS/server_scripts/disksavior.js
+
 !KubeJS/startup_scripts/
 !KubeJS/startup_scripts/disk_savior.js
-# 2. 放行 GitHub Actions 工作流相关（核心修正）
-!.github/
-!.github/workflows/
-!.github/workflows/auto-package.yml
+
+!kubejs/assets/
+!kubejs/assets/disksavior/
+!kubejs/assets/disksavior/**/*
 
 # ====================== 第三步：补充忽略（可选，避免放行无关文件） ======================
 # 系统缓存文件（全局忽略，不受白名单影响）

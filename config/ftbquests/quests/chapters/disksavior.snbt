@@ -2,10 +2,10 @@
 	autofocus_id: "38166A02EA474C1E"
 	default_hide_dependency_lines: false
 	default_quest_shape: ""
-	filename: "5C8BCAAFC324DF6C"
+	filename: "disksavior"
 	group: ""
 	icon: "gtlcore:item_infinity_cell"
-	id: "5C8BCAAFC324DF6C"
+	id: "6118ED8EA9970D67"
 	order_index: 5
 	quest_links: [ ]
 	quests: [
@@ -50,15 +50,17 @@
 			description: [
 				"这是我给GregTech Leisure整合包写的私货"
 				""
-				"当前并不完善，因为我自己只玩到UV，还是一周目"
+				"当前并不完善，因为我自己只玩到UV"
+				"还是一周目"
+				"最开始是因为我存档因各种维度跑图体积过大"
+				"才写的这个私货"
+				"用了此私货你几乎不用跑图了"
+				"存档大小可能到毕业都只有100MB出头"
 				""
-				"最开始是因为我存档因各种维度跑图体积过大，才写的这个私货"
+				"添加了一些加强配方，通过配方调整提升机器效率"
+				"给一些内容做了配方合并化"
 				""
-				"用了此私货你几乎不用跑图了，存档大小可能到毕业都只有100MB出头"
-				""
-				"给一些我觉得机制不太行的机器，通过配方调整提升效率"
-				""
-				"给一些我游玩过程中遇到的无合适配方的内容，做了配方格雷化处理"
+				"任务的副标题如果感兴趣可以去查查都是什么（坏笑）"
 			]
 			icon: {
 				Count: 1
@@ -287,8 +289,8 @@
 				}
 			]
 			title: "用水的原始矿机"
-			x: 1.0d
-			y: -1.0d
+			x: 7.0d
+			y: 0.0d
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
@@ -300,20 +302,34 @@
 			]
 			id: "506573D651A914EB"
 			subtitle: "回路OFF 回路ON"
-			tasks: [{
-				id: "62776D49938A0122"
-				type: "checkmark"
-			}]
+			tasks: [
+				{
+					id: "62776D49938A0122"
+					type: "checkmark"
+				}
+				{
+					id: "403A75ADFD9F5F98"
+					item: "gtceu:data_stick"
+					optional_task: true
+					type: "item"
+				}
+				{
+					id: "34F9B18F067E7D5E"
+					item: "gtceu:damascus_steel_dust"
+					optional_task: true
+					type: "item"
+				}
+			]
 			title: "无维度需求的配方"
-			x: -1.0d
-			y: -1.0d
+			x: 0.5d
+			y: 3.0d
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
 			description: [""]
 			icon: "kubejs:nuclear_waste"
 			id: "1A90504BB56D5790"
-			subtitle: "一号电路"
+			subtitle: "西塞罗旷野的龙葵永不凋谢"
 			tasks: [
 				{
 					id: "1C952574DA0EA8D5"
@@ -325,7 +341,7 @@
 					type: "item"
 				}
 			]
-			title: "九倍压缩核废料离心"
+			title: "九倍压缩核废料离心（一号电路）"
 			x: 0.0d
 			y: 1.5d
 		}
@@ -471,23 +487,41 @@
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
-			description: [""]
-			icon: "minecraft:cobblestone"
+			description: [
+				"三个维度的数据加上&b寒冰冷冻机"
+				"&r效率相当于不液化的空气处理效率"
+				"原版大集气并行数过少，Add的集气阶段解锁过晚，遂写"
+				"我也不知道我有没有算错，反正效率很高就是了"
+				"甚至还能抽&5巴纳德C空气&r"
+				"{@pagebreak}"
+				"配方耗时基数为10秒、MV电压等级"
+				"为防止配方时间太短导致卡顿，自带批处理×10"
+				"由于大集气并行在后期略显不足，所有加强配方自带3次无损超频"
+				"100B*64*10=64KB"
+				"电压×3=功率×64=产出×64，批处理×10、基础产出100B，最终输出量640倍，最终输出速度64倍，因为有×10是批处理"
+			]
+			icon: "gtceu:large_gas_collector"
 			id: "0D68227276AC02D5"
+			subtitle: "所有重要的事情，都是你教会我的。早安、你好、晚安。还有，再见。"
 			tasks: [
 				{
 					id: "3DBA0B3806333EBE"
 					type: "checkmark"
 				}
 				{
-					id: "7F5395AFBEFF5EED"
-					item: "minecraft:oak_log"
-					optional_task: true
+					id: "1301AD8C3461855E"
+					item: "gtceu:large_gas_collector"
+					type: "item"
+				}
+				{
+					id: "0B6A4B75DF66468F"
+					item: "gtceu:cold_ice_freezer"
 					type: "item"
 				}
 			]
-			x: 2.5d
-			y: 1.5d
+			title: "大集气加强"
+			x: 6.0d
+			y: 0.0d
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
@@ -508,46 +542,6 @@
 			]
 			x: 2.5d
 			y: -1.5d
-		}
-		{
-			dependencies: ["38166A02EA474C1E"]
-			description: [""]
-			icon: "minecraft:cobblestone"
-			id: "42B7898D1064619A"
-			tasks: [
-				{
-					id: "3E43DE575343593A"
-					type: "checkmark"
-				}
-				{
-					id: "3AAE44FC0C03D87C"
-					item: "minecraft:oak_log"
-					optional_task: true
-					type: "item"
-				}
-			]
-			x: -3.0d
-			y: 0.5d
-		}
-		{
-			dependencies: ["38166A02EA474C1E"]
-			description: [""]
-			icon: "minecraft:cobblestone"
-			id: "5B007E834AA24ED6"
-			tasks: [
-				{
-					id: "002E658C4595CA33"
-					type: "checkmark"
-				}
-				{
-					id: "46EF5FC811586F74"
-					item: "minecraft:oak_log"
-					optional_task: true
-					type: "item"
-				}
-			]
-			x: -3.0d
-			y: -0.5d
 		}
 		{
 			dependencies: ["4B7BA4B00F4A93B6"]
@@ -579,7 +573,7 @@
 			]
 			icon: "gtceu:rare_earth_metal_dust"
 			id: "10A75CDB0C5E7F71"
-			subtitle: "一号电路"
+			subtitle: "我生于龙·纪元528年南国的赤烛火月"
 			tasks: [
 				{
 					id: "61E6E849437A87D8"
@@ -598,9 +592,10 @@
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
-			description: [""]
-			icon: "minecraft:cobblestone"
+			description: ["扭 秘银块，输入懒得说了"]
+			icon: "gtceu:adamantine_dust"
 			id: "0DD66C85912A4D31"
+			subtitle: "Another Day Comes"
 			tasks: [
 				{
 					id: "351ED011811F00B7"
@@ -608,13 +603,14 @@
 				}
 				{
 					id: "5E0AD94F1705C719"
-					item: "minecraft:oak_log"
+					item: "gtceu:adamantine_dust"
 					optional_task: true
 					type: "item"
 				}
 			]
-			x: 0.5d
-			y: 3.0d
+			title: "单步精金"
+			x: -0.5d
+			y: 5.0d
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
@@ -687,6 +683,7 @@
 				item: "kubejs:barnarda_log"
 				type: "item"
 			}]
+			subtitle: "以达天际！"
 			tasks: [{
 				id: "7A6A822D1C6DDE70"
 				item: "gtceu:space_elevator"
@@ -814,6 +811,232 @@
 			title: "t5"
 			x: 5.0d
 			y: 0.5d
+		}
+		{
+			dependencies: ["38166A02EA474C1E"]
+			description: [
+				"电解机 晶质铀+硫酸"
+				"我真的，非常，讨厌，把矿处中间物加进产线里的配方"
+			]
+			icon: "gtceu:uraninite_dust"
+			id: "67E65B908FE0C22F"
+			subtitle: "受粉電荷"
+			tasks: [
+				{
+					id: "2A73E915D33C0176"
+					type: "checkmark"
+				}
+				{
+					id: "5248316A761B447A"
+					item: "gtceu:uraninite_dust"
+					optional_task: true
+					type: "item"
+				}
+			]
+			title: "单步硫酸铀"
+			x: 1.0d
+			y: 4.0d
+		}
+		{
+			dependencies: ["38166A02EA474C1E"]
+			description: ["你可以不用考虑给这些特殊矿物单独在矿处里开过滤了"]
+			icon: "gtceu:platinum_group_sludge_dust"
+			id: "2AEA8EEF3D56CB19"
+			subtitle: "来自纳西萨斯次元的人"
+			tasks: [
+				{
+					id: "1CC3E470C26221D2"
+					type: "checkmark"
+				}
+				{
+					id: "487B5ABF300074A6"
+					item: "gtceu:tetrahedrite_dust"
+					optional_task: true
+					type: "item"
+				}
+				{
+					id: "2629F3338618939B"
+					item: "gtceu:bornite_dust"
+					optional_task: true
+					type: "item"
+				}
+				{
+					id: "7BF61B5BF1727BAD"
+					item: "gtceu:chalcocite_dust"
+					optional_task: true
+					type: "item"
+				}
+				{
+					id: "25979EAF79E70477"
+					item: "gtceu:cooperite_dust"
+					optional_task: true
+					type: "item"
+				}
+				{
+					id: "0A63273FA96CE352"
+					item: "gtceu:platinum_group_sludge_dust"
+					optional_task: true
+					type: "item"
+				}
+			]
+			title: "粉直出铂系矿泥"
+			x: -1.0d
+			y: 4.0d
+		}
+		{
+			dependencies: ["38166A02EA474C1E"]
+			description: [""]
+			icon: "minecraft:cobblestone"
+			id: "76B1D8492EB42122"
+			tasks: [
+				{
+					id: "1EB2DD713C4FCF05"
+					type: "checkmark"
+				}
+				{
+					id: "53422FCB66AD5C96"
+					item: "minecraft:oak_log"
+					optional_task: true
+					type: "item"
+				}
+			]
+			x: -2.5d
+			y: 3.5d
+		}
+		{
+			dependencies: ["38166A02EA474C1E"]
+			description: [""]
+			icon: "minecraft:cobblestone"
+			id: "50C409E34F4A20BC"
+			tasks: [
+				{
+					id: "589F06D97BDBC652"
+					type: "checkmark"
+				}
+				{
+					id: "49F2FB6E9807C018"
+					item: "minecraft:oak_log"
+					optional_task: true
+					type: "item"
+				}
+			]
+			x: -2.0d
+			y: 4.5d
+		}
+		{
+			dependencies: ["38166A02EA474C1E"]
+			description: [
+				"为鸿蒙之眼添加了集大成配方"
+				"自带批处理1024倍"
+				"集成了来自群友@aach.aic的鸿蒙之眼+"
+				""
+				"下一页是鸿蒙之眼+添加的产物"
+				"我懒得对照写游戏内的名字了"
+				"{@pagebreak}"
+				"gtceu:white_dwarf_mtter_dust\","
+				"gtceu:black_dwarf_mtter_dust\","
+				"ae2:sky_dust\","
+				"gtceu:trinium_dust\","
+				"gtceu:plutonium_241_dust\","
+				"gtceu:titanium_50_dust\","
+				"gtceu:copper76_dust\","
+				"gtceu:uranium_235_dust\","
+				"gtceu:perditio_crystal_dust\","
+				"gtceu:earth_crystal_dust\","
+				"gtceu:ignis_crystal_dust\","
+				"gtceu:tartarite_dust\","
+				"gtceu:uruium_dust\","
+				"gtceu:force_dust\","
+				"gtceu:alien_algae_dust\","
+				"gtceu:bloodstone_dust\","
+				"minecraft:netherite_scrap\","
+				"gtceu:purified_tengam_dust\","
+				"gtceu:quantanium_dust\","
+				"gtceu:bedrock_dust\","
+				"gtceu:damascus_steel_dust\","
+				"avaritia:neutron_pile\","
+				"gtceu:certus_quartz_dust\","
+				"ae2:fluix_dust\""
+			]
+			icon: "gtceu:eye_of_harmony"
+			id: "26D5F16B3DF8FE42"
+			subtitle: "天道纪元"
+			tasks: [
+				{
+					id: "4E70A2145E8DDD77"
+					type: "checkmark"
+				}
+				{
+					id: "1E7A964FF72B47E2"
+					item: "gtceu:eye_of_harmony"
+					optional_task: true
+					type: "item"
+				}
+				{
+					id: "76AB695A93299CC0"
+					item: "disksavior:quantum_chromodynamic_charge_1024"
+					optional_task: true
+					type: "item"
+				}
+			]
+			title: "鸿蒙之眼加强"
+			x: 8.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["38166A02EA474C1E"]
+			description: [
+				"闪电处理32号电路"
+				"但其实你用不上，因为已经添加了粉直接做的配方了"
+			]
+			icon: {
+				Count: 1
+				id: "gtceu:programmed_circuit"
+				tag: {
+					Configuration: 32
+				}
+			}
+			id: "269D8F9C68E3B6A4"
+			subtitle: "自此青梅隔岸两端"
+			tasks: [
+				{
+					id: "4A55998849A0E7CB"
+					type: "checkmark"
+				}
+				{
+					id: "63D5C553BB2171B4"
+					item: "gtceu:tetrahedrite_dust"
+					optional_task: true
+					type: "item"
+				}
+				{
+					id: "19EF890E3E085D96"
+					item: "gtceu:bornite_dust"
+					optional_task: true
+					type: "item"
+				}
+				{
+					id: "0A4A36A82FE84A99"
+					item: "gtceu:chalcocite_dust"
+					optional_task: true
+					type: "item"
+				}
+				{
+					id: "6FD55AF2C86888D2"
+					item: "gtceu:cooperite_dust"
+					optional_task: true
+					type: "item"
+				}
+				{
+					id: "1C186B6B6D48CEFB"
+					item: "gtceu:uraninite_dust"
+					optional_task: true
+					type: "item"
+				}
+			]
+			title: "矿粉还原矿处中间产物"
+			x: 0.0d
+			y: 4.0d
 		}
 	]
 	title: "硬盘拯救者"

@@ -1,7 +1,6 @@
-/*StartupEvents.registry('fluid', event => {
-    event.create('compressed_steam')
-        .thickTexture(0xFFFFFF)
-        .bucketColor(0xF0F0F0)
-        .displayName('压缩蒸汽')
-        .noBlock()
-})*/
+StartupEvents.registry("item", event => {
+    event.create("disksavior:quantum_chromodynamic_charge_1024")
+        .displayName("极高密度量子色动力学爆弹")
+        .texture("disksavior:item/quantum_chromodynamic_charge_1024")
+        .tooltip("§7纯度……")
+})
