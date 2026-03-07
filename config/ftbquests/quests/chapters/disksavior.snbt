@@ -107,7 +107,7 @@
 					type: "item"
 				}
 			]
-			title: "创造计算机下调到IV"
+			title: "创造计算机下调IV"
 			x: -3.0d
 			y: 0.5d
 		}
@@ -138,14 +138,17 @@
 			]
 			title: "纯粹的热量……"
 			x: 0.0d
-			y: -4.5d
+			y: -3.5d
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
 			description: [
 				"因为我懒得写每种流体一个配方所以就一个维度一个配方了（库嘻嘻）"
-				"输出量计算公式："
+				"&e输出量计算公式：&r"
 				"&b1024×超频后倍速（如MV钻机超频为1.5倍）×权重×10&r"
+				""
+				"&a后面的任务是为了不上星球加载区块还能用配方送的星球方块&r"
+				"&4不要扔了哦&r"
 				""
 				"原版无尽流体钻机用电效率较差"
 				"MV到HV阶段默认赠送1次无损超频并额外提供1次无损超频"
@@ -214,7 +217,14 @@
 				""
 				"&4……"
 				"{@pagebreak}"
-				"&4没有批处理我活不下去了……&r"
+				"&4没有批处理我活不下去了……"
+				""
+				""
+				"&4批处理不够了"
+				"&4把批处理交出来"
+				"&4访问批处理"
+				"&4批处理到底在哪里"
+				"&4是你把批处理藏起来了吧？"
 				"{@pagebreak}"
 				"&4批！批！批！批！批！批！批！批！批！批！批！&r"
 				"&4批！批！批！批！批！批！批！批！批！批！批！&r"
@@ -445,6 +455,7 @@
 					id: "ad_astra:tier_1_rocket"
 					tag: { }
 				}
+				match_nbt: false
 				type: "item"
 			}]
 			title: "t1"
@@ -520,6 +531,7 @@
 					id: "ad_astra:tier_2_rocket"
 					tag: { }
 				}
+				match_nbt: false
 				type: "item"
 			}]
 			title: "t2"
@@ -573,6 +585,7 @@
 					id: "ad_astra:tier_3_rocket"
 					tag: { }
 				}
+				match_nbt: false
 				type: "item"
 			}]
 			title: "t3"
@@ -607,6 +620,7 @@
 					id: "ad_astra_rocketed:tier_6_rocket"
 					tag: { }
 				}
+				match_nbt: false
 				type: "item"
 			}]
 			title: "t6"
@@ -629,6 +643,7 @@
 					id: "ad_astra:tier_4_rocket"
 					tag: { }
 				}
+				match_nbt: false
 				type: "item"
 			}]
 			title: "t4"
@@ -658,6 +673,7 @@
 					id: "ad_astra_rocketed:tier_5_rocket"
 					tag: { }
 				}
+				match_nbt: false
 				type: "item"
 			}]
 			title: "t5"
@@ -912,7 +928,7 @@
 			icon: "disksavior:steam_is_my_last_life"
 			id: "27B75C8FD6E0ADCE"
 			shape: "heart"
-			size: 5.0d
+			size: 3.0d
 			subtitle: "于顶点，孑然一身，至高……"
 			tasks: [
 				{
@@ -928,7 +944,7 @@
 			]
 			title: "超凡脱俗"
 			x: 0.0d
-			y: -7.5d
+			y: -6.0d
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
@@ -1023,6 +1039,84 @@
 			title: "粉直出单步铟"
 			x: -1.5d
 			y: 5.0d
+		}
+		{
+			dependencies: ["38166A02EA474C1E"]
+			description: ["666他怎么能用化反运行"]
+			icon: "disksavior:quantum_chromodynamic_charge_super"
+			id: "19769CB12DDAA49D"
+			subtitle: "熵次元界大召唤"
+			tasks: [
+				{
+					id: "19D65D4B15E4A62B"
+					optional_task: true
+					type: "checkmark"
+				}
+				{
+					id: "1DE769887A3679C6"
+					item: "gtceu:large_chemical_reactor"
+					optional_task: true
+					type: "item"
+				}
+				{
+					id: "5EEDB2F5152EC77F"
+					item: "disksavior:quantum_chromodynamic_charge_super"
+					optional_task: true
+					type: "item"
+				}
+			]
+			title: "化反鸿蒙"
+			x: 9.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["38166A02EA474C1E"]
+			description: [
+				"可能会导致一些配方可以跳"
+				"但那点小事根本无足挂齿"
+			]
+			icon: "gtceu:creative_data_access_hatch"
+			id: "463F5B6E23BFE67F"
+			subtitle: "黑塔的圆顶处 囚系着两只飞鸟"
+			tasks: [
+				{
+					id: "23F092153C9CCD2F"
+					optional_task: true
+					type: "checkmark"
+				}
+				{
+					id: "229499FBB5150E1B"
+					item: "gtceu:creative_data_access_hatch"
+					optional_task: true
+					type: "item"
+				}
+			]
+			title: "创造数据访问仓下调IV"
+			x: -4.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["38166A02EA474C1E"]
+			description: ["做下界之星也许用得到"]
+			icon: "minecraft:soul_sand"
+			id: "7445959BDA67A481"
+			subtitle: "海牧师与知更鸟"
+			tasks: [
+				{
+					id: "15D3E757B03A34C6"
+					optional_task: true
+					type: "checkmark"
+				}
+				{
+					id: "5EA4C8EC00D82188"
+					item: "minecraft:soul_sand"
+					optional_task: true
+					type: "item"
+				}
+			]
+			title: " 灵魂沙合成"
+			x: 0.0d
+			y: 5.5d
 		}
 	]
 	title: "硬盘拯救者"

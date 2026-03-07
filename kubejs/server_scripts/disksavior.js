@@ -4,6 +4,13 @@ ServerEvents.recipes(event => {
     gtr.primitive_void_ore('disksavior:water')
         .inputFluids('minecraft:water 1')
         .duration(200)
+    //灵魂沙
+    gtr.mix('disksavior:soul_sand')
+        .itemInputs('minecraft:sand')
+        .inputFluids('minecraft:lava 100')
+        .itemOutputs('disksavior:soul_sand')
+        .EUt(GTValues.VA[GTValues.ULV])
+        .duration(10)
     //蒸汽产出
     gtr.fluid_heater('disksavior:steam_is_my_last_life')
         .circuit(2)
@@ -40,10 +47,27 @@ ServerEvents.recipes(event => {
             '1024x gtceu:hpca_bridge_component',
             '64x gtceu:network_switch',
             '1024x gtceu:cold_ice_freezer',
-            '2147483647x minecraft:ice'
+            '2147483647x minecraft:ice',
+            '21x minecraft:packed_ice',
+            '18520504x minecraft:blue_ice'
         )
         .inputFluids('gtceu:glue 94928896')
         .itemOutputs('gtceu:creative_computation_provider')
+        .EUt(GTValues.VA[GTValues.LuV])
+        .duration(185254)
+    //创造数据访问仓下调到IV
+    gtr.assembler('disksavior:creative_data_access_hatch')
+        .itemInputs(
+            '256x gtceu:iv_scanner',
+            '256x gtceu:data_access_hatch',
+            '4096x gtceu:data_stick',
+            '4096x gtceu:data_orb',
+            '256x gtceu:data_transmitter_hatch',
+            '256x gtceu:data_receiver_hatch',
+            '16384x gtceu:normal_optical_pipe'
+        )
+        .inputFluids('gtceu:glue 94928896')
+        .itemOutputs('gtceu:creative_data_access_hatch')
         .EUt(GTValues.VA[GTValues.LuV])
         .duration(185254)
     //可配置重力绝对洁净维护仓下调LV
@@ -1098,4 +1122,191 @@ ServerEvents.recipes(event => {
         )
         .duration(19660800)
         .inputFluids('gtceu:cosmic_element 16777216000')
+    //鸿蒙之眼集大成配方转移到化反
+    //批处理16384倍
+    //实际数值要-1，因为2147483648x会爆
+    //集成了来自群友@aach.aic的鸿蒙之眼+
+    //数值十分爆炸
+    gtr.chemical_reactor('disksavior:cosmos_simulation_spuer_pro_max_plus_glodversion_16384')
+        .itemInputs('disksavior:quantum_chromodynamic_charge_super')
+        .inputFluids(
+            'gtceu:cosmic_element 16777216000',
+            'gtceu:hydrogen 16777216000000',
+            'gtceu:helium 16777216000000'
+        )
+        .itemOutputs(
+            '2147483647x gtceu:carbon_dust',
+            '2147483647x gtceu:phosphorus_dust',
+            '2147483647x gtceu:sulfur_dust',
+            '2147483647x gtceu:selenium_dust',
+            '2147483647x gtceu:iodine_dust',
+            '2147483647x gtceu:boron_dust',
+            '2147483647x gtceu:silicon_dust',
+            '2147483647x gtceu:germanium_dust',
+            '2147483647x gtceu:arsenic_dust',
+            '2147483647x gtceu:antimony_dust',
+            '2147483647x gtceu:tellurium_dust',
+            '2147483647x gtceu:astatine_dust',
+            '2147483647x gtceu:aluminium_dust',
+            '2147483647x gtceu:gallium_dust',
+            '2147483647x gtceu:indium_dust',
+            '2147483647x gtceu:tin_dust',
+            '2147483647x gtceu:thallium_dust',
+            '2147483647x gtceu:lead_dust',
+            '2147483647x gtceu:bismuth_dust',
+            '2147483647x gtceu:polonium_dust',
+            '2147483647x gtceu:titanium_dust',
+            '2147483647x gtceu:vanadium_dust',
+            '2147483647x gtceu:chromium_dust',
+            '2147483647x gtceu:manganese_dust',
+            '2147483647x gtceu:iron_dust',
+            '2147483647x gtceu:cobalt_dust',
+            '2147483647x gtceu:nickel_dust',
+            '2147483647x gtceu:copper_dust',
+            '2147483647x gtceu:zinc_dust',
+            '2147483647x gtceu:zirconium_dust',
+            '2147483647x gtceu:niobium_dust',
+            '2147483647x gtceu:molybdenum_dust',
+            '2147483647x gtceu:technetium_dust',
+            '2147483647x gtceu:ruthenium_dust',
+            '2147483647x gtceu:rhodium_dust',
+            '2147483647x gtceu:palladium_dust',
+            '2147483647x gtceu:silver_dust',
+            '2147483647x gtceu:cadmium_dust',
+            '2147483647x gtceu:hafnium_dust',
+            '2147483647x gtceu:tantalum_dust',
+            '2147483647x gtceu:tungsten_dust',
+            '2147483647x gtceu:rhenium_dust',
+            '2147483647x gtceu:osmium_dust',
+            '2147483647x gtceu:iridium_dust',
+            '2147483647x gtceu:platinum_dust',
+            '2147483647x gtceu:gold_dust',
+            '2147483647x gtceu:beryllium_dust',
+            '2147483647x gtceu:magnesium_dust',
+            '2147483647x gtceu:calcium_dust',
+            '2147483647x gtceu:strontium_dust',
+            '2147483647x gtceu:barium_dust',
+            '2147483647x gtceu:radium_dust',
+            '2147483647x gtceu:yttrium_dust',
+            '2147483647x gtceu:lithium_dust',
+            '2147483647x gtceu:sodium_dust',
+            '2147483647x gtceu:potassium_dust',
+            '2147483647x gtceu:rubidium_dust',
+            '2147483647x gtceu:caesium_dust',
+            '2147483647x gtceu:francium_dust',
+            '2147483647x gtceu:scandium_dust',
+            '2147483647x gtceu:actinium_dust',
+            '2147483647x gtceu:thorium_dust',
+            '2147483647x gtceu:protactinium_dust',
+            '2147483647x gtceu:uranium_dust',
+            '2147483647x gtceu:neptunium_dust',
+            '2147483647x gtceu:plutonium_dust',
+            '2147483647x gtceu:americium_dust',
+            '2147483647x gtceu:curium_dust',
+            '2147483647x gtceu:berkelium_dust',
+            '2147483647x gtceu:californium_dust',
+            '2147483647x gtceu:einsteinium_dust',
+            '2147483647x gtceu:fermium_dust',
+            '2147483647x gtceu:mendelevium_dust',
+            '2147483647x gtceu:nobelium_dust',
+            '2147483647x gtceu:lawrencium_dust',
+            '2147483647x gtceu:lanthanum_dust',
+            '2147483647x gtceu:cerium_dust',
+            '2147483647x gtceu:praseodymium_dust',
+            '2147483647x gtceu:neodymium_dust',
+            '2147483647x gtceu:promethium_dust',
+            '2147483647x gtceu:samarium_dust',
+            '2147483647x gtceu:europium_dust',
+            '2147483647x gtceu:gadolinium_dust',
+            '2147483647x gtceu:terbium_dust',
+            '2147483647x gtceu:dysprosium_dust',
+            '2147483647x gtceu:holmium_dust',
+            '2147483647x gtceu:erbium_dust',
+            '2147483647x gtceu:thulium_dust',
+            '2147483647x gtceu:ytterbium_dust',
+            '2147483647x gtceu:lutetium_dust',
+            '2147483647x gtceu:rutherfordium_dust',
+            '2147483647x gtceu:dubnium_dust',
+            '2147483647x gtceu:seaborgium_dust',
+            '2147483647x gtceu:bohrium_dust',
+            '2147483647x gtceu:hassium_dust',
+            '2147483647x gtceu:meitnerium_dust',
+            '2147483647x gtceu:darmstadtium_dust',
+            '2147483647x gtceu:roentgenium_dust',
+            '2147483647x gtceu:copernicium_dust',
+            '2147483647x gtceu:nihonium_dust',
+            '2147483647x gtceu:flerovium_dust',
+            '2147483647x gtceu:moscovium_dust',
+            '2147483647x gtceu:livermorium_dust',
+            '2147483647x gtceu:tennessine_dust',
+            '2147483647x gtceu:oganesson_dust',
+            '2147483647x gtceu:jasper_dust',
+            '2147483647x gtceu:naquadah_dust',
+            '2147483647x gtceu:enriched_naquadah_dust',
+            '2147483647x gtceu:naquadria_dust',
+            '2147483647x gtceu:duranium_dust',
+            '2147483647x gtceu:tritanium_dust',
+            '2147483647x gtceu:mithril_dust',
+            '2147483647x gtceu:orichalcum_dust',
+            '2147483647x gtceu:enderium_dust',
+            '2147483647x gtceu:adamantine_dust',
+            '2147483647x gtceu:vibranium_dust',
+            '2147483647x gtceu:infuscolium_dust',
+            '2147483647x gtceu:taranium_dust',
+            '2147483647x gtceu:draconium_dust',
+            '2147483647x gtceu:starmetal_dust',
+            //下面的是来自群友@aach.aic 的鸿蒙之眼+，此处已集成
+            '268435456x gtceu:white_dwarf_mtter_dust',
+            '268435456x gtceu:black_dwarf_mtter_dust',
+            '2147483647x ae2:sky_dust',
+            '2147483647x gtceu:trinium_dust',
+            '2147483647x gtceu:plutonium_241_dust',
+            '2147483647x gtceu:titanium_50_dust',
+            '2147483647x gtceu:copper76_dust',
+            '2147483647x gtceu:uranium_235_dust',
+            '2147483647x gtceu:perditio_crystal_dust',
+            '2147483647x gtceu:earth_crystal_dust',
+            '2147483647x gtceu:ignis_crystal_dust',
+            '2147483647x gtceu:tartarite_dust',
+            '2147483647x gtceu:uruium_dust',
+            '2147483647x gtceu:force_dust',
+            '2147483647x gtceu:alien_algae_dust',
+            '2147483647x gtceu:bloodstone_dust',
+            '2147483647x minecraft:netherite_scrap',
+            '2147483647x gtceu:purified_tengam_dust',
+            '2147483647x gtceu:quantanium_dust',
+            '2147483647x gtceu:bedrock_dust',
+            '2147483647x gtceu:damascus_steel_dust',
+            '2147483647x avaritia:neutron_pile',
+            '2147483647x gtceu:certus_quartz_dust',
+            '2147483647x ae2:fluix_dust'
+        )
+        .outputFluids(
+            'gtceu:spacetime 4194304',
+            'gtceu:raw_star_matter_plasma 21474836480',
+            'gtceu:quark_gluon_plasma 21474836480',
+            'gtceu:heavy_quark_degenerate_matter_plasma 21474836480',
+            'gtceu:neutronium 214748364800',
+            'gtceu:heavy_lepton_mixture 214748364800',
+            'gtceu:hydrogen 2147483648000',
+            'gtceu:nitrogen 2147483648000',
+            'gtceu:oxygen 2147483648000',
+            'gtceu:fluorine 2147483648000',
+            'gtceu:chlorine 2147483648000',
+            'gtceu:bromine 2147483648000',
+            'gtceu:helium 2147483648000',
+            'gtceu:neon 2147483648000',
+            'gtceu:argon 2147483648000',
+            'gtceu:krypton 2147483648000',
+            'gtceu:xenon 2147483648000',
+            'gtceu:radon 2147483648000',
+            'gtceu:mercury 2147483648000',
+            'gtceu:deuterium 2147483648000',
+            'gtceu:tritium 2147483648000',
+            'gtceu:helium_3 2147483648000',
+            'gtceu:unknowwater 2147483648000',
+            'gtceu:uu_matter 2147483648000'
+        )
+        .EUt(5277655810867200)
+        .duration(1200)
 })
