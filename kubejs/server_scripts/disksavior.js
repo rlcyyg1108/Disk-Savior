@@ -18,6 +18,23 @@ ServerEvents.recipes(event => {
         .itemOutputs(packed_infinity_cell('染料元件包', 'f', ['gtceu:black_dye', 'gtceu:blue_dye', 'gtceu:brown_dye', 'gtceu:cyan_dye', 'gtceu:gray_dye', 'gtceu:green_dye', 'gtceu:light_blue_dye', 'gtceu:lime_dye', 'gtceu:magenta_dye', 'gtceu:orange_dye', 'gtceu:pink_dye', 'gtceu:purple_dye', 'gtceu:red_dye', 'gtceu:white_dye', 'gtceu:yellow_dye', 'gtceu:light_gray_dye']))
         .duration(200)
         .EUt(GTValues.VA[GTValues.LV])
+    //无限中子素涡轮转子元件
+    gtr.assembler('disksavior:neutronium_turbine_rotor_infinity_cell')
+        .itemInputs(
+            '1x gtceu:tin_rotor',
+            '8x gtceu:lead_rotor',
+            '5x gtceu:iron_rotor',
+            '2x gtceu:bronze_rotor',
+            '5x gtceu:steel_rotor',
+            '4x gtceu:aluminium_rotor',
+            '18x gtceu:chromium_rotor',
+            '52x gtceu:stainless_steel_rotor',
+            '54x gtceu:titanium_rotor'
+        )
+        .inputFluids('gtceu:glue 185254')
+        .itemOutputs(Item.of('expatternprovider:infinity_cell', '{record:{"#c":"ae2:i",id:"gtceu:turbine_rotor"}}'))
+        .duration(185254)
+        .EUt(1)
     //蒸汽产出
     gtr.fluid_heater('disksavior:steam_is_my_last_life')
         .circuit(2)
@@ -32,12 +49,6 @@ ServerEvents.recipes(event => {
         .outputFluids('gtceu:distilled_water 57646075230342348')
         .EUt(-2147483648 * 2147483648)
         .duration(2000)
-    //极高密度量子色动力学爆弹
-    gtr.compressor('disksavior:quantum_chromodynamic_charge_super')
-        .itemInputs('16384x kubejs:quantum_chromodynamic_charge')
-        .itemOutputs('disksavior:quantum_chromodynamic_charge_super')
-        .EUt(GTValues.VA[GTValues.OpV])
-        .duration(185254)
     //蒸汽是我最后的生命……
     gtr.chemical_reactor('disksavior:steam_is_my_last_life')
         .circuit(15)
@@ -45,6 +56,12 @@ ServerEvents.recipes(event => {
         .itemOutputs('disksavior:steam_is_my_last_life')
         .EUt(1)
         .duration(370410080)
+    //极高密度量子色动力学爆弹
+    gtr.compressor('disksavior:quantum_chromodynamic_charge_super')
+        .itemInputs('16384x kubejs:quantum_chromodynamic_charge')
+        .itemOutputs('disksavior:quantum_chromodynamic_charge_super')
+        .EUt(GTValues.VA[GTValues.OpV])
+        .duration(185254)
     //原始虚空矿机用水
     gtr.primitive_void_ore('disksavior:water')
         .inputFluids('minecraft:water 1')
@@ -79,6 +96,12 @@ ServerEvents.recipes(event => {
         .itemOutputs('minecraft:grass_block')
         .EUt(GTValues.VA[GTValues.ULV])
         .duration(10)
+    //蒸汽冷冻蒸馏水（意义不明）
+    gtr.vacuum_freezer('disksavior:steam_water')
+        .inputFluids('gtceu:steam 160000')
+        .outputFluids('gtceu:distilled_water 1000')
+        .EUt(GTValues.VA[GTValues.ULV])
+        .duration(1)
     //创造计算机下调到IV
     gtr.assembler('disksavior:creative_computation_provider')
         .itemInputs(

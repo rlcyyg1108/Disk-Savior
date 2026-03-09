@@ -12,6 +12,8 @@
 		{
 			dependencies: ["38166A02EA474C1E"]
 			description: [
+				"&4我真的很喜欢胶水"
+				""
 				"下调了部分大机器的解锁时期，让上位机器在下位阶段就能投入使用"
 				""
 				"并没有删除原配方"
@@ -60,7 +62,7 @@
 				"添加了一些加强配方，通过配方调整提升机器效率"
 				"给一些内容做了配方合并化"
 				""
-				"任务的副标题如果感兴趣可以去查查都是什么（坏笑）"
+				"&l&o&m&8任务的副标题如果感兴趣可以去查查都是什么（坏笑）"
 			]
 			icon: "gtlcore:item_infinity_cell"
 			id: "38166A02EA474C1E"
@@ -160,7 +162,7 @@
 			]
 			icon: "gtceu:mv_fluid_drilling_rig"
 			id: "4B7BA4B00F4A93B6"
-			subtitle: "！?虽虽？！"
+			subtitle: "現象之花的秘密"
 			tasks: [
 				{
 					id: "5C87CADA0D82F441"
@@ -435,13 +437,14 @@
 		}
 		{
 			dependencies: ["4B7BA4B00F4A93B6"]
-			description: [""]
+			description: ["你知道吗"]
 			id: "3E9FEB8DF4698E91"
 			rewards: [{
 				id: "1A1D876872E0437F"
 				item: "ad_astra:moon_stone"
 				type: "item"
 			}]
+			subtitle: "神明徒留虚妄之言 连人的饥渴也不曾垂怜"
 			tasks: [{
 				id: "4BDAF847523284FA"
 				item: {
@@ -518,6 +521,7 @@
 				item: "ad_astra:mars_stone"
 				type: "item"
 			}]
+			subtitle: "ψ 如你所见 像花园一般沉睡"
 			tasks: [{
 				id: "30C5E10EBAEDDA2E"
 				item: {
@@ -572,6 +576,7 @@
 					type: "item"
 				}
 			]
+			subtitle: "\"因我即是你\""
 			tasks: [{
 				id: "14FAC42EDBC19269"
 				item: {
@@ -607,6 +612,7 @@
 					type: "item"
 				}
 			]
+			subtitle: "如孕育星辰般 巨大的3D里庭院"
 			tasks: [{
 				id: "6D0A635A3BB53AEB"
 				item: {
@@ -630,6 +636,7 @@
 				item: "kubejs:ceresstone"
 				type: "item"
 			}]
+			subtitle: "自始便存在却被遗忘的人 自始便不存在却已熟知的房屋"
 			tasks: [{
 				id: "0666A1078D0E94E9"
 				item: {
@@ -660,6 +667,7 @@
 					type: "item"
 				}
 			]
+			subtitle: "冠毛種子の大群"
 			tasks: [{
 				id: "3EE58553B085CD1D"
 				item: {
@@ -750,10 +758,8 @@
 		{
 			dependencies: ["38166A02EA474C1E"]
 			description: [
-				"超能硅岩溶液通过产线撕裂的单步硅岩出"
+				"&b超能硅岩溶液&r通过&d产线撕裂&r的&b单步硅岩&r出"
 				"富集硅岩燃料和硅岩燃料各一个单步"
-				""
-				"如果愿意的话更推荐用被动做硅岩燃料产线，这个产线的循环很多，也很直接，做起来也就几步"
 				""
 				"&4注意&r"
 				"出于循环问题，单步硅岩燃料的最终产物会多出富集硅岩废液若干"
@@ -912,19 +918,131 @@
 		{
 			dependencies: ["38166A02EA474C1E"]
 			description: [
-				"钢铁筋骨在苍穹下织成密网，锈蚀与银亮交错的涡轮叶片，如千万只钢铁巨蝶，驮着厚重蒸汽，在机架间舒展翅翼——这是他以MSPT颠簸为代价，亲手浇筑的蒸汽涡轮森林，每一寸金属都刻着他的坚守。"
+				"他终于站在了蒸汽的顶点"
+				"脚下是无数轰鸣的蒸汽涡轮"
 				""
-				"他立于森林之巅，滚烫的平台灼着鞋底，指尖抚过涡轮余温未散的外壳，掌心薄茧与冰冷金属相撞，星火细碎。脚下管道如巨龙奔涌，蒸汽咆哮着穿钢铁肌理，每一次震颤，都是他与这片天地的共鸣。"
+				"&l&o&8很吵"
 				""
-				"没有那夸达反应堆的轰鸣，没有超能反应堆的锋芒，他的战场，是蒸汽与钢铁的纠缠。曾在MSPT的动荡中稳住摇晃的机架，曾在蒸汽迷雾中检修每一道缝隙，千台涡轮的嗡鸣，是他无声的咏唱。"
+				"为了锻造如此这般神迹"
+				"他的MSPT已经消耗殆尽"
 				""
-				"蒸汽裹着水汽模糊他的轮廓，却压不弯他挺直的脊梁。他将沸腾水汽淬成万家灯火的能量，双手握着扳手，触不到半分流转的EU，却在这片钢铁森林里，完成了最沉默的升华——以蒸汽为骨，以钢铁为证，以牺牲为炬，让无限涡轮的轰鸣，成为超越一切的信仰。"
+				"涡轮的轰鸣声持续了很多年"
+				"然而机器的耗能与日俱增"
+				""
+				"蒸汽涡轮的产能是有限的"
+				"昨日还游刃有余"
+				"今日便捉襟见肘"
+				"再过几日 就连发电用的蒸汽都供不上了"
+				""
+				"&m&n&l&o&4那为什么不用其他发电方式？"
+				"{@pagebreak}"
+				"当他第一次来到这个陌生世界时"
+				"模糊的记忆让他甚至连活下去都是奢求"
+				"但他还记得一样东西"
+				"貌似怎么都忘不掉"
+				""
+				"&l&o&8蒸汽"
+				""
+				"他借助脑中残存的记忆"
+				"在失去意识前搭出了一台简陋无比的锅炉"
+				""
+				"就好像是上天都在怜悯他"
+				"一场大雨即刻落下"
+				""
+				"雨水顺着壁上的破洞进到了机器内部"
+				"风将残枝碎叶吹进机器底部"
+				"那堆碎叶中参杂着的燧石与机器壁不断摩擦"
+				"它们摩啊 摩啊"
+				"直到一丝火星落在了碎叶上......"
+				"{@pagebreak}"
+				"来到这个世界已经有几年了"
+				"一座座机器伫立在这片寂寞的土地上"
+				"他把自己塞进了这蒸汽升腾的狭间"
+				"现在如果不每天与蒸汽肌肤接触"
+				"皮肤先会红肿 随后剧痛"
+				"这很奇怪"
+				"但他并不在意"
+				""
+				"曾经连活下去都是奢求的他"
+				"是蒸汽挽回了他如同风中残烛的生命"
+				""
+				"如今他指尖能捏碎一整个黄昏"
+				"他在每一台蒸汽涡轮上刻下名字"
+				"在每一块发烫的钢铁上"
+				"刻下“我曾来过”的证明"
+				""
+				"就在他铸造涡轮的时候"
+				"他身上的&4 MSPT &r字样却越来越深"
+				"甚至出现一丝血色 "
+				"就像他那早已负增长的EU"
+				""
+				"涡轮每多转一圈"
+				"那块红字便延长一点点"
+				"{@pagebreak}"
+				"为了应对日益增长的EU需求"
+				"他不得不继续扩张蒸汽涡轮"
+				"一片片钢铁森林从这片土地上拔地而起"
+				"当他终于让电网的赤字变绿"
+				"自己身上的红字也终于突破了50"
+				""
+				"当他想从那片森林跳下时"
+				"就好像时间被删去了一点"
+				"他摔倒了"
+				"同时他看到身上多出来一个数字"
+				"&aTPS：19"
+				""
+				"没有错"
+				""
+				"他的起源正是\"蒸汽\"之起源"
+				"他的生命力基于蒸汽"
+				"然而他过度的使用导致了起源暴走"
+				"其内部流转的时间受其影响稍稍慢了一点"
+				"如果只是这么一点点"
+				"他也不会太过在意"
+				"然而下一秒"
+				"那个数字又变化了"
+				"{@pagebreak}"
+				"他终于站在了蒸汽的顶点"
+				"脚下是无数轰鸣的蒸汽涡轮"
+				""
+				"然后"
+				"他开始尽数将其摧毁"
+				"金属的火光和切割声不绝于耳"
+				""
+				"这场破坏持续了数天"
+				"随后他开始将残躯融化"
+				"这痛苦无比"
+				"那每一台涡轮都是他亲手打造"
+				"这个世界并没有其他智慧生物"
+				"陪伴着他的只有机器的轰鸣"
+				"还有取之不尽用之不竭的蒸汽"
+				""
+				"然而他并不是自暴自弃"
+				"他要把这无数台蒸汽涡轮融合"
+				"然而凭那落后的科技是无法做到的"
+				"他能做的"
+				"只有不断燃烧自己的起源"
+				"只有不断锻造新的涡轮"
+				"直到他手中的金属于斯合题"
+				"&o&4直到他的心象熔毁殆尽&r"
+				"{@pagebreak}"
+				"&o&m&8I am the bone of my steam"
+				"&o&m&8Steel is my body, and water is my blood"
+				"&o&m&8I have created over a thousand turbines"
+				"&o&m&8Unknown to naquadah reactor"
+				"&o&m&8Nor known to hyper reactor"
+				"&o&m&8Have withstood MSPT to create many mega steam turbine"
+				"&o&m&8Yet, those hands will never hold EU"
+				"&o&m&8So as I pray......"
+				"{@pagebreak}"
+				"&l&bUnlimited steam turbine Works"
 			]
 			icon: "disksavior:steam_is_my_last_life"
 			id: "27B75C8FD6E0ADCE"
-			shape: "heart"
+			invisible: true
+			shape: "gear"
 			size: 3.0d
-			subtitle: "于顶点，孑然一身，至高……"
+			subtitle: "循此苦旅......"
 			tasks: [
 				{
 					id: "5D4E63FC293A1C26"
@@ -1166,8 +1284,18 @@
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
-			description: [""]
+			description: ["造价略高（扣0的艺术）"]
+			icon: {
+				Count: 1
+				id: "gtceu:turbine_rotor"
+				tag: {
+					GT.PartStats: {
+						Material: "gtceu:neutronium"
+					}
+				}
+			}
 			id: "735726D10861E8A6"
+			subtitle: "白虎野"
 			tasks: [
 				{
 					id: "5BE263F28754178A"
@@ -1176,33 +1304,23 @@
 				}
 				{
 					id: "3C74645399925DED"
-					item: "minecraft:oak_log"
+					item: {
+						Count: 1
+						id: "expatternprovider:infinity_cell"
+						tag: {
+							record: {
+								"#c": "ae2:i"
+								id: "gtceu:turbine_rotor"
+							}
+						}
+					}
 					optional_task: true
 					type: "item"
 				}
 			]
-			x: -2.0d
-			y: 6.0d
-		}
-		{
-			dependencies: ["38166A02EA474C1E"]
-			description: [""]
-			id: "3494BADB36BB8743"
-			tasks: [
-				{
-					id: "0C9DE6AD279016FC"
-					optional_task: true
-					type: "checkmark"
-				}
-				{
-					id: "4757A2A95B7325E0"
-					item: "minecraft:oak_log"
-					optional_task: true
-					type: "item"
-				}
-			]
-			x: -2.5d
-			y: 7.0d
+			title: "无限中子素涡轮转子元件"
+			x: 8.5d
+			y: 0.0d
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
@@ -1228,7 +1346,7 @@
 				}
 			]
 			title: "木化集大成"
-			x: 6.0d
+			x: 6.5d
 			y: 0.0d
 		}
 		{
@@ -1639,8 +1757,31 @@
 				}
 			]
 			title: "染料元件包"
-			x: 7.0d
+			x: 7.5d
 			y: 0.0d
+		}
+		{
+			dependencies: ["38166A02EA474C1E"]
+			description: ["意义不明"]
+			icon: "gtceu:distilled_water_bucket"
+			id: "49C1809F7F10297A"
+			subtitle: "幽霊飛行機"
+			tasks: [
+				{
+					id: "690DF4573523BB88"
+					optional_task: true
+					type: "checkmark"
+				}
+				{
+					id: "0070A7A41A7306AB"
+					item: "gtceu:distilled_water_bucket"
+					optional_task: true
+					type: "item"
+				}
+			]
+			title: "蒸汽冷冻蒸馏水"
+			x: -2.0d
+			y: 6.0d
 		}
 	]
 	title: "硬盘拯救者"
