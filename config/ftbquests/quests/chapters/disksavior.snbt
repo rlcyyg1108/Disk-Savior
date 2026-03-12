@@ -131,7 +131,15 @@
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
-			description: ["流体加热器二号电路加水，记得水多加点&8"]
+			description: [
+				"流体加热器二号电路加水，记得水多加点&8"
+				""
+				"另外，上面的几个任务是升级蒸汽发电的"
+				"通过总成放蒸汽涡轮里"
+				"换上足够大的动力仓"
+				"推荐GTL ADD的无线电网输出终端"
+				"然后加水"
+			]
 			icon: {
 				Count: 1
 				id: "ftbquests:custom_icon"
