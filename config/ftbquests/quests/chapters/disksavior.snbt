@@ -54,9 +54,9 @@
 				"&b - 产线爆破"
 				"&b - 产线撕裂"
 				"&b - GTL additions"
-				"&b - 高级舱室"
+				"&b - 高级舱室（给GTL提供批处理功能，巨幅减少卡顿）"
 				""
-				"&5不装GTL additions可能会报错"
+				"&4⚠️不装GTL additions可能会报错"
 				""
 				"这是我给GregTech Leisure整合包写的私货"
 				"基本不考虑平衡性"
@@ -71,19 +71,124 @@
 			]
 			icon: "gtlcore:item_infinity_cell"
 			id: "38166A02EA474C1E"
-			rewards: [{
-				id: "5EA1DB6711B2C1C9"
-				item: {
-					Count: 1
-					id: "kubejs:suprachronal_mainframe_complex"
-					tag: {
-						display: {
-							Name: "[{\"text\":\"拿去给你的发电机省点燃料吧\",\"color\":\"red\",\"bold\":true,\"italic\":true,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false}]"
+			rewards: [
+				{
+					id: "5EA1DB6711B2C1C9"
+					item: {
+						Count: 1
+						id: "kubejs:suprachronal_mainframe_complex"
+						tag: {
+							display: {
+								Name: "[{\"text\":\"拿去给你的发电机省点燃料吧\",\"color\":\"red\",\"bold\":true,\"italic\":true,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false}]"
+							}
 						}
 					}
+					type: "item"
 				}
-				type: "item"
-			}]
+				{
+					id: "1A19A398829EB223"
+					item: "gtlcore:fast_infinity_cell"
+					type: "item"
+				}
+				{
+					id: "684A02795161B019"
+					item: "kubejs:space_fermium_helmet"
+					type: "item"
+				}
+				{
+					id: "5B5ABD3E4BF1C035"
+					item: "kubejs:space_fermium_chestplate"
+					type: "item"
+				}
+				{
+					id: "0A910C5C225275F2"
+					item: "kubejs:space_fermium_leggings"
+					type: "item"
+				}
+				{
+					id: "68E02D6A09B08A92"
+					item: "kubejs:space_fermium_boots"
+					type: "item"
+				}
+				{
+					id: "721250D9EAD2A396"
+					item: {
+						Count: 1
+						id: "gtceu:echoite_vajra"
+						tag: {
+							DisallowContainerItem: 0b
+							GT.Behaviours: {
+								DisableShields: 1b
+								Mode: 2b
+								RelocateMinedBlocks: 1b
+								TreeFelling: 1b
+							}
+							GT.Tool: {
+								AttackDamage: 110.0f
+								AttackSpeed: 2.0f
+								Damage: 0
+								Enchantability: 10
+								HarvestLevel: 6
+								MaxDamage: 63
+								ToolSpeed: 1004.0f
+							}
+							HideFlags: 2
+							Unbreakable: 1b
+						}
+					}
+					type: "item"
+				}
+				{
+					id: "3D2D98AA1066E7AA"
+					item: {
+						Count: 1
+						id: "sophisticatedbackpacks:netherite_backpack"
+						tag: {
+							contentsUuid: [I;
+								-460288957
+								-2115155128
+								-1906174363
+								-1108687211
+							]
+							inventorySlots: 120
+							renderInfo: {
+								upgradeItems: [
+									{
+										Count: 1b
+										id: "sophisticatedbackpacks:stack_upgrade_omega_tier"
+									}
+									{
+										Count: 1b
+										id: "sophisticatedbackpacks:crafting_upgrade"
+									}
+									{
+										Count: 1b
+										id: "sophisticatedbackpacks:advanced_magnet_upgrade"
+									}
+									{
+										Count: 1b
+										id: "sophisticatedbackpacks:advanced_void_upgrade"
+									}
+									{
+										Count: 1b
+										id: "sophisticatedbackpacks:advanced_feeding_upgrade"
+									}
+									{
+										Count: 1b
+										id: "minecraft:air"
+									}
+									{
+										Count: 1b
+										id: "minecraft:air"
+									}
+								]
+							}
+							upgradeSlots: 7
+						}
+					}
+					type: "item"
+				}
+			]
 			shape: "none"
 			size: 2.0d
 			subtitle: "蒸汽是我最后的生命……"
@@ -506,7 +611,10 @@
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
-			description: ["因未知原因，用编程电路无法正常工作，故改用新物品"]
+			description: [
+				"稀土离心机"
+				"因未知原因，用编程电路无法正常工作，故改用新物品"
+			]
 			icon: "gtceu:rare_earth_metal_dust"
 			id: "10A75CDB0C5E7F71"
 			subtitle: "我生于龙·纪元528年南国的赤烛火月"
@@ -518,7 +626,7 @@
 				}
 				{
 					id: "4F03E6DA8B413FED"
-					item: "gtceu:rare_earth_metal_dust"
+					item: "disksavior:rare_earth_metal_dust_4x"
 					optional_task: true
 					type: "item"
 				}
@@ -800,6 +908,7 @@
 		{
 			dependencies: ["38166A02EA474C1E"]
 			description: [
+				"大化反 30号电路"
 				"&b超能硅岩溶液&r通过&d产线撕裂&r的&b单步硅岩&r出"
 				"富集硅岩燃料和硅岩燃料各一个单步"
 				""
@@ -2814,7 +2923,10 @@
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
-			description: ["比撕裂的还少一步"]
+			description: [
+				"扭"
+				"比撕裂的还少一步"
+			]
 			icon: "gtceu:fullerene_dust"
 			id: "32591B8389C393BE"
 			subtitle: "Dies macht mich antik"
@@ -2838,6 +2950,7 @@
 		{
 			dependencies: ["38166A02EA474C1E"]
 			description: [
+				"大化反5号电路"
 				"产物太多，jei写不下，但机器能正常工作和输出的"
 				"所以写样板的时候最好把副产物点掉"
 				"虽然不点掉也不会出什么问题"
@@ -3037,6 +3150,8 @@
 		{
 			dependencies: ["38166A02EA474C1E"]
 			description: [
+				"木化 80个原木加岩浆（为什么是用岩浆啊）"
+				""
 				"产物太多，所以jei里放不下"
 				"这个配方集成了原版木化和产线爆破的木化出萘"
 				"但是你还有要做两台木化"
@@ -3047,8 +3162,6 @@
 				"⚠️这个配方用&b蒸馏塔&r也能做哦"
 				"但是jei里产物显示不全"
 				"能做木化的时候还是推荐用木化来运行"
-				""
-				"还有为什么是岩浆做啊"
 			]
 			icon: "gtceu:wood_distillation"
 			id: "6C8FB690B7EC68CF"
@@ -3581,6 +3694,7 @@
 		{
 			dependencies: ["38166A02EA474C1E"]
 			description: [
+				"把主机放化反"
 				"jei里显示不全所有产物"
 				"实际上是可以正常运行的"
 			]
@@ -3607,6 +3721,7 @@
 		{
 			dependencies: ["38166A02EA474C1E"]
 			description: [
+				"培养缸"
 				"我知道这个东西配方很多"
 				"很多私货都有新配方"
 				"这个的话"
@@ -3769,8 +3884,9 @@
 		{
 			dependencies: ["38166A02EA474C1E"]
 			description: [
+				"大化反 30号电路，直接用独居石粉做"
 				"jei显示不全"
-				"实际上能出除了钷以外的所有稀土金属"
+				"能出除了钷以外的所有稀土金属"
 			]
 			icon: "gtceu:rare_earth_dust"
 			id: "29D5C6B3B9AB113E"
@@ -3783,7 +3899,7 @@
 				}
 				{
 					id: "317E2EBEDAE18679"
-					item: "gtceu:rare_earth_dust"
+					item: "gtceu:monazite_dust"
 					optional_task: true
 					type: "item"
 				}
@@ -3826,6 +3942,9 @@
 		{
 			dependencies: ["38166A02EA474C1E"]
 			description: [
+				"采集模块 各个等级的无人机 32个太空电梯"
+				"还有输入若干蒸汽❤️"
+				""
 				"产物太多jei显示不全"
 				""
 				"让你用两台资源采集模块就能挖所有东西"
@@ -4161,6 +4280,16 @@
 							internalCurrentPower: 2.147E9d
 						}
 					}
+					type: "item"
+				}
+				{
+					id: "56EE0BB90C584EF0"
+					item: "meplacementtool:moakiee_fumo"
+					type: "item"
+				}
+				{
+					id: "46132ECA650D5F7F"
+					item: "meplacementtool:cystrysu_fumo"
 					type: "item"
 				}
 			]

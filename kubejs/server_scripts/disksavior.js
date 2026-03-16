@@ -350,7 +350,7 @@ ServerEvents.recipes(event => {
         .EUt(30720)
         .duration(2000)
     //单步稀土线
-    gtr.chemical_reactor('disksavior:monazite_dust_processing')
+    gtr.large_chemical_reactor('disksavior:monazite_dust_processing')
         .itemInputs('144x gtceu:monazite_dust')
         .notConsumable('gtceu:hv_item_magnet')
         .circuit(30)
@@ -385,7 +385,7 @@ ServerEvents.recipes(event => {
         .duration(2000)
 
     //粉直出单步铟
-    gtr.chemical_reactor('rlcyyg:indium_dust_pattern')
+    gtr.large_chemical_reactor('disksavior:indium_dust_pattern')
         .circuit(5)
         .itemInputs(
             '96x gtceu:aluminium_dust',
@@ -478,7 +478,7 @@ ServerEvents.recipes(event => {
         .duration(2400)
     //单步硅岩燃料，不完美循环，我真的不想再配平了，递归循环是极为邪恶的
     //化反30电路
-    gtr.chemical_reactor('disksavior:naquadah_fuel')
+    gtr.large_chemical_reactor('disksavior:naquadah_fuel')
         .itemInputs('160x gtceu:naquadah_dust')
         .circuit(30)
         .inputFluids(
@@ -494,7 +494,7 @@ ServerEvents.recipes(event => {
         .duration(12800)
     //单步富集硅岩燃料，完美循环
     //化反30电路
-    gtr.chemical_reactor('disksavior:enriched_naquadah_fuel')
+    gtr.large_chemical_reactor('disksavior:enriched_naquadah_fuel')
         .circuit(30)
         .inputFluids(
             'minecraft:water 10800000',
