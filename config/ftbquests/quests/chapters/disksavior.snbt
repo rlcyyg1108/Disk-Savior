@@ -67,6 +67,8 @@
 				"用了此私货你几乎不用跑图了"
 				"存档大小可能到毕业都只有100MB出头"
 				""
+				"对了，左上角那个原木任务是我写任务用的，请无视"
+				""
 				"&l&o&n&m&8任务的副标题可以去查查都是什么（&2库嘻嘻&r&l&o&n&m&8）"
 			]
 			icon: "gtlcore:item_infinity_cell"
@@ -110,7 +112,7 @@
 								Enchantability: 10
 								HarvestLevel: 6
 								MaxDamage: 63
-								ToolSpeed: 1004.0f
+								ToolSpeed: 1000.0f
 							}
 							HideFlags: 2
 							Unbreakable: 1b
@@ -168,6 +170,54 @@
 					}
 					type: "item"
 				}
+				{
+					id: "3ACDF033716290C6"
+					item: "kubejs:space_fermium_helmet"
+					type: "item"
+				}
+				{
+					id: "558FDF37F6269FBA"
+					item: "kubejs:space_fermium_chestplate"
+					type: "item"
+				}
+				{
+					id: "678A3528FE5AB5F2"
+					item: "kubejs:space_fermium_leggings"
+					type: "item"
+				}
+				{
+					id: "42EADCD8BBB288FE"
+					item: "kubejs:space_fermium_boots"
+					type: "item"
+				}
+				{
+					id: "46587F01B4BA733D"
+					item: {
+						Count: 1
+						id: "gtlcore:ultimate_terminal"
+						tag: {
+							DismantleMode: 0b
+							NoHatchMode: 0b
+							RepeatCount: 0
+						}
+					}
+					type: "item"
+				}
+				{
+					id: "6905633783BC8D98"
+					item: "gtlcore:debug_pattern_test"
+					type: "item"
+				}
+				{
+					id: "61A329B484DC6527"
+					item: "gtlcore:pattern_modifier"
+					type: "item"
+				}
+				{
+					id: "4F4D852A807D39F9"
+					item: "expatternprovider:pattern_modifier"
+					type: "item"
+				}
 			]
 			shape: "none"
 			size: 2.0d
@@ -213,7 +263,7 @@
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
-			description: ["流体加热器二号电路加水，记得水多加点"]
+			description: ["脱水机1号电路加水，记得水多加点"]
 			icon: {
 				Count: 1
 				id: "ftbquests:custom_icon"
@@ -410,12 +460,19 @@
 		{
 			dependencies: ["38166A02EA474C1E"]
 			description: [
-				"&b别忘了有个任务还会开局送你一套原始虚空采矿机"
+				"和爆破的略有不同"
+				"耗时规则：一种矿1t，自带千倍批处理"
+				"大概就是一种矿100k/50s，一共142种矿，共7100s"
 				""
-				"可能有点没用"
-				"但不太可能没用"
+				"所有产物都是石头矿"
+				"没有下界岩和末地石"
+				""
+				"当然，也能用大型虚空采矿机运行"
+				""
+				"由于配方电压稍高"
+				"&b挖低阶矿的效率不如原始虚空采矿机电解&r"
 			]
-			icon: "gtceu:primitive_void_ore"
+			icon: "gtceu:large_void_miner"
 			id: "782F836B271246CA"
 			subtitle: "可逆的分離態様"
 			tasks: [
@@ -426,14 +483,14 @@
 				}
 				{
 					id: "2DF633661C1624BD"
-					item: "gtceu:primitive_void_ore"
+					item: "gtceu:large_void_miner"
 					optional_task: true
 					type: "item"
 				}
 			]
-			title: "用水的原始矿机"
-			x: 6.0d
-			y: 2.0d
+			title: "大虚采电解"
+			x: 8.5d
+			y: -1.0d
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
@@ -577,6 +634,7 @@
 			description: ["你知道吗"]
 			id: "3E9FEB8DF4698E91"
 			rewards: [{
+				count: 64
 				id: "1A1D876872E0437F"
 				item: "ad_astra:moon_stone"
 				type: "item"
@@ -654,6 +712,7 @@
 			description: [""]
 			id: "3A9419F50C806A36"
 			rewards: [{
+				count: 64
 				id: "3B75616ECA1A86BA"
 				item: "ad_astra:mars_stone"
 				type: "item"
@@ -677,11 +736,20 @@
 			dependencies: ["4B7BA4B00F4A93B6"]
 			description: [""]
 			id: "009FF2D76F616073"
-			rewards: [{
-				id: "65ADDB05E50A67C2"
-				item: "kubejs:barnarda_log"
-				type: "item"
-			}]
+			rewards: [
+				{
+					count: 256
+					id: "65ADDB05E50A67C2"
+					item: "kubejs:barnarda_log"
+					type: "item"
+				}
+				{
+					count: 256
+					id: "13261A068105853E"
+					item: "kubejs:barnarda_leaves"
+					type: "item"
+				}
+			]
 			subtitle: "&b以达天际！"
 			tasks: [{
 				id: "7A6A822D1C6DDE70"
@@ -698,16 +766,19 @@
 			id: "49BC08AF06B84ECE"
 			rewards: [
 				{
+					count: 64
 					id: "0CEFA1839C468588"
 					item: "ad_astra:venus_stone"
 					type: "item"
 				}
 				{
+					count: 64
 					id: "795D611430DA8498"
 					item: "ad_astra:mercury_stone"
 					type: "item"
 				}
 				{
+					count: 64
 					id: "35B2EB7A4154F8E3"
 					item: "minecraft:netherrack"
 					type: "item"
@@ -734,18 +805,27 @@
 			id: "47E873DCB7C9F8DE"
 			rewards: [
 				{
+					count: 64
 					id: "59B1E61F9CADC61D"
 					item: "kubejs:plutostone"
 					type: "item"
 				}
 				{
+					count: 64
 					id: "3F6DC1A026871515"
 					item: "kubejs:enceladusstone"
 					type: "item"
 				}
 				{
+					count: 64
 					id: "38C7E626E8B75931"
 					item: "kubejs:titanstone"
+					type: "item"
+				}
+				{
+					count: 64
+					id: "26D15702904E24AC"
+					item: "minecraft:end_stone"
 					type: "item"
 				}
 			]
@@ -769,6 +849,7 @@
 			description: [""]
 			id: "3F59E7726DE4459A"
 			rewards: [{
+				count: 64
 				id: "561F959351A1694B"
 				item: "kubejs:ceresstone"
 				type: "item"
@@ -794,11 +875,13 @@
 			id: "43E5CAAC983033B9"
 			rewards: [
 				{
+					count: 64
 					id: "5C797F264C4125FC"
 					item: "kubejs:iostone"
 					type: "item"
 				}
 				{
+					count: 64
 					id: "7CA1FA5B789AD809"
 					item: "kubejs:ganymedestone"
 					type: "item"
@@ -847,7 +930,12 @@
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
-			description: ["你可以不用考虑给这些特殊矿物单独在矿处里开过滤了"]
+			description: [
+				"你可以不用考虑给这些特殊矿物单独在矿处里开过滤了"
+				""
+				"而且自带电解完成的硫酸铜、硫酸镍溶液"
+				"直接给电解物"
+			]
 			icon: "gtceu:platinum_group_sludge_dust"
 			id: "2AEA8EEF3D56CB19"
 			subtitle: "来自纳西萨斯次元的人"
@@ -2904,8 +2992,8 @@
 				type: "checkmark"
 			}]
 			title: "激光蚀刻宝石样板礼包"
-			x: 9.0d
-			y: 0.0d
+			x: 7.0d
+			y: 2.5d
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
@@ -2936,10 +3024,12 @@
 		{
 			dependencies: ["38166A02EA474C1E"]
 			description: [
-				"大化反5号电路"
-				"&c产物太多 jei里显示不全&r"
-				"所以写样板的时候最好把副产物点掉"
-				"虽然不点掉也不会出什么问题"
+				"大化反5号电路 铝粉加硫酸"
+				""
+				"这个配方是不科学的"
+				"因为不需要方铅和闪锌"
+				"也不会产出这二者的电解物"
+				"但是gt本来就不科学，所以你懂的"
 			]
 			icon: "gtceu:indium_dust"
 			id: "5C8F8C67F6E4347E"
@@ -2970,7 +3060,8 @@
 				""
 				"有一大一小两个配方"
 				"大的相比小的不加耗电和耗时"
-				"因为鸿蒙之眼的耗电和耗时是锁死的"
+				"因为鸿蒙之眼的耗电和耗时是不受配方耗时影响的"
+				"什么意思呢，就是配方耗时固定，只受你设置电路的超频影响"
 				"所以这个其实还挺还原"
 			]
 			icon: "disksavior:quantum_chromodynamic_charge_super"
@@ -3132,22 +3223,27 @@
 				}
 			]
 			title: "无限中子素涡轮转子元件"
-			x: 10.0d
-			y: 0.0d
+			x: 8.0d
+			y: 3.0d
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
 			description: [
-				"木化 80个原木加岩浆（为什么是用岩浆啊）"
+				"木化 不需要原木 岩浆"
+				"&8&m（为什么是用岩浆啊）"
+				"&8&m（为什么木化没有木头啊）"
 				""
 				"&c产物太多 jei里显示不全&r"
-				"这个配方集成了原版木化和产线爆破的木化出萘"
+				"虽然显示不全"
+				"但是把木化独有的产物前置了"
+				""
+				"这个配方&a集成&r了&b原版木化&r和&b产线爆破的木化出萘&r"
 				"但是你还有要做两台木化"
 				"因为还有一台要拿来做净化水终结者"
 				"至于为什么是用木化做"
 				"我也不知道"
 				""
-				"⚠️这个配方用&b蒸馏塔&r也能做哦"
+				"⚠️这个配方用&b蒸馏塔也能做&r哦"
 				"但是jei里产物显示不全"
 				"能做木化的时候还是推荐用木化来运行"
 			]
@@ -3578,8 +3674,8 @@
 				}
 			]
 			title: "染料元件包"
-			x: 8.0d
-			y: 0.0d
+			x: 6.0d
+			y: 2.0d
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
@@ -3779,6 +3875,8 @@
 				"推荐GTL ADD的无线电网输出终端"
 				"然后加水"
 				""
+				"&c有可能会突然卡住不运行（偶发）"
+				""
 				"这个是&5EV&r可做&9IV&r可用的"
 				"能发1A &4MAX&r"
 			]
@@ -3861,7 +3959,6 @@
 			]
 			icon: "gtceu:titansteel_foil"
 			id: "42DBFD52653745C6"
-			invisible: true
 			subtitle: "请你 什么都不要问 \\n请你 什么都不要说 "
 			tasks: [{
 				id: "21ED4B85D76B3177"
@@ -3878,6 +3975,8 @@
 				"大化反 30号电路，直接用独居石粉做"
 				"&c产物太多 jei里显示不全&r"
 				"能出除了钷以外的所有稀土金属"
+				""
+				"把做催化剂的HV磁铁改为了磁钢棒"
 			]
 			icon: "gtceu:monazite_dust"
 			id: "29D5C6B3B9AB113E"
@@ -3902,12 +4001,19 @@
 		{
 			dependencies: ["38166A02EA474C1E"]
 			description: [
-				"产物太多jei显示不全"
+				"能挖t1到t6的矿"
 				""
+				"&c产物太多 jei里显示不全&r"
 				"&b别忘了有个任务还会开局送你一套原始虚空采矿机"
 				""
-				"耗时计算是用该维度矿物种类*256"
-				"输出量也会*256"
+				"t0整合了远古世界"
+				"t3整合了t1、t2"
+				"t6整合了t4、t5"
+				"也就是说你只需要搭建三台电解机"
+				"即可采集所有星球的矿"
+				""
+				"耗时计算是用该维度矿物种类*16"
+				"输出量也会*16"
 				"因为要拉长配方时间防卡顿"
 			]
 			icon: "gtceu:primitive_void_ore"
@@ -3927,12 +4033,15 @@
 				}
 			]
 			title: "原始矿机电解"
-			x: 7.0d
-			y: 2.5d
+			x: 7.5d
+			y: -0.5d
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
 			description: [
+				"现在你不需要去看哪些矿是这个等级的无人机能挖的了"
+				"能挖当前等级的无人机所有能挖的"
+				""
 				"采集模块 各个等级的无人机 32个太空电梯"
 				"还有输入若干蒸汽❤️"
 				""
@@ -3976,7 +4085,10 @@
 			description: [
 				"你不用下矿了"
 				"什么，你问我送个水库仓干什么"
-				"那是因为本私货让这个机器靠水也能工作（&2库嘻嘻&r）"
+				"那是因为本私货让这个机器&b靠水也能工作&r（&2库嘻嘻&r）"
+				"&c而且能产出蒸汽"
+				"也就是说你不用搭锅炉了"
+				"好耶"
 			]
 			icon: "gtceu:primitive_void_ore"
 			id: "66A65723FD12ABE5"
@@ -3994,7 +4106,7 @@
 				}
 				{
 					id: "045EC5E75BB59843"
-					item: "gtceu:me_output_bus"
+					item: "gtmthings:me_export_buffer"
 					type: "item"
 				}
 				{
@@ -4180,8 +4292,8 @@
 				}
 			]
 			title: "屠宰场电解"
-			x: 8.0d
-			y: 3.0d
+			x: 8.5d
+			y: 1.0d
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
@@ -4191,7 +4303,6 @@
 				"虽然那些基本都没用（"
 				""
 				"&c产物太多 jei里显示不全&r"
-				"一台顶26台"
 			]
 			icon: "gtceu:greenhouse"
 			id: "422E709728EFA718"
@@ -4210,8 +4321,8 @@
 				}
 			]
 			title: "温室电解"
-			x: 9.0d
-			y: 3.5d
+			x: 7.5d
+			y: 0.5d
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
@@ -4306,7 +4417,7 @@
 				optional_task: true
 				type: "checkmark"
 			}]
-			title: "辅助类模组"
+			title: "推荐的辅助类模组"
 			x: -1.0d
 			y: -1.0d
 		}
@@ -10813,14 +10924,17 @@
 				}
 			]
 			title: " 粒子对撞1024倍批处理"
-			x: 10.0d
-			y: 4.0d
+			x: 9.0d
+			y: 3.5d
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
 			description: [
 				"自带一个地板蓝图"
 				"可用创世神或小帮手模版放置"
+				"由8*8的有框矩形区块组成，外包一圈一区块宽的马路"
+				"&b完全贴合区块"
+				"&r&c也就是说这是一个偶数长度的地板"
 				""
 				"&a创世神"
 				"config/worldedit/schematics/diban.schem"
@@ -10893,7 +11007,14 @@
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
-			description: ["不保证可用"]
+			description: [
+				"不保证可用"
+				""
+				"在我的测试中"
+				"量子环，量子桥卡可正常工作"
+				""
+				"如果要拿去合成其他东西还是用聚爆做的吧"
+			]
 			icon: "ae2:quantum_entangled_singularity"
 			id: "419583430D2C5F74"
 			subtitle: "有声音询问三者疼不疼"
@@ -11019,6 +11140,33 @@
 			title: "部件装配线外壳压缩升阶"
 			x: -3.0d
 			y: 0.5d
+		}
+		{
+			dependencies: ["38166A02EA474C1E"]
+			description: [
+				"扭 秘银块"
+				"极为简单粗暴，化学式和水泥"
+				"锎来源去看 &b液态锎&r"
+			]
+			icon: "gtceu:californium_cyclopentadienide_bucket"
+			id: "5AAF52F53F8C6D02"
+			subtitle: "悲伤之旅"
+			tasks: [
+				{
+					id: "2DA3EA835352DF2B"
+					optional_task: true
+					type: "checkmark"
+				}
+				{
+					id: "36EA0B763C89DE74"
+					item: "gtceu:californium_cyclopentadienide_bucket"
+					optional_task: true
+					type: "item"
+				}
+			]
+			title: "单步环戊二烯化锎"
+			x: -3.5d
+			y: 9.0d
 		}
 	]
 	title: "硬盘拯救者"

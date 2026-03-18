@@ -726,30 +726,62 @@ ServerEvents.recipes(event => {
         .EUt(GTValues.VA[GTValues.ZPM] * 4096)
         .duration(9600 / 4096)
     //原始虚空采矿机电解
-    //68
-    const overworld = ['16384x gtceu:raw_pyrite', '16384x gtceu:raw_lazurite', '16384x gtceu:raw_lepidolite', '16384x gtceu:raw_salt', '16384x gtceu:raw_apatite', '16384x gtceu:raw_oilsands', '16384x gtceu:raw_silver', '16384x gtceu:raw_hematite', '16384x gtceu:raw_almandine', '16384x gtceu:raw_fullers_earth', '16384x gtceu:raw_lead', '16384x gtceu:raw_lapis', '16384x gtceu:raw_red_garnet', '16384x gtceu:raw_mica', '16384x gtceu:raw_vanadium_magnetite', '16384x gtceu:raw_calcite', '16384x gtceu:raw_amethyst', '16384x gtceu:raw_malachite', '16384x gtceu:raw_garnet_sand', '16384x gtceu:raw_yellow_limonite', '16384x gtceu:raw_magnetite', '16384x gtceu:raw_galena', '16384x gtceu:raw_diatomite', '16384x gtceu:raw_spessartine', '16384x gtceu:raw_glauconite_sand', '16384x minecraft:raw_copper', '16384x gtceu:raw_rock_salt', '16384x gtceu:raw_graphite', '16384x gtceu:raw_cinnabar', '16384x gtceu:raw_diamond', '16384x gtceu:raw_cassiterite_sand', '16384x minecraft:raw_gold', '16384x gtceu:raw_redstone', '16384x gtceu:raw_chalcopyrite', '16384x gtceu:raw_goethite', '16384x gtceu:raw_tantalite', '16384x gtceu:raw_coal', '16384x gtceu:raw_yellow_garnet', '16384x gtceu:raw_garnierite', '16384x minecraft:raw_iron', '16384x gtceu:raw_kyanite', '16384x gtceu:raw_pollucite', '16384x gtceu:raw_zeolite', '16384x gtceu:raw_ruby', '16384x gtceu:raw_asbestos', '16384x gtceu:raw_cobaltite', '16384x gtceu:raw_grossular', '16384x gtceu:raw_cassiterite', '16384x gtceu:raw_opal', '16384x gtceu:raw_sapphire', '16384x gtceu:raw_pyrope', '16384x gtceu:raw_spodumene', '16384x gtceu:raw_gypsum', '16384x gtceu:raw_pentlandite', '16384x gtceu:raw_olivine', '16384x gtceu:raw_nickel', '16384x gtceu:raw_bentonite', '16384x gtceu:raw_tricalcium_phosphate', '16384x gtceu:raw_granitic_mineral_sand', '16384x gtceu:raw_basaltic_mineral_sand', '16384x gtceu:raw_pyrolusite', '16384x gtceu:raw_soapstone', '16384x gtceu:raw_realgar', '16384x gtceu:raw_sodalite', '16384x gtceu:raw_talc', '16384x gtceu:raw_tin', '16384x gtceu:raw_green_sapphire']
-    //35
-    const nether = ['16384x gtceu:raw_barite', '16384x gtceu:raw_sulfur', '16384x gtceu:raw_chalcocite', '16384x gtceu:raw_powellite', '16384x gtceu:raw_electrotine', '16384x gtceu:raw_pyrite', '16384x gtceu:raw_redstone', '16384x gtceu:raw_certus_quartz', '16384x gtceu:raw_cinnabar', '16384x gtceu:raw_goethite', '16384x gtceu:raw_tantalite', '16384x gtceu:raw_hematite', '16384x gtceu:raw_neodymium', '16384x gtceu:raw_monazite', '16384x gtceu:raw_wulfenite', '16384x gtceu:raw_ruby', '16384x gtceu:raw_bastnasite', '16384x gtceu:raw_emerald', '16384x gtceu:raw_grossular', '16384x gtceu:raw_sphalerite', '16384x gtceu:raw_stibnite', '16384x gtceu:raw_molybdenum', '16384x gtceu:raw_alunite', '16384x gtceu:raw_blue_topaz', '16384x gtceu:raw_bornite', '16384x gtceu:raw_saltpeter', '16384x gtceu:raw_yellow_limonite', '16384x gtceu:raw_beryllium', '16384x gtceu:raw_topaz', '16384x gtceu:raw_quartzite', '16384x gtceu:raw_nether_quartz', '16384x gtceu:raw_diatomite', '16384x gtceu:raw_molybdenite', '16384x gtceu:raw_pyrolusite', '16384x gtceu:raw_tetrahedrite']
-    //51
-    const end = ['16384x gtceu:raw_sulfur', '16384x gtceu:raw_lithium', '16384x gtceu:raw_pyrite', '16384x gtceu:raw_hematite', '16384x gtceu:raw_neodymium', '16384x gtceu:raw_wulfenite', '16384x gtceu:raw_bastnasite', '16384x gtceu:raw_emerald', '16384x gtceu:raw_sphalerite', '16384x gtceu:raw_chromite', '16384x gtceu:raw_vanadium_magnetite', '16384x gtceu:raw_scheelite', '16384x gtceu:raw_bornite', '16384x gtceu:raw_saltpeter', '16384x gtceu:raw_bauxite', '16384x gtceu:raw_yellow_limonite', '16384x gtceu:raw_naquadah', '16384x gtceu:raw_beryllium', '16384x gtceu:raw_quartzite', '16384x gtceu:raw_magnetite', '16384x gtceu:raw_uraninite', '16384x gtceu:raw_diatomite', '16384x gtceu:raw_pitchblende', '16384x gtceu:raw_tetrahedrite', '16384x gtceu:raw_platinum', '16384x gtceu:raw_goethite', '16384x gtceu:raw_powellite', '16384x gtceu:raw_tantalite', '16384x gtceu:raw_redstone', '16384x gtceu:raw_barite', '16384x gtceu:raw_ilmenite', '16384x gtceu:raw_certus_quartz', '16384x gtceu:raw_cinnabar', '16384x gtceu:raw_electrotine', '16384x gtceu:raw_chalcocite', '16384x gtceu:raw_plutonium', '16384x gtceu:raw_ruby', '16384x gtceu:raw_monazite', '16384x gtceu:raw_grossular', '16384x gtceu:raw_cooperite', '16384x gtceu:raw_stibnite', '16384x gtceu:raw_palladium', '16384x gtceu:raw_molybdenum', '16384x gtceu:raw_blue_topaz', '16384x gtceu:raw_alunite', '16384x gtceu:raw_aluminium', '16384x gtceu:raw_topaz', '16384x gtceu:raw_nether_quartz', '16384x gtceu:raw_molybdenite', '16384x gtceu:raw_pyrolusite', '16384x gtceu:raw_tungstate']
-    gtr.electrolyzer('disksavior:primitive_void_ore_1')
+    //85
+    const t0 = ["1024x gtceu:raw_pyrite", "1024x gtceu:raw_lazurite", "1024x gtceu:raw_lepidolite", "1024x gtceu:raw_salt", "1024x gtceu:raw_apatite", "1024x gtceu:raw_oilsands", "1024x gtceu:raw_silver", "1024x gtceu:raw_hematite", "1024x gtceu:raw_almandine", "1024x gtceu:raw_fullers_earth", "1024x gtceu:raw_lead", "1024x gtceu:raw_lapis", "1024x gtceu:raw_red_garnet", "1024x gtceu:raw_mica", "1024x gtceu:raw_vanadium_magnetite", "1024x gtceu:raw_calcite", "1024x gtceu:raw_amethyst", "1024x gtceu:raw_malachite", "1024x gtceu:raw_garnet_sand", "1024x gtceu:raw_yellow_limonite", "1024x gtceu:raw_magnetite", "1024x gtceu:raw_galena", "1024x gtceu:raw_diatomite", "1024x gtceu:raw_spessartine", "1024x gtceu:raw_glauconite_sand", "1024x minecraft:raw_copper", "1024x gtceu:raw_rock_salt", "1024x gtceu:raw_graphite", "1024x gtceu:raw_cinnabar", "1024x gtceu:raw_diamond", "1024x gtceu:raw_cassiterite_sand", "1024x minecraft:raw_gold", "1024x gtceu:raw_redstone", "1024x gtceu:raw_chalcopyrite", "1024x gtceu:raw_goethite", "1024x gtceu:raw_tantalite", "1024x gtceu:raw_coal", "1024x gtceu:raw_yellow_garnet", "1024x gtceu:raw_garnierite", "1024x minecraft:raw_iron", "1024x gtceu:raw_kyanite", "1024x gtceu:raw_pollucite", "1024x gtceu:raw_zeolite", "1024x gtceu:raw_ruby", "1024x gtceu:raw_asbestos", "1024x gtceu:raw_cobaltite", "1024x gtceu:raw_grossular", "1024x gtceu:raw_cassiterite", "1024x gtceu:raw_opal", "1024x gtceu:raw_sapphire", "1024x gtceu:raw_pyrope", "1024x gtceu:raw_spodumene", "1024x gtceu:raw_gypsum", "1024x gtceu:raw_pentlandite", "1024x gtceu:raw_olivine", "1024x gtceu:raw_nickel", "1024x gtceu:raw_bentonite", "1024x gtceu:raw_tricalcium_phosphate", "1024x gtceu:raw_granitic_mineral_sand", "1024x gtceu:raw_basaltic_mineral_sand", "1024x gtceu:raw_pyrolusite", "1024x gtceu:raw_soapstone", "1024x gtceu:raw_realgar", "1024x gtceu:raw_sodalite", "1024x gtceu:raw_talc", "1024x gtceu:raw_tin", "1024x gtceu:raw_green_sapphire", "1024x gtceu:raw_quartzite", "1024x gtceu:raw_barite", "1024x gtceu:raw_nether_quartz", "1024x gtceu:raw_saltpeter", "1024x gtceu:raw_electrotine", "1024x gtceu:raw_alunite", "1024x gtceu:raw_blue_topaz", "1024x gtceu:raw_topaz", "1024x gtceu:raw_wulfenite", "1024x gtceu:raw_molybdenite", "1024x gtceu:raw_molybdenum", "1024x gtceu:raw_powellite", "1024x gtceu:raw_stibnite", "1024x gtceu:raw_beryllium", "1024x gtceu:raw_emerald", "1024x gtceu:raw_certus_quartz", "1024x gtceu:raw_sulfur", "1024x gtceu:raw_sphalerite"]
+    //10
+    const t1 = ["1024x gtceu:raw_plutonium", "1024x gtceu:raw_uraninite", "1024x gtceu:raw_thorium", "1024x gtceu:raw_pitchblende", "1024x gtceu:raw_bastnasite", "1024x gtceu:raw_monazite", "1024x gtceu:raw_neodymium", "1024x gtceu:raw_bauxite", "1024x gtceu:raw_ilmenite", "1024x gtceu:raw_aluminium"]
+    //10
+    const t2 = ["1024x gtceu:raw_apatite", "1024x gtceu:raw_tricalcium_phosphate", "1024x gtceu:raw_pyrochlore", "1024x gtceu:raw_bornite", "1024x gtceu:raw_cooperite", "1024x gtceu:raw_platinum", "1024x gtceu:raw_palladium", "1024x gtceu:raw_scheelite", "1024x gtceu:raw_tungstate", "1024x gtceu:raw_lithium"]
+    //47
+    const t3 = ['1024x gtceu:raw_barite', '1024x gtceu:raw_sulfur', '1024x gtceu:raw_chalcocite', '1024x gtceu:raw_powellite', '1024x gtceu:raw_electrotine', '1024x gtceu:raw_pyrite', '1024x gtceu:raw_redstone', '1024x gtceu:raw_certus_quartz', '1024x gtceu:raw_cinnabar', '1024x gtceu:raw_goethite', '1024x gtceu:raw_tantalite', '1024x gtceu:raw_hematite', '1024x gtceu:raw_neodymium', '1024x gtceu:raw_monazite', '1024x gtceu:raw_wulfenite', '1024x gtceu:raw_ruby', '1024x gtceu:raw_bastnasite', '1024x gtceu:raw_emerald', '1024x gtceu:raw_grossular', '1024x gtceu:raw_sphalerite', '1024x gtceu:raw_stibnite', '1024x gtceu:raw_molybdenum', '1024x gtceu:raw_alunite', '1024x gtceu:raw_blue_topaz', '1024x gtceu:raw_bornite', '1024x gtceu:raw_saltpeter', '1024x gtceu:raw_yellow_limonite', '1024x gtceu:raw_beryllium', '1024x gtceu:raw_topaz', '1024x gtceu:raw_quartzite', '1024x gtceu:raw_nether_quartz', '1024x gtceu:raw_diatomite', '1024x gtceu:raw_molybdenite', '1024x gtceu:raw_pyrolusite', '1024x gtceu:raw_tetrahedrite', '1024x gtceu:raw_garnierite', '1024x gtceu:raw_nickel', '1024x gtceu:raw_cobaltite', '1024x gtceu:raw_pentlandite', '1024x gtceu:raw_bentonite', '1024x gtceu:raw_magnetite', '1024x gtceu:raw_olivine', '1024x gtceu:raw_glauconite_sand', '1024x gtceu:raw_calorite', '1024x gtceu:raw_cobalt', '1024x gtceu:raw_magnesite', '1024x gtceu:raw_desh']
+    //12
+    const t4 = ["1024x gtceu:raw_wulfenite", "1024x gtceu:raw_molybdenite", "1024x gtceu:raw_molybdenum", "1024x gtceu:raw_powellite", "1024x gtceu:raw_quartzite", "1024x gtceu:raw_certus_quartz", "1024x gtceu:raw_barite", "1024x gtceu:raw_ostrum", "1024x minecraft:raw_gold", "1024x gtceu:raw_bastnasite", "1024x gtceu:raw_monazite", "1024x gtceu:raw_neodymium"]
+    //24
+    const t5 = ["1024x gtceu:raw_quartzite", "1024x gtceu:raw_barite", "1024x gtceu:raw_nether_quartz", "1024x gtceu:raw_bentonite", "1024x gtceu:raw_magnetite", "1024x gtceu:raw_olivine", "1024x gtceu:raw_glauconite_sand", "1024x gtceu:raw_celestine", "1024x gtceu:raw_cooperite", "1024x gtceu:raw_trona", "1024x gtceu:raw_sulfur", "1024x gtceu:raw_pyrite", "1024x gtceu:raw_sphalerite", "1024x gtceu:raw_blue_topaz", "1024x gtceu:raw_topaz", "1024x gtceu:raw_zircon", "1024x gtceu:raw_grossular", "1024x gtceu:raw_pyrolusite", "1024x gtceu:raw_tantalite", "1024x gtceu:raw_bauxite", "1024x gtceu:raw_ilmenite", "1024x gtceu:raw_aluminium", "1024x gtceu:raw_naquadah", "1024x gtceu:raw_plutonium"]
+    //83
+    const t6 = ['1024x gtceu:raw_sulfur', '1024x gtceu:raw_lithium', '1024x gtceu:raw_pyrite', '1024x gtceu:raw_hematite', '1024x gtceu:raw_neodymium', '1024x gtceu:raw_wulfenite', '1024x gtceu:raw_bastnasite', '1024x gtceu:raw_emerald', '1024x gtceu:raw_sphalerite', '1024x gtceu:raw_chromite', '1024x gtceu:raw_vanadium_magnetite', '1024x gtceu:raw_scheelite', '1024x gtceu:raw_bornite', '1024x gtceu:raw_saltpeter', '1024x gtceu:raw_bauxite', '1024x gtceu:raw_yellow_limonite', '1024x gtceu:raw_naquadah', '1024x gtceu:raw_beryllium', '1024x gtceu:raw_quartzite', '1024x gtceu:raw_magnetite', '1024x gtceu:raw_uraninite', '1024x gtceu:raw_diatomite', '1024x gtceu:raw_pitchblende', '1024x gtceu:raw_tetrahedrite', '1024x gtceu:raw_platinum', '1024x gtceu:raw_goethite', '1024x gtceu:raw_powellite', '1024x gtceu:raw_tantalite', '1024x gtceu:raw_redstone', '1024x gtceu:raw_barite', '1024x gtceu:raw_ilmenite', '1024x gtceu:raw_certus_quartz', '1024x gtceu:raw_cinnabar', '1024x gtceu:raw_electrotine', '1024x gtceu:raw_chalcocite', '1024x gtceu:raw_plutonium', '1024x gtceu:raw_ruby', '1024x gtceu:raw_monazite', '1024x gtceu:raw_grossular', '1024x gtceu:raw_cooperite', '1024x gtceu:raw_stibnite', '1024x gtceu:raw_palladium', '1024x gtceu:raw_molybdenum', '1024x gtceu:raw_blue_topaz', '1024x gtceu:raw_alunite', '1024x gtceu:raw_aluminium', '1024x gtceu:raw_topaz', '1024x gtceu:raw_nether_quartz', '1024x gtceu:raw_molybdenite', '1024x gtceu:raw_pyrolusite', '1024x gtceu:raw_tungstate', "1024x minecraft:raw_copper", "1024x gtceu:raw_stibnite", "1024x gtceu:raw_apatite", "1024x gtceu:raw_tricalcium_phosphate", "1024x gtceu:raw_pyrochlore", "1024x gtceu:raw_desh", "1024x gtceu:raw_magnesite", "1024x gtceu:raw_bornite", "1024x gtceu:raw_cooperite", "1024x gtceu:raw_platinum", "1024x gtceu:raw_palladium", "1024x gtceu:raw_zircon", "1024x gtceu:raw_grossular", "1024x gtceu:raw_pyrolusite", "1024x gtceu:raw_tantalite", "1024x gtceu:raw_naquadah", "1024x gtceu:raw_plutonium", "1024x gtceu:raw_garnierite", "1024x gtceu:raw_nickel", "1024x gtceu:raw_cobaltite", "1024x gtceu:raw_pentlandite", "1024x gtceu:raw_bentonite", "1024x gtceu:raw_magnetite", "1024x gtceu:raw_olivine", "1024x gtceu:raw_glauconite_sand", "1024x gtceu:raw_pitchblende", "1024x gtceu:raw_uraninite", "1024x gtceu:raw_thorium", "1024x gtceu:raw_saltpeter", "1024x gtceu:raw_diatomite", "1024x gtceu:raw_electrotine", "1024x gtceu:raw_alunite"]
+    gtr.electrolyzer('disksavior:primitive_void_ore_0')
         .notConsumable('gtceu:primitive_void_ore')
         .notConsumable('minecraft:dirt')
-        .itemOutputs(overworld)
-        .EUt(1)
-        .duration(68 * 256)
+        .itemOutputs(t0)
+        .EUt(GTValues.VA[GTValues.LV])
+        .duration((t0.length) * 16)
+    gtr.electrolyzer('disksavior:primitive_void_ore_1')
+        .notConsumable('gtceu:primitive_void_ore')
+        .notConsumable('ad_astra:moon_stone')
+        .itemOutputs(t1)
+        .EUt(GTValues.VA[GTValues.MV])
+        .duration((t1.length) * 16)
     gtr.electrolyzer('disksavior:primitive_void_ore_2')
         .notConsumable('gtceu:primitive_void_ore')
-        .notConsumable('minecraft:netherrack')
-        .itemOutputs(nether)
-        .EUt(GTValues.VA[GTValues.HV])
-        .duration(35 * 256)
+        .notConsumable('ad_astra:mars_stone')
+        .itemOutputs(t2)
+        .EUt(GTValues.VA[GTValues.MV])
+        .duration((t2.length) * 16)
     gtr.electrolyzer('disksavior:primitive_void_ore_3')
         .notConsumable('gtceu:primitive_void_ore')
+        .notConsumable('minecraft:netherrack')
+        .itemOutputs(t3.concat(t2, t1))
+        .EUt(GTValues.VA[GTValues.MV])
+        .duration((t3.length + t2.length + t1.length) * 16)
+    gtr.electrolyzer('disksavior:primitive_void_ore_4')
+        .notConsumable('gtceu:primitive_void_ore')
+        .notConsumable('kubejs:ceresstone')
+        .itemOutputs(t4)
+        .EUt(GTValues.VA[GTValues.HV])
+        .duration((t4.length) * 16)
+    gtr.electrolyzer('disksavior:primitive_void_ore_5')
+        .notConsumable('gtceu:primitive_void_ore')
+        .notConsumable('kubejs:ganymedestone')
+        .itemOutputs(t5)
+        .EUt(GTValues.VA[GTValues.HV])
+        .duration((t5.length) * 16)
+    gtr.electrolyzer('disksavior:primitive_void_ore_6')
+        .notConsumable('gtceu:primitive_void_ore')
         .notConsumable('minecraft:end_stone')
-        .itemOutputs(end)
-        .EUt(GTValues.VA[GTValues.IV])
-        .duration(51 * 256)
+        .itemOutputs(t6.concat(t5, t4))
+        .EUt(GTValues.VA[GTValues.HV])
+        .duration((t6.length + t5.length + t4.length) * 16)
     //屠宰场电解
     gtr.electrolyzer('disksavior:slaughterhouse')
         .notConsumable('64x gtceu:slaughterhouse')
@@ -889,4 +921,61 @@ ServerEvents.recipes(event => {
             .duration(r.duration * 1024)
             .outputFluids(`${r.outputFluids.split(' ')[0]} ${Number(r.outputFluids.split(' ')[1]) * 1024}`)
     })
+    //大型虚空采矿机电解，自带千倍批处理
+    //耗时规则：一种矿1t，自带千倍批处理，大概就是一种矿100k/50s，一共142种矿，共7100s
+    const all_ores = [
+        '180000x gtceu:magnetite_ore', '120000x gtceu:vanadium_magnetite_ore', '120000x gtceu:chromite_ore', '60000x gtceu:gold_ore',
+        '160000x gtceu:bauxite_ore', '80000x gtceu:ilmenite_ore', '80000x gtceu:aluminium_ore', '30000x gtceu:titanium_ore',
+        '60000x gtceu:bornite_ore', '40000x gtceu:cooperite_ore', '40000x gtceu:platinum_ore', '20000x gtceu:palladium_ore',
+        '120000x gtceu:scheelite_ore', '80000x gtceu:tungstate_ore', '40000x gtceu:lithium_ore', '20000x gtceu:tellurium_ore',
+        '180000x gtceu:pitchblende_ore', '120000x gtceu:uraninite_ore', '30000x gtceu:tungsten_ore',
+        '180000x gtceu:naquadah_ore', '80000x gtceu:enriched_naquadah_ore', '60000x gtceu:plutonium_ore', '40000x gtceu:trinium_compound_ore',
+        '280000x gtceu:tetrahedrite_ore', '140000x gtceu:copper_ore', '70000x gtceu:stibnite_ore',
+        '90000x gtceu:bastnasite_ore', '30000x gtceu:molybdenum_ore', '30000x gtceu:neodymium_ore', '30000x gtceu:monazite_ore',
+        '180000x gtceu:redstone_ore', '120000x gtceu:ruby_ore', '60000x gtceu:cinnabar_ore', '20000x gtceu:rubidium_ore',
+        '120000x gtceu:saltpeter_ore', '80000x gtceu:diatomite_ore', '80000x gtceu:electrotine_ore', '40000x gtceu:alunite_ore',
+        '90000x gtceu:beryllium_ore', '120000x gtceu:emerald_ore', '20000x gtceu:celestine_ore',
+        '60000x gtceu:grossular_ore', '40000x gtceu:pyrolusite_ore', '20000x gtceu:tantalite_ore', '20000x gtceu:zircon_ore',
+        '150000x gtceu:wulfenite_ore', '100000x gtceu:molybdenite_ore', '50000x gtceu:molybdenum_ore', '50000x gtceu:powellite_ore',
+        '90000x gtceu:goethite_ore', '60000x gtceu:yellow_limonite_ore', '60000x gtceu:hematite_ore', '30000x gtceu:gold_ore',
+        '120000x gtceu:quartzite_ore', '80000x gtceu:certus_quartz_ore', '40000x gtceu:barite_ore',
+        '210000x gtceu:blue_topaz_ore', '140000x gtceu:topaz_ore', '140000x gtceu:chalcocite_ore', '70000x gtceu:bornite_ore',
+        '240000x gtceu:nether_quartz_ore', '80000x gtceu:quartzite_ore', '50000x minecraft:ancient_debris',
+        '300000x gtceu:sulfur_ore', '200000x gtceu:pyrite_ore', '100000x gtceu:sphalerite_ore', '20000x gtceu:indium_ore',
+        '60000x gtceu:bentonite_ore', '40000x gtceu:magnetite_ore', '40000x gtceu:olivine_ore', '20000x gtceu:glauconite_sand_ore',
+        '180000x gtceu:almandine_ore', '120000x gtceu:pyrope_ore', '60000x gtceu:sapphire_ore', '60000x gtceu:green_sapphire_ore',
+        '60000x gtceu:goethite_ore', '240000x gtceu:yellow_limonite_ore', '240000x gtceu:hematite_ore', '120000x gtceu:malachite_ore',
+        '120000x gtceu:soapstone_ore', '80000x gtceu:talc_ore', '80000x gtceu:glauconite_sand_ore', '40000x gtceu:pentlandite_ore',
+        '60000x gtceu:grossular_ore', '40000x gtceu:spessartine_ore', '40000x gtceu:pyrolusite_ore', '20000x gtceu:tantalite_ore',
+        '250000x gtceu:chalcopyrite_ore', '10000x gtceu:zeolite_ore', '10000x gtceu:cassiterite_ore', '50000x gtceu:realgar_ore',
+        '240000x gtceu:coal_ore',
+        '40000x gtceu:chalcopyrite_ore', '160000x gtceu:iron_ore', '160000x gtceu:pyrite_ore', '160000x gtceu:copper_ore',
+        '240000x gtceu:magnetite_ore', '160000x gtceu:vanadium_magnetite_ore', '80000x gtceu:gold_ore',
+        '120000x gtceu:lazurite_ore', '80000x gtceu:sodalite_ore', '80000x gtceu:lapis_ore', '40000x gtceu:calcite_ore',
+        '120000x gtceu:galena_ore', '80000x gtceu:silver_ore', '40000x gtceu:lead_ore',
+        '60000x gtceu:kyanite_ore', '40000x gtceu:mica_ore', '40000x gtceu:bauxite_ore', '20000x gtceu:pollucite_ore',
+        '320000x gtceu:tin_ore', '160000x gtceu:cassiterite_ore',
+        '120000x gtceu:red_garnet_ore', '80000x gtceu:yellow_garnet_ore', '80000x gtceu:amethyst_ore', '40000x gtceu:opal_ore',
+        '240000x gtceu:basaltic_mineral_sand_ore', '160000x gtceu:granitic_mineral_sand_ore', '160000x gtceu:fullers_earth_ore', '80000x gtceu:gypsum_ore',
+        '150000x gtceu:rock_salt_ore', '10000x gtceu:salt_ore', '50000x gtceu:lepidolite_ore', '50000x gtceu:spodumene_ore',
+        '180000x gtceu:redstone_ore', '120000x gtceu:ruby_ore', '60000x gtceu:cinnabar_ore',
+        '120000x gtceu:apatite_ore', '80000x gtceu:tricalcium_phosphate_ore', '40000x gtceu:pyrochlore_ore',
+        '240000x gtceu:cassiterite_sand_ore', '160000x gtceu:garnet_sand_ore', '160000x gtceu:asbestos_ore', '80000x gtceu:diatomite_ore',
+        '240000x gtceu:oilsands_ore',
+        '120000x gtceu:graphite_ore', '80000x gtceu:diamond_ore', '40000x gtceu:coal_ore',
+        '120000x gtceu:garnierite_ore', '80000x gtceu:nickel_ore', '80000x gtceu:cobaltite_ore', '40000x gtceu:pentlandite_ore'
+    ]
+    gtr.electrolyzer("disksavior:large_void_miner")
+        .notConsumable('gtceu:large_void_miner')
+        .inputFluids("gtceu:steam 185254")
+        .itemOutputs(all_ores)
+        .EUt(GTValues.VA[GTValues.EV])
+        .duration((all_ores.length) * 1000)
+    //当然，也能用大型虚空采矿机运行
+    gtr.random_ore("disksavior:random_ore")
+        .circuit(30)
+        .inputFluids("gtceu:steam 185254")
+        .itemOutputs(all_ores)
+        .EUt(GTValues.VA[GTValues.EV])
+        .duration((all_ores.length) * 1000)
 })

@@ -3,7 +3,7 @@
 作者:Rlcyyg1108  
 仓库链接:https://github.com/rlcyyg1108/Disk-Savior  
 ***本README无法展示所有内容且更新不定期，建议安装后查看任务书***
-**更新日志请看根目录的Changelog.txt**
+**更新日志请看根目录的Disksavior_Changelog.txt**
 
 #### 介绍
 这是我给GregTech Leisure整合包写的私货  
