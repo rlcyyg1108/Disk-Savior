@@ -38,12 +38,15 @@ gtr.assembler("自定义ID")
 todo
 新手大礼包
 加点彩蛋
-小集成矿处下调
 产物太多的jei警告
 样板大礼包
 说到糖，让湿件和生物系列电路板能吃你们觉得怎么样
 巨型橡胶树
 蒸汽发电卡住（偶发）
+蒸汽发电升级蒸汽太多jei拖不进去
+
+done
+小集成矿处下调···
 石化脱硫数值调整···
 流体加热蒸汽换机器···
 硫酸铜直出电解```
@@ -53,6 +56,10 @@ todo
 大化反铟粉···
 大虚采电解···
 单步环戊二烯化锎···
+优化铊粉？···
+远古残害电解···
+普通空气加强···
+装配线压缩进阶装配线···
 */
 ServerEvents.recipes(event => {
     const gtr = event.recipes.gtceu
@@ -74,6 +81,22 @@ ServerEvents.recipes(event => {
         .itemOutputs(packed_infinity_cell('染料元件包', 'f', ['gtceu:black_dye', 'gtceu:blue_dye', 'gtceu:brown_dye', 'gtceu:cyan_dye', 'gtceu:gray_dye', 'gtceu:green_dye', 'gtceu:light_blue_dye', 'gtceu:lime_dye', 'gtceu:magenta_dye', 'gtceu:orange_dye', 'gtceu:pink_dye', 'gtceu:purple_dye', 'gtceu:red_dye', 'gtceu:white_dye', 'gtceu:yellow_dye', 'gtceu:light_gray_dye']))
         .duration(200)
         .EUt(GTValues.VA[GTValues.LV])
+    //装配线压缩进阶装配线
+    gtr.compressor('disksavior:advanced_assembly_line')
+        .itemInputs('1024x gtceu:assembly_line')
+        .itemOutputs('gtceu:advanced_assembly_line')
+        .EUt(GTValues.VA[GTValues.LuV])
+        .duration(2000)
+    event.shaped("gtlcore:advanced_assembly_line_unit", [
+        "CEC",
+        "BAB",
+        "CEC"
+    ], {
+        A: "gtceu:assembly_line_unit",
+        B: "#gtceu:circuits/luv",
+        C: "gtceu:hssg_plate",
+        E: "gtceu:rhodium_gear"
+    })
     //无限中子素涡轮转子元件
     gtr.assembler('disksavior:neutronium_turbine_rotor_infinity_cell')
         .itemInputs(
@@ -480,6 +503,17 @@ ServerEvents.recipes(event => {
         .outputFluids('gtceu:heavy_fuel 18000', 'gtceu:light_fuel 60000', 'gtceu:naphtha 24000', 'gtceu:refinery_gas 72000')
         .EUt(GTValues.VA[GTValues.HV])
         .duration(20 * 800 / 4)
+    //粉直出单步铊
+    gtr.distort('disksavior:easier_thallium_dust')
+        .itemInputs('28x #minecraft:logs', '264x gtceu:grossular_dust', '6x gtceu:sulfur_dust', '3x gtceu:carbon_dust', '2x gtceu:potassium_dust')
+        .inputFluids('gtceu:steam 28000', 'gtceu:naphtha 2800', 'gtceu:ethanol 2000')
+        .notConsumable('gtceu:flotation_cell_regulator')
+        .notConsumable('gtceu:vacuum_drying_furnace')
+        .notConsumable('gtceu:isa_mill')
+        .itemOutputs('4x gtceu:thallium_dust', '32x gtceu:calcium_dust', '32x gtceu:aluminium_dust', '16x gtceu:tungsten_dust')
+        .EUt(GTValues.VA[GTValues.UV])
+        .duration(1000)
+        .blastFurnaceTemp(800)
     //单步环戊二烯化锎
     gtr.distort('disksavior:californium_cyclopentadienide_assemble')
         .notConsumable('gtceu:mithril_block')
@@ -879,29 +913,29 @@ ServerEvents.recipes(event => {
         .EUt(GTValues.VA[GTValues.HV])
         .duration(200)
     //大集气加强
-    //100*16*40*10000*16=10.24GB
-    //基数(B)*催化剂修正值（HV~IV）*升阶补偿（一次无损超频*十倍速=40）*万倍批处理*两次无损超频
+    //100*16*40*100*16=102.4MB
+    //基数(B)*催化剂修正值（HV~IV）*升阶补偿（一次无损超频*十倍速=40）*百倍批处理*两次无损超频
     //空气
     gtr.large_gas_collector('disksavior:7')
         .notConsumable('kubejs:overworld_data')
         .notConsumable('gtceu:cold_ice_freezer')
-        .outputFluids('gtceu:liquid_air 10240000000000')
+        .outputFluids('gtceu:liquid_air 102400000000', 'gtceu:air 4096000000000')
         .EUt(GTValues.VA[GTValues.IV])
-        .duration(2000000)
+        .duration(20000)
     //下界空气
     gtr.large_gas_collector('disksavior:8')
         .notConsumable('kubejs:nether_data')
         .notConsumable('gtceu:cold_ice_freezer')
-        .outputFluids('gtceu:liquid_nether_air 10240000000000')
+        .outputFluids('gtceu:liquid_nether_air 102400000000', 'gtceu:nether_air 4096000000000')
         .EUt(GTValues.VA[GTValues.LuV])
-        .duration(2000000)
+        .duration(20000)
     //末地空气
     gtr.large_gas_collector('disksavior:9')
         .notConsumable('kubejs:end_data')
         .notConsumable('gtceu:cold_ice_freezer')
-        .outputFluids('gtceu:liquid_ender_air 10240000000000')
+        .outputFluids('gtceu:liquid_ender_air 102400000000', 'gtceu:ender_air 4096000000000')
         .EUt(GTValues.VA[GTValues.ZPM])
-        .duration(2000000)
+        .duration(20000)
     //巴纳德C空气
     gtr.large_gas_collector('disksavior:10')
         .notConsumable('kubejs:barnarda_log')
@@ -950,32 +984,32 @@ ServerEvents.recipes(event => {
     gtr.chemical_reactor('disksavior:boxi_1')
         .itemInputs('gtceu:tetrahedrite_dust')
         .inputFluids('gtceu:nitric_acid 100')
-        .itemOutputs('8x gtceu:platinum_group_sludge_dust','gtceu:copper_dust')
-        .outputFluids('gtceu:oxygen 1000','gtceu:sulfuric_acid 1000')
+        .itemOutputs('8x gtceu:platinum_group_sludge_dust', 'gtceu:copper_dust')
+        .outputFluids('gtceu:oxygen 1000', 'gtceu:sulfuric_acid 1000')
         .EUt(GTValues.VA[GTValues.LV])
         .duration(50)
     //斑铜
     gtr.chemical_reactor('disksavior:boxi_2')
         .itemInputs('gtceu:bornite_dust')
         .inputFluids('gtceu:nitric_acid 100')
-        .itemOutputs('8x gtceu:platinum_group_sludge_dust','gtceu:copper_dust')
-        .outputFluids('gtceu:oxygen 1000','gtceu:sulfuric_acid 1000')
+        .itemOutputs('8x gtceu:platinum_group_sludge_dust', 'gtceu:copper_dust')
+        .outputFluids('gtceu:oxygen 1000', 'gtceu:sulfuric_acid 1000')
         .EUt(GTValues.VA[GTValues.LV])
         .duration(50)
     //辉铜
     gtr.chemical_reactor('disksavior:boxi_3')
         .itemInputs('gtceu:chalcocite_dust')
         .inputFluids('gtceu:nitric_acid 100')
-        .itemOutputs('8x gtceu:platinum_group_sludge_dust','gtceu:copper_dust')
-        .outputFluids('gtceu:oxygen 1000','gtceu:sulfuric_acid 1000')
+        .itemOutputs('8x gtceu:platinum_group_sludge_dust', 'gtceu:copper_dust')
+        .outputFluids('gtceu:oxygen 1000', 'gtceu:sulfuric_acid 1000')
         .EUt(GTValues.VA[GTValues.LV])
         .duration(50)
     //谢尔顿
     gtr.chemical_reactor('disksavior:boxi_4')
         .itemInputs('gtceu:cooperite_dust')
         .inputFluids('gtceu:nitric_acid 100')
-        .itemOutputs('16x gtceu:platinum_group_sludge_dust','gtceu:nickel_dust')
-        .outputFluids('gtceu:oxygen 1000','gtceu:sulfuric_acid 1000')
+        .itemOutputs('16x gtceu:platinum_group_sludge_dust', 'gtceu:nickel_dust')
+        .outputFluids('gtceu:oxygen 1000', 'gtceu:sulfuric_acid 1000')
         .EUt(GTValues.VA[GTValues.LV])
         .duration(50)
     //一些去除维度限制的配方

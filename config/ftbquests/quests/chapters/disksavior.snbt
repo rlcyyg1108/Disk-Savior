@@ -55,20 +55,17 @@
 				"&b - 产线撕裂"
 				"&b - GTL additions"
 				"&b - 高级舱室（给GTL提供批处理功能，巨幅减少卡顿）"
-				""
-				"&4⚠️不装GTL additions可能会报错"
+				"&c⚠️不装GTL additions可能会报错"
 				""
 				"这是我给GregTech Leisure整合包写的私货"
 				"基本不考虑平衡性"
 				"存在一些跳科技内容和数值崩坏"
-				""
 				"最开始是因为我存档因各种维度跑图体积过大"
 				"才写的这个私货"
 				"用了此私货你几乎不用跑图了"
 				"存档大小可能到毕业都只有100MB出头"
 				""
 				"对了，左上角那个原木任务是我写任务用的，请无视"
-				""
 				"&l&o&n&m&8任务的副标题可以去查查都是什么（&2库嘻嘻&r&l&o&n&m&8）"
 			]
 			icon: "gtlcore:item_infinity_cell"
@@ -489,7 +486,7 @@
 				}
 			]
 			title: "大虚采电解"
-			x: 8.5d
+			x: 9.5d
 			y: -1.0d
 		}
 		{
@@ -556,8 +553,8 @@
 				}
 			]
 			title: "九倍压缩核废料离心（一号电路）"
-			x: 0.5d
-			y: 3.0d
+			x: -1.0d
+			y: 4.0d
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
@@ -589,17 +586,19 @@
 			dependencies: ["38166A02EA474C1E"]
 			description: [
 				"三个维度的数据加上&b寒冰冷冻机"
+				"能抽液态空气和对应的普通空气"
+				"&c但是普通空气jei里不会显示"
+				""
 				"超超超巨巨巨巨巨巨巨巨巨巨巨巨巨巨加强"
 				"原版大集气并行数过少，Add的集气阶段解锁过晚，遂写"
 				"下一页是数值计算公式"
 				""
 				"甚至还能抽&a巴纳德C空气"
 				"{@pagebreak}"
-				"输出量(B)=100*16*40*10000*16=10.24GB"
-				"基数(B)*催化剂修正值（HV~IV）*升阶补偿（一次无损超频*十倍速=40）*万倍批处理*两次无损超频"
+				"100*16*40*100*16=102.4MB"
+				"基数(B)*催化剂修正值（HV~IV）*升阶补偿（一次无损超频*十倍速=40）*百倍批处理*两次无损超频"
 				""
-				"耗时(t)=10*20*10000=10000s="
-				"普通空气10*万倍批处理"
+				"耗时(t)=10*20*100=20000s"
 				""
 				"我也不知道我有没有算错，反正效率很高就是了"
 			]
@@ -757,7 +756,7 @@
 				type: "item"
 			}]
 			title: "t8"
-			x: 4.0d
+			x: 6.0d
 			y: 0.0d
 		}
 		{
@@ -977,8 +976,8 @@
 				}
 			]
 			title: "粉直出铂系矿泥"
-			x: -1.0d
-			y: 4.0d
+			x: -1.5d
+			y: 5.0d
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
@@ -3048,8 +3047,8 @@
 				}
 			]
 			title: "粉直出单步铟"
-			x: -1.5d
-			y: 5.0d
+			x: 0.5d
+			y: 3.0d
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
@@ -3697,8 +3696,8 @@
 				}
 			]
 			title: "蒸汽冷冻蒸馏水"
-			x: -2.0d
-			y: 6.0d
+			x: 0.0d
+			y: 9.5d
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
@@ -3797,7 +3796,7 @@
 				}
 			]
 			title: "进阶无尽钻机钻全部维度流体"
-			x: 6.5d
+			x: 7.5d
 			y: 0.0d
 		}
 		{
@@ -3863,8 +3862,8 @@
 				}
 			]
 			title: "木化出16种净化水"
-			x: -3.0d
-			y: 8.0d
+			x: 12.0d
+			y: -5.0d
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
@@ -3876,6 +3875,7 @@
 				"然后加水"
 				""
 				"&c有可能会突然卡住不运行（偶发）"
+				"当功率电压超过转子支架等级时，可能会直接停摆"
 				""
 				"这个是&5EV&r可做&9IV&r可用的"
 				"能发1A &4MAX&r"
@@ -4001,17 +4001,18 @@
 		{
 			dependencies: ["38166A02EA474C1E"]
 			description: [
-				"能挖t1到t6的矿"
+				"能挖t0到t6的矿"
 				""
 				"&c产物太多 jei里显示不全&r"
 				"&b别忘了有个任务还会开局送你一套原始虚空采矿机"
 				""
 				"t0整合了远古世界"
-				"t3整合了t1、t2"
-				"t6整合了t4、t5"
-				"也就是说你只需要搭建三台电解机"
-				"即可采集所有星球的矿"
-				""
+				"t3整合了t1、t2&b(远古残骸也有，但是产量是别的的1/64)"
+				"&rt6整合了t4、t5"
+				"也就是说你只需要&b搭建三台电解机"
+				"分别放入&6泥土&r、&c下界岩&r、&e末地石"
+				"&r&a即可采集所有星球的矿"
+				"&r"
 				"耗时计算是用该维度矿物种类*16"
 				"输出量也会*16"
 				"因为要拉长配方时间防卡顿"
@@ -4033,7 +4034,7 @@
 				}
 			]
 			title: "原始矿机电解"
-			x: 7.5d
+			x: 8.5d
 			y: -0.5d
 		}
 		{
@@ -4046,6 +4047,9 @@
 				"还有输入若干蒸汽❤️"
 				""
 				"&c产物太多 jei里显示不全&r"
+				""
+				"&c可能会与 &bKirin的神人私货&r &c的二号电路无算力太空电梯冲突"
+				"&c导致集大成无法运行"
 				""
 				"让你用两台资源采集模块就能挖所有东西"
 				"一台挖矿，一台抽流体"
@@ -4292,7 +4296,7 @@
 				}
 			]
 			title: "屠宰场电解"
-			x: 8.5d
+			x: 9.5d
 			y: 1.0d
 		}
 		{
@@ -4321,7 +4325,7 @@
 				}
 			]
 			title: "温室电解"
-			x: 7.5d
+			x: 8.5d
 			y: 0.5d
 		}
 		{
@@ -11076,8 +11080,8 @@
 				}
 			]
 			title: "单步石化脱硫"
-			x: 3.5d
-			y: 9.0d
+			x: -2.0d
+			y: 6.0d
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
@@ -11165,8 +11169,224 @@
 				}
 			]
 			title: "单步环戊二烯化锎"
-			x: -3.5d
+			x: 3.5d
 			y: 9.0d
+		}
+		{
+			id: "237CB15FA9DE578A"
+			rewards: [{
+				count: 256
+				id: "62E1BC1E02756A29"
+				item: "kubejs:glacio_spirit"
+				type: "item"
+			}]
+			subtitle: "哈 邪道扎里内罗 \\n哈 盗取必然之物 "
+			tasks: [{
+				id: "52018782C28F64E3"
+				item: {
+					Count: 1
+					id: "ad_astra_rocketed:tier_7_rocket"
+					tag: { }
+				}
+				type: "item"
+				weak_nbt_match: true
+			}]
+			title: "t7"
+			x: 4.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["38166A02EA474C1E"]
+			description: ["相比撕裂的，有粉直出"]
+			icon: "gtceu:thallium_dust"
+			id: "2D06CC060D592292"
+			subtitle: " 在风暴的中央"
+			tasks: [
+				{
+					id: "5D90B54D96C62846"
+					optional_task: true
+					type: "checkmark"
+				}
+				{
+					icon: "gtceu:thallium_dust"
+					id: "7B3D78DA434021EA"
+					item: "gtceu:thallium_dust"
+					optional_task: true
+					type: "item"
+				}
+			]
+			title: "粉直出单步铊"
+			x: 4.0d
+			y: 10.0d
+		}
+		{
+			dependencies: ["38166A02EA474C1E"]
+			description: [
+				"现在不需要吃装配线自动化了"
+				"直接上样板总成"
+				"嘻嘻嘻嘻啊哈哈哈哈"
+			]
+			id: "716F30B78C99711B"
+			subtitle: "虚无的\"应存之晨\""
+			tasks: [
+				{
+					id: "50A09DC439B5E393"
+					optional_task: true
+					type: "checkmark"
+				}
+				{
+					id: "1D8A8C420BF065B5"
+					item: "gtceu:assembly_line"
+					optional_task: true
+					type: "item"
+				}
+				{
+					id: "7995A47BD8CFA5C9"
+					item: "gtceu:advanced_assembly_line"
+					optional_task: true
+					type: "item"
+				}
+				{
+					id: "1E6109F0731EA6C7"
+					item: "gtlcore:advanced_assembly_line_unit"
+					optional_task: true
+					type: "item"
+				}
+			]
+			title: "装配线压缩进阶装配线"
+			x: -7.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["38166A02EA474C1E"]
+			description: [
+				"开局就能用"
+				"电池电有限，省着点用"
+			]
+			icon: "gtceu:integrated_ore_processor"
+			id: "4A7DB67C708FB300"
+			rewards: [{
+				id: "1406D492781AD4BD"
+				item: {
+					Count: 1
+					id: "ae2:portable_item_cell_16k"
+					tag: {
+						RepairCost: 0
+						amts: [L;
+							16L
+							1L
+							128L
+							34L
+							1L
+							1L
+							1L
+							1L
+							1L
+							16L
+							1L
+							1L
+							94L
+							1L
+							48L
+							16L
+							1L
+						]
+						display: {
+							Name: "{\"text\":\"小op礼包\"}"
+						}
+						ic: 362L
+						internalCurrentPower: 19539.0d
+						keys: [
+							{
+								"#c": "ae2:i"
+								id: "gtceu:lv_lithium_battery"
+								tag: {
+									Charge: 120000L
+								}
+							}
+							{
+								"#c": "ae2:i"
+								id: "gtceu:tag_filter_me_stock_bus_part_machine"
+							}
+							{
+								"#c": "ae2:i"
+								id: "gtceu:sturdy_machine_casing"
+							}
+							{
+								"#c": "ae2:i"
+								id: "gtceu:tungstensteel_pipe_casing"
+							}
+							{
+								"#c": "ae2:i"
+								id: "gtceu:lv_battery_buffer_16x"
+							}
+							{
+								"#c": "ae2:i"
+								id: "gtceu:law_cleaning_gravity_configuration_maintenance_hatch"
+							}
+							{
+								"#c": "ae2:i"
+								id: "gtceu:zpm_muffler_hatch"
+							}
+							{
+								"#c": "ae2:i"
+								id: "gtladditions:super_parallel_hatch"
+							}
+							{
+								"#c": "ae2:i"
+								id: "gtceu:lv_energy_input_hatch_16a"
+							}
+							{
+								"#c": "ae2:i"
+								id: "gtceu:tungstensteel_gearbox"
+							}
+							{
+								"#c": "ae2:i"
+								id: "gtceu:integrated_ore_processor"
+							}
+							{
+								"#c": "ae2:i"
+								id: "gtceu:reservoir_hatch"
+							}
+							{
+								"#c": "ae2:i"
+								id: "gtceu:clean_machine_casing"
+							}
+							{
+								"#c": "ae2:i"
+								id: "kubejs:suprachronal_mainframe_complex"
+								tag: {
+									display: {
+										Name: "[{\"text\":\"是不是感觉小op有点慢？\",\"color\":\"red\",\"bold\":false,\"italic\":true,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false}]"
+									}
+								}
+							}
+							{
+								"#c": "ae2:i"
+								id: "gtceu:laminated_glass"
+							}
+							{
+								"#c": "ae2:i"
+								id: "gtceu:blue_steel_frame"
+							}
+							{
+								"#c": "ae2:i"
+								id: "gtmthings:me_export_buffer"
+							}
+						]
+					}
+				}
+				type: "item"
+			}]
+			subtitle: "日落伊甸园"
+			tasks: [{
+				id: "76B0051577944F01"
+				optional_task: true
+				type: "checkmark"
+			}]
+			title: "小op礼包"
+			x: -2.0d
+			y: 2.0d
 		}
 	]
 	title: "硬盘拯救者"
