@@ -61,11 +61,12 @@ todo
 碎岩机电解
 样板大礼包
 
+加警告加警告加警告加警告加警告加警告加警告加警告加警告加警告加警告加警告加警告加警告加警告
 
 
 
 
-加警告
+
 done
 小集成矿处下调···
 石化脱硫数值调整···
@@ -91,6 +92,15 @@ done
 硝酸锕镭```
 部件装配线下调···
 量子点···
+粒子对撞批处理加主机必要条件···
+流体钻机电解说明，每次升级电压提供16倍输出，耗时不变···
+拉大样板调试工具的任务图标···
+改名，净化水终结者···
+新任务指引···
+无限透镜原件包···
+超级并行控制仓下调IV···
+
+
 
 
 
@@ -102,10 +112,12 @@ PlayerEvents.loggedIn(event => {
     const player = event.player;
     player.tell("§a欢迎使用『§r§e硬盘拯救者§r§a』!")
     player.tell("§a当前版本为§r §eV16")
+    player.tell("§c当前版本并不完善，可能有较多bug!")
     player.tell("§a本私货自带任务书,请仔细阅读")
     player.tell("§7========================================")
     player.tell("§c⚠️不装GTL additions可能会报错")
     player.tell("§c⚠️本私货需要在GTL core开启原始虚空采矿机")
+    player.tell("§c⚠️蒸汽发电升级系列有可能会突然卡住不运行（偶发），常见于当功率高于转子支架等级使，暂时解决方法，用定时红石信号开关机可勉强解决问题")
     player.tell("§7========================================")
     player.tell("§l§e推荐安装")
     player.tell("§b - 产线爆破")
@@ -130,10 +142,24 @@ ServerEvents.recipes(event => {
     }
     //染料元件包
     gtr.assembler('disksavior:dye_pack')
+        .circuit(1)
         .itemInputs('32x gtceu:salt_dust')
         .inputFluids('gtceu:sulfuric_acid 4000')
         .itemOutputs(packed_infinity_cell('染料元件包', 'f', ['gtceu:black_dye', 'gtceu:blue_dye', 'gtceu:brown_dye', 'gtceu:cyan_dye', 'gtceu:gray_dye', 'gtceu:green_dye', 'gtceu:light_blue_dye', 'gtceu:lime_dye', 'gtceu:magenta_dye', 'gtceu:orange_dye', 'gtceu:pink_dye', 'gtceu:purple_dye', 'gtceu:red_dye', 'gtceu:white_dye', 'gtceu:yellow_dye', 'gtceu:light_gray_dye']))
         .duration(200)
+        .EUt(GTValues.VA[GTValues.LV])
+    //透镜元件包
+    gtr.assembler('disksavior:glass_lens_pack')
+        .circuit(2)
+        .itemInputs('64x gtceu:salt_dust', '64x gtceu:glass_lens')
+        .inputFluids('gtceu:sulfuric_acid 16000')
+        .itemOutputs(packed_infinity_cell('透镜元件包', 'i', [
+            //16色透镜
+            'gtceu:white_glass_lens', 'gtceu:orange_glass_lens', 'gtceu:magenta_glass_lens', 'gtceu:light_blue_glass_lens', 'gtceu:yellow_glass_lens', 'gtceu:lime_glass_lens', 'gtceu:pink_glass_lens', 'gtceu:gray_glass_lens', 'gtceu:light_gray_glass_lens', 'gtceu:cyan_glass_lens', 'gtceu:purple_glass_lens', 'gtceu:blue_glass_lens', 'gtceu:brown_glass_lens', 'gtceu:green_glass_lens', 'gtceu:red_glass_lens', 'gtceu:black_glass_lens',
+            //宝石透镜，没有非线性光学透镜
+            'gtceu:diamond_lens', 'gtceu:nether_star_lens', 'gtceu:ruby_lens', 'gtceu:emerald_lens', 'gtceu:sapphire_lens', 'gtceu:glass_lens', 'gtceu:amethyst_lens'
+        ]))
+        .duration(2000)
         .EUt(GTValues.VA[GTValues.LV])
     //装配线压缩进阶装配线
     gtr.compressor('disksavior:advanced_assembly_line')
@@ -451,9 +477,16 @@ ServerEvents.recipes(event => {
         .itemOutputs('gtladditions:super_parallel_hatch')
         .EUt(GTValues.VA[GTValues.IV])
         .duration(20)
+    //超级并行控制仓下调IV
+    gtr.assembler('disksavior:super_parallel_hatch')
+        .itemInputs('512x gtceu:iv_parallel_hatch', '256x gtceu:iv_sensor', '256x gtceu:iv_emitter', '512x #gtceu:circuits/luv', '768x #gtceu:circuits/iv', '1152x #gtceu:circuits/ev', '1728x #gtceu:circuits/hv', '2592x #gtceu:circuits/mv', '2592x #gtceu:circuits/lv')
+        .inputFluids('gtceu:glue 185254000')
+        .itemOutputs('1x gtladditions:super_parallel_hatch')
+        .EUt(GTValues.VA[GTValues.LuV])
+        .duration(2000)
     //部件装配线下调IV
     gtr.assembler("disksavior:component_assembly_line")
-        .itemInputs('256x gtceu:assembly_line', '256x gtceu:assembly_line_casing', '512x gtceu:assembly_line_unit', '256x gtceu:iv_robot_arm', '512x gtceu:iv_conveyor_module', '512x gtceu:iv_electric_motor', '256x kubejs:luv_universal_circuit', '320x kubejs:iv_universal_circuit', '384x kubejs:ev_universal_circuit')
+        .itemInputs('256x gtceu:assembly_line', '256x gtceu:assembly_line_casing', '512x gtceu:assembly_line_unit', '256x gtceu:iv_robot_arm', '512x gtceu:iv_conveyor_module', '512x gtceu:iv_electric_motor', '256x #gtceu/circuits/luv', '320x #gtceu/circuits/iv', '384x #gtceu/circuits/ev')
         .inputFluids('gtceu:glue 185254000')
         .itemOutputs('gtceu:component_assembly_line')
         .EUt(GTValues.VA[GTValues.LuV])

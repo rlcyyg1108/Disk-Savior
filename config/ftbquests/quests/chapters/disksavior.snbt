@@ -2989,19 +2989,46 @@
 				type: "item"
 			}]
 			subtitle: "脳動説"
-			tasks: [{
-				id: "620AF762CAAB6A8D"
-				optional_task: true
-				type: "checkmark"
-			}]
+			tasks: [
+				{
+					id: "10F682DC0237623D"
+					item: "gtceu:mv_laser_engraver"
+					optional_task: true
+					type: "item"
+				}
+				{
+					id: "5B288F3F168F4A52"
+					item: "gtceu:hv_laser_engraver"
+					optional_task: true
+					type: "item"
+				}
+				{
+					id: "0681E05EC87D02E8"
+					item: "gtceu:ev_laser_engraver"
+					optional_task: true
+					type: "item"
+				}
+				{
+					id: "1F025ED7EC641AC6"
+					item: "gtceu:iv_laser_engraver"
+					optional_task: true
+					type: "item"
+				}
+				{
+					id: "55056B5E719000E4"
+					item: "gtceu:large_engraving_laser"
+					optional_task: true
+					type: "item"
+				}
+			]
 			title: "激光蚀刻宝石样板礼包"
-			x: 7.0d
-			y: 2.5d
+			x: 8.0d
+			y: 3.0d
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
 			description: [
-				"扭"
+				"扭 锇块 一号电路"
 				"比撕裂的还少一步"
 			]
 			icon: "gtceu:fullerene_dust"
@@ -3229,8 +3256,8 @@
 				}
 			]
 			title: "无限中子素涡轮转子元件"
-			x: 8.0d
-			y: 3.0d
+			x: 9.0d
+			y: 3.5d
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
@@ -3276,6 +3303,8 @@
 		{
 			dependencies: ["38166A02EA474C1E"]
 			description: [
+				"组装机一号电路"
+				""
 				"有循环不能下单怎么办？"
 				"用库存拉取"
 				"会串怎么办？"
@@ -3680,8 +3709,8 @@
 				}
 			]
 			title: "染料元件包"
-			x: 6.0d
-			y: 2.0d
+			x: 7.0d
+			y: 2.5d
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
@@ -3809,6 +3838,8 @@
 		{
 			dependencies: ["38166A02EA474C1E"]
 			description: [
+				"霜原石电解"
+				""
 				"效率比爆破的稍微高一点点（真的只有一点点）"
 				""
 				"我知道这个东西配方很多"
@@ -3840,6 +3871,8 @@
 		{
 			dependencies: ["38166A02EA474C1E"]
 			description: [
+				"净化水终结者"
+				""
 				"势大力沉直接把杂质全离心出来"
 				"还能精准控制杂质分布"
 				"强劲无比啊离心机大人"
@@ -4728,7 +4761,11 @@
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
-			description: ["相比撕裂的，有粉直出"]
+			description: [
+				"扭"
+				""
+				"相比撕裂的，有粉直出"
+			]
 			icon: "gtceu:thallium_dust"
 			id: "2D06CC060D592292"
 			subtitle: " 在风暴的中央"
@@ -11326,22 +11363,14 @@
 				}
 			]
 			subtitle: "哟咦呀囔塞能呜给哦咦啊啊啊啊啊 \\n啊啊啊呃呀咦噜哦哟啊噜哦呀噶呃啊 "
-			tasks: [
-				{
-					id: "0D56D12FE86B8690"
-					optional_task: true
-					type: "checkmark"
-				}
-				{
-					id: "1EADD144489A60E0"
-					item: "gtceu:super_particle_collider"
-					optional_task: true
-					type: "item"
-				}
-			]
+			tasks: [{
+				id: "1EADD144489A60E0"
+				item: "gtceu:super_particle_collider"
+				type: "item"
+			}]
 			title: " 粒子对撞1024倍批处理"
-			x: 9.0d
-			y: 3.5d
+			x: 10.0d
+			y: 4.0d
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
@@ -11404,6 +11433,8 @@
 			]
 			icon: "gtceu:assembly_line"
 			id: "5E348961A17CB244"
+			shape: "none"
+			size: 4.0d
 			subtitle: "铁棘一节一节地被切去 一节一节的被切去 \\n胸口如同被撬开一样 \\n一节一节地切去 一节一节地切去 \\n向着你 "
 			tasks: [
 				{
@@ -11419,8 +11450,8 @@
 					type: "item"
 				}
 			]
-			x: 1.5d
-			y: -2.0d
+			x: 4.5d
+			y: -4.5d
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
@@ -11472,6 +11503,8 @@
 				item: "gtlcore:debug_pattern_test"
 				type: "item"
 			}]
+			shape: "none"
+			size: 4.0d
 			subtitle: "渐渐 渐渐 此刻正垂降而下 \\n警报 我望见你了啊 \\n警报 仅剩片刻了 \\n警报 迷雾将消散啊 \\n警报 整个城市都在 "
 			tasks: [{
 				id: "2AF149A0A888E17B"
@@ -11479,12 +11512,17 @@
 				title: "配方样板调试工具 使用教程"
 				type: "checkmark"
 			}]
-			x: 2.0d
-			y: -3.0d
+			x: 7.5d
+			y: -7.5d
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
-			description: [""]
+			description: [
+				"扭 山铜块 一号电路"
+				""
+				"极端简化，连催化剂都不考虑"
+				"化学扭曲不扭曲一下化学怎么行"
+			]
 			icon: "gtceu:actinium_radium_nitrate_solution_bucket"
 			id: "665428795B411207"
 			subtitle: "明日便将携你飞升至苍穹"
@@ -11496,7 +11534,7 @@
 				}
 				{
 					id: "57BA2E301D1ACDCC"
-					item: "gtceu:actinium_radium_nitrate_solution_bucket"
+					item: "gtceu:francium_dust"
 					optional_task: true
 					type: "item"
 				}
@@ -11507,7 +11545,11 @@
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
-			description: [""]
+			description: [
+				"中子素块 一号电路"
+				""
+				"根据化学式暴力合成"
+			]
 			icon: "gtceu:quantum_dots_bucket"
 			id: "4955BA9B1BC39224"
 			subtitle: "分明应当即刻抵达耳畔"
@@ -11554,6 +11596,597 @@
 			title: "部件装配线下调IV"
 			x: -4.0d
 			y: 1.0d
+		}
+		{
+			dependencies: ["38166A02EA474C1E"]
+			description: ["没有非线性光学透镜"]
+			icon: {
+				Count: 1
+				id: "ae2:portable_item_cell_16k"
+				tag: {
+					RepairCost: 0
+					amts: [L;
+						1L
+						1L
+						1L
+						1L
+						1L
+						1L
+						1L
+						1L
+						1L
+						1L
+						1L
+						1L
+						1L
+						1L
+						1L
+						1L
+						1L
+						1L
+						1L
+						1L
+						1L
+						1L
+						1L
+					]
+					display: {
+						Name: "{\"text\":\"透镜元件包\"}"
+					}
+					ic: 23L
+					internalCurrentPower: 20000.0d
+					keys: [
+						{
+							"#c": "ae2:i"
+							id: "expatternprovider:infinity_cell"
+							tag: {
+								record: {
+									"#c": "ae2:i"
+									id: "gtceu:white_glass_lens"
+								}
+							}
+						}
+						{
+							"#c": "ae2:i"
+							id: "expatternprovider:infinity_cell"
+							tag: {
+								record: {
+									"#c": "ae2:i"
+									id: "gtceu:orange_glass_lens"
+								}
+							}
+						}
+						{
+							"#c": "ae2:i"
+							id: "expatternprovider:infinity_cell"
+							tag: {
+								record: {
+									"#c": "ae2:i"
+									id: "gtceu:magenta_glass_lens"
+								}
+							}
+						}
+						{
+							"#c": "ae2:i"
+							id: "expatternprovider:infinity_cell"
+							tag: {
+								record: {
+									"#c": "ae2:i"
+									id: "gtceu:light_blue_glass_lens"
+								}
+							}
+						}
+						{
+							"#c": "ae2:i"
+							id: "expatternprovider:infinity_cell"
+							tag: {
+								record: {
+									"#c": "ae2:i"
+									id: "gtceu:yellow_glass_lens"
+								}
+							}
+						}
+						{
+							"#c": "ae2:i"
+							id: "expatternprovider:infinity_cell"
+							tag: {
+								record: {
+									"#c": "ae2:i"
+									id: "gtceu:lime_glass_lens"
+								}
+							}
+						}
+						{
+							"#c": "ae2:i"
+							id: "expatternprovider:infinity_cell"
+							tag: {
+								record: {
+									"#c": "ae2:i"
+									id: "gtceu:pink_glass_lens"
+								}
+							}
+						}
+						{
+							"#c": "ae2:i"
+							id: "expatternprovider:infinity_cell"
+							tag: {
+								record: {
+									"#c": "ae2:i"
+									id: "gtceu:gray_glass_lens"
+								}
+							}
+						}
+						{
+							"#c": "ae2:i"
+							id: "expatternprovider:infinity_cell"
+							tag: {
+								record: {
+									"#c": "ae2:i"
+									id: "gtceu:light_gray_glass_lens"
+								}
+							}
+						}
+						{
+							"#c": "ae2:i"
+							id: "expatternprovider:infinity_cell"
+							tag: {
+								record: {
+									"#c": "ae2:i"
+									id: "gtceu:cyan_glass_lens"
+								}
+							}
+						}
+						{
+							"#c": "ae2:i"
+							id: "expatternprovider:infinity_cell"
+							tag: {
+								record: {
+									"#c": "ae2:i"
+									id: "gtceu:purple_glass_lens"
+								}
+							}
+						}
+						{
+							"#c": "ae2:i"
+							id: "expatternprovider:infinity_cell"
+							tag: {
+								record: {
+									"#c": "ae2:i"
+									id: "gtceu:blue_glass_lens"
+								}
+							}
+						}
+						{
+							"#c": "ae2:i"
+							id: "expatternprovider:infinity_cell"
+							tag: {
+								record: {
+									"#c": "ae2:i"
+									id: "gtceu:brown_glass_lens"
+								}
+							}
+						}
+						{
+							"#c": "ae2:i"
+							id: "expatternprovider:infinity_cell"
+							tag: {
+								record: {
+									"#c": "ae2:i"
+									id: "gtceu:green_glass_lens"
+								}
+							}
+						}
+						{
+							"#c": "ae2:i"
+							id: "expatternprovider:infinity_cell"
+							tag: {
+								record: {
+									"#c": "ae2:i"
+									id: "gtceu:red_glass_lens"
+								}
+							}
+						}
+						{
+							"#c": "ae2:i"
+							id: "expatternprovider:infinity_cell"
+							tag: {
+								record: {
+									"#c": "ae2:i"
+									id: "gtceu:black_glass_lens"
+								}
+							}
+						}
+						{
+							"#c": "ae2:i"
+							id: "expatternprovider:infinity_cell"
+							tag: {
+								record: {
+									"#c": "ae2:i"
+									id: "gtceu:diamond_lens"
+								}
+							}
+						}
+						{
+							"#c": "ae2:i"
+							id: "expatternprovider:infinity_cell"
+							tag: {
+								record: {
+									"#c": "ae2:i"
+									id: "gtceu:nether_star_lens"
+								}
+							}
+						}
+						{
+							"#c": "ae2:i"
+							id: "expatternprovider:infinity_cell"
+							tag: {
+								record: {
+									"#c": "ae2:i"
+									id: "gtceu:ruby_lens"
+								}
+							}
+						}
+						{
+							"#c": "ae2:i"
+							id: "expatternprovider:infinity_cell"
+							tag: {
+								record: {
+									"#c": "ae2:i"
+									id: "gtceu:emerald_lens"
+								}
+							}
+						}
+						{
+							"#c": "ae2:i"
+							id: "expatternprovider:infinity_cell"
+							tag: {
+								record: {
+									"#c": "ae2:i"
+									id: "gtceu:sapphire_lens"
+								}
+							}
+						}
+						{
+							"#c": "ae2:i"
+							id: "expatternprovider:infinity_cell"
+							tag: {
+								record: {
+									"#c": "ae2:i"
+									id: "gtceu:glass_lens"
+								}
+							}
+						}
+						{
+							"#c": "ae2:i"
+							id: "expatternprovider:infinity_cell"
+							tag: {
+								record: {
+									"#c": "ae2:i"
+									id: "gtceu:amethyst_lens"
+								}
+							}
+						}
+					]
+				}
+			}
+			id: "60C488D87659EF8E"
+			subtitle: "Nurse Cafe"
+			tasks: [
+				{
+					id: "0033C57C867640E4"
+					optional_task: true
+					type: "checkmark"
+				}
+				{
+					id: "3E9A7AACC990A38A"
+					item: {
+						Count: 1
+						id: "ae2:portable_item_cell_16k"
+						tag: {
+							RepairCost: 0
+							amts: [L;
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+							]
+							display: {
+								Name: "{\"text\":\"透镜元件包\"}"
+							}
+							ic: 23L
+							internalCurrentPower: 20000.0d
+							keys: [
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "gtceu:white_glass_lens"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "gtceu:orange_glass_lens"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "gtceu:magenta_glass_lens"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "gtceu:light_blue_glass_lens"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "gtceu:yellow_glass_lens"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "gtceu:lime_glass_lens"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "gtceu:pink_glass_lens"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "gtceu:gray_glass_lens"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "gtceu:light_gray_glass_lens"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "gtceu:cyan_glass_lens"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "gtceu:purple_glass_lens"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "gtceu:blue_glass_lens"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "gtceu:brown_glass_lens"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "gtceu:green_glass_lens"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "gtceu:red_glass_lens"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "gtceu:black_glass_lens"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "gtceu:diamond_lens"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "gtceu:nether_star_lens"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "gtceu:ruby_lens"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "gtceu:emerald_lens"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "gtceu:sapphire_lens"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "gtceu:glass_lens"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "gtceu:amethyst_lens"
+										}
+									}
+								}
+							]
+						}
+					}
+					optional_task: true
+					type: "item"
+				}
+			]
+			title: "透镜元件包"
+			x: 6.0d
+			y: 2.0d
+		}
+		{
+			dependencies: ["38166A02EA474C1E"]
+			description: [
+				"对应iv来说，有点小贵"
+				"但比在zpm后就非常便宜了"
+			]
+			icon: "gtladditions:super_parallel_hatch"
+			id: "418872EBB26F5D36"
+			subtitle: "Day scanner day scanner"
+			tasks: [
+				{
+					id: "5419EED897382FBE"
+					optional_task: true
+					type: "checkmark"
+				}
+				{
+					id: "08C2FF90107044F1"
+					item: "gtceu:iv_parallel_hatch"
+					optional_task: true
+					type: "item"
+				}
+				{
+					id: "6137E87292589A6F"
+					item: "gtladditions:super_parallel_hatch"
+					optional_task: true
+					type: "item"
+				}
+			]
+			title: "超级并行控制仓下调IV"
+			x: -3.0d
+			y: -1.5d
 		}
 	]
 	title: "硬盘拯救者"
