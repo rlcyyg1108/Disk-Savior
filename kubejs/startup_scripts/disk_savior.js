@@ -17,7 +17,8 @@ StartupEvents.registry('item', event => {
     event.create('disksavior:steam_is_my_last_life')
         .displayName('此身定为蒸汽所天成')
         .texture('disksavior:item/steam_is_my_last_life')
+        /*
     event.create('disksavior:rare_earth_metal_dust_4x')
         .displayName('四倍压缩稀土金属粉')
-        .texture('disksavior:item/rare_earth_metal_dust_4x')
+        .texture('disksavior:item/rare_earth_metal_dust_4x')*/
 })

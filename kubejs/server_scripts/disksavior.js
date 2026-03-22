@@ -20,7 +20,19 @@ git ls-files --full-name | grep -vE '/$|^.gitignore$|^LICENSE$' > list.txt && 7z
 3.输入和输出如果有相同ID，互相抵消数量，直到其中一方为0，只保留抵消后剩余不为0的部分；
 4.最终只输出两个纯净JS数组：const inputs = [] 和 const outputs = []
 关于第三点，你要把这个复杂代码看出多个小数组，每个小数组都包含输入和输出，你先要进行通分，而且是对一个小数组进行的通分，随后再进行抵消，这是因为这是一条产线，现在做的事是进行计算，计算综合的输入和输出，所以你才需要进行通分和抵消
+你可以将其理解为配平，只不过，现在这是多个反应，你需要对每个反应进行配平，将多个反应视为一个黑盒，给出综合的输入和输出
+下面是待转换物品：
 
+
+
+
+
+从代码中提取所有输入输出，物品(i)格式："数量x 物品ID"，流体(f)格式："流体ID 数量"，适用于每一个项，也就是说每一项都有''，排除含`circuit`的内容；将数据拆分为多条独立配方，逐条完成通分配比后合并计算，若某配方输出为其他配方输入，抵消计算时忽略催化剂限制，直接对相同ID的输入输出进行数量抵消，仅保留抵消后数量不为0的结果；每项一行，最终按固定格式输出：
+    .itemInputs('数量x 物品')
+    .inputFluids('流体 数量')
+    .itemOutputs('数量x 输出物品')
+    .outputFluids('流体 数量')
+不要注释、不要修改结构、不要多余内容。
 
 
 
@@ -35,16 +47,25 @@ gtr.assembler("自定义ID")
 
 以下是待转换物品：
 
+
+
+
 todo
 新手大礼包
 加点彩蛋
 产物太多的jei警告
-样板大礼包
 说到糖，让湿件和生物系列电路板能吃你们觉得怎么样
 巨型橡胶树
 蒸汽发电卡住（偶发）
 蒸汽发电升级蒸汽太多jei拖不进去
+碎岩机电解
+样板大礼包
 
+
+
+
+
+加警告
 done
 小集成矿处下调···
 石化脱硫数值调整···
@@ -60,7 +81,40 @@ done
 远古残害电解···
 普通空气加强···
 装配线压缩进阶装配线···
+霜原碎片我改成霜原星方块电解了···
+流体钻机电解重构···
+粒子对撞批处理修复bug···
+富勒烯有配方冲突啊···
+电解屠宰场缺鸡肉···
+装配线教程···
+样板调试工具教程···
+硝酸锕镭```
+部件装配线下调···
+量子点···
+
+
+
+
 */
+//全局变量，用于给其他脚本做兼容
+global.disksavior = true
+PlayerEvents.loggedIn(event => {
+    const player = event.player;
+    player.tell("§a欢迎使用『§r§e硬盘拯救者§r§a』!")
+    player.tell("§a当前版本为§r §eV16")
+    player.tell("§a本私货自带任务书,请仔细阅读")
+    player.tell("§7========================================")
+    player.tell("§c⚠️不装GTL additions可能会报错")
+    player.tell("§c⚠️本私货需要在GTL core开启原始虚空采矿机")
+    player.tell("§7========================================")
+    player.tell("§l§e推荐安装")
+    player.tell("§b - 产线爆破")
+    player.tell("§b - 产线撕裂")
+    player.tell("§b - GTL additions")
+    player.tell("§b - 高级舱室（给GTL提供批处理功能，巨幅减少卡顿）")
+    player.tell("§7========================================")
+    player.tell("§e祝你游戏愉快!")
+})
 ServerEvents.recipes(event => {
     const gtr = event.recipes.gtceu
     const packed_infinity_cell = (cellname, type, list) => {//从产线撕裂里扒过来的，感谢@？（-5周目max小登） 
@@ -87,16 +141,11 @@ ServerEvents.recipes(event => {
         .itemOutputs('gtceu:advanced_assembly_line')
         .EUt(GTValues.VA[GTValues.LuV])
         .duration(2000)
-    event.shaped("gtlcore:advanced_assembly_line_unit", [
-        "CEC",
-        "BAB",
-        "CEC"
-    ], {
-        A: "gtceu:assembly_line_unit",
-        B: "#gtceu:circuits/luv",
-        C: "gtceu:hssg_plate",
-        E: "gtceu:rhodium_gear"
-    })
+    gtr.compressor('disksavior:advanced_assembly_line_unit')
+        .itemInputs('1024x gtceu:assembly_line_unit')
+        .itemOutputs('gtlcore:advanced_assembly_line_unit')
+        .EUt(GTValues.VA[GTValues.LuV])
+        .duration(2000)
     //无限中子素涡轮转子元件
     gtr.assembler('disksavior:neutronium_turbine_rotor_infinity_cell')
         .itemInputs(
@@ -161,7 +210,7 @@ ServerEvents.recipes(event => {
             '4096x gtceu:double_stainless_steel_plate',
             '1024x gtceu:stainless_steel_huge_fluid_pipe',
             '1024x gtceu:titanium_rotor',
-            '1x minecraft:stone_sword'
+            'minecraft:stone_sword'
         )
         .inputFluids('gtceu:glue 185254', 'gtceu:steam 8192')
         .itemOutputs('disksavior:steam_1')
@@ -174,7 +223,7 @@ ServerEvents.recipes(event => {
             '4096x gtceu:double_tungsten_carbide_plate',
             '1024x gtceu:tungsten_carbide_huge_fluid_pipe',
             '1024x gtceu:tungsten_steel_rotor',
-            '1x minecraft:shears'
+            'minecraft:shears'
         )
         .inputFluids('gtceu:glue 1852540', 'gtceu:steam 2097152')
         .itemOutputs('disksavior:steam_2')
@@ -187,7 +236,7 @@ ServerEvents.recipes(event => {
             '4096x gtceu:double_duranium_plate',
             '1024x gtceu:duranium_huge_fluid_pipe',
             '1024x gtceu:neutronium_rotor',
-            '1x gtceu:red_alloy_foil'
+            'gtceu:red_alloy_foil'
         )
         .inputFluids('gtceu:glue 18525400', 'gtceu:steam 536870912')
         .itemOutputs('disksavior:steam_3')
@@ -201,7 +250,7 @@ ServerEvents.recipes(event => {
             '4096x gtceu:double_seaborgium_plate',
             '1024x gtceu:enderium_huge_fluid_pipe',
             '1024x gtceu:quantanium_rotor',
-            '1x minecraft:snow_block'
+            'minecraft:snow_block'
         )
         .inputFluids('gtceu:glue 185254000', 'gtceu:steam 137438953472')
         .itemOutputs('disksavior:steam_4')
@@ -214,12 +263,12 @@ ServerEvents.recipes(event => {
             '4096x gtceu:double_chaos_plate',
             '1024x gtceu:transcendentmetal_huge_fluid_pipe',
             '1024x gtceu:draconium_rotor',
-            '1x minecraft:dirt'
+            'minecraft:dirt'
         )
         .inputFluids('gtceu:glue 1852540000', 'gtceu:steam 35184372088832')
         .itemOutputs('disksavior:steam_is_my_last_life')
         .EUt(GTValues.VA[GTValues.MAX])
-        .duration(370508420)
+        .duration(3705080)
     //圆石爆奇点
     gtr.electric_implosion_compressor('disksavior:singularity_cobblestone')
         .circuit(1)
@@ -248,7 +297,7 @@ ServerEvents.recipes(event => {
         .itemInputs('16384x kubejs:quantum_chromodynamic_charge')
         .itemOutputs('disksavior:quantum_chromodynamic_charge_super')
         .EUt(GTValues.VA[GTValues.OpV])
-        .duration(3705080)
+        .duration(420)
     //原始虚空矿机用水
     gtr.primitive_void_ore('disksavior:water')
         .inputFluids('minecraft:water 1')
@@ -371,6 +420,7 @@ ServerEvents.recipes(event => {
         .itemInputs('4x gtceu:uv_parallel_hatch')
         .itemOutputs('gtceu:uhv_parallel_hatch')
         .EUt(GTValues.VA[GTValues.IV])
+        .duration(20)
     gtr.mixer('disksavior:parallel_hatch_stack_5')
         .itemInputs('4x gtceu:uhv_parallel_hatch')
         .itemOutputs('gtceu:uev_parallel_hatch')
@@ -401,6 +451,13 @@ ServerEvents.recipes(event => {
         .itemOutputs('gtladditions:super_parallel_hatch')
         .EUt(GTValues.VA[GTValues.IV])
         .duration(20)
+    //部件装配线下调IV
+    gtr.assembler("disksavior:component_assembly_line")
+        .itemInputs('256x gtceu:assembly_line', '256x gtceu:assembly_line_casing', '512x gtceu:assembly_line_unit', '256x gtceu:iv_robot_arm', '512x gtceu:iv_conveyor_module', '512x gtceu:iv_electric_motor', '256x kubejs:luv_universal_circuit', '320x kubejs:iv_universal_circuit', '384x kubejs:ev_universal_circuit')
+        .inputFluids('gtceu:glue 185254000')
+        .itemOutputs('gtceu:component_assembly_line')
+        .EUt(GTValues.VA[GTValues.LuV])
+        .duration(2000)
     //无线电网输出终端下调IV
     gtr.assembler('disksavior:wireless_energy_network_output_terminal')
         .itemInputs(
@@ -412,7 +469,7 @@ ServerEvents.recipes(event => {
             '4096x gtceu:indium_tin_barium_titanium_cuprate_hex_wire',
             '4096x gtceu:uranium_rhodium_dinaquadide_hex_wire',
             '185254x gtceu:normal_laser_pipe',
-            '1x minecraft:dirt'
+            'minecraft:dirt'
         )
         .inputFluids('gtceu:glue 185254000')
         .itemOutputs('gtladditions:wireless_energy_network_output_terminal')
@@ -429,10 +486,10 @@ ServerEvents.recipes(event => {
             '4096x gtceu:legendarium_hex_wire',
             '4096x gtceu:draconiumawakened_hex_wire',
             '185254x gtceu:normal_laser_pipe',
-            '1x minecraft:dirt'
+            'minecraft:dirt'
         )
         .inputFluids('gtceu:glue 185254000')
-        .itemOutputs('1x gtladditions:wireless_energy_network_input_terminal')
+        .itemOutputs('gtladditions:wireless_energy_network_input_terminal')
         .EUt(GTValues.VA[GTValues.MAX])
         .duration(185254)
     //创造计算机下调到IV
@@ -444,9 +501,9 @@ ServerEvents.recipes(event => {
             '1024x gtceu:hpca_bridge_component',
             '64x gtceu:network_switch',
             '1024x gtceu:cold_ice_freezer',
-            '2147483647x minecraft:ice',
-            '21x minecraft:packed_ice',
-            '18520504x minecraft:blue_ice'
+            '185x minecraft:ice',
+            '254x minecraft:packed_ice',
+            '2minecraft:blue_ice'
         )
         .inputFluids('gtceu:glue 185254000')
         .itemOutputs('gtceu:creative_computation_provider')
@@ -469,11 +526,51 @@ ServerEvents.recipes(event => {
         .duration(2000)
     //可配置重力绝对洁净维护仓下调LV
     gtr.assembler('disksavior:law_cleaning_gravity_configuration_maintenance_hatch')
-        .itemInputs('131072x gtceu:maintenance_hatch')
-        .inputFluids('gtceu:glue 18520504')
+        .itemInputs('1024x gtceu:maintenance_hatch')
+        .inputFluids('gtceu:glue 185254')
         .itemOutputs('gtceu:law_cleaning_gravity_configuration_maintenance_hatch')
         .EUt(GTValues.VA[GTValues.ULV])
         .duration(2000)
+    //单步量子点
+    gtr.distort('disksavior:quantum_dots')
+        .notConsumable('gtceu:neutronium_block')
+        .circuit(1)
+        .itemInputs('gtceu:selenium_dust', 'gtceu:cadmium_dust', '42x gtceu:carbon_dust', 'gtceu:phosphorus_dust')
+        .inputFluids('gtceu:hydrogen 87000', 'gtceu:oxygen 2000')
+        .outputFluids('gtceu:quantum_dots 1000')
+        .EUt(GTValues.VA[GTValues.UHV])
+        .duration(2000)
+        .blastFurnaceTemp(800)
+    //单步硝酸锕镭
+    gtr.distort('disksavior:actinium_radium_nitrate_solution')
+        .notConsumable('gtceu:orichalcum_block')
+        .notConsumable('gtceu:blacklight')
+        .circuit(1)
+        .itemInputs(
+            '32x gtceu:trinium_compound_dust',
+            '12x gtceu:fine_carbon_nanotubes_wire',
+            '2x gtceu:fullerene_dust'
+        )
+        .inputFluids('gtceu:nitric_acid 48000')
+        .itemOutputs(
+            '4x gtceu:francium_dust',
+            '16x gtceu:astatine_dust',
+            '16x gtceu:selenium_dust',
+            '2x gtceu:protactinium_dust',
+            'gtceu:radium_dust',
+            '4x gtceu:naquadria_dust',
+            '2x gtceu:enriched_naquadah_dust',
+            '8x gtceu:actinium_dust',
+            '24x gtceu:trinium_dust',
+            'gtceu:thorium_dust'
+        )
+        .outputFluids(
+            'gtceu:nitrogen 48000',
+            'gtceu:oxygen 136000'
+        )
+        .EUt(GTValues.VA[GTValues.UHV])
+        .duration(3000)
+        .blastFurnaceTemp(800)
     //单步石化脱硫
     gtr.large_chemical_reactor('disksavior:oil_medium_sulfuric')
         .notConsumable('gtceu:desulfurizer')
@@ -517,18 +614,19 @@ ServerEvents.recipes(event => {
     //单步环戊二烯化锎
     gtr.distort('disksavior:californium_cyclopentadienide_assemble')
         .notConsumable('gtceu:mithril_block')
-        .itemInputs('1x gtceu:californium_dust', '15x gtceu:carbon_dust')
+        .itemInputs('gtceu:californium_dust', '15x gtceu:carbon_dust')
         .inputFluids('gtceu:hydrogen 15000')
         .outputFluids('gtceu:californium_cyclopentadienide 1000')
         .EUt(GTValues.VA[GTValues.UHV])
         .blastFurnaceTemp(800)
         .duration(2000)
-    //水蒸馏出16种净化水
-    gtr.wood_distillation('disksavior:water_distillation_super')
+    //蒸馏水离心出16种净化水
+    gtr.centrifuge('disksavior:water_distillation_super')
         .circuit(1)
-        .inputFluids('minecraft:water 18525400')
+        .inputFluids('gtceu:distilled_water 18525400')
         .outputFluids(
             'gtceu:grade_16_purified_water 160000',
+            'gtceu:grade_8_purified_water 1440000',
             'gtceu:grade_15_purified_water 320000',
             'gtceu:grade_14_purified_water 480000',
             'gtceu:grade_13_purified_water 640000',
@@ -536,7 +634,6 @@ ServerEvents.recipes(event => {
             'gtceu:grade_11_purified_water 960000',
             'gtceu:grade_10_purified_water 1120000',
             'gtceu:grade_9_purified_water 1280000',
-            'gtceu:grade_8_purified_water 1440000',
             'gtceu:grade_7_purified_water 1600000',
             'gtceu:grade_6_purified_water 1760000',
             'gtceu:grade_5_purified_water 1920000',
@@ -547,13 +644,11 @@ ServerEvents.recipes(event => {
         )
         .EUt(GTValues.VA[GTValues.UV])
         .duration(2000)
-    //霜原碎片去概率
-    gtr.incubator('disksavior:glacio_spirit')
-        .notConsumable('kubejs:glacio_spirit')
-        .itemInputs('16x gtceu:celestine_dust', 'kubejs:essence')
-        .inputFluids('ad_astra:cryo_fuel 100', 'gtceu:ice 900')
-        .itemOutputs('64x kubejs:glacio_spirit')
-        .EUt(30720)
+    //霜原碎片电解
+    gtr.electrolyzer('disksavior:glacio_spirit')
+        .notConsumable('ad_astra:glacio_stone')
+        .itemOutputs('1024x kubejs:glacio_spirit')
+        .EUt(GTValues.VA[GTValues.UV])
         .duration(2000)
     //单步稀土线
     gtr.large_chemical_reactor('disksavior:monazite_dust_processing')
@@ -566,22 +661,22 @@ ServerEvents.recipes(event => {
             'gtceu:hydrochloric_acid 8000'
         )
         .itemOutputs(
-            '1x gtceu:lanthanum_dust',
-            '1x gtceu:cerium_dust',
-            '1x gtceu:neodymium_dust',
-            '1x gtceu:samarium_dust',
-            '1x gtceu:europium_dust',
-            '1x gtceu:praseodymium_dust',
-            '1x gtceu:gadolinium_dust',
-            '1x gtceu:terbium_dust',
-            '1x gtceu:dysprosium_dust',
-            '1x gtceu:holmium_dust',
-            '1x gtceu:erbium_dust',
-            '1x gtceu:thulium_dust',
-            '1x gtceu:ytterbium_dust',
-            '1x gtceu:scandium_dust',
-            '1x gtceu:lutetium_dust',
-            '1x gtceu:yttrium_dust'
+            'gtceu:lanthanum_dust',
+            'gtceu:cerium_dust',
+            'gtceu:neodymium_dust',
+            'gtceu:samarium_dust',
+            'gtceu:europium_dust',
+            'gtceu:praseodymium_dust',
+            'gtceu:gadolinium_dust',
+            'gtceu:terbium_dust',
+            'gtceu:dysprosium_dust',
+            'gtceu:holmium_dust',
+            'gtceu:erbium_dust',
+            'gtceu:thulium_dust',
+            'gtceu:ytterbium_dust',
+            'gtceu:scandium_dust',
+            'gtceu:lutetium_dust',
+            'gtceu:yttrium_dust'
         )
         .outputFluids(
             'gtceu:oxygen 24000',
@@ -603,20 +698,19 @@ ServerEvents.recipes(event => {
         .duration(1400)
     //单步富勒烯
     gtr.distort('disksavior:fullerene_dust_pattern')
+        .circuit(1)
         .notConsumable('gtceu:osmium_block')
         .itemInputs(
             '3780x gtceu:carbon_dust'
         )
         .inputFluids(
             'gtceu:methane 60000',
-            'gtceu:bromine 60000',
             'gtceu:nitrogen 700000'
         )
         .itemOutputs(
             '64x gtceu:fullerene_dust'
         )
         .outputFluids(
-            'gtceu:bromine 60000',
             'gtceu:hydrogen 60000',
             'gtceu:ammonia 640000'
         )
@@ -705,8 +799,8 @@ ServerEvents.recipes(event => {
         )
         .EUt(GTValues.VA[GTValues.UHV])
         .duration(86400)
-    //九倍压缩核废料离心，一号电路
-    gtr.centrifuge('disksavior:nuclear_waste_9')
+    //九倍压缩核废料电解，一号电路
+    gtr.electrolyzer('disksavior:nuclear_waste_9')
         .itemInputs('9x kubejs:nuclear_waste')
         .circuit(1)
         .itemOutputs(
@@ -720,14 +814,16 @@ ServerEvents.recipes(event => {
         .EUt(2048)
         .duration(1800)
     //四倍压缩稀有金属粉离心
+    //因为会串，所以改离心机做
     //因未知原因，用编程电路无法正常工作，故改用新物品
-    gtr.rare_earth_centrifugal('disksavior:rec_4x')
-        .itemInputs('disksavior:rare_earth_metal_dust_4x')
+    gtr.centrifuge('disksavior:rec_4x')
+        .notConsumable('gtceu:rare_earth_centrifugal')
+        .itemInputs('4x gtceu:rare_earth_metal_dust')
         .itemOutputs(
+            'gtceu:promethium_dust',
             'gtceu:lanthanum_dust',
             'gtceu:cerium_dust',
             'gtceu:neodymium_dust',
-            'gtceu:promethium_dust',
             'gtceu:samarium_dust',
             'gtceu:europium_dust',
             'gtceu:praseodymium_dust',
@@ -744,12 +840,6 @@ ServerEvents.recipes(event => {
         )
         .EUt(GTValues.VA[GTValues.UV])
         .duration(800)
-    //我知道你肯定要做很多，所以配方自带16384倍压缩
-    gtr.compressor('disksavior:rare_earth_metal_dust_4x')
-        .itemInputs('65536x gtceu:rare_earth_metal_dust')
-        .itemOutputs('16384x disksavior:rare_earth_metal_dust_4x')
-        .EUt(1)
-        .duration(1)
     /*我写完了才发现爆破的比我的效率高，已哭泣
     //渔场集大成去概率
     gtr.packer('disksavior:packer_super')
@@ -773,7 +863,7 @@ ServerEvents.recipes(event => {
         '900x minecraft:ink_sac',
         '9000x minecraft:tripwire_hook',
         '216x gtceu:ancient_gold_coin',
-        '171x avaritia:neutron_pile',
+        '17avaritia:neutron_pile',
         '108x kubejs:zero_point_module_fragments',
         'minecraft:heart_of_the_sea')
         .EUt(GTValues.VA[GTValues.EV])

@@ -50,7 +50,7 @@ JEIEvents.addItems(event => {
 
 ItemEvents.tooltip(event => {
     event.add('disksavior:quantum_chromodynamic_charge_super', '§7§o纯度……')
-    event.add('disksavior:rare_earth_metal_dust_4x', '§7§o密度略高')
+    //event.add('disksavior:rare_earth_metal_dust_4x', '§7§o密度略高')
 
     event.addAdvanced('disksavior:steam_1', (item, advanced, text) => {
         if (event.shift) {

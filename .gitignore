@@ -39,6 +39,7 @@
 !kubejs/assets/disksavior/**/*
 #other
 !Disksavior_Changelog.txt
+!Disksavior_Changelog.md
 !Disksavior_diban.txt
 
 # ====================== 第三步：补充忽略（可选，避免放行无关文件） ======================

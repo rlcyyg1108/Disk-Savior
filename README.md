@@ -2,7 +2,7 @@
 写于2026.2.23  
 作者:Rlcyyg1108  
 仓库链接:https://github.com/rlcyyg1108/Disk-Savior  
-***本README无法展示所有内容且更新不定期，建议安装后查看任务书***
+***本README无法展示所有内容且更新不定期，建议安装后查看任务书***  
 **更新日志请看根目录的Disksavior_Changelog.txt**
 
 #### 介绍
@@ -25,6 +25,7 @@
  - 高级舱室
 
 ## ⚠️⚠️⚠️不装GTL additions可能会报错
+## ⚠️⚠️⚠️本私货需要在GTL core开启原始虚空采矿机
 
 安装前请查看kubejs/server_scripts中有无包含以下词条的文件
  - rlcyyg
