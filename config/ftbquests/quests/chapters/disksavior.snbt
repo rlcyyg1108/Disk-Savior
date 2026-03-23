@@ -234,7 +234,9 @@
 		{
 			dependencies: ["38166A02EA474C1E"]
 			description: [
-				"需要用光缆连接到机器，无法直连"
+				"注意，不是创造计算机，这个是放下即用的"
+				""
+				"&c⚠️需要用光缆连接到机器，无法直连"
 				""
 				"理论上你堆个几百台能把其他算力机器全部跳了"
 				"就是容易卡，问题很多，不稳定"
@@ -258,7 +260,7 @@
 					type: "item"
 				}
 			]
-			title: "创造计算机下调IV"
+			title: "创造模式计算机下调IV"
 			x: -6.5d
 			y: -1.5d
 		}
@@ -440,7 +442,7 @@
 					type: "item"
 				}
 			]
-			subtitle: "&c前有�����，所以����是必要的"
+			subtitle: "&c前有&k伏行之混沌&r&c，所以&k红���&r&c是必要的"
 			tasks: [{
 				id: "09D2B78574A50185"
 				optional_task: true
@@ -562,6 +564,8 @@
 			description: [
 				"可能会影响平衡"
 				"但是你不用换维护仓了"
+				""
+				"在曾经版本，需要131072维护仓（"
 			]
 			icon: "gtceu:law_cleaning_gravity_configuration_maintenance_hatch"
 			id: "4B2C74FB285A1936"
@@ -580,8 +584,8 @@
 				}
 			]
 			title: "可配置重力绝对洁净维护仓下调LV"
-			x: -4.0d
-			y: -1.0d
+			x: -5.5d
+			y: 0.0d
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
@@ -941,7 +945,7 @@
 			]
 			icon: "gtceu:platinum_group_sludge_dust"
 			id: "2AEA8EEF3D56CB19"
-			subtitle: "水仙花次元来人"
+			subtitle: "从水仙花次元来的人"
 			tasks: [
 				{
 					id: "1CC3E470C26221D2"
@@ -1028,7 +1032,9 @@
 			dependencies: ["38166A02EA474C1E"]
 			description: [
 				"为鸿蒙之眼添加了集大成配方"
-				"自带批处理16384倍"
+				"&a自带批处理16384倍"
+				"&b配方功率是鸿蒙之眼运行的最低运行功率"
+				"所以有点高"
 				"实际输出数值要-1，因为2147483648x会爆"
 				"&b集成了来自群友@aach.aic的鸿蒙之眼+&r"
 				"&c产物太多 jei里显示不全&r"
@@ -3310,198 +3316,7 @@
 				"会串怎么办？"
 				"那还是无限元件吧"
 			]
-			icon: {
-				Count: 1
-				id: "ae2:portable_item_cell_16k"
-				tag: {
-					RepairCost: 0
-					amts: [L;
-						1L
-						1L
-						1L
-						1L
-						1L
-						1L
-						1L
-						1L
-						1L
-						1L
-						1L
-						1L
-						1L
-						1L
-						1L
-						1L
-					]
-					display: {
-						Name: "{\"text\":\"染料元件包\"}"
-					}
-					ic: 16L
-					internalCurrentPower: 20000.0d
-					keys: [
-						{
-							"#c": "ae2:i"
-							id: "expatternprovider:infinity_cell"
-							tag: {
-								record: {
-									"#c": "ae2:f"
-									id: "gtceu:black_dye"
-								}
-							}
-						}
-						{
-							"#c": "ae2:i"
-							id: "expatternprovider:infinity_cell"
-							tag: {
-								record: {
-									"#c": "ae2:f"
-									id: "gtceu:blue_dye"
-								}
-							}
-						}
-						{
-							"#c": "ae2:i"
-							id: "expatternprovider:infinity_cell"
-							tag: {
-								record: {
-									"#c": "ae2:f"
-									id: "gtceu:brown_dye"
-								}
-							}
-						}
-						{
-							"#c": "ae2:i"
-							id: "expatternprovider:infinity_cell"
-							tag: {
-								record: {
-									"#c": "ae2:f"
-									id: "gtceu:cyan_dye"
-								}
-							}
-						}
-						{
-							"#c": "ae2:i"
-							id: "expatternprovider:infinity_cell"
-							tag: {
-								record: {
-									"#c": "ae2:f"
-									id: "gtceu:gray_dye"
-								}
-							}
-						}
-						{
-							"#c": "ae2:i"
-							id: "expatternprovider:infinity_cell"
-							tag: {
-								record: {
-									"#c": "ae2:f"
-									id: "gtceu:green_dye"
-								}
-							}
-						}
-						{
-							"#c": "ae2:i"
-							id: "expatternprovider:infinity_cell"
-							tag: {
-								record: {
-									"#c": "ae2:f"
-									id: "gtceu:light_blue_dye"
-								}
-							}
-						}
-						{
-							"#c": "ae2:i"
-							id: "expatternprovider:infinity_cell"
-							tag: {
-								record: {
-									"#c": "ae2:f"
-									id: "gtceu:lime_dye"
-								}
-							}
-						}
-						{
-							"#c": "ae2:i"
-							id: "expatternprovider:infinity_cell"
-							tag: {
-								record: {
-									"#c": "ae2:f"
-									id: "gtceu:magenta_dye"
-								}
-							}
-						}
-						{
-							"#c": "ae2:i"
-							id: "expatternprovider:infinity_cell"
-							tag: {
-								record: {
-									"#c": "ae2:f"
-									id: "gtceu:orange_dye"
-								}
-							}
-						}
-						{
-							"#c": "ae2:i"
-							id: "expatternprovider:infinity_cell"
-							tag: {
-								record: {
-									"#c": "ae2:f"
-									id: "gtceu:pink_dye"
-								}
-							}
-						}
-						{
-							"#c": "ae2:i"
-							id: "expatternprovider:infinity_cell"
-							tag: {
-								record: {
-									"#c": "ae2:f"
-									id: "gtceu:purple_dye"
-								}
-							}
-						}
-						{
-							"#c": "ae2:i"
-							id: "expatternprovider:infinity_cell"
-							tag: {
-								record: {
-									"#c": "ae2:f"
-									id: "gtceu:red_dye"
-								}
-							}
-						}
-						{
-							"#c": "ae2:i"
-							id: "expatternprovider:infinity_cell"
-							tag: {
-								record: {
-									"#c": "ae2:f"
-									id: "gtceu:white_dye"
-								}
-							}
-						}
-						{
-							"#c": "ae2:i"
-							id: "expatternprovider:infinity_cell"
-							tag: {
-								record: {
-									"#c": "ae2:f"
-									id: "gtceu:yellow_dye"
-								}
-							}
-						}
-						{
-							"#c": "ae2:i"
-							id: "expatternprovider:infinity_cell"
-							tag: {
-								record: {
-									"#c": "ae2:f"
-									id: "gtceu:light_gray_dye"
-								}
-							}
-						}
-					]
-				}
-			}
+			icon: "minecraft:yellow_dye"
 			id: "30EDD5DEC493E4EB"
 			subtitle: "論理空軍"
 			tasks: [
@@ -3733,7 +3548,7 @@
 			]
 			title: "蒸汽冷冻蒸馏水"
 			x: 0.0d
-			y: 9.5d
+			y: 7.5d
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
@@ -3759,8 +3574,8 @@
 				}
 			]
 			title: "无限电网输出终端阶段下调LUV"
-			x: -5.0d
-			y: -0.5d
+			x: -8.0d
+			y: -1.0d
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
@@ -3918,6 +3733,8 @@
 				"推荐GTL ADD的无线电网输出终端"
 				"然后加水"
 				""
+				"&c大概率不兼容发电阵列，请用特大蒸汽涡轮"
+				""
 				"&c有可能会突然卡住不运行（偶发）"
 				"当功率电压超过转子支架等级时，可能会直接停摆"
 				"建议用机器控制覆盖版周期性开关机"
@@ -3997,20 +3814,23 @@
 		{
 			dependencies: ["38166A02EA474C1E"]
 			description: [
-				"这是以后的新手大礼包任务占位符"
-				"现在超级ae包有其他版本了"
-				"送了很多新手内容"
-				"所以这个的制作优先级往后"
+				"集成了一些来自其他群友的脚本，感谢分享"
+				"kubejs\\server_scripts\\disksavior_otherone.js.disabled  "
+				"删掉.disabled"
+				""
+				"&b@红烧提莫炖排骨"
+				" - 提取机配方缩减"
+				" - 锭粉碎成粉转移到锻造锤"
 			]
-			icon: "gtceu:titansteel_foil"
+			icon: "avaritia:infinity_catalyst"
 			id: "42DBFD52653745C6"
-			subtitle: "请你 什么都不要问 \\n请你 什么都不要说 "
+			subtitle: "嗨嗬 屏息凝神的时刻终将到来  "
 			tasks: [{
 				id: "21ED4B85D76B3177"
 				optional_task: true
 				type: "checkmark"
 			}]
-			title: "马车"
+			title: "默认关闭的东西"
 			x: 1.0d
 			y: -1.0d
 		}
@@ -4191,8 +4011,8 @@
 				}
 			]
 			title: "无限电网输入终端阶段下调OPV"
-			x: -5.0d
-			y: 0.5d
+			x: -8.0d
+			y: 1.0d
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
@@ -4377,6 +4197,9 @@
 				""
 				"由于是辅助类，相关的什么东西就直接送了🤪"
 				"送的东西是需要加了相关模组才会正常显示的"
+				""
+				"&c如果你看到的是问号，那么不建议领取奖励"
+				"&c领取后建议扔掉"
 				"{@pagebreak}"
 				"&6&l※ &aReHooked"
 				""
@@ -4459,9 +4282,10 @@
 			]
 			subtitle: "&2库嘻嘻~"
 			tasks: [{
-				id: "2DE8919AD859B160"
-				optional_task: true
-				type: "checkmark"
+				consume_items: true
+				id: "214BC20102B2662B"
+				item: "minecraft:dirt"
+				type: "item"
 			}]
 			title: "推荐的辅助类模组"
 			x: -1.0d
@@ -4563,7 +4387,7 @@
 			]
 			title: "圆石爆奇点 物质球"
 			x: 0.0d
-			y: 7.5d
+			y: 8.5d
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
@@ -4594,7 +4418,7 @@
 			]
 			title: "工作台合成带nbt的量子纠缠态奇点"
 			x: 0.0d
-			y: 8.5d
+			y: 9.5d
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
@@ -4953,6 +4777,8 @@
 				}
 				type: "item"
 			}]
+			shape: "none"
+			size: 3.0d
 			subtitle: "日落伊甸园"
 			tasks: [{
 				id: "76B0051577944F01"
@@ -4960,8 +4786,8 @@
 				type: "checkmark"
 			}]
 			title: "小op礼包"
-			x: -2.0d
-			y: 2.0d
+			x: -3.0d
+			y: 3.0d
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
@@ -11522,6 +11348,9 @@
 				""
 				"极端简化，连催化剂都不考虑"
 				"化学扭曲不扭曲一下化学怎么行"
+				""
+				"其实有一个钍粉的输出看不到，但是都这个阶段了"
+				"你应该不会在意吧"
 			]
 			icon: "gtceu:actinium_radium_nitrate_solution_bucket"
 			id: "665428795B411207"
@@ -11600,275 +11429,7 @@
 		{
 			dependencies: ["38166A02EA474C1E"]
 			description: ["没有非线性光学透镜"]
-			icon: {
-				Count: 1
-				id: "ae2:portable_item_cell_16k"
-				tag: {
-					RepairCost: 0
-					amts: [L;
-						1L
-						1L
-						1L
-						1L
-						1L
-						1L
-						1L
-						1L
-						1L
-						1L
-						1L
-						1L
-						1L
-						1L
-						1L
-						1L
-						1L
-						1L
-						1L
-						1L
-						1L
-						1L
-						1L
-					]
-					display: {
-						Name: "{\"text\":\"透镜元件包\"}"
-					}
-					ic: 23L
-					internalCurrentPower: 20000.0d
-					keys: [
-						{
-							"#c": "ae2:i"
-							id: "expatternprovider:infinity_cell"
-							tag: {
-								record: {
-									"#c": "ae2:i"
-									id: "gtceu:white_glass_lens"
-								}
-							}
-						}
-						{
-							"#c": "ae2:i"
-							id: "expatternprovider:infinity_cell"
-							tag: {
-								record: {
-									"#c": "ae2:i"
-									id: "gtceu:orange_glass_lens"
-								}
-							}
-						}
-						{
-							"#c": "ae2:i"
-							id: "expatternprovider:infinity_cell"
-							tag: {
-								record: {
-									"#c": "ae2:i"
-									id: "gtceu:magenta_glass_lens"
-								}
-							}
-						}
-						{
-							"#c": "ae2:i"
-							id: "expatternprovider:infinity_cell"
-							tag: {
-								record: {
-									"#c": "ae2:i"
-									id: "gtceu:light_blue_glass_lens"
-								}
-							}
-						}
-						{
-							"#c": "ae2:i"
-							id: "expatternprovider:infinity_cell"
-							tag: {
-								record: {
-									"#c": "ae2:i"
-									id: "gtceu:yellow_glass_lens"
-								}
-							}
-						}
-						{
-							"#c": "ae2:i"
-							id: "expatternprovider:infinity_cell"
-							tag: {
-								record: {
-									"#c": "ae2:i"
-									id: "gtceu:lime_glass_lens"
-								}
-							}
-						}
-						{
-							"#c": "ae2:i"
-							id: "expatternprovider:infinity_cell"
-							tag: {
-								record: {
-									"#c": "ae2:i"
-									id: "gtceu:pink_glass_lens"
-								}
-							}
-						}
-						{
-							"#c": "ae2:i"
-							id: "expatternprovider:infinity_cell"
-							tag: {
-								record: {
-									"#c": "ae2:i"
-									id: "gtceu:gray_glass_lens"
-								}
-							}
-						}
-						{
-							"#c": "ae2:i"
-							id: "expatternprovider:infinity_cell"
-							tag: {
-								record: {
-									"#c": "ae2:i"
-									id: "gtceu:light_gray_glass_lens"
-								}
-							}
-						}
-						{
-							"#c": "ae2:i"
-							id: "expatternprovider:infinity_cell"
-							tag: {
-								record: {
-									"#c": "ae2:i"
-									id: "gtceu:cyan_glass_lens"
-								}
-							}
-						}
-						{
-							"#c": "ae2:i"
-							id: "expatternprovider:infinity_cell"
-							tag: {
-								record: {
-									"#c": "ae2:i"
-									id: "gtceu:purple_glass_lens"
-								}
-							}
-						}
-						{
-							"#c": "ae2:i"
-							id: "expatternprovider:infinity_cell"
-							tag: {
-								record: {
-									"#c": "ae2:i"
-									id: "gtceu:blue_glass_lens"
-								}
-							}
-						}
-						{
-							"#c": "ae2:i"
-							id: "expatternprovider:infinity_cell"
-							tag: {
-								record: {
-									"#c": "ae2:i"
-									id: "gtceu:brown_glass_lens"
-								}
-							}
-						}
-						{
-							"#c": "ae2:i"
-							id: "expatternprovider:infinity_cell"
-							tag: {
-								record: {
-									"#c": "ae2:i"
-									id: "gtceu:green_glass_lens"
-								}
-							}
-						}
-						{
-							"#c": "ae2:i"
-							id: "expatternprovider:infinity_cell"
-							tag: {
-								record: {
-									"#c": "ae2:i"
-									id: "gtceu:red_glass_lens"
-								}
-							}
-						}
-						{
-							"#c": "ae2:i"
-							id: "expatternprovider:infinity_cell"
-							tag: {
-								record: {
-									"#c": "ae2:i"
-									id: "gtceu:black_glass_lens"
-								}
-							}
-						}
-						{
-							"#c": "ae2:i"
-							id: "expatternprovider:infinity_cell"
-							tag: {
-								record: {
-									"#c": "ae2:i"
-									id: "gtceu:diamond_lens"
-								}
-							}
-						}
-						{
-							"#c": "ae2:i"
-							id: "expatternprovider:infinity_cell"
-							tag: {
-								record: {
-									"#c": "ae2:i"
-									id: "gtceu:nether_star_lens"
-								}
-							}
-						}
-						{
-							"#c": "ae2:i"
-							id: "expatternprovider:infinity_cell"
-							tag: {
-								record: {
-									"#c": "ae2:i"
-									id: "gtceu:ruby_lens"
-								}
-							}
-						}
-						{
-							"#c": "ae2:i"
-							id: "expatternprovider:infinity_cell"
-							tag: {
-								record: {
-									"#c": "ae2:i"
-									id: "gtceu:emerald_lens"
-								}
-							}
-						}
-						{
-							"#c": "ae2:i"
-							id: "expatternprovider:infinity_cell"
-							tag: {
-								record: {
-									"#c": "ae2:i"
-									id: "gtceu:sapphire_lens"
-								}
-							}
-						}
-						{
-							"#c": "ae2:i"
-							id: "expatternprovider:infinity_cell"
-							tag: {
-								record: {
-									"#c": "ae2:i"
-									id: "gtceu:glass_lens"
-								}
-							}
-						}
-						{
-							"#c": "ae2:i"
-							id: "expatternprovider:infinity_cell"
-							tag: {
-								record: {
-									"#c": "ae2:i"
-									id: "gtceu:amethyst_lens"
-								}
-							}
-						}
-					]
-				}
-			}
+			icon: "gtceu:glass_lens"
 			id: "60C488D87659EF8E"
 			subtitle: "Nurse Cafe"
 			tasks: [
@@ -12185,8 +11746,667 @@
 				}
 			]
 			title: "超级并行控制仓下调IV"
-			x: -3.0d
-			y: -1.5d
+			x: -4.0d
+			y: -1.0d
+		}
+		{
+			dependencies: ["38166A02EA474C1E"]
+			description: [
+				"以防你没加模组看不到这里的东西"
+				"给的是EAEP的 &o&4吞&c噬&6万&e籁&a的&b寂&d静"
+			]
+			icon: "extendedae_plus:infinity_biginteger_cell"
+			id: "457C092FC8B51917"
+			rewards: [{
+				id: "66E8BE4CF8E10739"
+				item: "extendedae_plus:infinity_biginteger_cell"
+				type: "item"
+			}]
+			shape: "none"
+			size: 2.0d
+			subtitle: "&b&o塞壬 Siren☆☆"
+			tasks: [{
+				consume_items: true
+				id: "75FCAB2724AC26E1"
+				item: "gtlcore:fast_infinity_cell"
+				type: "item"
+			}]
+			title: "如果你想要换个无限盘"
+			x: -1.75d
+			y: 1.75d
+		}
+		{
+			dependencies: ["38166A02EA474C1E"]
+			description: [
+				"扭 量子块"
+				""
+				"因为扭放不下单步γ射线光刻胶所以两步😢"
+			]
+			id: "18178D5D2E9D2319"
+			subtitle: "yeah  去那护士咖啡厅 \\n近上百年的囚禁 "
+			tasks: [
+				{
+					id: "419AFC65E92F233B"
+					optional_task: true
+					type: "checkmark"
+				}
+				{
+					id: "052368CD4A319662"
+					item: "gtceu:gamma_rays_photoresist_bucket"
+					optional_task: true
+					type: "item"
+				}
+				{
+					id: "387DE47607585339"
+					item: "gtceu:borocarbide_dust"
+					optional_task: true
+					type: "item"
+				}
+			]
+			title: "两步γ射线光刻胶"
+			x: 5.5d
+			y: 13.0d
+		}
+		{
+			dependencies: ["38166A02EA474C1E"]
+			description: [
+				"但很可惜"
+				"这台机器所需的方块需要等你出了&b铕&r才能做"
+			]
+			icon: "gtceu:integrated_ore_processor"
+			id: "69DC9474142B1328"
+			subtitle: "直至人之庭园臻至完满  "
+			tasks: [
+				{
+					id: "22DE5A8D13FD3851"
+					optional_task: true
+					type: "checkmark"
+				}
+				{
+					id: "5894470D4586DF5D"
+					item: "gtceu:integrated_ore_processor"
+					optional_task: true
+					type: "item"
+				}
+			]
+			title: "小op下调IV"
+			x: -9.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["38166A02EA474C1E"]
+			description: ["ZPM可做，但可能你做不起"]
+			icon: "gtceu:greenhouse"
+			id: "2AF8BFC46BE169B2"
+			subtitle: "放声高歌吧 激昂地扬起尖利嗓音"
+			tasks: [
+				{
+					id: "66F0EB42EB48157F"
+					optional_task: true
+					type: "checkmark"
+				}
+				{
+					id: "0F0886288D6CF267"
+					item: {
+						Count: 1
+						id: "ae2:portable_item_cell_16k"
+						tag: {
+							RepairCost: 0
+							amts: [L;
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+								1L
+							]
+							display: {
+								Name: "{\"text\":\"温室元件包\"}"
+							}
+							ic: 47L
+							internalCurrentPower: 20000.0d
+							keys: [
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "minecraft:oak_sapling"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "minecraft:oak_log"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "minecraft:spruce_sapling"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "minecraft:spruce_log"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "minecraft:birch_sapling"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "minecraft:birch_log"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "minecraft:jungle_sapling"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "minecraft:jungle_log"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "minecraft:acacia_sapling"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "minecraft:acacia_log"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "minecraft:dark_oak_sapling"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "minecraft:dark_oak_log"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "minecraft:mangrove_propagule"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "minecraft:mangrove_log"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "minecraft:cherry_sapling"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "minecraft:cherry_log"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "minecraft:pumpkin"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "minecraft:pumpkin_seeds"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "minecraft:beetroot"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "minecraft:beetroot_seeds"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "minecraft:sweet_berries"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "minecraft:glow_berries"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "minecraft:wheat"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "minecraft:wheat_seeds"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "minecraft:melon"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "minecraft:melon_seeds"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "minecraft:carrot"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "minecraft:sugar_cane"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "minecraft:kelp"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "minecraft:cactus"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "minecraft:potato"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "minecraft:cocoa_beans"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "minecraft:brown_mushroom"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "minecraft:red_mushroom"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "minecraft:nether_wart"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "minecraft:bamboo"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "minecraft:vine"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "minecraft:sea_pickle"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "gtceu:rubber_sapling"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "gtceu:rubber_log"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "gtceu:sticky_resin"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "minecraft:poisonous_potato"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "minecraft:grass"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "minecraft:melon_slice"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "minecraft:sunflower"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "minecraft:sponge"
+										}
+									}
+								}
+								{
+									"#c": "ae2:i"
+									id: "expatternprovider:infinity_cell"
+									tag: {
+										record: {
+											"#c": "ae2:i"
+											id: "minecraft:honeycomb"
+										}
+									}
+								}
+							]
+						}
+					}
+					optional_task: true
+					type: "item"
+				}
+			]
+			title: "温室元件包"
+			x: 11.0d
+			y: 4.5d
+		}
+		{
+			dependencies: ["38166A02EA474C1E"]
+			description: [
+				"这是以后的新手大礼包任务占位符"
+				"现在超级ae包有其他版本了"
+				"送了很多新手内容"
+				"所以这个的制作优先级往后"
+			]
+			icon: "gtceu:titansteel_foil"
+			id: "3E3719401ED63151"
+			subtitle: "请你 什么都不要问 \\n请你 什么都不要说 "
+			tasks: [{
+				id: "28DF966BE75650E6"
+				optional_task: true
+				type: "checkmark"
+			}]
+			title: "马车"
+			x: 2.0d
+			y: -2.0d
 		}
 	]
 	title: "硬盘拯救者"

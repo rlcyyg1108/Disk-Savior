@@ -36,8 +36,8 @@ git ls-files --full-name | grep -vE '/$|^.gitignore$|^LICENSE$' > list.txt && 7z
 
 
 
-按下面这个固定格式，把我给的转成KubeJS组装机配方，不要注释、不要修改结构
-gtr.assembler("自定义ID")
+按下面这个固定格式，把我给的转成KubeJS组装机配方，不要注释、不要修改结构,若无对应输入输出则删除对应方法
+gtr.assembler('disksavior:自定义ID')
     .itemInputs('数量x 物品')
     .inputFluids('流体 数量')
     .itemOutputs('数量x 输出物品')
@@ -61,9 +61,12 @@ todo
 碎岩机电解
 样板大礼包
 
+
+
+液态拉多x聚合物
+
+中子活化器
 加警告加警告加警告加警告加警告加警告加警告加警告加警告加警告加警告加警告加警告加警告加警告
-
-
 
 
 
@@ -97,10 +100,16 @@ done
 拉大样板调试工具的任务图标···
 改名，净化水终结者···
 新任务指引···
-无限透镜原件包···
+
+
 超级并行控制仓下调IV···
-
-
+无限透镜原件包测试···
+还有个文案小问题，是“创造模式计算机”还是“创造计算机”，前面是单方块的，后面是多方块的···
+化反鸿蒙需要鸿蒙···
+γ射线光刻胶···
+温室元件包```
+小op下调```
+默认关闭的东西```
 
 
 
@@ -111,7 +120,7 @@ global.disksavior = true
 PlayerEvents.loggedIn(event => {
     const player = event.player;
     player.tell("§a欢迎使用『§r§e硬盘拯救者§r§a』!")
-    player.tell("§a当前版本为§r §eV16")
+    player.tell("§a当前版本为§r §ev16")
     player.tell("§c当前版本并不完善，可能有较多bug!")
     player.tell("§a本私货自带任务书,请仔细阅读")
     player.tell("§7========================================")
@@ -155,12 +164,20 @@ ServerEvents.recipes(event => {
         .inputFluids('gtceu:sulfuric_acid 16000')
         .itemOutputs(packed_infinity_cell('透镜元件包', 'i', [
             //16色透镜
-            'gtceu:white_glass_lens', 'gtceu:orange_glass_lens', 'gtceu:magenta_glass_lens', 'gtceu:light_blue_glass_lens', 'gtceu:yellow_glass_lens', 'gtceu:lime_glass_lens', 'gtceu:pink_glass_lens', 'gtceu:gray_glass_lens', 'gtceu:light_gray_glass_lens', 'gtceu:cyan_glass_lens', 'gtceu:purple_glass_lens', 'gtceu:blue_glass_lens', 'gtceu:brown_glass_lens', 'gtceu:green_glass_lens', 'gtceu:red_glass_lens', 'gtceu:black_glass_lens',
+            'gtceu:glass_lens', 'gtceu:orange_glass_lens', 'gtceu:magenta_glass_lens', 'gtceu:light_blue_glass_lens', 'gtceu:yellow_glass_lens', 'gtceu:lime_glass_lens', 'gtceu:pink_glass_lens', 'gtceu:gray_glass_lens', 'gtceu:light_gray_glass_lens', 'gtceu:cyan_glass_lens', 'gtceu:purple_glass_lens', 'gtceu:blue_glass_lens', 'gtceu:brown_glass_lens', 'gtceu:green_glass_lens', 'gtceu:red_glass_lens', 'gtceu:black_glass_lens',
             //宝石透镜，没有非线性光学透镜
-            'gtceu:diamond_lens', 'gtceu:nether_star_lens', 'gtceu:ruby_lens', 'gtceu:emerald_lens', 'gtceu:sapphire_lens', 'gtceu:glass_lens', 'gtceu:amethyst_lens'
+            'gtceu:diamond_lens', 'gtceu:nether_star_lens', 'gtceu:ruby_lens', 'gtceu:emerald_lens', 'gtceu:sapphire_lens', 'gtceu:amethyst_lens'
         ]))
         .duration(2000)
         .EUt(GTValues.VA[GTValues.LV])
+    //温室元件包
+    gtr.assembler('disksavior:greenhouse_pack')
+        .circuit(1)
+        .itemInputs('2147483647x gtceu:greenhouse')
+        .inputFluids('gtceu:glue 185254000')
+        .itemOutputs(packed_infinity_cell('温室元件包', 'i', ['minecraft:oak_sapling', 'minecraft:oak_log', 'minecraft:spruce_sapling', 'minecraft:spruce_log', 'minecraft:birch_sapling', 'minecraft:birch_log', 'minecraft:jungle_sapling', 'minecraft:jungle_log', 'minecraft:acacia_sapling', 'minecraft:acacia_log', 'minecraft:dark_oak_sapling', 'minecraft:dark_oak_log', 'minecraft:mangrove_propagule', 'minecraft:mangrove_log', 'minecraft:cherry_sapling', 'minecraft:cherry_log', 'minecraft:pumpkin', 'minecraft:pumpkin_seeds', 'minecraft:beetroot', 'minecraft:beetroot_seeds', 'minecraft:sweet_berries', 'minecraft:glow_berries', 'minecraft:wheat', 'minecraft:wheat_seeds', 'minecraft:melon', 'minecraft:melon_seeds', 'minecraft:carrot', 'minecraft:sugar_cane', 'minecraft:kelp', 'minecraft:cactus', 'minecraft:potato', 'minecraft:cocoa_beans', 'minecraft:brown_mushroom', 'minecraft:red_mushroom', 'minecraft:nether_wart', 'minecraft:bamboo', 'minecraft:vine', 'minecraft:sea_pickle', 'gtceu:rubber_sapling', 'gtceu:rubber_log', 'gtceu:sticky_resin', 'minecraft:poisonous_potato', 'minecraft:grass', 'minecraft:melon_slice', 'minecraft:sunflower', 'minecraft:sponge', 'minecraft:honeycomb']))
+        .duration(2000)
+        .EUt(GTValues.VA[GTValues.UV])
     //装配线压缩进阶装配线
     gtr.compressor('disksavior:advanced_assembly_line')
         .itemInputs('1024x gtceu:assembly_line')
@@ -392,39 +409,44 @@ ServerEvents.recipes(event => {
         .EUt(GTValues.VA[GTValues.IV])
         .duration(200)
     gtr.mixer('disksavior:component_assembly_line_casing_stack_6')
-        .itemInputs('4x gtlcore:component_assembly_line_casing_uv')
-        .itemOutputs('gtlcore:component_assembly_line_casing_uhv')
-        .EUt(GTValues.VA[GTValues.UHV])
+        .itemInputs('4x gtlcore:component_assembly_line_casing_luv')
+        .itemOutputs('gtlcore:component_assembly_line_casing_zpm')
+        .EUt(GTValues.VA[GTValues.LuV])
         .duration(200)
     gtr.mixer('disksavior:component_assembly_line_casing_stack_7')
+        .itemInputs('4x gtlcore:component_assembly_line_casing_zpm')
+        .itemOutputs('gtlcore:component_assembly_line_casing_uv')
+        .EUt(GTValues.VA[GTValues.ZPM])
+        .duration(200)
+    gtr.mixer('disksavior:component_assembly_line_casing_stack_8')
+        .itemInputs('4x gtlcore:component_assembly_line_casing_uv')
+        .itemOutputs('gtlcore:component_assembly_line_casing_uhv')
+        .EUt(GTValues.VA[GTValues.UV])
+        .duration(200)
+    gtr.mixer('disksavior:component_assembly_line_casing_stack_9')
         .itemInputs('4x gtlcore:component_assembly_line_casing_uhv')
         .itemOutputs('gtlcore:component_assembly_line_casing_uev')
         .EUt(GTValues.VA[GTValues.UHV])
         .duration(200)
-    gtr.mixer('disksavior:component_assembly_line_casing_stack_8')
+    gtr.mixer('disksavior:component_assembly_line_casing_stack_10')
         .itemInputs('4x gtlcore:component_assembly_line_casing_uev')
         .itemOutputs('gtlcore:component_assembly_line_casing_uiv')
-        .EUt(GTValues.VA[GTValues.UHV])
-        .duration(200)
-    gtr.mixer('disksavior:component_assembly_line_casing_stack_9')
-        .itemInputs('4x gtlcore:component_assembly_line_casing_uiv')
-        .itemOutputs('gtlcore:component_assembly_line_casing_uxv')
-        .EUt(GTValues.VA[GTValues.UHV])
-        .duration(200)
-    gtr.mixer('disksavior:component_assembly_line_casing_stack_10')
-        .itemInputs('4x gtlcore:component_assembly_line_casing_uxv')
-        .itemOutputs('gtlcore:component_assembly_line_casing_zpm')
-        .EUt(GTValues.VA[GTValues.UXV])
+        .EUt(GTValues.VA[GTValues.UEV])
         .duration(200)
     gtr.mixer('disksavior:component_assembly_line_casing_stack_11')
+        .itemInputs('4x gtlcore:component_assembly_line_casing_uiv')
+        .itemOutputs('gtlcore:component_assembly_line_casing_uxv')
+        .EUt(GTValues.VA[GTValues.UIV])
+        .duration(200)
+    gtr.mixer('disksavior:component_assembly_line_casing_stack_13')
         .itemInputs('4x gtlcore:component_assembly_line_casing_uxv')
         .itemOutputs('gtlcore:component_assembly_line_casing_opv')
-        .EUt(GTValues.VA[GTValues.UHV])
+        .EUt(GTValues.VA[GTValues.UXV])
         .duration(200)
-    gtr.mixer('disksavior:component_assembly_line_casing_stack_12')
+    gtr.mixer('disksavior:component_assembly_line_casing_stack_14')
         .itemInputs('4x gtlcore:component_assembly_line_casing_opv')
         .itemOutputs('gtlcore:component_assembly_line_casing_max')
-        .EUt(GTValues.VA[GTValues.UHV])
+        .EUt(GTValues.VA[GTValues.OpV])
         .duration(200)
     //并行控制仓压缩升阶
     gtr.mixer('disksavior:parallel_hatch_stack_1')
@@ -477,11 +499,18 @@ ServerEvents.recipes(event => {
         .itemOutputs('gtladditions:super_parallel_hatch')
         .EUt(GTValues.VA[GTValues.IV])
         .duration(20)
+    //小op主机下调IV
+    gtr.assembler('disksavior:integrated_ore_processor')
+        .itemInputs('8x gtceu:large_maceration_tower', '8x gtceu:large_centrifuge', '8x gtceu:large_sifting_funnel', '8x gtceu:large_chemical_bath', '64x gtceu:hssg_gear', '128x gtceu:double_iridium_plate', '128x gtceu:iv_conveyor_module', '128x gtceu:iv_robot_arm', '128x gtceu:iv_electric_pump')
+        .inputFluids('gtceu:glue 185254000')
+        .itemOutputs('gtceu:integrated_ore_processor')
+        .EUt(GTValues.VA[GTValues.LuV])
+        .duration(600)
     //超级并行控制仓下调IV
     gtr.assembler('disksavior:super_parallel_hatch')
         .itemInputs('512x gtceu:iv_parallel_hatch', '256x gtceu:iv_sensor', '256x gtceu:iv_emitter', '512x #gtceu:circuits/luv', '768x #gtceu:circuits/iv', '1152x #gtceu:circuits/ev', '1728x #gtceu:circuits/hv', '2592x #gtceu:circuits/mv', '2592x #gtceu:circuits/lv')
         .inputFluids('gtceu:glue 185254000')
-        .itemOutputs('1x gtladditions:super_parallel_hatch')
+        .itemOutputs('gtladditions:super_parallel_hatch')
         .EUt(GTValues.VA[GTValues.LuV])
         .duration(2000)
     //部件装配线下调IV
@@ -508,7 +537,7 @@ ServerEvents.recipes(event => {
         .itemOutputs('gtladditions:wireless_energy_network_output_terminal')
         .EUt(GTValues.VA[GTValues.LuV])
         .duration(2000)
-    //无线电网输入终端下调OPV
+    //无线电网输入终端下调OpV
     gtr.assembler('disksavior:wireless_energy_network_input_terminal')
         .itemInputs(
             '256x gtmthings:opv_67108864a_wireless_laser_target_hatch',
@@ -525,7 +554,7 @@ ServerEvents.recipes(event => {
         .itemOutputs('gtladditions:wireless_energy_network_input_terminal')
         .EUt(GTValues.VA[GTValues.MAX])
         .duration(185254)
-    //创造计算机下调到IV
+    //创造模式计算机下调到IV
     gtr.assembler('disksavior:creative_computation_provider')
         .itemInputs(
             '1024x gtceu:high_performance_computation_array',
@@ -559,14 +588,32 @@ ServerEvents.recipes(event => {
         .duration(2000)
     //可配置重力绝对洁净维护仓下调LV
     gtr.assembler('disksavior:law_cleaning_gravity_configuration_maintenance_hatch')
-        .itemInputs('1024x gtceu:maintenance_hatch')
-        .inputFluids('gtceu:glue 185254')
+        .itemInputs('64x gtceu:maintenance_hatch')
+        .inputFluids('gtceu:glue 21')
         .itemOutputs('gtceu:law_cleaning_gravity_configuration_maintenance_hatch')
         .EUt(GTValues.VA[GTValues.ULV])
+        .duration(200)
+    //扭，放得下的用三钛块+电路，放不下的用量子块
+    //两步γ射线光刻胶
+    gtr.distort('disksavior:gamma_rays_photoresist')
+        .notConsumable('gtceu:tritanium_block')
+        .itemInputs('29x gtceu:borocarbide_dust', '2x gtceu:lanthanum_dust', '2x gtceu:fullerene_dust', 'gtceu:flerovium_dust')
+        .inputFluids('gtceu:chlorine 3000')
+        .outputFluids('gtceu:gamma_rays_photoresist 1000')
+        .EUt(GTValues.VA[GTValues.UHV])
         .duration(2000)
+        .blastFurnaceTemp(800)
+    //单步碳化硼混合材料粉，给↑用的
+    gtr.distort('disksavior:borocarbide_dust')
+        .notConsumable('gtceu:quantanium_block')
+        .itemInputs('2x gtceu:holmium_dust', '2x gtceu:thulium_dust', '2x gtceu:copernicium_dust', '2x gtceu:flerovium_dust', '6x gtceu:astatine_dust', '7x gtceu:carbon_dust', '4x gtceu:francium_dust', '4x gtceu:boron_dust')
+        .itemOutputs('29x gtceu:borocarbide_dust')
+        .EUt(GTValues.VA[GTValues.UHV])
+        .duration(1000)
+        .blastFurnaceTemp(800)
     //单步量子点
     gtr.distort('disksavior:quantum_dots')
-        .notConsumable('gtceu:neutronium_block')
+        .notConsumable('gtceu:tritanium_block')
         .circuit(1)
         .itemInputs('gtceu:selenium_dust', 'gtceu:cadmium_dust', '42x gtceu:carbon_dust', 'gtceu:phosphorus_dust')
         .inputFluids('gtceu:hydrogen 87000', 'gtceu:oxygen 2000')
@@ -576,7 +623,7 @@ ServerEvents.recipes(event => {
         .blastFurnaceTemp(800)
     //单步硝酸锕镭
     gtr.distort('disksavior:actinium_radium_nitrate_solution')
-        .notConsumable('gtceu:orichalcum_block')
+        .notConsumable('gtceu:tritanium_block')
         .notConsumable('gtceu:blacklight')
         .circuit(1)
         .itemInputs(
@@ -635,18 +682,16 @@ ServerEvents.recipes(event => {
         .duration(20 * 800 / 4)
     //粉直出单步铊
     gtr.distort('disksavior:easier_thallium_dust')
+        .notConsumable('gtceu:tritanium_block')
         .itemInputs('28x #minecraft:logs', '264x gtceu:grossular_dust', '6x gtceu:sulfur_dust', '3x gtceu:carbon_dust', '2x gtceu:potassium_dust')
         .inputFluids('gtceu:steam 28000', 'gtceu:naphtha 2800', 'gtceu:ethanol 2000')
-        .notConsumable('gtceu:flotation_cell_regulator')
-        .notConsumable('gtceu:vacuum_drying_furnace')
-        .notConsumable('gtceu:isa_mill')
         .itemOutputs('4x gtceu:thallium_dust', '32x gtceu:calcium_dust', '32x gtceu:aluminium_dust', '16x gtceu:tungsten_dust')
         .EUt(GTValues.VA[GTValues.UV])
         .duration(1000)
         .blastFurnaceTemp(800)
     //单步环戊二烯化锎
     gtr.distort('disksavior:californium_cyclopentadienide_assemble')
-        .notConsumable('gtceu:mithril_block')
+        .notConsumable('gtceu:tritanium_block')
         .itemInputs('gtceu:californium_dust', '15x gtceu:carbon_dust')
         .inputFluids('gtceu:hydrogen 15000')
         .outputFluids('gtceu:californium_cyclopentadienide 1000')
@@ -731,8 +776,8 @@ ServerEvents.recipes(event => {
         .duration(1400)
     //单步富勒烯
     gtr.distort('disksavior:fullerene_dust_pattern')
-        .circuit(1)
-        .notConsumable('gtceu:osmium_block')
+        .notConsumable('gtceu:tritanium_block')
+                .circuit(1)
         .itemInputs(
             '3780x gtceu:carbon_dust'
         )
@@ -765,7 +810,7 @@ ServerEvents.recipes(event => {
         .duration(4500)
     //单步精金
     gtr.distort('disksavior:adamantine_compounds_dust')
-        .notConsumable('gtceu:mithril_block')
+        .notConsumable('gtceu:tritanium_block')
         .itemInputs(
             '32x gtceu:enriched_naquadah_dust',
             '9x gtceu:naquadah_dust',

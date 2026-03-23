@@ -82,6 +82,7 @@ ServerEvents.recipes(event => {
     //化反鸿蒙
     //集成了来自群友@aach.aic的鸿蒙之眼+
     gtr.large_chemical_reactor('disksavior:cosmos_simulation_1')
+        .notConsumable('gtceu:eye_of_harmony')
         .itemInputs('kubejs:quantum_chromodynamic_charge')
         .inputFluids(
             'gtceu:cosmic_element 1024000', 'gtceu:hydrogen 1024000000', 'gtceu:helium 1024000000'
@@ -96,6 +97,7 @@ ServerEvents.recipes(event => {
     //数值十分爆炸
     //相比普通版不加耗电和耗时，因为鸿蒙之眼的耗电和耗时是锁死的，所以这个其实还挺还原
     gtr.large_chemical_reactor('disksavior:cosmos_simulation_super_pro_max_plus_glodversion_16384')
+        .notConsumable('gtceu:eye_of_harmony')
         .itemInputs('disksavior:quantum_chromodynamic_charge_super')
         .inputFluids(
             'gtceu:cosmic_element 16777216000', 'gtceu:hydrogen 16777216000000', 'gtceu:helium 16777216000000'
