@@ -6,7 +6,7 @@
 !.gitignore
 
 # 可选：不忽略 README/许可证文件（开源项目建议保留）
-!Disksavior_README.md
+!README.md
 !LICENSE
 !LICENSE.txt
 !COPYING
