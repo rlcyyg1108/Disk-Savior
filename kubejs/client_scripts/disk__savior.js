@@ -62,7 +62,7 @@ ItemEvents.tooltip(event => {
     event.addAdvanced('disksavior:steam_1', (item, advanced, text) => {
         if (event.shift) {
             text.add('他终于站在了蒸汽的顶点')
-            text.add('脚下是无数轰鸣的蒸汽涡轮')
+            text.add('脚下是无数轰鸣的半流质发电机')
             text.add('')
             text.add('§8§o很吵')
             text.add('')
@@ -72,14 +72,14 @@ ItemEvents.tooltip(event => {
             text.add('涡轮的轰鸣声持续了很多年')
             text.add('然而机器的耗能与日俱增')
             text.add('')
-            text.add('蒸汽涡轮的产能是有限的')
+            text.add('半流质发电机的产能是有限的')
             text.add('昨日还游刃有余')
             text.add('今日便捉襟见肘')
             text.add('再过几日 就连发电用的蒸汽都供不上了')
             text.add('')
             text.add('§m§n§o§4那为什么不用其他发电方式？')
         } else {
-            text.add('§b置于蒸汽涡轮')
+            text.add('§b置于半流质发电机')
             text.add('§b用水代替蒸汽')
             text.add('§b提供32768倍超频')
             text.add('§7§oI am the bone of my steam')
@@ -109,7 +109,7 @@ ItemEvents.tooltip(event => {
             text.add('它们摩啊 摩啊')
             text.add('直到一丝火星落在了碎叶上......')
         } else {
-            text.add('§b置于蒸汽涡轮')
+            text.add('§b置于半流质发电机')
             text.add('§b用水代替蒸汽')
             text.add('§b提供32768*256倍超频')
             text.add('§7§oI have created over a thousand turbines')
@@ -133,7 +133,7 @@ ItemEvents.tooltip(event => {
             text.add('是蒸汽挽回了他如同风中残烛的生命')
             text.add('')
             text.add('如今他指尖能捏碎一整个黄昏')
-            text.add('他在每一台蒸汽涡轮上刻下名字')
+            text.add('他在每一台半流质发电机上刻下名字')
             text.add('在每一块发烫的钢铁上')
             text.add('刻下“我曾来过”的证明')
             text.add('')
@@ -145,7 +145,7 @@ ItemEvents.tooltip(event => {
             text.add('涡轮每多转一圈')
             text.add('那块红字便延长一点点')
         } else {
-            text.add('§b置于蒸汽涡轮')
+            text.add('§b置于半流质发电机')
             text.add('§b用水代替蒸汽')
             text.add('§b提供32768*256^2倍超频')
             text.add('§7§oHave withstood MSPT to create many mega steam turbine')
@@ -156,7 +156,7 @@ ItemEvents.tooltip(event => {
     event.addAdvanced('disksavior:steam_4', (item, advanced, text) => {
         if (event.shift) {
             text.add('为了应对日益增长的EU需求')
-            text.add('他不得不继续扩张蒸汽涡轮')
+            text.add('他不得不继续扩张半流质发电机')
             text.add('一片片钢铁森林从这片土地上拔地而起')
             text.add('当他终于让电网的赤字变绿')
             text.add('自己身上的红字也终于突破了50')
@@ -178,7 +178,7 @@ ItemEvents.tooltip(event => {
             text.add('然而下一秒')
             text.add('§c那个数字又变化了')
         } else {
-            text.add('§b置于蒸汽涡轮')
+            text.add('§b置于半流质发电机')
             text.add('§b用水代替蒸汽')
             text.add('§b提供32768*256^3倍超频')
             text.add('§7§oYet, those hands will never hold EU')
@@ -213,7 +213,7 @@ ItemEvents.tooltip(event => {
                 text.add('§c按住 §4SHIFT§r §c+§r §4CTRL§r §c+§r §4ALT§r §c查看心象')
             } else {
                 text.add('他终于站在了蒸汽的顶点')
-                text.add('脚下是无数轰鸣的蒸汽涡轮')
+                text.add('脚下是无数轰鸣的半流质发电机')
                 text.add('')
                 text.add('然后')
                 text.add('他开始尽数将其摧毁')
@@ -228,7 +228,7 @@ ItemEvents.tooltip(event => {
                 text.add('还有取之不尽用之不竭的蒸汽')
                 text.add('')
                 text.add('然而他并不是自暴自弃')
-                text.add('他要把这无数台蒸汽涡轮融合')
+                text.add('他要把这无数台半流质发电机融合')
                 text.add('然而凭那落后的科技是无法做到的')
                 text.add('他能做的')
                 text.add('只有不断燃烧自己的起源')
@@ -239,7 +239,7 @@ ItemEvents.tooltip(event => {
                 text.add('§c按住 §4SHIFT§r §c+§r §4CTRL§r §c查看咏唱')
             }
         } else {
-            text.add('§c置于蒸汽涡轮')
+            text.add('§c置于半流质发电机')
             text.add('§c用水代替蒸汽')
             text.add('§c提供§k2^57§r§c倍超频')
             text.add('§4......')

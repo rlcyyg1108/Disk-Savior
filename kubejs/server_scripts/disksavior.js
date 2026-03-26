@@ -1,33 +1,33 @@
-/*导出所有配方，需要在kubejs目录下手动创建recipes文件夹，有点卡
+/*导出所有配方,需要在kubejs目录下手动创建recipes文件夹,有点卡
 ServerEvents.recipes(event=>{
     event.forEachRecipe({},recipe=>{
         JsonIO.write("./recipes/" + String(recipe.getId()).replace(/:|\//g, '_') + ".json",recipe.json)
     })
 })
 
-如果你克隆了本仓库并进行了修改，那么下面的的git指令就能帮你打包一个zip文件
+如果你克隆了本仓库并进行了修改,那么下面的的git指令就能帮你打包一个zip文件
 git ls-files --full-name | grep -vE '/$|^.gitignore$|^LICENSE$' > list.txt && 7z a -tzip 硬盘拯救者v.zip @list.txt && rm list.txt
 
 
 
-从这段我的世界GTCEu模组代码中，仅提取所有包含raw的粗矿物品ID（去重），忽略其他所有内容，生成标准JS数组，每个ID前面添加 16384x ，格式为 "16384x gtceu:raw_xxx"，不要多余代码、不要注释、不要空值。
+从这段我的世界GTCEu模组代码中,仅提取所有包含raw的粗矿物品ID(去重),忽略其他所有内容,生成标准JS数组,每个ID前面添加 16384x ,格式为 "16384x gtceu:raw_xxx",不要多余代码、不要注释、不要空值。
 
 
 
-从下面的代码中提取所有输入和输出，规则如下：
-1.物品(i)格式："数量x 物品ID"，流体(f)格式："流体ID 数量"；
+从下面的代码中提取所有输入和输出,规则如下:
+1.物品(i)格式:"数量x 物品ID",流体(f)格式:"流体ID 数量"；
 2.排除包含circuit的内容；
-3.输入和输出如果有相同ID，互相抵消数量，直到其中一方为0，只保留抵消后剩余不为0的部分；
-4.最终只输出两个纯净JS数组：const inputs = [] 和 const outputs = []
-关于第三点，你要把这个复杂代码看出多个小数组，每个小数组都包含输入和输出，你先要进行通分，而且是对一个小数组进行的通分，随后再进行抵消，这是因为这是一条产线，现在做的事是进行计算，计算综合的输入和输出，所以你才需要进行通分和抵消
-你可以将其理解为配平，只不过，现在这是多个反应，你需要对每个反应进行配平，将多个反应视为一个黑盒，给出综合的输入和输出
-下面是待转换物品：
+3.输入和输出如果有相同ID,互相抵消数量,直到其中一方为0,只保留抵消后剩余不为0的部分；
+4.最终只输出两个纯净JS数组:const inputs = [] 和 const outputs = []
+关于第三点,你要把这个复杂代码看出多个小数组,每个小数组都包含输入和输出,你先要进行通分,而且是对一个小数组进行的通分,随后再进行抵消,这是因为这是一条产线,现在做的事是进行计算,计算综合的输入和输出,所以你才需要进行通分和抵消
+你可以将其理解为配平,只不过,现在这是多个反应,你需要对每个反应进行配平,将多个反应视为一个黑盒,给出综合的输入和输出
+下面是待转换物品:
 
 
 
 
 
-从代码中提取所有输入输出，物品(i)格式："数量x 物品ID"，流体(f)格式："流体ID 数量"，适用于每一个项，也就是说每一项都有''，排除含`circuit`的内容；将数据拆分为多条独立配方，逐条完成通分配比后合并计算，若某配方输出为其他配方输入，抵消计算时忽略催化剂限制，直接对相同ID的输入输出进行数量抵消，仅保留抵消后数量不为0的结果；每项一行，最终按固定格式输出：
+从代码中提取所有输入输出,物品(i)格式:"数量x 物品ID",流体(f)格式:"流体ID 数量",适用于每一个项,也就是说每一项都有'',排除含`circuit`的内容；将数据拆分为多条独立配方,逐条完成通分配比后合并计算,若某配方输出为其他配方输入,抵消计算时忽略催化剂限制,直接对相同ID的输入输出进行数量抵消,仅保留抵消后数量不为0的结果；每项一行,最终按固定格式输出:
     .itemInputs('数量x 物品')
     .inputFluids('流体 数量')
     .itemOutputs('数量x 输出物品')
@@ -36,7 +36,7 @@ git ls-files --full-name | grep -vE '/$|^.gitignore$|^LICENSE$' > list.txt && 7z
 
 
 
-按下面这个固定格式，把我给的转成KubeJS组装机配方，不要注释、不要修改结构,若无对应输入输出则删除对应方法
+按下面这个固定格式,把我给的转成KubeJS组装机配方,不要注释、不要修改结构,若无对应输入输出则删除对应方法，注意同id合并，若只有一个则无需数量x，只写id即可
 gtr.assembler('disksavior:自定义ID')
     .itemInputs('数量x 物品')
     .inputFluids('流体 数量')
@@ -45,7 +45,7 @@ gtr.assembler('disksavior:自定义ID')
     .EUt(GTValues.VA[GTValues.电压])
     .duration(时间)
 
-以下是待转换物品：
+以下是待转换物品:
 
 
 
@@ -54,19 +54,47 @@ todo
 新手大礼包
 加点彩蛋
 产物太多的jei警告
-说到糖，让湿件和生物系列电路板能吃你们觉得怎么样
+说到糖,让湿件和生物系列电路板能吃你们觉得怎么样
 巨型橡胶树
-蒸汽发电卡住（偶发）
+蒸汽发电卡住(偶发)
 蒸汽发电升级蒸汽太多jei拖不进去
 碎岩机电解
 样板大礼包
-
-
-
 液态拉多x聚合物
-
 中子活化器
 加警告加警告加警告加警告加警告加警告加警告加警告加警告加警告加警告加警告加警告加警告加警告
+
+
+
+改更新日志排版,github更新式···
+引用加空格···
+部件装配线主机无法合成```
+蒸汽发电升级用库存输入总成拉取提示```
+提示缺字,暂时解决方法···
+readme加前缀···
+工业屠宰机电解不出生鸡肉```
+这个是不是打错了,配方是在电解机里的,为什么是化反？···
+无限盘加描述···
+提示,搅拌机里要放一个粒子对撞的主机···
+高级舱室改英文名```
+粒子对撞批处理任务描述聚变改掉···
+电池箱怎么用···
+把超频发电的配方塞进发电阵列会炸服··
+用电网仓会爆···
+蒸汽警告···
+@rlcyyg1108 大佬,蒸汽涡轮转速过两千就会自动往下掉···
+更改了蒸汽发电升级所用的机器,现在不会间接性停机了,这个问题已经拖了接近一周了,抱歉,感谢测试@虾比事李跌~···
+单步硫酸铀加电路···
+
+
+
+
+幽匿系列```
+巴纳德c```
+碳氟化合物···
+采掘结晶,空岛```
+单步钛-50
+
 
 
 
@@ -96,15 +124,13 @@ done
 部件装配线下调···
 量子点···
 粒子对撞批处理加主机必要条件···
-流体钻机电解说明，每次升级电压提供16倍输出，耗时不变···
+流体钻机电解说明,每次升级电压提供16倍输出,耗时不变···
 拉大样板调试工具的任务图标···
-改名，净化水终结者···
+改名,净化水终结者···
 新任务指引···
-
-
 超级并行控制仓下调IV···
 无限透镜原件包测试···
-还有个文案小问题，是“创造模式计算机”还是“创造计算机”，前面是单方块的，后面是多方块的···
+还有个文案小问题,是“创造模式计算机”还是“创造计算机”,前面是单方块的,后面是多方块的···
 化反鸿蒙需要鸿蒙···
 γ射线光刻胶···
 温室元件包```
@@ -115,30 +141,23 @@ done
 
 
 */
-//全局变量，用于给其他脚本做兼容
+//全局变量,用于给其他脚本做兼容
 global.disksavior = true
 PlayerEvents.loggedIn(event => {
     const player = event.player;
     player.tell("§a欢迎使用『§r§e硬盘拯救者§r§a』!")
-    player.tell("§a当前版本为§r §ev16")
-    player.tell("§c当前版本并不完善，可能有较多bug!")
+    player.tell("§a当前版本为§r §ev17 pre1")
+    player.tell("§c当前版本并不完善,可能有较多bug!")
     player.tell("§a本私货自带任务书,请仔细阅读")
     player.tell("§7========================================")
     player.tell("§c⚠️不装GTL additions可能会报错")
     player.tell("§c⚠️本私货需要在GTL core开启原始虚空采矿机")
-    player.tell("§c⚠️蒸汽发电升级系列有可能会突然卡住不运行（偶发），常见于当功率高于转子支架等级使，暂时解决方法，用定时红石信号开关机可勉强解决问题")
-    player.tell("§7========================================")
-    player.tell("§l§e推荐安装")
-    player.tell("§b - 产线爆破")
-    player.tell("§b - 产线撕裂")
-    player.tell("§b - GTL additions")
-    player.tell("§b - 高级舱室（给GTL提供批处理功能，巨幅减少卡顿）")
     player.tell("§7========================================")
     player.tell("§e祝你游戏愉快!")
 })
 ServerEvents.recipes(event => {
     const gtr = event.recipes.gtceu
-    const packed_infinity_cell = (cellname, type, list) => {//从产线撕裂里扒过来的，感谢@？（-5周目max小登） 
+    const packed_infinity_cell = (cellname, type, list) => {//从产线撕裂里扒过来的,感谢@？(-5周目max小登) 
         const list_length = list.length
         let a = "1L,"
         a = a.repeat(list_length - 1) + '1L'
@@ -165,7 +184,7 @@ ServerEvents.recipes(event => {
         .itemOutputs(packed_infinity_cell('透镜元件包', 'i', [
             //16色透镜
             'gtceu:glass_lens', 'gtceu:orange_glass_lens', 'gtceu:magenta_glass_lens', 'gtceu:light_blue_glass_lens', 'gtceu:yellow_glass_lens', 'gtceu:lime_glass_lens', 'gtceu:pink_glass_lens', 'gtceu:gray_glass_lens', 'gtceu:light_gray_glass_lens', 'gtceu:cyan_glass_lens', 'gtceu:purple_glass_lens', 'gtceu:blue_glass_lens', 'gtceu:brown_glass_lens', 'gtceu:green_glass_lens', 'gtceu:red_glass_lens', 'gtceu:black_glass_lens',
-            //宝石透镜，没有非线性光学透镜
+            //宝石透镜,没有非线性光学透镜
             'gtceu:diamond_lens', 'gtceu:nether_star_lens', 'gtceu:ruby_lens', 'gtceu:emerald_lens', 'gtceu:sapphire_lens', 'gtceu:amethyst_lens'
         ]))
         .duration(2000)
@@ -214,36 +233,36 @@ ServerEvents.recipes(event => {
         .EUt(1)
         .duration(200)
     //蒸汽发电加强
-    //每次功率提升4个电压，即256倍
-    gtr.steam_turbine('disksavior:steam_1')
+    //每次功率提升4个电压,即256倍
+    gtr.semi_fluid_generator('disksavior:steam_1')
         .notConsumable('disksavior:steam_1')
         .inputFluids('minecraft:water 163840')
         .outputFluids('gtceu:distilled_water 1024')
         .EUt(-2147483648 * Math.pow(256, 0))
         .duration(10)
-    gtr.steam_turbine('disksavior:steam_2')
+    gtr.semi_fluid_generator('disksavior:steam_2')
         .notConsumable('disksavior:steam_2')
         .inputFluids('minecraft:water 41943040')
         .outputFluids('gtceu:distilled_water 262144')
         .EUt(-2147483648 * Math.pow(256, 1))
         .duration(10)
-    gtr.steam_turbine('disksavior:steam_3')
+    gtr.semi_fluid_generator('disksavior:steam_3')
         .notConsumable('disksavior:steam_3')
         .inputFluids('minecraft:water 10737418240')
         .outputFluids('gtceu:distilled_water 67108864')
         .EUt(-2147483648 * Math.pow(256, 2))
         .duration(10)
-    gtr.steam_turbine('disksavior:steam_4')
+    gtr.semi_fluid_generator('disksavior:steam_4')
         .notConsumable('disksavior:steam_4')
         .inputFluids('minecraft:water 2748779069440')
         .outputFluids('gtceu:distilled_water 17179869184')
         .EUt(-2147483648 * Math.pow(256, 3))
         .duration(10)
-    gtr.steam_turbine('disksavior:steam_is_my_last_life')
+    gtr.semi_fluid_generator('disksavior:steam_is_my_last_life')
         .notConsumable('disksavior:steam_is_my_last_life')
         .inputFluids('minecraft:water 703687441776640')
         .outputFluids('gtceu:distilled_water 4398046511104')
-        .EUt(-2147483648 * 2147483648)//不知道为什么写Math.pow(256, 4)会溢出
+        .EUt(-9221474836470000000)//不知道为什么写Math.pow(256, 4)会溢出
         .duration(10)
     //蒸汽是我最后的生命……
     //蒸汽基础
@@ -376,7 +395,7 @@ ServerEvents.recipes(event => {
         .itemOutputs('minecraft:grass_block')
         .EUt(GTValues.VA[GTValues.ULV])
         .duration(10)
-    //蒸汽冷冻蒸馏水（意义不明）
+    //蒸汽冷冻蒸馏水(意义不明)
     gtr.vacuum_freezer('disksavior:steam_water')
         .inputFluids('gtceu:steam 160000')
         .outputFluids('gtceu:distilled_water 1000')
@@ -515,7 +534,7 @@ ServerEvents.recipes(event => {
         .duration(2000)
     //部件装配线下调IV
     gtr.assembler("disksavior:component_assembly_line")
-        .itemInputs('256x gtceu:assembly_line', '256x gtceu:assembly_line_casing', '512x gtceu:assembly_line_unit', '256x gtceu:iv_robot_arm', '512x gtceu:iv_conveyor_module', '512x gtceu:iv_electric_motor', '256x #gtceu/circuits/luv', '320x #gtceu/circuits/iv', '384x #gtceu/circuits/ev')
+        .itemInputs('256x gtceu:assembly_line', '256x gtceu:assembly_line_casing', '512x gtceu:assembly_line_unit', '256x gtceu:iv_robot_arm', '512x gtceu:iv_conveyor_module', '512x gtceu:iv_electric_motor', '256x #gtceu:circuits/luv', '320x #gtceu:circuits/iv', '384x #gtceu:circuits/ev')
         .inputFluids('gtceu:glue 185254000')
         .itemOutputs('gtceu:component_assembly_line')
         .EUt(GTValues.VA[GTValues.LuV])
@@ -593,7 +612,7 @@ ServerEvents.recipes(event => {
         .itemOutputs('gtceu:law_cleaning_gravity_configuration_maintenance_hatch')
         .EUt(GTValues.VA[GTValues.ULV])
         .duration(200)
-    //扭，放得下的用三钛块+电路，放不下的用量子块
+    //扭,放得下的用三钛块+电路,放不下的用量子块
     //两步γ射线光刻胶
     gtr.distort('disksavior:gamma_rays_photoresist')
         .notConsumable('gtceu:tritanium_block')
@@ -603,9 +622,9 @@ ServerEvents.recipes(event => {
         .EUt(GTValues.VA[GTValues.UHV])
         .duration(2000)
         .blastFurnaceTemp(800)
-    //单步碳化硼混合材料粉，给↑用的
+    //单步碳化硼混合材料粉,给↑用的
     gtr.distort('disksavior:borocarbide_dust')
-        .notConsumable('gtceu:quantanium_block')
+        .notConsumable('gtceu:tritanium_block')
         .itemInputs('2x gtceu:holmium_dust', '2x gtceu:thulium_dust', '2x gtceu:copernicium_dust', '2x gtceu:flerovium_dust', '6x gtceu:astatine_dust', '7x gtceu:carbon_dust', '4x gtceu:francium_dust', '4x gtceu:boron_dust')
         .itemOutputs('29x gtceu:borocarbide_dust')
         .EUt(GTValues.VA[GTValues.UHV])
@@ -651,6 +670,14 @@ ServerEvents.recipes(event => {
         .EUt(GTValues.VA[GTValues.UHV])
         .duration(3000)
         .blastFurnaceTemp(800)
+    //单步碳氟化合物
+    gtr.large_chemical_reactor('disksavior:processing_pattern_fluorocarborane')
+        .circuit(30)
+        .itemInputs('gtceu:carbon_dust', '11x gtceu:boron_dust')
+        .inputFluids('gtceu:hydrogen 2000', 'gtceu:fluorine 11000')
+        .itemOutputs('gtceu:fluorocarborane_dust')
+        .EUt(GTValues.VA[GTValues.IV])
+        .duration(200)
     //单步石化脱硫
     gtr.large_chemical_reactor('disksavior:oil_medium_sulfuric')
         .notConsumable('gtceu:desulfurizer')
@@ -722,12 +749,26 @@ ServerEvents.recipes(event => {
         )
         .EUt(GTValues.VA[GTValues.UV])
         .duration(2000)
+    //回响系列电解
+    gtr.electrolyzer('disksavior:echo')
+        .notConsumable('kubejs:reactor_core')
+        .itemOutputs('minecraft:echo_shard', 'minecraft:sculk_sensor', 'minecraft:sculk_catalyst', '4x minecraft:sculk')
+        .EUt(GTValues.VA[GTValues.HV])
+        .duration(200)
     //霜原碎片电解
     gtr.electrolyzer('disksavior:glacio_spirit')
         .notConsumable('ad_astra:glacio_stone')
         .itemOutputs('1024x kubejs:glacio_spirit')
         .EUt(GTValues.VA[GTValues.UV])
         .duration(2000)
+    //巴纳德c原木电解
+    gtr.electrolyzer('disksavior:barnarda_log')
+        .notConsumable('gtceu:large_greenhouse')
+        .notConsumable('64x kubejs:barnarda_log')
+        .inputFluids('gtceu:unknowwater 1000')
+        .itemOutputs('32x kubejs:barnarda_log')
+        .EUt(GTValues.VA[GTValues.MV])
+        .duration(400)
     //单步稀土线
     gtr.large_chemical_reactor('disksavior:monazite_dust_processing')
         .itemInputs('144x gtceu:monazite_dust')
@@ -777,7 +818,7 @@ ServerEvents.recipes(event => {
     //单步富勒烯
     gtr.distort('disksavior:fullerene_dust_pattern')
         .notConsumable('gtceu:tritanium_block')
-                .circuit(1)
+        .circuit(1)
         .itemInputs(
             '3780x gtceu:carbon_dust'
         )
@@ -797,6 +838,7 @@ ServerEvents.recipes(event => {
         .duration(1280)
     //单步硫酸铀
     gtr.electrolyzer('disksavior:uranium_sulfate_waste_solution')
+        .circuit(1)
         .itemInputs('gtceu:uraninite_dust')
         .inputFluids('gtceu:sulfuric_acid 9000')
         .itemOutputs(
@@ -840,7 +882,7 @@ ServerEvents.recipes(event => {
         .EUt(GTValues.VA[GTValues.UEV])
         .blastFurnaceTemp(800)
         .duration(2400)
-    //单步硅岩燃料，不完美循环，我真的不想再配平了，递归循环是极为邪恶的
+    //单步硅岩燃料,不完美循环,我真的不想再配平了,递归循环是极为邪恶的
     //化反30电路
     gtr.large_chemical_reactor('disksavior:naquadah_fuel')
         .itemInputs('160x gtceu:naquadah_dust')
@@ -856,7 +898,7 @@ ServerEvents.recipes(event => {
         )
         .EUt(GTValues.VA[GTValues.UV])
         .duration(12800)
-    //单步富集硅岩燃料，完美循环
+    //单步富集硅岩燃料,完美循环
     //化反30电路
     gtr.large_chemical_reactor('disksavior:enriched_naquadah_fuel')
         .circuit(30)
@@ -877,7 +919,7 @@ ServerEvents.recipes(event => {
         )
         .EUt(GTValues.VA[GTValues.UHV])
         .duration(86400)
-    //九倍压缩核废料电解，一号电路
+    //九倍压缩核废料电解,一号电路
     gtr.electrolyzer('disksavior:nuclear_waste_9')
         .itemInputs('9x kubejs:nuclear_waste')
         .circuit(1)
@@ -892,8 +934,8 @@ ServerEvents.recipes(event => {
         .EUt(2048)
         .duration(1800)
     //四倍压缩稀有金属粉离心
-    //因为会串，所以改离心机做
-    //因未知原因，用编程电路无法正常工作，故改用新物品
+    //因为会串,所以改离心机做
+    //因未知原因,用编程电路无法正常工作,故改用新物品
     gtr.centrifuge('disksavior:rec_4x')
         .notConsumable('gtceu:rare_earth_centrifugal')
         .itemInputs('4x gtceu:rare_earth_metal_dust')
@@ -918,7 +960,7 @@ ServerEvents.recipes(event => {
         )
         .EUt(GTValues.VA[GTValues.UV])
         .duration(800)
-    /*我写完了才发现爆破的比我的效率高，已哭泣
+    /*我写完了才发现爆破的比我的效率高,已哭泣
     //渔场集大成去概率
     gtr.packer('disksavior:packer_super')
         .notConsumable('64x gtceu:fishing_ground')
@@ -1059,7 +1101,7 @@ ServerEvents.recipes(event => {
         .EUt(GTValues.VA[GTValues.EV])
         .duration(200)
     //搅拌机科技
-    //搅拌机合木化工厂，加点胶水粘起来就行了真是神奇啊
+    //搅拌机合木化工厂,加点胶水粘起来就行了真是神奇啊
     gtr.mixer('disksavior:wood_distillation')
         .itemInputs(
             '64x gtceu:distillation_tower',
@@ -1082,7 +1124,7 @@ ServerEvents.recipes(event => {
         .duration(200)
     //大集气加强
     //100*16*40*100*16=102.4MB
-    //基数(B)*催化剂修正值（HV~IV）*升阶补偿（一次无损超频*十倍速=40）*百倍批处理*两次无损超频
+    //基数(B)*催化剂修正值(HV~IV)*升阶补偿(一次无损超频*十倍速=40)*百倍批处理*两次无损超频
     //空气
     gtr.large_gas_collector('disksavior:7')
         .notConsumable('kubejs:overworld_data')

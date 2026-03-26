@@ -6,7 +6,7 @@
 !.gitignore
 
 # 可选：不忽略 README/许可证文件（开源项目建议保留）
-!README.md
+!Disksavior_README.md
 !LICENSE
 !LICENSE.txt
 !COPYING
@@ -38,7 +38,6 @@
 !kubejs/assets/disksavior/
 !kubejs/assets/disksavior/**/*
 #other
-!Disksavior_Changelog.txt
 !Disksavior_Changelog.md
 !Disksavior_diban.txt
 

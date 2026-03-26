@@ -22,7 +22,7 @@
  - 产线爆破
  - 产线撕裂
  - GTL additions
- - 高级舱室
+ - GTM Advanced Hatch
 
 ## ⚠️⚠️⚠️不装GTL additions可能会报错
 ## ⚠️⚠️⚠️本私货需要在GTL core开启原始虚空采矿机
