@@ -271,11 +271,6 @@ ServerEvents.recipes(event => {
         .inputFluids('minecraft:water 703687441776640')
         .EUt(-9221474836470000000)//不知道为什么写Math.pow(256, 4)会溢出
         .duration(10)
-    gtr.steam_turbine('disksavior:steam99999')
-        .notConsumable('disksavior:steam_is_my_last_life')
-        .inputFluids('minecraft:water 703687441776640')
-        .EUt(-9221474836470000000)//不知道为什么写Math.pow(256, 4)会溢出
-        .duration(10)
     //蒸汽是我最后的生命……
     //蒸汽基础
     gtr.mixer('disksavior:steam_1')
@@ -625,7 +620,8 @@ ServerEvents.recipes(event => {
         .EUt(GTValues.VA[GTValues.ULV])
         .duration(200)
     //单步钛-50
-    gtr.decay_hastener('disksavior:titanium_50')
+    gtr.large_chemical_reactor('disksavior:titanium_50')
+        .notConsumable('gtceu:decay_hastener')
         .itemInputs('gtceu:titanium_dust')
         .outputFluids('gtceu:titanium_50 144')
         .EUt(GTValues.VA[GTValues.UV])
@@ -1050,7 +1046,7 @@ ServerEvents.recipes(event => {
         .EUt(GTValues.VA[GTValues.MV])
         .duration(800)
     //石化工厂配方可用化反运行
-    gtr.chemical_reactor('disksavior:petrochemical_plant_1')
+    gtr.large_chemical_reactor('disksavior:petrochemical_plant_1')
         .circuit(1)
         .inputFluids('gtceu:oil 1000', 'gtceu:steam 1000')
         .outputFluids('gtceu:toluene 60',
@@ -1067,7 +1063,7 @@ ServerEvents.recipes(event => {
             'gtceu:helium 20')
         .EUt(GTValues.VA[GTValues.EV])
         .duration(200)
-    gtr.chemical_reactor('disksavior:petrochemical_plant_2')
+    gtr.large_chemical_reactor('disksavior:petrochemical_plant_2')
         .circuit(1)
         .inputFluids('gtceu:oil_medium 1000', 'gtceu:steam 1000')
         .outputFluids('gtceu:toluene 40',
@@ -1084,7 +1080,7 @@ ServerEvents.recipes(event => {
             'gtceu:helium 10')
         .EUt(GTValues.VA[GTValues.EV])
         .duration(200)
-    gtr.chemical_reactor('disksavior:petrochemical_plant_3')
+    gtr.large_chemical_reactor('disksavior:petrochemical_plant_3')
         .circuit(1)
         .inputFluids('gtceu:oil_heavy 1000', 'gtceu:steam 1000')
         .outputFluids('gtceu:toluene 240',
@@ -1101,7 +1097,7 @@ ServerEvents.recipes(event => {
             'gtceu:helium 10')
         .EUt(GTValues.VA[GTValues.EV])
         .duration(200)
-    gtr.chemical_reactor('disksavior:petrochemical_plant_4')
+    gtr.large_chemical_reactor('disksavior:petrochemical_plant_4')
         .circuit(1)
         .inputFluids('gtceu:oil_light 1000', 'gtceu:steam 1000')
         .outputFluids('gtceu:toluene 20',
@@ -1172,7 +1168,7 @@ ServerEvents.recipes(event => {
         .duration(2000)
     //粉直出铂系矿泥
     //黝铜
-    gtr.chemical_reactor('disksavior:boxi_1')
+    gtr.large_chemical_reactor('disksavior:boxi_1')
         .itemInputs('gtceu:tetrahedrite_dust')
         .inputFluids('gtceu:nitric_acid 100')
         .itemOutputs('8x gtceu:platinum_group_sludge_dust', 'gtceu:copper_dust')
@@ -1180,7 +1176,7 @@ ServerEvents.recipes(event => {
         .EUt(GTValues.VA[GTValues.LV])
         .duration(50)
     //斑铜
-    gtr.chemical_reactor('disksavior:boxi_2')
+    gtr.large_chemical_reactor('disksavior:boxi_2')
         .itemInputs('gtceu:bornite_dust')
         .inputFluids('gtceu:nitric_acid 100')
         .itemOutputs('8x gtceu:platinum_group_sludge_dust', 'gtceu:copper_dust')
@@ -1188,7 +1184,7 @@ ServerEvents.recipes(event => {
         .EUt(GTValues.VA[GTValues.LV])
         .duration(50)
     //辉铜
-    gtr.chemical_reactor('disksavior:boxi_3')
+    gtr.large_chemical_reactor('disksavior:boxi_3')
         .itemInputs('gtceu:chalcocite_dust')
         .inputFluids('gtceu:nitric_acid 100')
         .itemOutputs('8x gtceu:platinum_group_sludge_dust', 'gtceu:copper_dust')
@@ -1196,7 +1192,7 @@ ServerEvents.recipes(event => {
         .EUt(GTValues.VA[GTValues.LV])
         .duration(50)
     //谢尔顿
-    gtr.chemical_reactor('disksavior:boxi_4')
+    gtr.large_chemical_reactor('disksavior:boxi_4')
         .itemInputs('gtceu:cooperite_dust')
         .inputFluids('gtceu:nitric_acid 100')
         .itemOutputs('16x gtceu:platinum_group_sludge_dust', 'gtceu:nickel_dust')
