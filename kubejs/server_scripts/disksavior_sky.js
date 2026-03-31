@@ -15,7 +15,6 @@ ServerEvents.recipes(event => {
         .duration(200)
     //三碎片化反
     gtr.large_chemical_reactor('disksavior:crystal')
-        .circuit(1)
         .notConsumable('2147483647x gtceu:ulv_fragment_world_collection_machine')
         .notConsumable('2147483647x gtceu:large_fragment_world_collection_machine')
         .inputFluids('gtceu:steam 1')
@@ -26,9 +25,6 @@ ServerEvents.recipes(event => {
         .duration(200)
     //宏原子版
     gtr.large_chemical_reactor('disksavior:crystal_max')
-        .circuit(2)
-        .notConsumable('2147483647x gtceu:ulv_fragment_world_collection_machine')
-        .notConsumable('2147483647x gtceu:large_fragment_world_collection_machine')
         .notConsumable('1024x gtladditions:macro_atomic_resonant_fragment_stripper')
         .inputFluids('gtceu:steam 1')
         .chancedOutput("gtlcore:mining_crystal", 5, 0)

@@ -62,38 +62,18 @@ todo
 样板大礼包
 液态拉多x聚合物
 中子活化器
-加警告加警告加警告加警告加警告加警告加警告加警告加警告加警告加警告加警告加警告加警告加警告
-
-
-
-改更新日志排版,github更新式···
-引用加空格···
-部件装配线主机无法合成```
-蒸汽发电升级用库存输入总成拉取提示```
-提示缺字,暂时解决方法···
-readme加前缀···
-工业屠宰机电解不出生鸡肉```
-这个是不是打错了,配方是在电解机里的,为什么是化反？···
-无限盘加描述···
-提示,搅拌机里要放一个粒子对撞的主机···
-高级舱室改英文名```
-粒子对撞批处理任务描述聚变改掉···
-电池箱怎么用···
-把超频发电的配方塞进发电阵列会炸服··
-用电网仓会爆···
-蒸汽警告···
-@rlcyyg1108 大佬,蒸汽涡轮转速过两千就会自动往下掉···
-更改了蒸汽发电升级所用的机器,现在不会间接性停机了,这个问题已经拖了接近一周了,抱歉,感谢测试@虾比事李跌~···
-单步硫酸铀加电路···
 
 
 
 
-幽匿系列```
-巴纳德c```
-碳氟化合物···
-采掘结晶,空岛```
-单步钛-50
+
+
+
+退火铜
+加推荐模组
+
+
+
 
 
 
@@ -136,7 +116,39 @@ done
 温室元件包```
 小op下调```
 默认关闭的东西```
-
+改更新日志排版,github更新式···
+引用加空格···
+部件装配线主机无法合成```
+蒸汽发电升级用库存输入总成拉取提示```
+提示缺字,暂时解决方法···
+readme加前缀···
+工业屠宰机电解不出生鸡肉```
+这个是不是打错了,配方是在电解机里的,为什么是化反？···
+无限盘加描述···
+提示,搅拌机里要放一个粒子对撞的主机···
+高级舱室改英文名```
+粒子对撞批处理任务描述聚变改掉···
+电池箱怎么用···
+把超频发电的配方塞进发电阵列会炸服··
+用电网仓会爆···
+蒸汽警告···
+@rlcyyg1108 大佬,蒸汽涡轮转速过两千就会自动往下掉···
+更改了蒸汽发电升级所用的机器,现在不会间接性停机了,这个问题已经拖了接近一周了,抱歉,感谢测试@虾比事李跌~···
+单步硫酸铀加电路···
+幽匿系列```
+巴纳德c```
+碳氟化合物···
+采掘结晶,空岛```
+加警告加警告加警告加警告加警告加警告加警告加警告加警告加警告加警告加警告加警告加警告加警告···
+回响改屠宰场```
+太空电梯以及其他任务介绍，添加醒目字体颜色标记···
+推荐模组加领取限制，防止提前领取···
+蒸汽发电升级要放样板总成输出```
+硬盘改二选一···
+删矿处还原···
+t7任务前置错误···
+透镜元件包错误···
+单步钛-50```
 
 
 
@@ -237,31 +249,31 @@ ServerEvents.recipes(event => {
     gtr.semi_fluid_generator('disksavior:steam_1')
         .notConsumable('disksavior:steam_1')
         .inputFluids('minecraft:water 163840')
-        .outputFluids('gtceu:distilled_water 1024')
         .EUt(-2147483648 * Math.pow(256, 0))
         .duration(10)
     gtr.semi_fluid_generator('disksavior:steam_2')
         .notConsumable('disksavior:steam_2')
         .inputFluids('minecraft:water 41943040')
-        .outputFluids('gtceu:distilled_water 262144')
         .EUt(-2147483648 * Math.pow(256, 1))
         .duration(10)
     gtr.semi_fluid_generator('disksavior:steam_3')
         .notConsumable('disksavior:steam_3')
         .inputFluids('minecraft:water 10737418240')
-        .outputFluids('gtceu:distilled_water 67108864')
         .EUt(-2147483648 * Math.pow(256, 2))
         .duration(10)
     gtr.semi_fluid_generator('disksavior:steam_4')
         .notConsumable('disksavior:steam_4')
         .inputFluids('minecraft:water 2748779069440')
-        .outputFluids('gtceu:distilled_water 17179869184')
         .EUt(-2147483648 * Math.pow(256, 3))
         .duration(10)
     gtr.semi_fluid_generator('disksavior:steam_is_my_last_life')
         .notConsumable('disksavior:steam_is_my_last_life')
         .inputFluids('minecraft:water 703687441776640')
-        .outputFluids('gtceu:distilled_water 4398046511104')
+        .EUt(-9221474836470000000)//不知道为什么写Math.pow(256, 4)会溢出
+        .duration(10)
+    gtr.steam_turbine('disksavior:steam99999')
+        .notConsumable('disksavior:steam_is_my_last_life')
+        .inputFluids('minecraft:water 703687441776640')
         .EUt(-9221474836470000000)//不知道为什么写Math.pow(256, 4)会溢出
         .duration(10)
     //蒸汽是我最后的生命……
@@ -612,6 +624,12 @@ ServerEvents.recipes(event => {
         .itemOutputs('gtceu:law_cleaning_gravity_configuration_maintenance_hatch')
         .EUt(GTValues.VA[GTValues.ULV])
         .duration(200)
+    //单步钛-50
+    gtr.decay_hastener('disksavior:titanium_50')
+        .itemInputs('gtceu:titanium_dust')
+        .outputFluids('gtceu:titanium_50 144')
+        .EUt(GTValues.VA[GTValues.UV])
+        .duration(200)
     //扭,放得下的用三钛块+电路,放不下的用量子块
     //两步γ射线光刻胶
     gtr.distort('disksavior:gamma_rays_photoresist')
@@ -753,7 +771,7 @@ ServerEvents.recipes(event => {
     gtr.electrolyzer('disksavior:echo')
         .notConsumable('kubejs:reactor_core')
         .itemOutputs('minecraft:echo_shard', 'minecraft:sculk_sensor', 'minecraft:sculk_catalyst', '4x minecraft:sculk')
-        .EUt(GTValues.VA[GTValues.HV])
+        .EUt(GTValues.VA[GTValues.LV])
         .duration(200)
     //霜原碎片电解
     gtr.electrolyzer('disksavior:glacio_spirit')
@@ -1152,43 +1170,6 @@ ServerEvents.recipes(event => {
         .outputFluids('gtceu:barnarda_air 1000000')
         .EUt(GTValues.VA[GTValues.IV])
         .duration(2000)
-    //矿粉还原矿处中间产物
-    //闪电处理32号电路
-    //晶质铀
-    gtr.lightning_processor('disksavior:old_1')
-        .circuit(32)
-        .itemInputs('2x gtceu:uraninite_dust')
-        .itemOutputs('gtceu:impure_uraninite_dust')
-        .EUt(GTValues.VA[GTValues.ULV])
-        .duration(20)
-    //黝铜
-    gtr.lightning_processor('disksavior:old_2')
-        .circuit(32)
-        .itemInputs('2x gtceu:tetrahedrite_dust')
-        .itemOutputs('gtceu:purified_tetrahedrite_ore')
-        .EUt(GTValues.VA[GTValues.ULV])
-        .duration(20)
-    //斑铜
-    gtr.lightning_processor('disksavior:old_3')
-        .circuit(32)
-        .itemInputs('2x gtceu:bornite_dust')
-        .itemOutputs('gtceu:purified_bornite_ore')
-        .EUt(GTValues.VA[GTValues.ULV])
-        .duration(20)
-    //辉铜
-    gtr.lightning_processor('disksavior:old_4')
-        .circuit(32)
-        .itemInputs('2x gtceu:chalcocite_dust')
-        .itemOutputs('gtceu:purified_chalcocite_ore')
-        .EUt(GTValues.VA[GTValues.ULV])
-        .duration(20)
-    //谢尔顿
-    gtr.lightning_processor('disksavior:old_5')
-        .circuit(32)
-        .itemInputs('2x gtceu:cooperite_dust')
-        .itemOutputs('gtceu:purified_cooperite_ore')
-        .EUt(GTValues.VA[GTValues.ULV])
-        .duration(20)
     //粉直出铂系矿泥
     //黝铜
     gtr.chemical_reactor('disksavior:boxi_1')

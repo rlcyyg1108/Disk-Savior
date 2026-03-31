@@ -274,9 +274,15 @@ ServerEvents.recipes(event => {
         .EUt(GTValues.VA[GTValues.HV])
         .duration((t6.length + t5.length + t4.length) * 16)
     //屠宰场电解
-    const ds_slaughterhouse = ['minecraft:wither_skeleton_skull', '8x minecraft:ghast_tear', '8x minecraft:blaze_rod', '16x minecraft:slime_ball', '8x minecraft:ender_pearl', '32x minecraft:bone', '16x minecraft:porkchop', '16x minecraft:beef', '16x minecraft:rabbit', '16x minecraft:chicken', '16x minecraft:mutton', '16x minecraft:cod', 'minecraft:tropical_fish', '16x minecraft:salmon', '64x minecraft:wheat', '32x minecraft:carrot', '32x minecraft:potato', '16x minecraft:poppy', '32x minecraft:feather', '32x minecraft:string', '16x minecraft:leather', '16x minecraft:rabbit_hide', '32x minecraft:gunpowder', '32x minecraft:rotten_flesh', '16x minecraft:spider_eye', '8x minecraft:rabbit_foot', '64x minecraft:ink_sac', '64x minecraft:glow_ink_sac', '8x minecraft:nautilus_shell', '16x minecraft:iron_ingot', '16x minecraft:gold_ingot', '16x minecraft:copper_ingot', '32x minecraft:gold_nugget', '16x minecraft:emerald', '32x minecraft:coal', '32x minecraft:redstone', '16x minecraft:glowstone_dust', '32x minecraft:bamboo', '32x minecraft:stick', '32x minecraft:arrow', '32x minecraft:sugar', '64x minecraft:white_wool', '32x minecraft:egg', '16x minecraft:glass_bottle']
+    const ds_slaughterhouse = [
+        //重要的五个前置
+        'minecraft:wither_skeleton_skull', '8x minecraft:ghast_tear', '8x minecraft:blaze_rod', '16x minecraft:slime_ball', '8x minecraft:ender_pearl', 
+        //回响系列
+        'minecraft:echo_shard', 'minecraft:sculk_sensor', 'minecraft:sculk_catalyst', '4x minecraft:sculk',
+        //其他
+        '32x minecraft:bone', '16x minecraft:porkchop', '16x minecraft:beef', '16x minecraft:rabbit', '16x minecraft:chicken', '16x minecraft:mutton', '16x minecraft:cod', 'minecraft:tropical_fish', '16x minecraft:salmon', '64x minecraft:wheat', '32x minecraft:carrot', '32x minecraft:potato', '16x minecraft:poppy', '32x minecraft:feather', '32x minecraft:string', '16x minecraft:leather', '16x minecraft:rabbit_hide', '32x minecraft:gunpowder', '32x minecraft:rotten_flesh', '16x minecraft:spider_eye', '8x minecraft:rabbit_foot', '64x minecraft:ink_sac', '64x minecraft:glow_ink_sac', '8x minecraft:nautilus_shell', '16x minecraft:iron_ingot', '16x minecraft:gold_ingot', '16x minecraft:copper_ingot', '32x minecraft:gold_nugget', '16x minecraft:emerald', '32x minecraft:coal', '32x minecraft:redstone', '16x minecraft:glowstone_dust', '32x minecraft:bamboo', '32x minecraft:stick', '32x minecraft:arrow', '32x minecraft:sugar', '64x minecraft:white_wool', '32x minecraft:egg', '16x minecraft:glass_bottle']
     gtr.electrolyzer('disksavior:slaughterhouse')
-        .notConsumable('64x gtceu:slaughterhouse')
+        .notConsumable('1024x gtceu:slaughterhouse')
         .itemOutputs(ds_slaughterhouse)
         .EUt(GTValues.VA[GTValues.MV])
         .duration(2560)
