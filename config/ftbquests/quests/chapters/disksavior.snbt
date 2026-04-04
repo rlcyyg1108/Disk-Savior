@@ -6,7 +6,7 @@
 	group: ""
 	icon: "gtlcore:item_infinity_cell"
 	id: "6118ED8EA9970D67"
-	order_index: 6
+	order_index: 5
 	quest_links: [ ]
 	quests: [
 		{
@@ -50,6 +50,7 @@
 		}
 		{
 			description: [
+				"&c⚠️⚠️⚠️不推荐&n新手格雷员工&r&c使用！！！！！！"
 				"&l&e推荐安装"
 				"&b - 产线爆破"
 				"&b - 产线撕裂"
@@ -58,7 +59,6 @@
 				"&c⚠️不装GTL additions可能会报错"
 				"&c⚠️本私货需要在GTL core开启原始虚空采矿机"
 				"&c⚠️不然会报错！！！"
-				""
 				"这是我给GregTech Leisure整合包写的私货"
 				"基本不考虑平衡性"
 				"存在一些跳科技内容和数值崩坏"
@@ -66,7 +66,6 @@
 				"才写的这个私货"
 				"用了此私货你几乎不用跑图了"
 				"存档大小可能到毕业都只有100MB出头"
-				""
 				"对了,左上角那个原木任务是我写任务用的,请无视"
 				"&l&o&n&m&8任务的副标题可以去查查都是什么(&2库嘻嘻&r&l&o&n&m&8)"
 			]
@@ -300,6 +299,9 @@
 				"然后把他们和流体钻机一起放进电解机里"
 				"就能抽&b这个维度的所有流体&r了"
 				""
+				"t3整合了t1、t2"
+				"t6整合了t4、t5"
+				""
 				"为什么是所有的呢"
 				"因为我懒得写每种流体一个配方(&2库嘻嘻&r)"
 				""
@@ -454,13 +456,13 @@
 			dependencies: ["38166A02EA474C1E"]
 			description: [
 				"和爆破的略有不同"
-				"耗时规则:一种矿1t,自带千倍批处理"
-				"一共142种矿,共142000t=7100s"
+				"自带千倍批处理"
 				""
 				"所有产物都是石头矿"
 				"没有下界岩和末地石"
 				""
 				"当然,也能用大型虚空采矿机运行"
+				"&c需要输入蒸汽和30号电路"
 				""
 				"由于配方电压稍高"
 				"&b挖低阶矿的效率不如原始虚空采矿机电解&r"
@@ -929,7 +931,7 @@
 					type: "item"
 				}
 			]
-			title: "粉直出单步硫酸铀"
+			title: "粉直出单步硫酸铀线"
 			x: 1.0d
 			y: 4.0d
 		}
@@ -3181,23 +3183,17 @@
 		{
 			dependencies: ["38166A02EA474C1E"]
 			description: [
-				"木化 不需要原木 岩浆"
+				"⚠️这个配方用&a蒸馏塔也能做"
+				""
+				"木化工厂 输入岩浆"
 				"&8&m(为什么是用岩浆啊)"
 				"&8&m(为什么木化没有木头啊)"
 				""
 				"&c产物太多 jei里显示不全&r"
 				"虽然显示不全"
-				"但是把木化独有的产物前置了"
+				"但是把重点产物前置了"
 				""
 				"这个配方&a集成&r了&b原版木化&r和&b产线爆破的木化出萘&r"
-				"但是你还有要做两台木化"
-				"因为还有一台要拿来做净化水终结者"
-				"至于为什么是用木化做"
-				"我也不知道"
-				""
-				"⚠️这个配方用&a蒸馏塔也能做"
-				"⚠️这个配方用&a蒸馏塔也能做"
-				"⚠️这个配方用&a蒸馏塔也能做"
 			]
 			icon: "gtceu:wood_distillation"
 			id: "6C8FB690B7EC68CF"
@@ -3466,9 +3462,9 @@
 		{
 			dependencies: ["38166A02EA474C1E"]
 			description: [
-				"真的是LUV吗"
+				"真的是IV吗"
 				"我不知道"
-				"反正不是IV"
+				"反正不是ZPM"
 			]
 			icon: "gtladditions:wireless_energy_network_output_terminal"
 			id: "33FFCB775EBEC5F2"
@@ -3486,7 +3482,7 @@
 					type: "item"
 				}
 			]
-			title: "无限电网输出终端阶段下调LUV"
+			title: "无限电网输出终端阶段下调IV"
 			x: -8.0d
 			y: -1.0d
 		}
@@ -3648,14 +3644,13 @@
 			dependencies: ["38166A02EA474C1E"]
 			description: [
 				"上面这几个和这个任务是升级蒸汽发电的"
-				"通过&b库存输入总成&r拉取放蒸汽涡轮里"
+				"通过&b库存输入总成&r拉取放半流质发电机里"
 				"换上&a足够大的动力仓"
-				"&c警告用高级舱室的电网仓可能会崩溃"
 				"推荐GTL ADD的&6无线电网输出终端"
 				"&r然后加&b水"
-				""
+				"&c不能用发电阵列运行"
 				"用&b半流质发电机&r运行"
-				"如果的话请用&3化学能吞噬者&r运行"
+				"如果可以的话请用&3化学能吞噬者&r运行"
 				"因为小引擎不能用大于&4UHV&r电压的动力仓"
 				""
 				"你可能想问为什么不用蒸汽涡轮运行"
@@ -3829,10 +3824,11 @@
 				""
 				"采集模块"
 				"放入64个无人机"
-				"32个太空电梯"
+				"1个太空电梯"
 				"还有输入若干蒸汽❤️"
 				"就能挖当前等级的无人机&a所有&r能挖的"
 				"甚至能挖&5巴纳德C原木"
+				"每升级一级无人机，功率*4，输出*8"
 				""
 				"&c产物太多 jei里显示不全&r"
 				""
@@ -3841,16 +3837,6 @@
 				""
 				"让你用两台资源采集模块就能挖所有东西"
 				"一台挖矿,一台抽流体"
-				""
-				"如果直接套用原版的太空电梯数值"
-				"会出现越升级效率越低的情况"
-				"因为配方强制自带有损超频"
-				"而且这机器有并行"
-				""
-				"所以怎么办呢？"
-				"{@pagebreak}"
-				"我改成无损超频了("
-				"而且基础耗时只翻八倍"
 			]
 			icon: "gtceu:resource_collection"
 			id: "3BE60A131DBBAB68"
@@ -3879,11 +3865,11 @@
 				"什么,你问我送个水库仓干什么"
 				"那是因为本私货让这个机器&b用水也能工作&r(&2库嘻嘻&r)"
 				"&c而且能产出蒸汽"
-				"但是只有用水才能产出蒸汽"
+				"但是&a只有用水才能产出蒸汽"
 				"也就是说你不用搭锅炉了"
+				"&c甚至还能产出t0矿"
+				"也就是说&b你可以把它放在超平坦或虚空维度"
 				"好耶"
-				""
-				"&m&o&8其实这个任务多给了一个泥土(小巧思)"
 			]
 			icon: "gtceu:primitive_void_ore"
 			id: "66A65723FD12ABE5"
@@ -3894,7 +3880,7 @@
 					type: "item"
 				}
 				{
-					count: 25
+					count: 64
 					id: "5C5B8332DC0ACEFB"
 					item: "minecraft:dirt"
 					type: "item"
@@ -4609,76 +4595,38 @@
 					tag: {
 						RepairCost: 0
 						amts: [L;
-							16L
 							1L
-							128L
-							34L
 							1L
 							1L
 							1L
 							1L
 							1L
-							16L
+							128L
 							1L
 							1L
-							94L
+							1L
 							1L
 							48L
 							16L
+							16L
+							94L
 							1L
+							16L
+							34L
 						]
 						display: {
 							Name: "{\"text\":\"小op礼包\"}"
 						}
-						ic: 362L
+						ic: 363L
 						internalCurrentPower: 20000.0d
 						keys: [
 							{
 								"#c": "ae2:i"
-								id: "gtceu:lv_lithium_battery"
-								tag: {
-									Charge: 120000L
-								}
+								id: "gtceu:me_stocking_input_bus"
 							}
 							{
 								"#c": "ae2:i"
-								id: "gtceu:tag_filter_me_stock_bus_part_machine"
-							}
-							{
-								"#c": "ae2:i"
-								id: "gtceu:sturdy_machine_casing"
-							}
-							{
-								"#c": "ae2:i"
-								id: "gtceu:tungstensteel_pipe_casing"
-							}
-							{
-								"#c": "ae2:i"
-								id: "gtceu:lv_battery_buffer_16x"
-							}
-							{
-								"#c": "ae2:i"
-								id: "gtceu:law_cleaning_gravity_configuration_maintenance_hatch"
-							}
-							{
-								"#c": "ae2:i"
-								id: "gtceu:zpm_muffler_hatch"
-							}
-							{
-								"#c": "ae2:i"
-								id: "gtladditions:super_parallel_hatch"
-							}
-							{
-								"#c": "ae2:i"
-								id: "gtceu:lv_energy_input_hatch_16a"
-							}
-							{
-								"#c": "ae2:i"
-								id: "gtceu:tungstensteel_gearbox"
-							}
-							{
-								"#c": "ae2:i"
-								id: "gtceu:integrated_ore_processor"
+								id: "gtceu:me_extended_export_buffer"
 							}
 							{
 								"#c": "ae2:i"
@@ -4686,7 +4634,27 @@
 							}
 							{
 								"#c": "ae2:i"
-								id: "gtceu:clean_machine_casing"
+								id: "gtceu:lv_battery_buffer_16x"
+							}
+							{
+								"#c": "ae2:i"
+								id: "gtceu:zpm_muffler_hatch"
+							}
+							{
+								"#c": "ae2:i"
+								id: "gtceu:law_cleaning_gravity_configuration_maintenance_hatch"
+							}
+							{
+								"#c": "ae2:i"
+								id: "gtceu:sturdy_machine_casing"
+							}
+							{
+								"#c": "ae2:i"
+								id: "gtceu:lv_energy_input_hatch_16a"
+							}
+							{
+								"#c": "ae2:i"
+								id: "gtceu:integrated_ore_processor"
 							}
 							{
 								"#c": "ae2:i"
@@ -4699,7 +4667,15 @@
 							}
 							{
 								"#c": "ae2:i"
+								id: "gtceu:tag_filter_me_stock_bus_part_machine"
+							}
+							{
+								"#c": "ae2:i"
 								id: "gtceu:laminated_glass"
+							}
+							{
+								"#c": "ae2:i"
+								id: "gtceu:tungstensteel_gearbox"
 							}
 							{
 								"#c": "ae2:i"
@@ -4707,7 +4683,22 @@
 							}
 							{
 								"#c": "ae2:i"
-								id: "gtmthings:me_export_buffer"
+								id: "gtceu:clean_machine_casing"
+							}
+							{
+								"#c": "ae2:i"
+								id: "gtladditions:super_parallel_hatch"
+							}
+							{
+								"#c": "ae2:i"
+								id: "gtceu:lv_lithium_battery"
+								tag: {
+									Charge: 120000L
+								}
+							}
+							{
+								"#c": "ae2:i"
+								id: "gtceu:tungstensteel_pipe_casing"
 							}
 						]
 					}
@@ -4718,9 +4709,10 @@
 			size: 3.0d
 			subtitle: "日落伊甸园"
 			tasks: [{
-				id: "76B0051577944F01"
-				optional_task: true
-				type: "checkmark"
+				consume_items: true
+				id: "7B062D71725E7898"
+				item: "minecraft:dirt"
+				type: "item"
 			}]
 			title: "小op礼包"
 			x: -3.0d
@@ -11240,8 +11232,8 @@
 				"   输入物品:ingot(锭)"
 				"   输出物品:rod(杆)"
 				"3. 工具内按格式填写:"
-				"   extruder 0(填写需要的倍数)ingot 不填 rod 不填"
-				" &b  含义&r:&a搜索压模器无电路配方,输入ID含ingot、输出ID含rod的所有配方"
+				"   extruder 0 0(填写需要的倍数) ingot 不填 rod 不填"
+				" &b  含义&r:&a搜索压模器无电路配方,输入物品ID含ingot、输出物品ID含rod的所有配方"
 				"&r4. &c点击√保存(很重要！！！)&r → 点击&l获取样板&r"
 				"5. 工具自动生成样板,背包空间不足时样板会掉落在地上"
 				"{@pagebreak}"
@@ -11307,7 +11299,7 @@
 					type: "item"
 				}
 			]
-			title: "单步硝酸锕镭"
+			title: "单步硝酸锕镭线"
 			x: 4.5d
 			y: 11.0d
 		}
@@ -11367,7 +11359,15 @@
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
-			description: ["没有非线性光学透镜"]
+			description: [
+				"没有非线性光学透镜"
+				""
+				"你不需要需要给那些透镜催化剂配方改来改去了"
+				"现在可以把透镜写进样板里"
+				"发配到样板总成就能正常工作"
+				"只不过透镜会堆在总成里"
+				"不需要刻意去返回"
+			]
 			icon: "gtceu:glass_lens"
 			id: "60C488D87659EF8E"
 			subtitle: "Nurse Cafe"
@@ -12371,7 +12371,7 @@
 				"0F4AFDE98CEA87B1"
 			]
 			description: [
-				"三碎片化反产出，数值非常爆炸"
+				"三结晶化反产出，数值非常爆炸"
 				"（没有碎片电解是因为已经有同类型配方了）"
 				"在大化反里运行"
 				"记得输入蒸汽"
@@ -12423,6 +12423,8 @@
 		{
 			dependencies: ["38166A02EA474C1E"]
 			description: [
+				"电解远古反应核"
+				""
 				"LV可做"
 				"但你要到UEV才会用到"
 				"方便你起步回响系列"
@@ -12498,6 +12500,56 @@
 			title: "单步钛-50"
 			x: -3.5d
 			y: 9.0d
+		}
+		{
+			dependencies: ["38166A02EA474C1E"]
+			description: ["相比撕裂的更便宜"]
+			icon: "gtceu:quantanium_bucket"
+			id: "2E76FD1DE09D9E0A"
+			subtitle: "死亡无法将我们彻底分离"
+			tasks: [
+				{
+					id: "7F83C7D3B0C352D4"
+					optional_task: true
+					type: "checkmark"
+				}
+				{
+					id: "6D6EB0A02A398CA2"
+					item: "gtceu:quantanium_bucket"
+					optional_task: true
+					type: "item"
+				}
+			]
+			title: "液态量子炖屎"
+			x: -4.5d
+			y: 11.0d
+		}
+		{
+			dependencies: ["38166A02EA474C1E"]
+			description: [
+				"液态量子是炖屎出的"
+				"龙尘那个配方看不全输出"
+				"其实也就是给了一点两种珍珠粉"
+			]
+			icon: "gtceu:neutron_activator"
+			id: "7CE6CEACDD9D34E6"
+			subtitle: "To the Wilder"
+			tasks: [
+				{
+					id: "163D5BB402CA286A"
+					optional_task: true
+					type: "checkmark"
+				}
+				{
+					id: "60F0E5FB94681C48"
+					item: "gtceu:neutron_activator"
+					optional_task: true
+					type: "item"
+				}
+			]
+			title: "中子活化器改闪电处理"
+			x: -5.0d
+			y: 12.0d
 		}
 	]
 	title: "硬盘拯救者"

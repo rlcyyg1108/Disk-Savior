@@ -13,7 +13,7 @@ ServerEvents.recipes(event => {
         .itemOutputs('gtceu:large_fragment_world_collection_machine')
         .EUt(GTValues.VA[GTValues.EV])
         .duration(200)
-    //三碎片化反
+    //三结晶化反
     gtr.large_chemical_reactor('disksavior:crystal')
         .notConsumable('2147483647x gtceu:ulv_fragment_world_collection_machine')
         .notConsumable('2147483647x gtceu:large_fragment_world_collection_machine')
@@ -21,7 +21,7 @@ ServerEvents.recipes(event => {
         .chancedOutput("gtlcore:mining_crystal", 5, 0)
         .chancedOutput("gtlcore:treasures_crystal", 3, 0)
         .chancedOutput("gtlcore:miracle_crystal", 1, 0)
-        .EUt(GTValues.VA[GTValues.MAX])
+        .EUt(GTValues.VA[GTValues.UV])
         .duration(200)
     //宏原子版
     gtr.large_chemical_reactor('disksavior:crystal_max')

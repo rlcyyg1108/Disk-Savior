@@ -29,32 +29,32 @@ ServerEvents.recipes(event => {
             outf: ["gtceu:unknowwater 200"]
         }
     ]
-    const ds_fdr_batch_multiplier = 1024//流体钻机电解批处理乘数
+    const ds_fdr_batch_multiplier = 64//流体钻机电解批处理乘数
     ds_fdr_data.forEach(r => {
         gtr.electrolyzer(`disksavior:fdr_t${r.tier}_mv`)
-            .notConsumable('1024x gtceu:mv_fluid_drilling_rig')
+            .notConsumable('64x gtceu:mv_fluid_drilling_rig')
             .notConsumable(r.notc)
             .outputFluids(r.outf.map(i => `${i.split(' ')[0]} ${Number(i.split(' ')[1]) * ds_fdr_batch_multiplier * 1.5}`))
             .EUt(GTValues.VA[GTValues.HV])
-            .duration(2 * ds_fdr_batch_multiplier)
+            .duration(20 * r.outf.length * ds_fdr_batch_multiplier)
         gtr.electrolyzer(`disksavior:fdr_t${r.tier}_hv`)
-            .notConsumable('1024x gtceu:hv_fluid_drilling_rig')
+            .notConsumable('64x gtceu:hv_fluid_drilling_rig')
             .notConsumable(r.notc)
             .outputFluids(r.outf.map(i => `${i.split(' ')[0]} ${Number(i.split(' ')[1]) * ds_fdr_batch_multiplier * 1.5 * 16}`))
             .EUt(GTValues.VA[GTValues.EV])
-            .duration(2 * ds_fdr_batch_multiplier)
+            .duration(20 * r.outf.length * ds_fdr_batch_multiplier)
         gtr.electrolyzer(`disksavior:fdr_t${r.tier}_ev`)
-            .notConsumable('1024x gtceu:ev_fluid_drilling_rig')
+            .notConsumable('64x gtceu:ev_fluid_drilling_rig')
             .notConsumable(r.notc)
             .outputFluids(r.outf.map(i => `${i.split(' ')[0]} ${Number(i.split(' ')[1]) * ds_fdr_batch_multiplier * 1.5 * 256}`))
             .EUt(GTValues.VA[GTValues.IV])
-            .duration(2 * ds_fdr_batch_multiplier)
+            .duration(20 * r.outf.length * ds_fdr_batch_multiplier)
         gtr.electrolyzer(`disksavior:fdr_t${r.tier}_zpm`)
-            .notConsumable('1024x gtceu:zpm_fluid_drilling_rig')
+            .notConsumable('64x gtceu:zpm_fluid_drilling_rig')
             .notConsumable(r.notc)//用次方写会有神秘问题会算错↓，直接写算出来的算了
             .outputFluids(r.outf.map(i => `${i.split(' ')[0]} ${Number(i.split(' ')[1]) * ds_fdr_batch_multiplier * 1.5 * 1048576}`))
             .EUt(GTValues.VA[GTValues.UV])
-            .duration(2 * ds_fdr_batch_multiplier)
+            .duration(20 * r.outf.length * ds_fdr_batch_multiplier)
     })
     //进阶无尽钻机钻全部维度流体
     const ds_fdr_uev_data = ['gtceu:salt_water 400', 'gtceu:natural_gas 150', 'gtceu:oil_medium 200', 'gtceu:oil_light 250', 'gtceu:oil_heavy 150', 'gtceu:oil 200', 'gtceu:helium_3 100', 'gtceu:helium 200', 'gtceu:radon 200', 'minecraft:lava 650', 'gtceu:sulfuric_acid 200', 'gtceu:deuterium 150', 'gtceu:helium_3 100', 'gtceu:helium 200', 'gtceu:radon 200', 'gtceu:natural_gas 350', 'gtceu:neon 200', 'gtceu:radon 150', 'gtceu:xenon 200', 'gtceu:krypton 200', 'gtceu:hydrochloric_acid 200', 'gtceu:coal_gas 200', 'gtceu:methane 200', 'gtceu:benzene 150', 'gtceu:charcoal_byproducts 100', 'gtceu:chlorine 200', 'gtceu:fluorine 100', 'gtceu:nitric_acid 200', 'gtceu:neon 200', 'gtceu:radon 150', 'gtceu:xenon 200', 'gtceu:krypton 200', 'gtceu:hydrochloric_acid 200', 'gtceu:coal_gas 200', 'gtceu:unknowwater 200']
@@ -114,10 +114,10 @@ ServerEvents.recipes(event => {
         .outputFluids(ds_csf_16384)
         .EUt(5277655810867200)
         .duration(1200)
-    //太空电梯资源采集全出
+    //太空电梯集大成
     const space_ores1 = [
         //巴纳德c原木
-        '131072x kubejs:barnarda_log',
+        '32768x kubejs:barnarda_log',
         '280x gtceu:tetrahedrite_ore', '140x gtceu:copper_ore', '60x gtceu:bentonite_ore', '40x gtceu:magnetite_ore', '40x gtceu:olivine_ore', '20x gtceu:glauconite_sand_ore', '180x gtceu:almandine_ore', '120x gtceu:pyrope_ore', '60x gtceu:sapphire_ore', '60x gtceu:green_sapphire_ore', '70x gtceu:stibnite_ore', '120x gtceu:uraninite_ore', '90x gtceu:bastnasite_ore', '30x gtceu:molybdenum_ore', '60x gtceu:goethite_ore', '240x gtceu:yellow_limonite_ore', '240x gtceu:hematite_ore', '120x gtceu:malachite_ore', '120x gtceu:soapstone_ore', '80x gtceu:talc_ore', '80x gtceu:glauconite_sand_ore', '40x gtceu:pentlandite_ore', '30x gtceu:neodymium_ore', '60x gtceu:monazite_ore', '180x gtceu:redstone_ore', '120x gtceu:ruby_ore', '60x gtceu:grossular_ore', '40x gtceu:spessartine_ore', '40x gtceu:pyrolusite_ore', '20x gtceu:tantalite_ore', '250x gtceu:chalcopyrite_ore', '10x gtceu:zeolite_ore', '10x gtceu:cassiterite_ore', '50x gtceu:realgar_ore', '60x gtceu:cinnabar_ore', '80x ae2:sky_stone_block', '120x gtceu:saltpeter_ore', '80x gtceu:diatomite_ore', '80x gtceu:electrotine_ore', '40x gtceu:alunite_ore', '240x gtceu:coal_ore', '40x gtceu:rubidium_ore', '90x gtceu:beryllium_ore', '120x gtceu:emerald_ore', '40x gtceu:chalcopyrite_ore', '160x gtceu:iron_ore', '160x gtceu:pyrite_ore', '160x gtceu:copper_ore', '60x gtceu:grossular_ore', '40x gtceu:pyrolusite_ore', '20x gtceu:tantalite_ore', '240x gtceu:magnetite_ore', '160x gtceu:vanadium_magnetite_ore', '80x gtceu:gold_ore', '120x gtceu:lazurite_ore', '80x gtceu:sodalite_ore', '80x gtceu:lapis_ore', '40x gtceu:calcite_ore', '150x gtceu:wulfenite_ore', '30x gtceu:calorite_ore', '120x gtceu:galena_ore', '80x gtceu:silver_ore', '40x gtceu:lead_ore', '100x gtceu:molybdenite_ore', '50x gtceu:molybdenum_ore', '50x gtceu:powellite_ore', '90x gtceu:goethite_ore', '60x gtceu:yellow_limonite_ore', '60x gtceu:kyanite_ore', '40x gtceu:mica_ore', '40x gtceu:bauxite_ore', '20x gtceu:pollucite_ore', '120x gtceu:quartzite_ore', '80x gtceu:certus_quartz_ore', '140x gtceu:zircon_ore', '160x gtceu:cassiterite_ore', '60x gtceu:hematite_ore', '30x gtceu:gold_ore', '40x gtceu:barite_ore', '120x gtceu:red_garnet_ore', '80x gtceu:yellow_garnet_ore', '80x gtceu:amethyst_ore', '40x gtceu:opal_ore', '20x gtceu:alien_algae_ore', '210x gtceu:blue_topaz_ore', '140x gtceu:topaz_ore', '240x gtceu:basaltic_mineral_sand_ore', '160x gtceu:granitic_mineral_sand_ore', '160x gtceu:fullers_earth_ore', '80x gtceu:gypsum_ore', '150x gtceu:rock_salt_ore', '10x gtceu:salt_ore', '50x gtceu:lepidolite_ore', '50x gtceu:spodumene_ore', '140x gtceu:chalcocite_ore', '70x gtceu:bornite_ore', '180x gtceu:redstone_ore', '120x gtceu:ruby_ore', '60x gtceu:cinnabar_ore', '240x gtceu:nether_quartz_ore', '80x gtceu:quartzite_ore', '50x minecraft:ancient_debris', '120x gtceu:apatite_ore', '80x gtceu:tricalcium_phosphate_ore', '40x gtceu:pyrochlore_ore', '300x gtceu:sulfur_ore', '200x gtceu:pyrite_ore', '100x gtceu:sphalerite_ore', '180x gtceu:magnetite_ore', '120x gtceu:vanadium_magnetite_ore', '240x gtceu:cassiterite_sand_ore', '160x gtceu:garnet_sand_ore', '160x gtceu:asbestos_ore', '80x gtceu:diatomite_ore', '240x gtceu:oilsands_ore', '60x gtceu:gold_ore', '80x gtceu:infused_gold_ore', '160x gtceu:bauxite_ore', '80x gtceu:ilmenite_ore', '80x gtceu:aluminium_ore', '60x gtceu:bornite_ore', '40x gtceu:cooperite_ore', '120x gtceu:graphite_ore', '80x gtceu:diamond_ore', '40x gtceu:coal_ore', '40x gtceu:titanium_ore', '120x gtceu:garnierite_ore', '80x gtceu:nickel_ore', '80x gtceu:cobaltite_ore', '40x gtceu:pentlandite_ore', '40x gtceu:platinum_ore', '20x gtceu:palladium_ore', '120x gtceu:scheelite_ore', '80x gtceu:tungstate_ore', '40x gtceu:lithium_ore', '20x gtceu:tellurium_ore', '30x gtceu:tungsten_ore', '180x gtceu:pitchblende_ore', '180x gtceu:naquadah_ore', '120x gtceu:chromite_ore', '60x gtceu:plutonium_ore', '30x gtceu:enriched_naquadah_ore', '90x gtceu:trinium_compound_ore', '30x gtceu:indium_ore'
     ]
     const space_ores2 = ['20x gtceu:jasper_ore', '140x gtceu:red_garnet_ore', '60x gtceu:topaz_ore', '40x gtceu:emerald_ore', '40x gtceu:amethyst_ore', '20x gtceu:celestine_ore']
@@ -127,46 +127,47 @@ ServerEvents.recipes(event => {
     const space_ores6 = ['12x gtceu:lazurite_ore', '80x gtceu:sapphire_ore', '60x gtceu:starmetal_ore', '80x gtceu:green_sapphire_ore', '120x gtceu:yellow_garnet_ore', '80x gtceu:pollucite_ore']
     gtr.miner_module('disksavior:space_ore_1_super')
         .notConsumable('64x kubejs:space_drone_mk1')
-        .notConsumable('32x gtceu:space_elevator')
+        .notConsumable('gtceu:space_elevator')
         .inputFluids('gtceu:steam 185254')
         .itemOutputs(space_ores1)
         .EUt(GTValues.VA[GTValues.ZPM] * 4)
-        .duration(9600 / 4)
+        .duration(9600)
     gtr.miner_module('disksavior:space_ore_2_super')
         .notConsumable('64x kubejs:space_drone_mk2')
-        .notConsumable('32x gtceu:space_elevator')
+        .notConsumable('gtceu:space_elevator')
         .inputFluids('gtceu:steam 185254')
-        .itemOutputs(space_ores1.concat(space_ores2))
+        .itemOutputs(space_ores1.concat(space_ores2).map(item => `${parseInt(item.split(' ')[0]) * 8}x ${item.split(' ')[1]}`))
         .EUt(GTValues.VA[GTValues.ZPM] * 16)
-        .duration(9600 / 16)
+        .duration(9600)
     gtr.miner_module('disksavior:space_ore_3_super')
         .notConsumable('64x kubejs:space_drone_mk3')
-        .notConsumable('32x gtceu:space_elevator')
+        .notConsumable('gtceu:space_elevator')
         .inputFluids('gtceu:steam 185254')
-        .itemOutputs(space_ores1.concat(space_ores2, space_ores3))
+        .itemOutputs(space_ores1.concat(space_ores2, space_ores3).map(item => `${parseInt(item.split(' ')[0]) * 64}x ${item.split(' ')[1]}`))
         .EUt(GTValues.VA[GTValues.ZPM] * 64)
-        .duration(9600 / 64)
+        .duration(9600)
     gtr.miner_module('disksavior:space_ore_4_super')
         .notConsumable('64x kubejs:space_drone_mk4')
-        .notConsumable('32x gtceu:space_elevator')
+        .notConsumable('gtceu:space_elevator')
         .inputFluids('gtceu:steam 185254')
-        .itemOutputs(space_ores1.concat(space_ores2, space_ores3, space_ores4))
+        .itemOutputs(space_ores1.concat(space_ores2, space_ores3, space_ores4).map(item => `${parseInt(item.split(' ')[0]) * 512}x ${item.split(' ')[1]}`))
         .EUt(GTValues.VA[GTValues.ZPM] * 256)
-        .duration(9600 / 256)
+        .duration(9600)
     gtr.miner_module('disksavior:space_ore_5_super')
         .notConsumable('64x kubejs:space_drone_mk5')
-        .notConsumable('32x gtceu:space_elevator')
+        .notConsumable('gtceu:space_elevator')
         .inputFluids('gtceu:steam 185254')
-        .itemOutputs(space_ores1.concat(space_ores2, space_ores3, space_ores4, space_ores5))
+        .itemOutputs(space_ores1.concat(space_ores2, space_ores3, space_ores4, space_ores5).map(item => `${parseInt(item.split(' ')[0]) * 4096}x ${item.split(' ')[1]}`))
         .EUt(GTValues.VA[GTValues.ZPM] * 1024)
-        .duration(9600 / 1024)
+        .duration(9600)
+        //断在此处，后续就没有继续加载了，因为这里溢出了
     gtr.miner_module('disksavior:space_ore_6_super')
         .notConsumable('64x kubejs:space_drone_mk6')
-        .notConsumable('32x gtceu:space_elevator')
+        .notConsumable('gtceu:space_elevator')
         .inputFluids('gtceu:steam 185254')
-        .itemOutputs(space_ores1.concat(space_ores2, space_ores3, space_ores4, space_ores5, space_ores6))
+        .itemOutputs(space_ores1.concat(space_ores2, space_ores3, space_ores4, space_ores5,space_ores6).map(item => `${parseInt(item.split(' ')[0]) * 32768}x ${item.split(' ')[1]}`))
         .EUt(GTValues.VA[GTValues.ZPM] * 4096)
-        .duration(9600 / 4096)
+        .duration(9600)
     //此处的数组名的数字指的是该数字+1的级别太空无人机可采集
     const space_fluids = ['gtceu:hydrogen 1000000', 'gtceu:helium 1000000', 'gtceu:nitrogen 1000000', 'gtceu:methane 1000000', 'gtceu:sulfur_dioxide 1000000', 'gtceu:carbon_dioxide 1000000', 'gtceu:nitrogen_dioxide 1000000', 'gtceu:ammonia 1000000', 'gtceu:chlorine 1000000', 'gtceu:fluorine 1000000', 'gtceu:carbon_monoxide 1000000', 'gtceu:oxygen 1000000']
     const space_fluid1s = ['gtceu:unknowwater 10000', 'gtceu:neon 100000', 'gtceu:argon 100000', 'gtceu:krypton 100000', 'gtceu:xenon 100000', 'gtceu:radon 100000', 'gtceu:helium_3 100000']
@@ -174,122 +175,128 @@ ServerEvents.recipes(event => {
     const space_fluid5s = ['gtceu:white_dwarf_mtter 100000', 'gtceu:black_dwarf_mtter 100000']
     gtr.drilling_module('disksavior:space_fluid_1_super')
         .notConsumable('64x kubejs:space_drone_mk1')
-        .notConsumable('32x gtceu:space_elevator')
+        .notConsumable('gtceu:space_elevator')
         .inputFluids('gtceu:steam 185254')
         .outputFluids(space_fluids)
         .EUt(GTValues.VA[GTValues.ZPM] * 4)
-        .duration(9600 / 4)
+        .duration(9600)
     gtr.drilling_module('disksavior:space_fluid_2_super')
         .notConsumable('64x kubejs:space_drone_mk2')
-        .notConsumable('32x gtceu:space_elevator')
+        .notConsumable('gtceu:space_elevator')
         .inputFluids('gtceu:steam 185254')
-        .outputFluids(space_fluids.concat(space_fluid1s))
+        .outputFluids(space_fluids.concat(space_fluid1s).map(i => `${i.split(' ')[0]} ${Number(i.split(' ')[1]) * 8}`))
         .EUt(GTValues.VA[GTValues.ZPM] * 16)
-        .duration(9600 / 16)
+        .duration(9600)
     gtr.drilling_module('disksavior:space_fluid_3_super')
         .notConsumable('64x kubejs:space_drone_mk3')
-        .notConsumable('32x gtceu:space_elevator')
+        .notConsumable('gtceu:space_elevator')
         .inputFluids('gtceu:steam 185254')
-        .outputFluids(space_fluids.concat(space_fluid1s, space_fluid2s))
+        .outputFluids(space_fluids.concat(space_fluid1s, space_fluid2s).map(i => `${i.split(' ')[0]} ${Number(i.split(' ')[1]) * 64}`))
         .EUt(GTValues.VA[GTValues.ZPM] * 64)
-        .duration(9600 / 64)
+        .duration(9600)
     gtr.drilling_module('disksavior:space_fluid_4_super')
         .notConsumable('64x kubejs:space_drone_mk4')
-        .notConsumable('32x gtceu:space_elevator')
+        .notConsumable('gtceu:space_elevator')
         .inputFluids('gtceu:steam 185254')
-        .outputFluids(space_fluids.concat(space_fluid1s, space_fluid2s))
+        .outputFluids(space_fluids.concat(space_fluid1s, space_fluid2s).map(i => `${i.split(' ')[0]} ${Number(i.split(' ')[1]) * 512}`))
         .EUt(GTValues.VA[GTValues.ZPM] * 256)
-        .duration(9600 / 256)
+        .duration(9600)
     gtr.drilling_module('disksavior:space_fluid_5_super')
         .notConsumable('64x kubejs:space_drone_mk5')
-        .notConsumable('32x gtceu:space_elevator')
+        .notConsumable('gtceu:space_elevator')
         .inputFluids('gtceu:steam 185254')
-        .outputFluids(space_fluids.concat(space_fluid1s, space_fluid2s))
+        .outputFluids(space_fluids.concat(space_fluid1s, space_fluid2s).map(i => `${i.split(' ')[0]} ${Number(i.split(' ')[1]) * 4096}`))
         .EUt(GTValues.VA[GTValues.ZPM] * 1024)
-        .duration(9600 / 1024)
+        .duration(9600)
     gtr.drilling_module('disksavior:space_fluid_6_super')
         .notConsumable('64x kubejs:space_drone_mk6')
-        .notConsumable('32x gtceu:space_elevator')
+        .notConsumable('gtceu:space_elevator')
         .inputFluids('gtceu:steam 185254')
-        .outputFluids(space_fluids.concat(space_fluid1s, space_fluid2s, space_fluid5s))
+        .outputFluids(space_fluids.concat(space_fluid1s, space_fluid2s, space_fluid5s).map(i => `${i.split(' ')[0]} ${Number(i.split(' ')[1]) * 32768}`))
         .EUt(GTValues.VA[GTValues.ZPM] * 4096)
-        .duration(9600 / 4096)
+        .duration(9600)
     //原始虚空采矿机电解
     //85
-    const t0 = ['1024x gtceu:raw_pyrite', '1024x gtceu:raw_lazurite', '1024x gtceu:raw_lepidolite', '1024x gtceu:raw_salt', '1024x gtceu:raw_apatite', '1024x gtceu:raw_oilsands', '1024x gtceu:raw_silver', '1024x gtceu:raw_hematite', '1024x gtceu:raw_almandine', '1024x gtceu:raw_fullers_earth', '1024x gtceu:raw_lead', '1024x gtceu:raw_lapis', '1024x gtceu:raw_red_garnet', '1024x gtceu:raw_mica', '1024x gtceu:raw_vanadium_magnetite', '1024x gtceu:raw_calcite', '1024x gtceu:raw_amethyst', '1024x gtceu:raw_malachite', '1024x gtceu:raw_garnet_sand', '1024x gtceu:raw_yellow_limonite', '1024x gtceu:raw_magnetite', '1024x gtceu:raw_galena', '1024x gtceu:raw_diatomite', '1024x gtceu:raw_spessartine', '1024x gtceu:raw_glauconite_sand', '1024x minecraft:raw_copper', '1024x gtceu:raw_rock_salt', '1024x gtceu:raw_graphite', '1024x gtceu:raw_cinnabar', '1024x gtceu:raw_diamond', '1024x gtceu:raw_cassiterite_sand', '1024x minecraft:raw_gold', '1024x gtceu:raw_redstone', '1024x gtceu:raw_chalcopyrite', '1024x gtceu:raw_goethite', '1024x gtceu:raw_tantalite', '1024x gtceu:raw_coal', '1024x gtceu:raw_yellow_garnet', '1024x gtceu:raw_garnierite', '1024x minecraft:raw_iron', '1024x gtceu:raw_kyanite', '1024x gtceu:raw_pollucite', '1024x gtceu:raw_zeolite', '1024x gtceu:raw_ruby', '1024x gtceu:raw_asbestos', '1024x gtceu:raw_cobaltite', '1024x gtceu:raw_grossular', '1024x gtceu:raw_cassiterite', '1024x gtceu:raw_opal', '1024x gtceu:raw_sapphire', '1024x gtceu:raw_pyrope', '1024x gtceu:raw_spodumene', '1024x gtceu:raw_gypsum', '1024x gtceu:raw_pentlandite', '1024x gtceu:raw_olivine', '1024x gtceu:raw_nickel', '1024x gtceu:raw_bentonite', '1024x gtceu:raw_tricalcium_phosphate', '1024x gtceu:raw_granitic_mineral_sand', '1024x gtceu:raw_basaltic_mineral_sand', '1024x gtceu:raw_pyrolusite', '1024x gtceu:raw_soapstone', '1024x gtceu:raw_realgar', '1024x gtceu:raw_sodalite', '1024x gtceu:raw_talc', '1024x gtceu:raw_tin', '1024x gtceu:raw_green_sapphire', '1024x gtceu:raw_quartzite', '1024x gtceu:raw_barite', '1024x gtceu:raw_nether_quartz', '1024x gtceu:raw_saltpeter', '1024x gtceu:raw_electrotine', '1024x gtceu:raw_alunite', '1024x gtceu:raw_blue_topaz', '1024x gtceu:raw_topaz', '1024x gtceu:raw_wulfenite', '1024x gtceu:raw_molybdenite', '1024x gtceu:raw_molybdenum', '1024x gtceu:raw_powellite', '1024x gtceu:raw_stibnite', '1024x gtceu:raw_beryllium', '1024x gtceu:raw_emerald', '1024x gtceu:raw_certus_quartz', '1024x gtceu:raw_sulfur', '1024x gtceu:raw_sphalerite']
+    const ds_pv_t0 = ['1024x gtceu:raw_pyrite', '1024x gtceu:raw_lazurite', '1024x gtceu:raw_lepidolite', '1024x gtceu:raw_salt', '1024x gtceu:raw_apatite', '1024x gtceu:raw_oilsands', '1024x gtceu:raw_silver', '1024x gtceu:raw_hematite', '1024x gtceu:raw_almandine', '1024x gtceu:raw_fullers_earth', '1024x gtceu:raw_lead', '1024x gtceu:raw_lapis', '1024x gtceu:raw_red_garnet', '1024x gtceu:raw_mica', '1024x gtceu:raw_vanadium_magnetite', '1024x gtceu:raw_calcite', '1024x gtceu:raw_amethyst', '1024x gtceu:raw_malachite', '1024x gtceu:raw_garnet_sand', '1024x gtceu:raw_yellow_limonite', '1024x gtceu:raw_magnetite', '1024x gtceu:raw_galena', '1024x gtceu:raw_diatomite', '1024x gtceu:raw_spessartine', '1024x gtceu:raw_glauconite_sand', '1024x minecraft:raw_copper', '1024x gtceu:raw_rock_salt', '1024x gtceu:raw_graphite', '1024x gtceu:raw_cinnabar', '1024x gtceu:raw_diamond', '1024x gtceu:raw_cassiterite_sand', '1024x minecraft:raw_gold', '1024x gtceu:raw_redstone', '1024x gtceu:raw_chalcopyrite', '1024x gtceu:raw_goethite', '1024x gtceu:raw_tantalite', '1024x gtceu:raw_coal', '1024x gtceu:raw_yellow_garnet', '1024x gtceu:raw_garnierite', '1024x minecraft:raw_iron', '1024x gtceu:raw_kyanite', '1024x gtceu:raw_pollucite', '1024x gtceu:raw_zeolite', '1024x gtceu:raw_ruby', '1024x gtceu:raw_asbestos', '1024x gtceu:raw_cobaltite', '1024x gtceu:raw_grossular', '1024x gtceu:raw_cassiterite', '1024x gtceu:raw_opal', '1024x gtceu:raw_sapphire', '1024x gtceu:raw_pyrope', '1024x gtceu:raw_spodumene', '1024x gtceu:raw_gypsum', '1024x gtceu:raw_pentlandite', '1024x gtceu:raw_olivine', '1024x gtceu:raw_nickel', '1024x gtceu:raw_bentonite', '1024x gtceu:raw_tricalcium_phosphate', '1024x gtceu:raw_granitic_mineral_sand', '1024x gtceu:raw_basaltic_mineral_sand', '1024x gtceu:raw_pyrolusite', '1024x gtceu:raw_soapstone', '1024x gtceu:raw_realgar', '1024x gtceu:raw_sodalite', '1024x gtceu:raw_talc', '1024x gtceu:raw_tin', '1024x gtceu:raw_green_sapphire', '1024x gtceu:raw_quartzite', '1024x gtceu:raw_barite', '1024x gtceu:raw_nether_quartz', '1024x gtceu:raw_saltpeter', '1024x gtceu:raw_electrotine', '1024x gtceu:raw_alunite', '1024x gtceu:raw_blue_topaz', '1024x gtceu:raw_topaz', '1024x gtceu:raw_wulfenite', '1024x gtceu:raw_molybdenite', '1024x gtceu:raw_molybdenum', '1024x gtceu:raw_powellite', '1024x gtceu:raw_stibnite', '1024x gtceu:raw_beryllium', '1024x gtceu:raw_emerald', '1024x gtceu:raw_certus_quartz', '1024x gtceu:raw_sulfur', '1024x gtceu:raw_sphalerite']
     //10
-    const t1 = ['1024x gtceu:raw_plutonium', '1024x gtceu:raw_uraninite', '1024x gtceu:raw_thorium', '1024x gtceu:raw_pitchblende', '1024x gtceu:raw_bastnasite', '1024x gtceu:raw_monazite', '1024x gtceu:raw_neodymium', '1024x gtceu:raw_bauxite', '1024x gtceu:raw_ilmenite', '1024x gtceu:raw_aluminium']
+    const ds_pv_t1 = ['1024x gtceu:raw_plutonium', '1024x gtceu:raw_uraninite', '1024x gtceu:raw_thorium', '1024x gtceu:raw_pitchblende', '1024x gtceu:raw_bastnasite', '1024x gtceu:raw_monazite', '1024x gtceu:raw_neodymium', '1024x gtceu:raw_bauxite', '1024x gtceu:raw_ilmenite', '1024x gtceu:raw_aluminium']
     //10
-    const t2 = ['1024x gtceu:raw_apatite', '1024x gtceu:raw_tricalcium_phosphate', '1024x gtceu:raw_pyrochlore', '1024x gtceu:raw_bornite', '1024x gtceu:raw_cooperite', '1024x gtceu:raw_platinum', '1024x gtceu:raw_palladium', '1024x gtceu:raw_scheelite', '1024x gtceu:raw_tungstate', '1024x gtceu:raw_lithium']
+    const ds_pv_t2 = ['1024x gtceu:raw_apatite', '1024x gtceu:raw_tricalcium_phosphate', '1024x gtceu:raw_pyrochlore', '1024x gtceu:raw_bornite', '1024x gtceu:raw_cooperite', '1024x gtceu:raw_platinum', '1024x gtceu:raw_palladium', '1024x gtceu:raw_scheelite', '1024x gtceu:raw_tungstate', '1024x gtceu:raw_lithium']
     //47
-    const t3 = ['1024x gtceu:raw_barite', '1024x gtceu:raw_sulfur', '1024x gtceu:raw_chalcocite', '1024x gtceu:raw_powellite', '1024x gtceu:raw_electrotine', '1024x gtceu:raw_pyrite', '1024x gtceu:raw_redstone', '1024x gtceu:raw_certus_quartz', '1024x gtceu:raw_cinnabar', '1024x gtceu:raw_goethite', '1024x gtceu:raw_tantalite', '1024x gtceu:raw_hematite', '1024x gtceu:raw_neodymium', '1024x gtceu:raw_monazite', '1024x gtceu:raw_wulfenite', '1024x gtceu:raw_ruby', '1024x gtceu:raw_bastnasite', '1024x gtceu:raw_emerald', '1024x gtceu:raw_grossular', '1024x gtceu:raw_sphalerite', '1024x gtceu:raw_stibnite', '1024x gtceu:raw_molybdenum', '1024x gtceu:raw_alunite', '1024x gtceu:raw_blue_topaz', '1024x gtceu:raw_bornite', '1024x gtceu:raw_saltpeter', '1024x gtceu:raw_yellow_limonite', '1024x gtceu:raw_beryllium', '1024x gtceu:raw_topaz', '1024x gtceu:raw_quartzite', '1024x gtceu:raw_nether_quartz', '1024x gtceu:raw_diatomite', '1024x gtceu:raw_molybdenite', '1024x gtceu:raw_pyrolusite', '1024x gtceu:raw_tetrahedrite', '1024x gtceu:raw_garnierite', '1024x gtceu:raw_nickel', '1024x gtceu:raw_cobaltite', '1024x gtceu:raw_pentlandite', '1024x gtceu:raw_bentonite', '1024x gtceu:raw_magnetite', '1024x gtceu:raw_olivine', '1024x gtceu:raw_glauconite_sand', '1024x gtceu:raw_calorite', '1024x gtceu:raw_cobalt', '1024x gtceu:raw_magnesite', '1024x gtceu:raw_desh',
+    const ds_pv_t3 = ['1024x gtceu:raw_barite', '1024x gtceu:raw_sulfur', '1024x gtceu:raw_chalcocite', '1024x gtceu:raw_powellite', '1024x gtceu:raw_electrotine', '1024x gtceu:raw_pyrite', '1024x gtceu:raw_redstone', '1024x gtceu:raw_certus_quartz', '1024x gtceu:raw_cinnabar', '1024x gtceu:raw_goethite', '1024x gtceu:raw_tantalite', '1024x gtceu:raw_hematite', '1024x gtceu:raw_neodymium', '1024x gtceu:raw_monazite', '1024x gtceu:raw_wulfenite', '1024x gtceu:raw_ruby', '1024x gtceu:raw_bastnasite', '1024x gtceu:raw_emerald', '1024x gtceu:raw_grossular', '1024x gtceu:raw_sphalerite', '1024x gtceu:raw_stibnite', '1024x gtceu:raw_molybdenum', '1024x gtceu:raw_alunite', '1024x gtceu:raw_blue_topaz', '1024x gtceu:raw_bornite', '1024x gtceu:raw_saltpeter', '1024x gtceu:raw_yellow_limonite', '1024x gtceu:raw_beryllium', '1024x gtceu:raw_topaz', '1024x gtceu:raw_quartzite', '1024x gtceu:raw_nether_quartz', '1024x gtceu:raw_diatomite', '1024x gtceu:raw_molybdenite', '1024x gtceu:raw_pyrolusite', '1024x gtceu:raw_tetrahedrite', '1024x gtceu:raw_garnierite', '1024x gtceu:raw_nickel', '1024x gtceu:raw_cobaltite', '1024x gtceu:raw_pentlandite', '1024x gtceu:raw_bentonite', '1024x gtceu:raw_magnetite', '1024x gtceu:raw_olivine', '1024x gtceu:raw_glauconite_sand', '1024x gtceu:raw_calorite', '1024x gtceu:raw_cobalt', '1024x gtceu:raw_magnesite', '1024x gtceu:raw_desh',
         //远古残骸也有，但是产量是别的的1/64
         '16x minecraft:ancient_debris']
     //12
-    const t4 = ['1024x gtceu:raw_wulfenite', '1024x gtceu:raw_molybdenite', '1024x gtceu:raw_molybdenum', '1024x gtceu:raw_powellite', '1024x gtceu:raw_quartzite', '1024x gtceu:raw_certus_quartz', '1024x gtceu:raw_barite', '1024x gtceu:raw_ostrum', '1024x minecraft:raw_gold', '1024x gtceu:raw_bastnasite', '1024x gtceu:raw_monazite', '1024x gtceu:raw_neodymium']
+    const ds_pv_t4 = ['1024x gtceu:raw_wulfenite', '1024x gtceu:raw_molybdenite', '1024x gtceu:raw_molybdenum', '1024x gtceu:raw_powellite', '1024x gtceu:raw_quartzite', '1024x gtceu:raw_certus_quartz', '1024x gtceu:raw_barite', '1024x gtceu:raw_ostrum', '1024x minecraft:raw_gold', '1024x gtceu:raw_bastnasite', '1024x gtceu:raw_monazite', '1024x gtceu:raw_neodymium']
     //24
-    const t5 = ['1024x gtceu:raw_quartzite', '1024x gtceu:raw_barite', '1024x gtceu:raw_nether_quartz', '1024x gtceu:raw_bentonite', '1024x gtceu:raw_magnetite', '1024x gtceu:raw_olivine', '1024x gtceu:raw_glauconite_sand', '1024x gtceu:raw_celestine', '1024x gtceu:raw_cooperite', '1024x gtceu:raw_trona', '1024x gtceu:raw_sulfur', '1024x gtceu:raw_pyrite', '1024x gtceu:raw_sphalerite', '1024x gtceu:raw_blue_topaz', '1024x gtceu:raw_topaz', '1024x gtceu:raw_zircon', '1024x gtceu:raw_grossular', '1024x gtceu:raw_pyrolusite', '1024x gtceu:raw_tantalite', '1024x gtceu:raw_bauxite', '1024x gtceu:raw_ilmenite', '1024x gtceu:raw_aluminium', '1024x gtceu:raw_naquadah', '1024x gtceu:raw_plutonium']
+    const ds_pv_t5 = ['1024x gtceu:raw_quartzite', '1024x gtceu:raw_barite', '1024x gtceu:raw_nether_quartz', '1024x gtceu:raw_bentonite', '1024x gtceu:raw_magnetite', '1024x gtceu:raw_olivine', '1024x gtceu:raw_glauconite_sand', '1024x gtceu:raw_celestine', '1024x gtceu:raw_cooperite', '1024x gtceu:raw_trona', '1024x gtceu:raw_sulfur', '1024x gtceu:raw_pyrite', '1024x gtceu:raw_sphalerite', '1024x gtceu:raw_blue_topaz', '1024x gtceu:raw_topaz', '1024x gtceu:raw_zircon', '1024x gtceu:raw_grossular', '1024x gtceu:raw_pyrolusite', '1024x gtceu:raw_tantalite', '1024x gtceu:raw_bauxite', '1024x gtceu:raw_ilmenite', '1024x gtceu:raw_aluminium', '1024x gtceu:raw_naquadah', '1024x gtceu:raw_plutonium']
     //83
-    const t6 = ['1024x gtceu:raw_sulfur', '1024x gtceu:raw_lithium', '1024x gtceu:raw_pyrite', '1024x gtceu:raw_hematite', '1024x gtceu:raw_neodymium', '1024x gtceu:raw_wulfenite', '1024x gtceu:raw_bastnasite', '1024x gtceu:raw_emerald', '1024x gtceu:raw_sphalerite', '1024x gtceu:raw_chromite', '1024x gtceu:raw_vanadium_magnetite', '1024x gtceu:raw_scheelite', '1024x gtceu:raw_bornite', '1024x gtceu:raw_saltpeter', '1024x gtceu:raw_bauxite', '1024x gtceu:raw_yellow_limonite', '1024x gtceu:raw_naquadah', '1024x gtceu:raw_beryllium', '1024x gtceu:raw_quartzite', '1024x gtceu:raw_magnetite', '1024x gtceu:raw_uraninite', '1024x gtceu:raw_diatomite', '1024x gtceu:raw_pitchblende', '1024x gtceu:raw_tetrahedrite', '1024x gtceu:raw_platinum', '1024x gtceu:raw_goethite', '1024x gtceu:raw_powellite', '1024x gtceu:raw_tantalite', '1024x gtceu:raw_redstone', '1024x gtceu:raw_barite', '1024x gtceu:raw_ilmenite', '1024x gtceu:raw_certus_quartz', '1024x gtceu:raw_cinnabar', '1024x gtceu:raw_electrotine', '1024x gtceu:raw_chalcocite', '1024x gtceu:raw_plutonium', '1024x gtceu:raw_ruby', '1024x gtceu:raw_monazite', '1024x gtceu:raw_grossular', '1024x gtceu:raw_cooperite', '1024x gtceu:raw_stibnite', '1024x gtceu:raw_palladium', '1024x gtceu:raw_molybdenum', '1024x gtceu:raw_blue_topaz', '1024x gtceu:raw_alunite', '1024x gtceu:raw_aluminium', '1024x gtceu:raw_topaz', '1024x gtceu:raw_nether_quartz', '1024x gtceu:raw_molybdenite', '1024x gtceu:raw_pyrolusite', '1024x gtceu:raw_tungstate', '1024x minecraft:raw_copper', '1024x gtceu:raw_stibnite', '1024x gtceu:raw_apatite', '1024x gtceu:raw_tricalcium_phosphate', '1024x gtceu:raw_pyrochlore', '1024x gtceu:raw_desh', '1024x gtceu:raw_magnesite', '1024x gtceu:raw_bornite', '1024x gtceu:raw_cooperite', '1024x gtceu:raw_platinum', '1024x gtceu:raw_palladium', '1024x gtceu:raw_zircon', '1024x gtceu:raw_grossular', '1024x gtceu:raw_pyrolusite', '1024x gtceu:raw_tantalite', '1024x gtceu:raw_naquadah', '1024x gtceu:raw_plutonium', '1024x gtceu:raw_garnierite', '1024x gtceu:raw_nickel', '1024x gtceu:raw_cobaltite', '1024x gtceu:raw_pentlandite', '1024x gtceu:raw_bentonite', '1024x gtceu:raw_magnetite', '1024x gtceu:raw_olivine', '1024x gtceu:raw_glauconite_sand', '1024x gtceu:raw_pitchblende', '1024x gtceu:raw_uraninite', '1024x gtceu:raw_thorium', '1024x gtceu:raw_saltpeter', '1024x gtceu:raw_diatomite', '1024x gtceu:raw_electrotine', '1024x gtceu:raw_alunite']
+    const ds_pv_t6 = ['1024x gtceu:raw_sulfur', '1024x gtceu:raw_lithium', '1024x gtceu:raw_pyrite', '1024x gtceu:raw_hematite', '1024x gtceu:raw_neodymium', '1024x gtceu:raw_wulfenite', '1024x gtceu:raw_bastnasite', '1024x gtceu:raw_emerald', '1024x gtceu:raw_sphalerite', '1024x gtceu:raw_chromite', '1024x gtceu:raw_vanadium_magnetite', '1024x gtceu:raw_scheelite', '1024x gtceu:raw_bornite', '1024x gtceu:raw_saltpeter', '1024x gtceu:raw_bauxite', '1024x gtceu:raw_yellow_limonite', '1024x gtceu:raw_naquadah', '1024x gtceu:raw_beryllium', '1024x gtceu:raw_quartzite', '1024x gtceu:raw_magnetite', '1024x gtceu:raw_uraninite', '1024x gtceu:raw_diatomite', '1024x gtceu:raw_pitchblende', '1024x gtceu:raw_tetrahedrite', '1024x gtceu:raw_platinum', '1024x gtceu:raw_goethite', '1024x gtceu:raw_powellite', '1024x gtceu:raw_tantalite', '1024x gtceu:raw_redstone', '1024x gtceu:raw_barite', '1024x gtceu:raw_ilmenite', '1024x gtceu:raw_certus_quartz', '1024x gtceu:raw_cinnabar', '1024x gtceu:raw_electrotine', '1024x gtceu:raw_chalcocite', '1024x gtceu:raw_plutonium', '1024x gtceu:raw_ruby', '1024x gtceu:raw_monazite', '1024x gtceu:raw_grossular', '1024x gtceu:raw_cooperite', '1024x gtceu:raw_stibnite', '1024x gtceu:raw_palladium', '1024x gtceu:raw_molybdenum', '1024x gtceu:raw_blue_topaz', '1024x gtceu:raw_alunite', '1024x gtceu:raw_aluminium', '1024x gtceu:raw_topaz', '1024x gtceu:raw_nether_quartz', '1024x gtceu:raw_molybdenite', '1024x gtceu:raw_pyrolusite', '1024x gtceu:raw_tungstate', '1024x minecraft:raw_copper', '1024x gtceu:raw_stibnite', '1024x gtceu:raw_apatite', '1024x gtceu:raw_tricalcium_phosphate', '1024x gtceu:raw_pyrochlore', '1024x gtceu:raw_desh', '1024x gtceu:raw_magnesite', '1024x gtceu:raw_bornite', '1024x gtceu:raw_cooperite', '1024x gtceu:raw_platinum', '1024x gtceu:raw_palladium', '1024x gtceu:raw_zircon', '1024x gtceu:raw_grossular', '1024x gtceu:raw_pyrolusite', '1024x gtceu:raw_tantalite', '1024x gtceu:raw_naquadah', '1024x gtceu:raw_plutonium', '1024x gtceu:raw_garnierite', '1024x gtceu:raw_nickel', '1024x gtceu:raw_cobaltite', '1024x gtceu:raw_pentlandite', '1024x gtceu:raw_bentonite', '1024x gtceu:raw_magnetite', '1024x gtceu:raw_olivine', '1024x gtceu:raw_glauconite_sand', '1024x gtceu:raw_pitchblende', '1024x gtceu:raw_uraninite', '1024x gtceu:raw_thorium', '1024x gtceu:raw_saltpeter', '1024x gtceu:raw_diatomite', '1024x gtceu:raw_electrotine', '1024x gtceu:raw_alunite']
+    //原始虚空矿机用水
+    gtr.primitive_void_ore('disksavior:water')
+        .inputFluids('minecraft:water 1')
+        .outputFluids('gtceu:steam 1852050421')
+        .itemOutputs(ds_pv_t0)
+        .duration(200)
     gtr.electrolyzer('disksavior:primitive_void_ore_0')
         .notConsumable('gtceu:primitive_void_ore')
         .notConsumable('minecraft:dirt')
-        .itemOutputs(t0)
+        .itemOutputs(ds_pv_t0)
         .EUt(GTValues.VA[GTValues.LV])
-        .duration((t0.length) * 16)
+        .duration((ds_pv_t0.length) * 16)
     gtr.electrolyzer('disksavior:primitive_void_ore_1')
         .notConsumable('gtceu:primitive_void_ore')
         .notConsumable('ad_astra:moon_stone')
-        .itemOutputs(t1)
+        .itemOutputs(ds_pv_t1)
         .EUt(GTValues.VA[GTValues.MV])
-        .duration((t1.length) * 16)
+        .duration((ds_pv_t1.length) * 16)
     gtr.electrolyzer('disksavior:primitive_void_ore_2')
         .notConsumable('gtceu:primitive_void_ore')
         .notConsumable('ad_astra:mars_stone')
-        .itemOutputs(t2)
+        .itemOutputs(ds_pv_t2)
         .EUt(GTValues.VA[GTValues.MV])
-        .duration((t2.length) * 16)
+        .duration((ds_pv_t2.length) * 16)
     gtr.electrolyzer('disksavior:primitive_void_ore_3')
         .notConsumable('gtceu:primitive_void_ore')
         .notConsumable('minecraft:netherrack')
-        .itemOutputs(t3.concat(t2, t1))
+        .itemOutputs(ds_pv_t3.concat(ds_pv_t2, ds_pv_t1))
         .EUt(GTValues.VA[GTValues.MV])
-        .duration((t3.length + t2.length + t1.length) * 16)
+        .duration((ds_pv_t3.length + ds_pv_t2.length + ds_pv_t1.length) * 16)
     gtr.electrolyzer('disksavior:primitive_void_ore_4')
         .notConsumable('gtceu:primitive_void_ore')
         .notConsumable('kubejs:ceresstone')
-        .itemOutputs(t4)
+        .itemOutputs(ds_pv_t4)
         .EUt(GTValues.VA[GTValues.HV])
-        .duration((t4.length) * 16)
+        .duration((ds_pv_t4.length) * 16)
     gtr.electrolyzer('disksavior:primitive_void_ore_5')
         .notConsumable('gtceu:primitive_void_ore')
         .notConsumable('kubejs:ganymedestone')
-        .itemOutputs(t5)
+        .itemOutputs(ds_pv_t5)
         .EUt(GTValues.VA[GTValues.HV])
-        .duration((t5.length) * 16)
+        .duration((ds_pv_t5.length) * 16)
     gtr.electrolyzer('disksavior:primitive_void_ore_6')
         .notConsumable('gtceu:primitive_void_ore')
         .notConsumable('minecraft:end_stone')
-        .itemOutputs(t6.concat(t5, t4))
+        .itemOutputs(ds_pv_t6.concat(ds_pv_t5, ds_pv_t4))
         .EUt(GTValues.VA[GTValues.HV])
-        .duration((t6.length + t5.length + t4.length) * 16)
+        .duration((ds_pv_t6.length + ds_pv_t5.length + ds_pv_t4.length) * 16)
     //屠宰场电解
     const ds_slaughterhouse = [
         //重要的五个前置
-        'minecraft:wither_skeleton_skull', '8x minecraft:ghast_tear', '8x minecraft:blaze_rod', '16x minecraft:slime_ball', '8x minecraft:ender_pearl', 
+        'minecraft:wither_skeleton_skull', '8x minecraft:ghast_tear', '8x minecraft:blaze_rod', '16x minecraft:slime_ball', '8x minecraft:ender_pearl',
         //回响系列
         'minecraft:echo_shard', 'minecraft:sculk_sensor', 'minecraft:sculk_catalyst', '4x minecraft:sculk',
         //其他
         '32x minecraft:bone', '16x minecraft:porkchop', '16x minecraft:beef', '16x minecraft:rabbit', '16x minecraft:chicken', '16x minecraft:mutton', '16x minecraft:cod', 'minecraft:tropical_fish', '16x minecraft:salmon', '64x minecraft:wheat', '32x minecraft:carrot', '32x minecraft:potato', '16x minecraft:poppy', '32x minecraft:feather', '32x minecraft:string', '16x minecraft:leather', '16x minecraft:rabbit_hide', '32x minecraft:gunpowder', '32x minecraft:rotten_flesh', '16x minecraft:spider_eye', '8x minecraft:rabbit_foot', '64x minecraft:ink_sac', '64x minecraft:glow_ink_sac', '8x minecraft:nautilus_shell', '16x minecraft:iron_ingot', '16x minecraft:gold_ingot', '16x minecraft:copper_ingot', '32x minecraft:gold_nugget', '16x minecraft:emerald', '32x minecraft:coal', '32x minecraft:redstone', '16x minecraft:glowstone_dust', '32x minecraft:bamboo', '32x minecraft:stick', '32x minecraft:arrow', '32x minecraft:sugar', '64x minecraft:white_wool', '32x minecraft:egg', '16x minecraft:glass_bottle']
     gtr.electrolyzer('disksavior:slaughterhouse')
-        .notConsumable('1024x gtceu:slaughterhouse')
+        .notConsumable('64x gtceu:slaughterhouse')
         .itemOutputs(ds_slaughterhouse)
         .EUt(GTValues.VA[GTValues.MV])
         .duration(2560)
     //温室电解
     const ds_greenhouse = ['48x minecraft:vine', '9x gtceu:rubber_sapling', '48x gtceu:rubber_log', '20x minecraft:oak_sapling', '64x minecraft:oak_log', '20x minecraft:spruce_sapling', '64x minecraft:spruce_log', '20x minecraft:birch_sapling', '64x minecraft:birch_log', '20x minecraft:jungle_sapling', '64x minecraft:jungle_log', '20x minecraft:acacia_sapling', '64x minecraft:acacia_log', '20x minecraft:dark_oak_sapling', '64x minecraft:dark_oak_log', '20x minecraft:mangrove_propagule', '64x minecraft:mangrove_log', '20x minecraft:cherry_sapling', '64x minecraft:cherry_log', '18x minecraft:pumpkin', '2x minecraft:pumpkin_seeds', '48x minecraft:beetroot', '2x minecraft:beetroot_seeds', '48x minecraft:sweet_berries', '24x minecraft:glow_berries', '48x minecraft:wheat', '2x minecraft:wheat_seeds', '18x minecraft:melon', '2x minecraft:melon_seeds', '36x minecraft:carrot', '36x minecraft:sugar_cane', '36x minecraft:kelp', '36x minecraft:cactus', '36x minecraft:potato', '36x minecraft:cocoa_beans', '36x minecraft:brown_mushroom', '36x minecraft:red_mushroom', '36x minecraft:nether_wart', '48x minecraft:bamboo', '48x minecraft:sea_pickle', '12x gtceu:sticky_resin', '64x minecraft:poisonous_potato', '64x minecraft:grass', '64x minecraft:melon_slice', '64x minecraft:sunflower', '64x minecraft:sponge', '64x minecraft:honeycomb']
     gtr.electrolyzer('disksavior:greenhouse')
-        .notConsumable('1024x gtceu:greenhouse')
+        .notConsumable('64x gtceu:greenhouse')
         .itemOutputs(ds_greenhouse)
         .EUt(GTValues.VA[GTValues.MV])
         .duration(6400)
@@ -424,13 +431,13 @@ ServerEvents.recipes(event => {
         .notConsumable('gtceu:large_void_miner')
         .inputFluids('gtceu:steam 185254')
         .itemOutputs(all_ores)
-        .EUt(GTValues.VA[GTValues.EV])
-        .duration((all_ores.length) * 1000)
+        .EUt(GTValues.VA[GTValues.IV])
+        .duration((all_ores.length) * 64)
     //当然，也能用大型虚空采矿机运行
     gtr.random_ore('disksavior:random_ore')
         .circuit(30)
         .inputFluids('gtceu:steam 185254')
         .itemOutputs(all_ores)
-        .EUt(GTValues.VA[GTValues.EV])
-        .duration((all_ores.length) * 1000)
+        .EUt(GTValues.VA[GTValues.IV])
+        .duration((all_ores.length) * 64)
 })
