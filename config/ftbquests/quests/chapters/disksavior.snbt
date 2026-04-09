@@ -6,7 +6,7 @@
 	group: ""
 	icon: "gtlcore:item_infinity_cell"
 	id: "6118ED8EA9970D67"
-	order_index: 5
+	order_index: 6
 	quest_links: [ ]
 	quests: [
 		{
@@ -232,7 +232,9 @@
 			dependencies: ["38166A02EA474C1E"]
 			description: [
 				"注意,不是创造计算机,这个是放下即用的"
-				""
+				"推荐连接到网络交换机"
+				"这样你就不需要做多个这东西了"
+				"最好一个无线输入对一个无线输出"
 				"&c⚠️需要用光缆连接到机器,无法直连"
 				""
 				"理论上你堆个几百台能把其他算力机器全部跳了"
@@ -442,7 +444,7 @@
 					type: "item"
 				}
 			]
-			subtitle: "&c前有&k伏行之混沌&r&c,所以&k红���&r&c是必要的"
+			subtitle: "&c前有&k伏行之混沌&r&c 所以&k红���&r&c是必要的"
 			tasks: [{
 				id: "09D2B78574A50185"
 				optional_task: true
@@ -3183,9 +3185,8 @@
 		{
 			dependencies: ["38166A02EA474C1E"]
 			description: [
-				"⚠️这个配方用&a蒸馏塔也能做"
-				""
-				"木化工厂 输入岩浆"
+				"&a蒸馏塔&r 输入岩浆"
+				"用木化工厂也能做，但是综合来说蒸馏塔做更优"
 				"&8&m(为什么是用岩浆啊)"
 				"&8&m(为什么木化没有木头啊)"
 				""
@@ -3438,29 +3439,6 @@
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
-			description: ["意义不明"]
-			icon: "gtceu:distilled_water_bucket"
-			id: "49C1809F7F10297A"
-			subtitle: "幽霊飛行機"
-			tasks: [
-				{
-					id: "690DF4573523BB88"
-					optional_task: true
-					type: "checkmark"
-				}
-				{
-					id: "0070A7A41A7306AB"
-					item: "gtceu:distilled_water_bucket"
-					optional_task: true
-					type: "item"
-				}
-			]
-			title: "蒸汽冷冻蒸馏水"
-			x: 0.0d
-			y: 6.5d
-		}
-		{
-			dependencies: ["38166A02EA474C1E"]
 			description: [
 				"真的是IV吗"
 				"我不知道"
@@ -3651,6 +3629,8 @@
 				"&c不能用发电阵列运行"
 				"用&b半流质发电机&r运行"
 				"如果可以的话请用&3化学能吞噬者&r运行"
+				"&c记得输入润滑油！！！"
+				"&c不要输入气态氧和四氧化二氮！！！"
 				"因为小引擎不能用大于&4UHV&r电压的动力仓"
 				""
 				"你可能想问为什么不用蒸汽涡轮运行"
@@ -3869,6 +3849,7 @@
 				"也就是说你不用搭锅炉了"
 				"&c甚至还能产出t0矿"
 				"也就是说&b你可以把它放在超平坦或虚空维度"
+				"还可以产出一些主世界的基础资源"
 				"好耶"
 			]
 			icon: "gtceu:primitive_void_ore"
@@ -4304,7 +4285,7 @@
 			]
 			title: "圆石爆奇点 物质球"
 			x: 0.0d
-			y: 7.5d
+			y: 6.5d
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
@@ -4335,7 +4316,7 @@
 			]
 			title: "工作台合成带nbt的量子纠缠态奇点"
 			x: 0.0d
-			y: 8.5d
+			y: 7.5d
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
@@ -4724,11 +4705,20 @@
 				"撕裂同款"
 				"&c⚠️不保证可用"
 				"&c⚠️搅拌机里要放一个粒子对撞的主机"
+				"&c警告如果是老版本，记得更新v17，然后把这两个放样板的便携存储元件和样板扔掉，开启任务编辑模式换成新的"
+				"&l· &l&b使用方法"
+				"做出粒子对撞主机之后领取奖励的两个便携存储元件"
+				"冰把送的无限元件放ae驱动器里"
+				"从便携存储元件取出其中样板，放入对应机器"
+				"也就是搅拌机和粒子对撞"
+				"&c搅拌机推荐单独拿一个总成放样板"
+				"&c⚠️搅拌机催化剂里需要一个粒子对撞主机！！！"
+				"然后就能开启合成了"
+				"粒子对撞的配方在jei里是看不全的"
+				"因为jei的例子对撞没有物品输入槽"
+				"但配方需要输入的是一个物品"
+				"不影响实际工作"
 				""
-				"&b&o下面是撕裂的介绍,我直接搬过来了&r&2&o&m(库嘻嘻)"
-				"搅拌机合成带nbt(1024倍原料)1k流体元件"
-				"1个1k流体元件在粒子对撞里直接合成产物"
-				"记住合1k流体元件无限盘"
 				"很可惜 带nbt的1k流体元件只能存在无限物品磁盘/高速无限磁盘这两种磁盘中 这意味着你前期需要借助容器存储这些盘 或者现合现用"
 			]
 			icon: "gtceu:super_particle_collider"
@@ -11118,6 +11108,20 @@
 					}
 					type: "item"
 				}
+				{
+					id: "6E66163CF858ADA0"
+					item: {
+						Count: 1
+						id: "expatternprovider:infinity_cell"
+						tag: {
+							record: {
+								"#c": "ae2:i"
+								id: "ae2:fluid_storage_cell_1k"
+							}
+						}
+					}
+					type: "item"
+				}
 			]
 			subtitle: "哟咦呀囔塞能呜给哦咦啊啊啊啊啊 \\n啊啊啊呃呀咦噜哦哟啊噜哦呀噶呃啊 "
 			tasks: [{
@@ -12530,6 +12534,10 @@
 				"液态量子是炖屎出的"
 				"龙尘那个配方看不全输出"
 				"其实也就是给了一点两种珍珠粉"
+				""
+				"其实我本来还想给产线扭曲者做一下让位的"
+				"但是我发现根本不会有配方冲突"
+				"就懒得做了（库嘻嘻）"
 			]
 			icon: "gtceu:neutron_activator"
 			id: "7CE6CEACDD9D34E6"
@@ -12550,6 +12558,64 @@
 			title: "中子活化器改闪电处理"
 			x: -5.0d
 			y: 12.0d
+		}
+		{
+			dependencies: ["38166A02EA474C1E"]
+			description: [
+				"给聚爆压缩机用"
+				"在你到达ZPM前"
+			]
+			icon: "minecraft:tnt"
+			id: "421C36E4777A0AD5"
+			subtitle: "圣音涤净天地 \\n辉光耀 破晓立 \\n颂歌涤荡我心 "
+			tasks: [
+				{
+					id: "1881D634BE8A2BBA"
+					optional_task: true
+					type: "checkmark"
+				}
+				{
+					id: "28ED4691499E4020"
+					item: {
+						Count: 1
+						id: "expatternprovider:infinity_cell"
+						tag: {
+							record: {
+								"#c": "ae2:i"
+								id: "minecraft:tnt"
+							}
+						}
+					}
+					optional_task: true
+					type: "item"
+				}
+			]
+			title: "无限TNT元件"
+			x: 12.0d
+			y: 5.0d
+		}
+		{
+			dependencies: ["38166A02EA474C1E"]
+			description: ["不用给压模机单独拉个总成只放一个样板了……"]
+			icon: "kubejs:special_ceramics"
+			id: "05553D8D304FE4DA"
+			subtitle: "she holds the black holy sword"
+			tasks: [
+				{
+					id: "5219A5ED7C2F6D2F"
+					optional_task: true
+					type: "checkmark"
+				}
+				{
+					id: "1177DBA96BDB7FEA"
+					item: "kubejs:special_ceramics"
+					optional_task: true
+					type: "item"
+				}
+			]
+			title: "特种陶瓷卷板机做"
+			x: -5.5d
+			y: 13.0d
 		}
 	]
 	title: "硬盘拯救者"

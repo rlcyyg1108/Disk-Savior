@@ -43,7 +43,7 @@ JEIEvents.subtypes(event => {
 
 JEIEvents.addItems(event => {
     console.log('DiskSavior-正在向 JEI 注册自定义 AE 元件包...')
-    const ds_simpleItems = ['gtceu:turbine_rotor']
+    const ds_simpleItems = ['gtceu:turbine_rotor', 'minecraft:tnt']
     ds_simpleItems.forEach(id => event.add(Item.of('expatternprovider:infinity_cell', '{record:{"#c":"ae2:i",id:"' + id + '"}}')))
     event.add(ds_packed_infinity_cell('染料元件包', 'f', ['gtceu:black_dye', 'gtceu:blue_dye', 'gtceu:brown_dye', 'gtceu:cyan_dye', 'gtceu:gray_dye', 'gtceu:green_dye', 'gtceu:light_blue_dye', 'gtceu:lime_dye', 'gtceu:magenta_dye', 'gtceu:orange_dye', 'gtceu:pink_dye', 'gtceu:purple_dye', 'gtceu:red_dye', 'gtceu:white_dye', 'gtceu:yellow_dye', 'gtceu:light_gray_dye']))
     event.add(ds_packed_infinity_cell('透镜元件包', 'i', [
@@ -77,7 +77,7 @@ ItemEvents.tooltip(event => {
             text.add('今日便捉襟见肘')
             text.add('再过几日 就连发电用的蒸汽都供不上了')
             text.add('')
-            text.add('§m§n§o§4那为什么不用其他发电方式？')
+            text.add('§4§m§n§o那为什么不用其他发电方式？')
         } else {
             text.add('§b置于半流质发电机')
             text.add('§b用水代替蒸汽')
@@ -198,7 +198,7 @@ ItemEvents.tooltip(event => {
                 text.add('§b§oHave withstood MSPT to create many mega steam turbine')
                 text.add('§b§oYet, those hands will never hold EU')
                 text.add('§b§oSo as I pray')
-                text.add('§b§o§lUnlimited steam turbine Works')
+                text.add('§b§o§lUnlimited steam Works')
             } else if (event.ctrl) {
                 text.add('§7§o§mI am the bone of my steam')
                 text.add('§7§o§mSteel is my body, and water is my blood')
@@ -208,7 +208,7 @@ ItemEvents.tooltip(event => {
                 text.add('§7§o§mHave withstood MSPT to create many mega steam turbine')
                 text.add('§7§o§mYet, those hands will never hold EU')
                 text.add('§7§o§mSo as I pray......')
-                text.add('§8§o§m§kUnlimited steam turbine Works')
+                text.add('§8§o§m§kUnlimited steam Works')
                 text.add('§4......')
                 text.add('§c按住 §4SHIFT§r §c+§r §4CTRL§r §c+§r §4ALT§r §c查看心象')
             } else {
@@ -243,7 +243,7 @@ ItemEvents.tooltip(event => {
             text.add('§c用水代替蒸汽')
             text.add('§c提供§k2^57§r§c倍超频')
             text.add('§4......')
-            text.add('§4§o§kUnlimited steam turbine Works')
+            text.add('§4§o§kUnlimited steam Works')
             text.add('§c按住 §4SHIFT§r §c查看谏言')
         }
     })
