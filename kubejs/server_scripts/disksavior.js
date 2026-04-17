@@ -1,4 +1,46 @@
-/*导出所有配方,需要在kubejs目录下手动创建recipes文件夹,有点卡
+/*
+╱/(◕‿‿◕)\╲ 
+
+;~o~;;~ooon~oo;;******^^^*;onvzn~*^^~o~;;;;ovzzvvvnn~naavvnzazzaau1aaaazvvvn~oo
+~oonnooonoo~~;***;***;***~ooo~onooo~*~;;;;;onnnvzvnnzzauzvvnnzavvvzzvvaazzzznnv
+;~~~oooo~~o~;;**~~oo;;;~~;;;;~~~;***;~~;**~ovzvooooo~oovvoo~~onzaazauaznvzazzzz
+^~~;~~~;;~~~oo;;;;~~;;~ooo;^**;;;*;;;~~~~~;;~~~o~oovnnvo;**;~vvazvnnzvauaaaaano
+~~~;;;**;;;~ooo~~~;************o***;**~o~oo~~~onnnno;~n~*********;~naaznnnzuuu1
+;*~;**;~~~~;;;**;~o~~;o~;oo;^**;*****;~~~oooooooooo~~;************~;~nooonazaaz
+oo~~~~onooo~;~o~~~~ononoo~~~~~~~~~~~~~oooonnnnnno~**;;**********;;;;~*~zavo***;
+ononnoonoo~oonvonoooo~oooono;nz~;;;;~~ovvvvvoooooonooooooov~~~~o;*;o~*******n~;
+~onoooooooooonooooo~n+iiiiiiiiiiiii*z;on~ozo8nnnnz6ooonnnzn~~o~~~~;;~;;~n~zuavv
+nvoooooooovnnnnnoo-iiiiiiiiiiiiiiiiiii^o~oa~+3zuzv6vvooonzvvvvnnoo~oo~~~~~nvzaa
+aazvvnonvnnnnooo!iiiiiiiiiii1!68883iiiiuoov~on. -^^^^^^^-   ;vnzzzvvvzzzaaauv~v
+zzzvnvaaazvvvnnziiiiiii3%%883iiiiiii3888i*v  ^^^^^^^^^^^^^^^^^+v8vzvzvv!vzaao~z
+~o~vzzzaazzvvzviiiiiii8!iiiiii!1;^^^^^*v8i^     ++^^^^^^^^^^^^^z^%zv6zz!vonvzvz
+;;~~~vaaavnzzzuiiiiii!ii!ai!iiii!!ii!!iiii;*^^*^^-    .-^^^^^^^z^~$~ uu3uaaaavz
+ooon~onnnnvzzazi!!!ii!ii!ii!!iii1-iii!!!i!!^*^*^*^^;o^^^^^^+^^^^a^^^ ~^  1vazaa
+oonvnnoonnnnvva!!!!!!38$!;i!a31!v-+zi;n3!!i^!~v~^;^*^+~^^^+n^^^^*^^^^^+**^-nnnv
++^+^^^+^*^^+^^;368!!3%$6.!zo8.z!--**1.8n!!!*n^~..n^^z;^+~^^+^^^;~^^^^^~* ;*;^+^
+*^^^.-+^.+-+--.-!;!!68-..ooo-+6---^z3i!v63!n.oo...v^*.~*~^^o^^^~a^+^^^-o**^o+--
+^^^^^-.+. +++--+!~3!3$-. 3!3..-----.!i...a;z3.-*...n~..;+^*^ovo~no^o^;^^v~;;*^^
+*+*.+-**+^-***^-8%!!!^---..-------------+3n--+......^. 1~.*--+*uun*o*o^o^ovnn;;
++^^^^+++^^++++.o%%%8!o----------..-----.13...........--...~..*^**vnnvoonn^*^vn.
+^* .^^....^^^^+%%%%3!3va--------.+----6%!on;...........----.;*n;nv;~no^vnn***++
+++^^^^----+---6o---&%3a;*;;~.-..-.3$%%%33*n^~~-... .a.......o*+*;z**vn-^vn*;;^^
+***;*;;*;;**^z--.--~%%3+***~~~~~~~;o;#%3%$^+*;naav.....~uoo*z-z----.+o---+v.---
++++^*^;*~~no1+--- .-$%$3*+***^;;o**o*833~-.1~~&*^**~;;*******3~---- +^^^^;^^^--
+-. -+- + +------.;-1116%!6. **^*^   .$3-.---n~&*;***^o***;~+%...----.u^^-^--*^+
++^^^+.-^ --------o.1111i$$1i11!!1111868.----^31111i3i+i11111u.o-------- ;-**^^*
+^++^^^^^+~~~.-----*61111113$i111111u66i----oo311111u11111111u --------+.-..~.^ 
+++ ^  ^~$!~~~~n+--.;3111336*^~33u11116------~331133u13u111111;..~~~~~~~;+.^-^z 
+**-++*;$$$$~~~~~~n.v333i;3;..o33111u-^.--... 833333*vo3111u!~n;~~~;~~~----+--z*
+;~;~~;%$$$$~--*~~~nv-.--u1-.+&%8333.-.~~~~~~;~~#&u$i-!~333!~~~--.^~;o--+-+---z^
++*;o;6$$$$$;---~*o~v---.11--.;.-o~~o~~~~~~~~~~~- 1.-.1o.o^~~.+.--^niaaazvna+-a;
+.;;a6$$$$$$$-^;-on~n--.u1;---~----~^-.^~~~v;~~~-11---u;-..~;--~~.-oo^.+;~-n--v-
+~**~6$$$$$$$z--.--+^---11^---*u.--;-n~^-o3~~~~~-11---11--.~ -----+~~~~~~~~;-+a~
+*^;68$$$$$$$&-------.-+11^----uu.^----..-$~~;~~ 11.-.-1~..;------onn~^oo~~~-+z-
+*oo6$$$$$$$$$ ----------~-----!.-*.----.&&~~~~.--+----i1-+------oonvnnvn;nn-+ao
+~o~8&$$$$$$$$~------+------------..-----$$~~~~--------..-------~-- nn^ovnon--un
+-n.8%$$$$$$$$&------ .----------;------$$$~~o~~~------..--------.-zvv^;~.zu^-zz
+
+导出所有配方,需要在kubejs目录下手动创建recipes文件夹,有点卡
 ServerEvents.recipes(event=>{
     event.forEachRecipe({},recipe=>{
         JsonIO.write("./recipes/" + String(recipe.getId()).replace(/:|\//g, '_') + ".json",recipe.json)
@@ -46,34 +88,6 @@ gtr.assembler('disksavior:自定义ID')
     .duration(时间)
 
 以下是待转换物品:
-
-
-
-
-todo
-新手大礼包
-加点彩蛋
-产物太多的jei警告
-说到糖,让湿件和生物系列电路板能吃你们觉得怎么样
-巨型橡胶树
-蒸汽发电升级蒸汽太多jei拖不进去
-碎岩机电解
-样板大礼包
-液态拉多x聚合物
-
-
-    
-
-
-
-
-add兼容
-小op加使用指导
-加推荐模组
-样板供应器自带编程电路卡的效果了？
-扭曲者兼容
-
-
 
 
 
@@ -188,6 +202,86 @@ t7任务前置错误···
 粒子对撞批处理介绍···
 特种陶瓷卷板机做···
 
+小op加使用指导
+扭曲者兼容
+送小帮手···
+骨粉···
+地板连接提示···
+蓝冰改21个···
+地板教程优化···
+送个纸···
+电解流体钻机电压改MV···
+电解集气···
+原始矿机电解能用jei矿脉看产出···
+线任务里解释···
+净化水蒸汽电解···
+渔场、屠宰场、温室···
+max并行控制仓下调···
+升阶加产出，维度加电压···
+私货版不兼容警告···
+预制样板库可选提供提示···
+特供提示···
+单步硝酸锕镭加单步钫粉···
+删粒子对撞批处理···
+60s批处理···
+删掉可选完成勾选···
+化反结晶降ULV···
+@Rlcyyg1108 你奖励文件没有发出来···
+网络交换机有bug实在不行换创造模式计算机直连···
+下界之星不需要重力条件···
+三维度数据```
+空岛出基岩粉···
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+todo
+新手大礼包
+加点彩蛋
+产物太多的jei警告
+说到糖,让湿件和生物系列电路板能吃你们觉得怎么样
+巨型橡胶树
+蒸汽发电升级蒸汽太多jei拖不进去
+碎岩机电解
+样板大礼包
+液态拉多x聚合物
+
+
+加推荐模组
+样板供应器自带编程电路卡的效果了？
+永昼，关天气
+所以为什么要一个一个搅拌上去为什么不单个搅拌上去
+唱片
+主世界地板预设
+默认关闭改默认开启，检测
+学js
+透镜扩展元件包
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -199,57 +293,18 @@ global.disksavior = true
 PlayerEvents.loggedIn(event => {
     const player = event.player;
     player.tell("§a欢迎使用『§r§e硬盘拯救者§r§a』!")
-    player.tell("§a当前版本为§r §ev18")
+    player.tell("§a当前版本为§r §ev19")
     player.tell("§c当前版本并不完善,可能有较多bug!")
     player.tell("§a本私货自带任务书,请仔细阅读")
     player.tell("§7========================================")
-    player.tell("§c⚠️不装GTL additions可能会报错")
+    player.tell("§c⚠️与GTL私货版兼容性不良!")
+    player.tell("§c⚠️不装GTL additions可能会报错!")
     player.tell("§c⚠️本私货需要在GTL core开启原始虚空采矿机,不然会报错！！！")
     player.tell("§7========================================")
     player.tell("§e祝你游戏愉快!")
 })
 ServerEvents.recipes(event => {
     const gtr = event.recipes.gtceu
-    const packed_infinity_cell = (cellname, type, list) => {//从产线撕裂里扒过来的,感谢@？(-5周目max小登) 
-        const list_length = list.length
-        let a = "1L,"
-        a = a.repeat(list_length - 1) + '1L'
-        let b = "{\"#c\":\"ae2:i\",id:\"expatternprovider:infinity_cell\",tag:{record:{\"#c\":\"ae2:" + type + "\",id:\"" + list[0] + "\"}}}"
-        for (let i = 1; i < list_length; i++) {
-            b = b + ",{\"#c\":\"ae2:i\",id:\"expatternprovider:infinity_cell\",tag:{record:{\"#c\":\"ae2:" + type + "\",id:\"" + list[i] + "\"}}}"
-        }
-        return Item.of('ae2:portable_item_cell_16k',
-            "{RepairCost:0,amts:[L;" + a + "],display:{Name:'{\"text\":\"" + cellname + "\"}'},ic:" + list_length + "L,internalCurrentPower:20000.0d,keys:[" + b + "]}")
-    }
-    //染料元件包
-    gtr.assembler('disksavior:dye_pack')
-        .circuit(1)
-        .itemInputs('32x gtceu:salt_dust')
-        .inputFluids('gtceu:sulfuric_acid 4000')
-        .itemOutputs(packed_infinity_cell('染料元件包', 'f', ['gtceu:black_dye', 'gtceu:blue_dye', 'gtceu:brown_dye', 'gtceu:cyan_dye', 'gtceu:gray_dye', 'gtceu:green_dye', 'gtceu:light_blue_dye', 'gtceu:lime_dye', 'gtceu:magenta_dye', 'gtceu:orange_dye', 'gtceu:pink_dye', 'gtceu:purple_dye', 'gtceu:red_dye', 'gtceu:white_dye', 'gtceu:yellow_dye', 'gtceu:light_gray_dye']))
-        .duration(200)
-        .EUt(GTValues.VA[GTValues.LV])
-    //透镜元件包
-    gtr.assembler('disksavior:glass_lens_pack')
-        .circuit(2)
-        .itemInputs('64x gtceu:salt_dust', '64x gtceu:glass_lens')
-        .inputFluids('gtceu:sulfuric_acid 16000')
-        .itemOutputs(packed_infinity_cell('透镜元件包', 'i', [
-            //16色透镜
-            'gtceu:glass_lens', 'gtceu:orange_glass_lens', 'gtceu:magenta_glass_lens', 'gtceu:light_blue_glass_lens', 'gtceu:yellow_glass_lens', 'gtceu:lime_glass_lens', 'gtceu:pink_glass_lens', 'gtceu:gray_glass_lens', 'gtceu:light_gray_glass_lens', 'gtceu:cyan_glass_lens', 'gtceu:purple_glass_lens', 'gtceu:blue_glass_lens', 'gtceu:brown_glass_lens', 'gtceu:green_glass_lens', 'gtceu:red_glass_lens', 'gtceu:black_glass_lens',
-            //宝石透镜,没有非线性光学透镜
-            'gtceu:diamond_lens', 'gtceu:nether_star_lens', 'gtceu:ruby_lens', 'gtceu:emerald_lens', 'gtceu:sapphire_lens', 'gtceu:amethyst_lens'
-        ]))
-        .duration(2000)
-        .EUt(GTValues.VA[GTValues.LV])
-    //温室元件包
-    gtr.assembler('disksavior:greenhouse_pack')
-        .circuit(1)
-        .itemInputs('2147483647x gtceu:greenhouse')
-        .inputFluids('gtceu:glue 185254000')
-        .itemOutputs(packed_infinity_cell('温室元件包', 'i', ['minecraft:oak_sapling', 'minecraft:oak_log', 'minecraft:spruce_sapling', 'minecraft:spruce_log', 'minecraft:birch_sapling', 'minecraft:birch_log', 'minecraft:jungle_sapling', 'minecraft:jungle_log', 'minecraft:acacia_sapling', 'minecraft:acacia_log', 'minecraft:dark_oak_sapling', 'minecraft:dark_oak_log', 'minecraft:mangrove_propagule', 'minecraft:mangrove_log', 'minecraft:cherry_sapling', 'minecraft:cherry_log', 'minecraft:pumpkin', 'minecraft:pumpkin_seeds', 'minecraft:beetroot', 'minecraft:beetroot_seeds', 'minecraft:sweet_berries', 'minecraft:glow_berries', 'minecraft:wheat', 'minecraft:wheat_seeds', 'minecraft:melon', 'minecraft:melon_seeds', 'minecraft:carrot', 'minecraft:sugar_cane', 'minecraft:kelp', 'minecraft:cactus', 'minecraft:potato', 'minecraft:cocoa_beans', 'minecraft:brown_mushroom', 'minecraft:red_mushroom', 'minecraft:nether_wart', 'minecraft:bamboo', 'minecraft:vine', 'minecraft:sea_pickle', 'gtceu:rubber_sapling', 'gtceu:rubber_log', 'gtceu:sticky_resin', 'minecraft:poisonous_potato', 'minecraft:grass', 'minecraft:melon_slice', 'minecraft:sunflower', 'minecraft:sponge', 'minecraft:honeycomb']))
-        .duration(185254)
-        .EUt(GTValues.VA[GTValues.UV])
     //装配线压缩进阶装配线
     gtr.compressor('disksavior:advanced_assembly_line')
         .itemInputs('64x gtceu:assembly_line')
@@ -431,6 +486,13 @@ ServerEvents.recipes(event => {
         .itemOutputs('minecraft:wither_skeleton_skull')
         .EUt(GTValues.VA[GTValues.HV])
         .duration(200)
+    //下界之星去无重力条件&转搅拌机
+    gtr.mixer('disksavior:nether_star')
+        .circuit(1)
+        .itemInputs('4x minecraft:soul_sand', '3x minecraft:wither_skeleton_skull')
+        .itemOutputs('minecraft:nether_star')
+        .duration(100)
+        .EUt(GTValues.VA[GTValues.MV])
     //草
     gtr.lightning_processor('disksavior:grass')
         .itemInputs('minecraft:wheat_seeds')
@@ -575,9 +637,18 @@ ServerEvents.recipes(event => {
         .itemOutputs('gtceu:integrated_ore_processor')
         .EUt(GTValues.VA[GTValues.LuV])
         .duration(600)
+    //MAX并行控制仓下调IV
+    gtr.assembler('disksavior:max_parallel_hatch')
+        .circuit(1)
+        .itemInputs('64x gtceu:iv_parallel_hatch', '64x #gtceu:circuits/luv', '96x #gtceu:circuits/iv', '144x #gtceu:circuits/ev', '216x #gtceu:circuits/hv', '324x #gtceu:circuits/mv', '324x #gtceu:circuits/lv')
+        .inputFluids('gtceu:glue 185254000')
+        .itemOutputs('gtceu:max_parallel_hatch')
+        .EUt(GTValues.VA[GTValues.IV])
+        .duration(500)
     //超级并行控制仓下调IV
     gtr.assembler('disksavior:super_parallel_hatch')
-        .itemInputs('512x gtceu:iv_parallel_hatch', '256x gtceu:iv_sensor', '256x gtceu:iv_emitter', '512x #gtceu:circuits/luv', '768x #gtceu:circuits/iv', '1152x #gtceu:circuits/ev', '1728x #gtceu:circuits/hv', '2592x #gtceu:circuits/mv', '2592x #gtceu:circuits/lv')
+        .circuit(2)
+        .itemInputs('512x gtceu:iv_parallel_hatch', '512x #gtceu:circuits/luv', '768x #gtceu:circuits/iv', '1152x #gtceu:circuits/ev', '1728x #gtceu:circuits/hv', '2592x #gtceu:circuits/mv', '2592x #gtceu:circuits/lv')
         .inputFluids('gtceu:glue 185254000')
         .itemOutputs('gtladditions:super_parallel_hatch')
         .EUt(GTValues.VA[GTValues.LuV])
@@ -625,7 +696,7 @@ ServerEvents.recipes(event => {
             '1024x gtceu:cold_ice_freezer',
             '185x minecraft:ice',
             '254x minecraft:packed_ice',
-            '2minecraft:blue_ice'
+            '21x minecraft:blue_ice'
         )
         .inputFluids('gtceu:glue 185254000')
         .itemOutputs('gtceu:creative_computation_provider')
@@ -653,6 +724,14 @@ ServerEvents.recipes(event => {
         .itemOutputs('gtceu:law_cleaning_gravity_configuration_maintenance_hatch')
         .EUt(GTValues.VA[GTValues.ULV])
         .duration(200)
+    //基岩钻机电解
+    gtr.electrolyzer('disksavior:bedrock_dust')
+        .notConsumable('gtceu:bedrock_drilling_rig')
+        .notConsumable('64x kubejs:bedrock_drill')
+        .inputFluids('gtceu:steam 1')
+        .itemOutputs('64x gtceu:bedrock_dust')
+        .EUt(GTValues.VA[GTValues.UEV])
+        .duration(1600)
     //特种陶瓷卷板机做
     gtr.bender('disksavior:special_ceramics')
         .circuit(1)
@@ -810,10 +889,10 @@ ServerEvents.recipes(event => {
         .EUt(GTValues.VA[GTValues.UHV])
         .blastFurnaceTemp(800)
         .duration(2000)
-    //蒸馏水离心出16种净化水
+    //蒸汽离心出16种净化水
     gtr.centrifuge('disksavior:water_distillation_super')
         .circuit(1)
-        .inputFluids('gtceu:distilled_water 18525400')
+        .inputFluids('gtceu:steam 18525400')
         .outputFluids(
             'gtceu:grade_16_purified_water 160000',
             'gtceu:grade_8_purified_water 1440000',
@@ -927,10 +1006,10 @@ ServerEvents.recipes(event => {
         .itemInputs('gtceu:uraninite_dust')
         .inputFluids('gtceu:sulfuric_acid 9000')
         .itemOutputs(
+            'gtceu:radium_dust',
             'gtceu:lead_dust',
             'gtceu:barium_dust',
-            'gtceu:strontium_dust',
-            'gtceu:radium_dust'
+            'gtceu:strontium_dust'
         )
         .outputFluids('gtceu:diluted_sulfuric_acid 9000')
         .EUt(GTValues.VA[GTValues.HV])
@@ -1216,36 +1295,6 @@ ServerEvents.recipes(event => {
         .itemOutputs('gtceu:petrochemical_plant')
         .EUt(GTValues.VA[GTValues.HV])
         .duration(200)
-    //大集气加强
-    //100*16*40*100*16=102.4MB
-    //基数(B)*催化剂修正值(HV~IV)*升阶补偿(一次无损超频*十倍速=40)*百倍批处理*两次无损超频
-    //空气
-    gtr.large_gas_collector('disksavior:7')
-        .notConsumable('kubejs:overworld_data')
-        .notConsumable('gtceu:cold_ice_freezer')
-        .outputFluids('gtceu:liquid_air 102400000000', 'gtceu:air 4096000000000')
-        .EUt(GTValues.VA[GTValues.IV])
-        .duration(20000)
-    //下界空气
-    gtr.large_gas_collector('disksavior:8')
-        .notConsumable('kubejs:nether_data')
-        .notConsumable('gtceu:cold_ice_freezer')
-        .outputFluids('gtceu:liquid_nether_air 102400000000', 'gtceu:nether_air 4096000000000')
-        .EUt(GTValues.VA[GTValues.LuV])
-        .duration(20000)
-    //末地空气
-    gtr.large_gas_collector('disksavior:9')
-        .notConsumable('kubejs:end_data')
-        .notConsumable('gtceu:cold_ice_freezer')
-        .outputFluids('gtceu:liquid_ender_air 102400000000', 'gtceu:ender_air 4096000000000')
-        .EUt(GTValues.VA[GTValues.ZPM])
-        .duration(20000)
-    //巴纳德C空气
-    gtr.large_gas_collector('disksavior:10')
-        .notConsumable('kubejs:barnarda_log')
-        .outputFluids('gtceu:barnarda_air 1000000')
-        .EUt(GTValues.VA[GTValues.IV])
-        .duration(2000)
     //粉直出铂系矿泥
     //黝铜
     gtr.large_chemical_reactor('disksavior:boxi_1')
@@ -1288,7 +1337,7 @@ ServerEvents.recipes(event => {
         .EUt(GTValues.VA[GTValues.MV])
         .duration(200)
     //主世界数据
-    gtr.world_data_scanner('disksavior:fd_o')
+    gtr.assembler('disksavior:fd_o')
         .itemInputs(
             'gtceu:data_stick',
             '64x gtceu:stone_dust'
@@ -1302,7 +1351,7 @@ ServerEvents.recipes(event => {
         .EUt(GTValues.VA[GTValues.LV])
         .duration(20)
     //下界数据
-    gtr.world_data_scanner('disksavior:fd_n')
+    gtr.assembler('disksavior:fd_n')
         .itemInputs(
             '2x gtceu:data_stick',
             '64x gtceu:netherrack_dust'
@@ -1316,7 +1365,7 @@ ServerEvents.recipes(event => {
         .EUt(GTValues.VA[GTValues.MV])
         .duration(20)
     //末地数据
-    gtr.world_data_scanner('disksavior:fd_e')
+    gtr.assembler('disksavior:fd_e')
         .itemInputs(
             '4x gtceu:data_stick',
             '64x gtceu:endstone_dust'

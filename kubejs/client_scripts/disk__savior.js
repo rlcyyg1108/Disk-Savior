@@ -52,7 +52,16 @@ JEIEvents.addItems(event => {
         //宝石透镜，没有非线性光学透镜
         'gtceu:diamond_lens', 'gtceu:nether_star_lens', 'gtceu:ruby_lens', 'gtceu:emerald_lens', 'gtceu:sapphire_lens', 'gtceu:amethyst_lens'
     ]))
-    event.add(ds_packed_infinity_cell('温室元件包', 'i', ['minecraft:oak_sapling', 'minecraft:oak_log', 'minecraft:spruce_sapling', 'minecraft:spruce_log', 'minecraft:birch_sapling', 'minecraft:birch_log', 'minecraft:jungle_sapling', 'minecraft:jungle_log', 'minecraft:acacia_sapling', 'minecraft:acacia_log', 'minecraft:dark_oak_sapling', 'minecraft:dark_oak_log', 'minecraft:mangrove_propagule', 'minecraft:mangrove_log', 'minecraft:cherry_sapling', 'minecraft:cherry_log', 'minecraft:pumpkin', 'minecraft:pumpkin_seeds', 'minecraft:beetroot', 'minecraft:beetroot_seeds', 'minecraft:sweet_berries', 'minecraft:glow_berries', 'minecraft:wheat', 'minecraft:wheat_seeds', 'minecraft:melon', 'minecraft:melon_seeds', 'minecraft:carrot', 'minecraft:sugar_cane', 'minecraft:kelp', 'minecraft:cactus', 'minecraft:potato', 'minecraft:cocoa_beans', 'minecraft:brown_mushroom', 'minecraft:red_mushroom', 'minecraft:nether_wart', 'minecraft:bamboo', 'minecraft:vine', 'minecraft:sea_pickle', 'gtceu:rubber_sapling', 'gtceu:rubber_log', 'gtceu:sticky_resin', 'minecraft:poisonous_potato', 'minecraft:grass', 'minecraft:melon_slice', 'minecraft:sunflower', 'minecraft:sponge', 'minecraft:honeycomb']))
+    event.add(ds_packed_infinity_cell('温室&屠宰场元件包', 'i', [
+            //温室
+            'minecraft:oak_sapling', 'minecraft:oak_log', 'minecraft:spruce_sapling', 'minecraft:spruce_log', 'minecraft:birch_sapling', 'minecraft:birch_log', 'minecraft:jungle_sapling', 'minecraft:jungle_log', 'minecraft:acacia_sapling', 'minecraft:acacia_log', 'minecraft:dark_oak_sapling', 'minecraft:dark_oak_log', 'minecraft:mangrove_propagule', 'minecraft:mangrove_log', 'minecraft:cherry_sapling', 'minecraft:cherry_log', 'minecraft:pumpkin', 'minecraft:pumpkin_seeds', 'minecraft:beetroot', 'minecraft:beetroot_seeds', 'minecraft:sweet_berries', 'minecraft:glow_berries', 'minecraft:wheat', 'minecraft:wheat_seeds', 'minecraft:melon', 'minecraft:melon_seeds', 'minecraft:carrot', 'minecraft:sugar_cane', 'minecraft:kelp', 'minecraft:cactus', 'minecraft:potato', 'minecraft:cocoa_beans', 'minecraft:brown_mushroom', 'minecraft:red_mushroom', 'minecraft:nether_wart', 'minecraft:bamboo', 'minecraft:vine', 'minecraft:sea_pickle', 'gtceu:rubber_sapling', 'gtceu:rubber_log', 'gtceu:sticky_resin', 'minecraft:poisonous_potato', 'minecraft:grass', 'minecraft:melon_slice', 'minecraft:sunflower', 'minecraft:sponge', 'minecraft:honeycomb',
+            //屠宰场重要的五个前置
+            'minecraft:wither_skeleton_skull', 'minecraft:ghast_tear', 'minecraft:blaze_rod', 'minecraft:slime_ball', 'minecraft:ender_pearl',
+            //回响系列
+            'minecraft:echo_shard', 'minecraft:sculk_sensor', 'minecraft:sculk_catalyst', 'minecraft:sculk',
+            //其他
+            'minecraft:bone', 'minecraft:porkchop', 'minecraft:beef', 'minecraft:rabbit', 'minecraft:chicken', 'minecraft:mutton', 'minecraft:cod', 'minecraft:tropical_fish', 'minecraft:salmon', 'minecraft:poppy', 'minecraft:feather', 'minecraft:string', 'minecraft:leather', 'minecraft:rabbit_hide', 'minecraft:gunpowder', 'minecraft:rotten_flesh', 'minecraft:spider_eye', 'minecraft:rabbit_foot', 'minecraft:ink_sac', 'minecraft:glow_ink_sac', 'minecraft:nautilus_shell', 'minecraft:glowstone_dust', 'minecraft:stick', 'minecraft:sugar', 'minecraft:white_wool', 'minecraft:egg'
+        ]))
 })
 
 ItemEvents.tooltip(event => {

@@ -1,68 +1,153 @@
 //东西很多的配方放这
 ServerEvents.recipes(event => {
     const gtr = event.recipes.gtceu
+    const packed_infinity_cell = (cellname, type, list) => {//从产线撕裂里扒过来的,感谢@？(-5周目max小登) 
+        const list_length = list.length
+        let a = "1L,"
+        a = a.repeat(list_length - 1) + '1L'
+        let b = "{\"#c\":\"ae2:i\",id:\"expatternprovider:infinity_cell\",tag:{record:{\"#c\":\"ae2:" + type + "\",id:\"" + list[0] + "\"}}}"
+        for (let i = 1; i < list_length; i++) {
+            b = b + ",{\"#c\":\"ae2:i\",id:\"expatternprovider:infinity_cell\",tag:{record:{\"#c\":\"ae2:" + type + "\",id:\"" + list[i] + "\"}}}"
+        }
+        return Item.of('ae2:portable_item_cell_16k',
+            "{RepairCost:0,amts:[L;" + a + "],display:{Name:'{\"text\":\"" + cellname + "\"}'},ic:" + list_length + "L,internalCurrentPower:20000.0d,keys:[" + b + "]}")
+    }
+    //染料元件包
+    gtr.assembler('disksavior:dye_pack')
+        .circuit(1)
+        .itemInputs('32x gtceu:salt_dust')
+        .inputFluids('gtceu:sulfuric_acid 4000')
+        .itemOutputs(packed_infinity_cell('染料元件包', 'f', ['gtceu:black_dye', 'gtceu:blue_dye', 'gtceu:brown_dye', 'gtceu:cyan_dye', 'gtceu:gray_dye', 'gtceu:green_dye', 'gtceu:light_blue_dye', 'gtceu:lime_dye', 'gtceu:magenta_dye', 'gtceu:orange_dye', 'gtceu:pink_dye', 'gtceu:purple_dye', 'gtceu:red_dye', 'gtceu:white_dye', 'gtceu:yellow_dye', 'gtceu:light_gray_dye']))
+        .duration(200)
+        .EUt(GTValues.VA[GTValues.LV])
+    //透镜元件包
+    gtr.assembler('disksavior:glass_lens_pack')
+        .circuit(2)
+        .itemInputs('64x gtceu:salt_dust', '64x gtceu:glass_lens')
+        .inputFluids('gtceu:sulfuric_acid 16000')
+        .itemOutputs(packed_infinity_cell('透镜元件包', 'i', [
+            //16色透镜
+            'gtceu:glass_lens', 'gtceu:orange_glass_lens', 'gtceu:magenta_glass_lens', 'gtceu:light_blue_glass_lens', 'gtceu:yellow_glass_lens', 'gtceu:lime_glass_lens', 'gtceu:pink_glass_lens', 'gtceu:gray_glass_lens', 'gtceu:light_gray_glass_lens', 'gtceu:cyan_glass_lens', 'gtceu:purple_glass_lens', 'gtceu:blue_glass_lens', 'gtceu:brown_glass_lens', 'gtceu:green_glass_lens', 'gtceu:red_glass_lens', 'gtceu:black_glass_lens',
+            //宝石透镜,没有非线性光学透镜
+            'gtceu:diamond_lens', 'gtceu:nether_star_lens', 'gtceu:ruby_lens', 'gtceu:emerald_lens', 'gtceu:sapphire_lens', 'gtceu:amethyst_lens'
+        ]))
+        .duration(2000)
+        .EUt(GTValues.VA[GTValues.LV])
+    //温室&屠宰场元件包
+    gtr.assembler('disksavior:greenhouse_slaughterhouse_pack')
+        .circuit(1)
+        .itemInputs('2147483647x gtceu:greenhouse', '21x minecraft:campfire', '185254x gtceu:large_greenhouse', '2147483647x gtceu:slaughterhouse', '22x minecraft:dirt', '14x minecraft:grass', '27x minecraft:iron_sword', '185254x minecraft:poisonous_potato')
+        .inputFluids('gtceu:glue 185254000')
+        .itemOutputs(packed_infinity_cell('温室&屠宰场元件包', 'i', [
+            //温室
+            'minecraft:oak_sapling', 'minecraft:oak_log', 'minecraft:spruce_sapling', 'minecraft:spruce_log', 'minecraft:birch_sapling', 'minecraft:birch_log', 'minecraft:jungle_sapling', 'minecraft:jungle_log', 'minecraft:acacia_sapling', 'minecraft:acacia_log', 'minecraft:dark_oak_sapling', 'minecraft:dark_oak_log', 'minecraft:mangrove_propagule', 'minecraft:mangrove_log', 'minecraft:cherry_sapling', 'minecraft:cherry_log', 'minecraft:pumpkin', 'minecraft:pumpkin_seeds', 'minecraft:beetroot', 'minecraft:beetroot_seeds', 'minecraft:sweet_berries', 'minecraft:glow_berries', 'minecraft:wheat', 'minecraft:wheat_seeds', 'minecraft:melon', 'minecraft:melon_seeds', 'minecraft:carrot', 'minecraft:sugar_cane', 'minecraft:kelp', 'minecraft:cactus', 'minecraft:potato', 'minecraft:cocoa_beans', 'minecraft:brown_mushroom', 'minecraft:red_mushroom', 'minecraft:nether_wart', 'minecraft:bamboo', 'minecraft:vine', 'minecraft:sea_pickle', 'gtceu:rubber_sapling', 'gtceu:rubber_log', 'gtceu:sticky_resin', 'minecraft:poisonous_potato', 'minecraft:grass', 'minecraft:melon_slice', 'minecraft:sunflower', 'minecraft:sponge', 'minecraft:honeycomb',
+            //屠宰场重要的五个前置
+            'minecraft:wither_skeleton_skull', 'minecraft:ghast_tear', 'minecraft:blaze_rod', 'minecraft:slime_ball', 'minecraft:ender_pearl',
+            //回响系列
+            'minecraft:echo_shard', 'minecraft:sculk_sensor', 'minecraft:sculk_catalyst', 'minecraft:sculk',
+            //其他
+            'minecraft:bone', 'minecraft:porkchop', 'minecraft:beef', 'minecraft:rabbit', 'minecraft:chicken', 'minecraft:mutton', 'minecraft:cod', 'minecraft:tropical_fish', 'minecraft:salmon', 'minecraft:poppy', 'minecraft:feather', 'minecraft:string', 'minecraft:leather', 'minecraft:rabbit_hide', 'minecraft:gunpowder', 'minecraft:rotten_flesh', 'minecraft:spider_eye', 'minecraft:rabbit_foot', 'minecraft:ink_sac', 'minecraft:glow_ink_sac', 'minecraft:nautilus_shell', 'minecraft:glowstone_dust', 'minecraft:stick', 'minecraft:sugar', 'minecraft:white_wool', 'minecraft:egg'
+        ]))
+        .EUt(GTValues.VA[GTValues.UV])
+        .duration(185254)
     //流体钻机电解
     const ds_fdr_data = [
         {
-            tier: 0, notc: "minecraft:dirt",
-            outf: ["gtceu:salt_water 400", "gtceu:natural_gas 150", "gtceu:oil_medium 200", "gtceu:oil_light 250", "gtceu:oil_heavy 150", "gtceu:oil 200"]
+            tier: 0, notc: 'minecraft:dirt',
+            outf: ['gtceu:salt_water 400', 'gtceu:natural_gas 150', 'gtceu:oil_medium 200', 'gtceu:oil_light 250', 'gtceu:oil_heavy 150', 'gtceu:oil 200']
         }, {
-            tier: 1, notc: "ad_astra:moon_stone",
-            outf: ["gtceu:helium_3 100", "gtceu:helium 200"]
+            tier: 1, notc: 'ad_astra:moon_stone',
+            outf: ['gtceu:helium_3 100', 'gtceu:helium 200']
         }, {
-            tier: 2, notc: "ad_astra:mars_stone",
-            outf: ["gtceu:radon 200"]
+            tier: 2, notc: 'ad_astra:mars_stone',
+            outf: ['gtceu:radon 200']
         }, {
-            tier: 3, notc: "minecraft:netherrack",
-            outf: ["minecraft:lava 650", "gtceu:sulfuric_acid 200", "gtceu:deuterium 150", "gtceu:helium_3 100", "gtceu:helium 200", "gtceu:radon 200", "gtceu:natural_gas 350"]
+            tier: 3, notc: 'minecraft:netherrack',
+            outf: ['minecraft:lava 650', 'gtceu:sulfuric_acid 200', 'gtceu:deuterium 150', 'gtceu:helium_3 100', 'gtceu:helium 200', 'gtceu:radon 200', 'gtceu:natural_gas 350']
         }, {
-            tier: 4, notc: "kubejs:ceresstone",
-            outf: ["gtceu:neon 200", "gtceu:radon 150", "gtceu:xenon 200", "gtceu:krypton 200"]
+            tier: 4, notc: 'kubejs:ceresstone',
+            outf: ['gtceu:neon 200', 'gtceu:radon 150', 'gtceu:xenon 200', 'gtceu:krypton 200']
         }, {
-            tier: 5, notc: "kubejs:ganymedestone",
-            outf: ["gtceu:hydrochloric_acid 200", "gtceu:coal_gas 200"]
+            tier: 5, notc: 'kubejs:ganymedestone',
+            outf: ['gtceu:hydrochloric_acid 200', 'gtceu:coal_gas 200']
         }, {
-            tier: 6, notc: "minecraft:end_stone",
-            outf: ["gtceu:methane 200", "gtceu:benzene 150", "gtceu:charcoal_byproducts 100", "gtceu:chlorine 200", "gtceu:fluorine 100", "gtceu:nitric_acid 200", "gtceu:neon 200", "gtceu:radon 150", "gtceu:xenon 200", "gtceu:krypton 200", "gtceu:hydrochloric_acid 200", "gtceu:coal_gas 200"]
+            tier: 6, notc: 'minecraft:end_stone',
+            outf: ['gtceu:methane 200', 'gtceu:benzene 150', 'gtceu:charcoal_byproducts 100', 'gtceu:chlorine 200', 'gtceu:fluorine 100', 'gtceu:nitric_acid 200', 'gtceu:neon 200', 'gtceu:radon 150', 'gtceu:xenon 200', 'gtceu:krypton 200', 'gtceu:hydrochloric_acid 200', 'gtceu:coal_gas 200']
         }, {
-            tier: 8, notc: "kubejs:barnarda_log",
-            outf: ["gtceu:unknowwater 200"]
+            tier: 8, notc: 'kubejs:barnarda_log',
+            outf: ['gtceu:unknowwater 200']
         }
     ]
     const ds_fdr_batch_multiplier = 64//流体钻机电解批处理乘数
     ds_fdr_data.forEach(r => {
         gtr.electrolyzer(`disksavior:fdr_t${r.tier}_mv`)
-            .notConsumable('64x gtceu:mv_fluid_drilling_rig')
+            .notConsumable(`${ds_fdr_batch_multiplier}x gtceu:mv_fluid_drilling_rig`)
             .notConsumable(r.notc)
-            .outputFluids(r.outf.map(i => `${i.split(' ')[0]} ${Number(i.split(' ')[1]) * ds_fdr_batch_multiplier * 1.5}`))
-            .EUt(GTValues.VA[GTValues.HV])
-            .duration(20 * r.outf.length * ds_fdr_batch_multiplier)
+            .outputFluids(r.outf.map(i => `${i.split(' ')[0]} ${Number(i.split(' ')[1]) * ds_fdr_batch_multiplier}`))
+            .EUt(GTValues.VA[GTValues.MV])
+            .duration(4 * r.outf.length * ds_fdr_batch_multiplier)
         gtr.electrolyzer(`disksavior:fdr_t${r.tier}_hv`)
-            .notConsumable('64x gtceu:hv_fluid_drilling_rig')
+            .notConsumable(`${ds_fdr_batch_multiplier}x gtceu:hv_fluid_drilling_rig`)
             .notConsumable(r.notc)
-            .outputFluids(r.outf.map(i => `${i.split(' ')[0]} ${Number(i.split(' ')[1]) * ds_fdr_batch_multiplier * 1.5 * 16}`))
-            .EUt(GTValues.VA[GTValues.EV])
-            .duration(20 * r.outf.length * ds_fdr_batch_multiplier)
+            .outputFluids(r.outf.map(i => `${i.split(' ')[0]} ${Number(i.split(' ')[1]) * ds_fdr_batch_multiplier * 16}`))
+            .EUt(GTValues.VA[GTValues.HV])
+            .duration(4 * r.outf.length * ds_fdr_batch_multiplier)
         gtr.electrolyzer(`disksavior:fdr_t${r.tier}_ev`)
-            .notConsumable('64x gtceu:ev_fluid_drilling_rig')
+            .notConsumable(`${ds_fdr_batch_multiplier}x gtceu:ev_fluid_drilling_rig`)
             .notConsumable(r.notc)
-            .outputFluids(r.outf.map(i => `${i.split(' ')[0]} ${Number(i.split(' ')[1]) * ds_fdr_batch_multiplier * 1.5 * 256}`))
-            .EUt(GTValues.VA[GTValues.IV])
-            .duration(20 * r.outf.length * ds_fdr_batch_multiplier)
+            .outputFluids(r.outf.map(i => `${i.split(' ')[0]} ${Number(i.split(' ')[1]) * ds_fdr_batch_multiplier * 256}`))
+            .EUt(GTValues.VA[GTValues.EV])
+            .duration(4 * r.outf.length * ds_fdr_batch_multiplier)
         gtr.electrolyzer(`disksavior:fdr_t${r.tier}_zpm`)
-            .notConsumable('64x gtceu:zpm_fluid_drilling_rig')
+            .notConsumable(`${ds_fdr_batch_multiplier}x gtceu:zpm_fluid_drilling_rig`)
             .notConsumable(r.notc)//用次方写会有神秘问题会算错↓，直接写算出来的算了
-            .outputFluids(r.outf.map(i => `${i.split(' ')[0]} ${Number(i.split(' ')[1]) * ds_fdr_batch_multiplier * 1.5 * 1048576}`))
-            .EUt(GTValues.VA[GTValues.UV])
-            .duration(20 * r.outf.length * ds_fdr_batch_multiplier)
+            .outputFluids(r.outf.map(i => `${i.split(' ')[0]} ${Number(i.split(' ')[1]) * ds_fdr_batch_multiplier * 1048576}`))
+            .EUt(GTValues.VA[GTValues.ZPM])
+            .duration(4 * r.outf.length * ds_fdr_batch_multiplier)
     })
     //进阶无尽钻机钻全部维度流体
-    const ds_fdr_uev_data = ['gtceu:salt_water 400', 'gtceu:natural_gas 150', 'gtceu:oil_medium 200', 'gtceu:oil_light 250', 'gtceu:oil_heavy 150', 'gtceu:oil 200', 'gtceu:helium_3 100', 'gtceu:helium 200', 'gtceu:radon 200', 'minecraft:lava 650', 'gtceu:sulfuric_acid 200', 'gtceu:deuterium 150', 'gtceu:helium_3 100', 'gtceu:helium 200', 'gtceu:radon 200', 'gtceu:natural_gas 350', 'gtceu:neon 200', 'gtceu:radon 150', 'gtceu:xenon 200', 'gtceu:krypton 200', 'gtceu:hydrochloric_acid 200', 'gtceu:coal_gas 200', 'gtceu:methane 200', 'gtceu:benzene 150', 'gtceu:charcoal_byproducts 100', 'gtceu:chlorine 200', 'gtceu:fluorine 100', 'gtceu:nitric_acid 200', 'gtceu:neon 200', 'gtceu:radon 150', 'gtceu:xenon 200', 'gtceu:krypton 200', 'gtceu:hydrochloric_acid 200', 'gtceu:coal_gas 200', 'gtceu:unknowwater 200']
-    gtr.electrolyzer('disksavior:uev_all')
+    const ds_fdr_uhv_data = ['gtceu:salt_water 400', 'gtceu:natural_gas 150', 'gtceu:oil_medium 200', 'gtceu:oil_light 250', 'gtceu:oil_heavy 150', 'gtceu:oil 200', 'gtceu:helium_3 100', 'gtceu:helium 200', 'gtceu:radon 200', 'minecraft:lava 650', 'gtceu:sulfuric_acid 200', 'gtceu:deuterium 150', 'gtceu:helium_3 100', 'gtceu:helium 200', 'gtceu:radon 200', 'gtceu:natural_gas 350', 'gtceu:neon 200', 'gtceu:radon 150', 'gtceu:xenon 200', 'gtceu:krypton 200', 'gtceu:hydrochloric_acid 200', 'gtceu:coal_gas 200', 'gtceu:methane 200', 'gtceu:benzene 150', 'gtceu:charcoal_byproducts 100', 'gtceu:chlorine 200', 'gtceu:fluorine 100', 'gtceu:nitric_acid 200', 'gtceu:neon 200', 'gtceu:radon 150', 'gtceu:xenon 200', 'gtceu:krypton 200', 'gtceu:hydrochloric_acid 200', 'gtceu:coal_gas 200', 'gtceu:unknowwater 200']
+    gtr.electrolyzer('disksavior:uhv_all')
         .notConsumable('gtceu:advanced_infinite_driller')
-        .outputFluids(ds_fdr_uev_data.map(i => `${i.split(' ')[0]} ${Number(i.split(' ')[1]) * ds_fdr_batch_multiplier * 1.5 * 268435456}`))
-        .EUt(GTValues.VA[GTValues.UEV])
-        .duration(5 * ds_fdr_batch_multiplier)
+        .outputFluids(ds_fdr_uhv_data.map(i => `${i.split(' ')[0]} ${Number(i.split(' ')[1]) * ds_fdr_batch_multiplier * 268435456}`))
+        .EUt(GTValues.VA[GTValues.UHV])
+        .duration(ds_fdr_uhv_data.length * ds_fdr_batch_multiplier)
+    //集气电解
+    const ds_gc_data = [
+        {
+            dim: 0, notc: 'minecraft:dirt',
+            outf: ['gtceu:air 10000', 'gtceu:liquid_air 625']
+        }, {
+            dim: 1, notc: 'minecraft:netherrack',
+            outf: ['gtceu:nether_air 10000', 'gtceu:liquid_nether_air 625']
+        }, {
+            dim: 2, notc: 'minecraft:end_stone',
+            outf: ['gtceu:ender_air 10000', 'gtceu:liquid_ender_air 625']
+        }
+    ]
+    const ds_gc_machine = [
+        { v: 'lv', value: 0 },
+        { v: 'mv', value: 1 },
+        { v: 'hv', value: 2 },
+        { v: 'ev', value: 3 }
+    ]
+    const ds_gc_batch_multiplier = 1//集气电解批处理乘数
+    ds_gc_data.forEach(data => {
+        ds_gc_machine.forEach(machine => {
+            gtr.electrolyzer(`disksavior:gc_${machine.v}_${data.dim}`)
+                .notConsumable(`${ds_gc_batch_multiplier}x gtceu:${machine.v}_gas_collector`)
+                .notConsumable(data.notc)
+                .outputFluids(data.outf.map(i => `${i.split(' ')[0]} ${Number(i.split(' ')[1]) * ds_gc_batch_multiplier * (16 ** machine.value)}`))
+                .EUt(GTValues.VA[GTValues.LV] * (4 ** data.dim))
+                .duration(100 * data.outf.length * ds_gc_batch_multiplier)
+        })
+    })
+    const ds_gc_iv_outf = ['gtceu:air 160000', 'gtceu:liquid_air 10000', 'gtceu:nether_air 40000', 'gtceu:liquid_nether_air 2500', 'gtceu:ender_air 10000', 'gtceu:liquid_ender_air 625']
+    gtr.electrolyzer('disksavior:gc_iv')
+        .notConsumable(`${ds_gc_batch_multiplier}x gtceu:large_gas_collector`)
+        .outputFluids(ds_gc_iv_outf.map(i => `${i.split(' ')[0]} ${Number(i.split(' ')[1]) * ds_gc_batch_multiplier * (16 ** 5)}`))
+        .EUt(GTValues.VA[GTValues.LuV])
+        .duration(100 * ds_gc_iv_outf.length * ds_gc_batch_multiplier)
     //鸿蒙之眼集大成配方
     //批处理16384倍
     //实际数值要-1，因为2147483648x会爆
@@ -169,9 +254,9 @@ ServerEvents.recipes(event => {
         .EUt(GTValues.VA[GTValues.ZPM] * 4096)
         .duration(9600)
     //此处的数组名的数字指的是该数字+1的级别太空无人机可采集
-    const space_fluids = ['gtceu:hydrogen 1000000', 'gtceu:helium 1000000', 'gtceu:nitrogen 1000000', 'gtceu:methane 1000000', 'gtceu:sulfur_dioxide 1000000', 'gtceu:carbon_dioxide 1000000', 'gtceu:nitrogen_dioxide 1000000', 'gtceu:ammonia 1000000', 'gtceu:chlorine 1000000', 'gtceu:fluorine 1000000', 'gtceu:carbon_monoxide 1000000', 'gtceu:oxygen 1000000']
+    const space_fluids = ['gtceu:barnarda_air 1000000', 'gtceu:hydrogen 1000000', 'gtceu:helium 1000000', 'gtceu:nitrogen 1000000', 'gtceu:methane 1000000', 'gtceu:sulfur_dioxide 1000000', 'gtceu:carbon_dioxide 1000000', 'gtceu:nitrogen_dioxide 1000000', 'gtceu:ammonia 1000000', 'gtceu:chlorine 1000000', 'gtceu:fluorine 1000000', 'gtceu:carbon_monoxide 1000000', 'gtceu:oxygen 1000000']
     const space_fluid1s = ['gtceu:unknowwater 10000', 'gtceu:neon 100000', 'gtceu:argon 100000', 'gtceu:krypton 100000', 'gtceu:xenon 100000', 'gtceu:radon 100000', 'gtceu:helium_3 100000']
-    const space_fluid2s = ['gtceu:deuterium 100000', 'gtceu:tritium 100000', 'gtceu:heavy_fuel 100000', 'gtceu:light_fuel 100000', 'gtceu:naphtha 100000', 'gtceu:refinery_gas 100000', 'gtceu:coal_gas 100000', 'gtceu:bromine 100000', 'gtceu:barnarda_air 100000']
+    const space_fluid2s = ['gtceu:deuterium 100000', 'gtceu:tritium 100000', 'gtceu:heavy_fuel 100000', 'gtceu:light_fuel 100000', 'gtceu:naphtha 100000', 'gtceu:refinery_gas 100000', 'gtceu:coal_gas 100000', 'gtceu:bromine 100000']
     const space_fluid5s = ['gtceu:white_dwarf_mtter 100000', 'gtceu:black_dwarf_mtter 100000']
     gtr.drilling_module('disksavior:space_fluid_1_super')
         .notConsumable('64x kubejs:space_drone_mk1')
@@ -235,7 +320,7 @@ ServerEvents.recipes(event => {
     //原始虚空矿机用水
     gtr.primitive_void_ore('disksavior:water')
         .inputFluids('minecraft:water 1')
-        .outputFluids('gtceu:steam 1852050421')
+        .outputFluids('gtceu:steam 1852050421271422', 'gtceu:air 185254')
         .itemOutputs(ds_pv_t0)
         .duration(200)
     gtr.electrolyzer('disksavior:primitive_void_ore_0')
@@ -287,7 +372,7 @@ ServerEvents.recipes(event => {
         //回响系列
         'minecraft:echo_shard', 'minecraft:sculk_sensor', 'minecraft:sculk_catalyst', '4x minecraft:sculk',
         //其他
-        '32x minecraft:bone', '16x minecraft:porkchop', '16x minecraft:beef', '16x minecraft:rabbit', '16x minecraft:chicken', '16x minecraft:mutton', '16x minecraft:cod', 'minecraft:tropical_fish', '16x minecraft:salmon', '64x minecraft:wheat', '32x minecraft:carrot', '32x minecraft:potato', '16x minecraft:poppy', '32x minecraft:feather', '32x minecraft:string', '16x minecraft:leather', '16x minecraft:rabbit_hide', '32x minecraft:gunpowder', '32x minecraft:rotten_flesh', '16x minecraft:spider_eye', '8x minecraft:rabbit_foot', '64x minecraft:ink_sac', '64x minecraft:glow_ink_sac', '8x minecraft:nautilus_shell', '16x minecraft:iron_ingot', '16x minecraft:gold_ingot', '16x minecraft:copper_ingot', '32x minecraft:gold_nugget', '16x minecraft:emerald', '32x minecraft:coal', '32x minecraft:redstone', '16x minecraft:glowstone_dust', '32x minecraft:bamboo', '32x minecraft:stick', '32x minecraft:arrow', '32x minecraft:sugar', '64x minecraft:white_wool', '32x minecraft:egg', '16x minecraft:glass_bottle']
+        '32x minecraft:bone', '16x minecraft:porkchop', '16x minecraft:beef', '16x minecraft:rabbit', '16x minecraft:chicken', '16x minecraft:mutton', '16x minecraft:cod', '16x minecraft:tropical_fish', '16x minecraft:salmon', '64x minecraft:wheat', '32x minecraft:carrot', '32x minecraft:potato', '16x minecraft:poppy', '32x minecraft:feather', '32x minecraft:string', '16x minecraft:leather', '16x minecraft:rabbit_hide', '32x minecraft:gunpowder', '32x minecraft:rotten_flesh', '16x minecraft:spider_eye', '8x minecraft:rabbit_foot', '64x minecraft:ink_sac', '64x minecraft:glow_ink_sac', '8x minecraft:nautilus_shell', '16x minecraft:iron_ingot', '16x minecraft:gold_ingot', '16x minecraft:copper_ingot', '32x minecraft:gold_nugget', '16x minecraft:emerald', '32x minecraft:coal', '32x minecraft:redstone', '16x minecraft:glowstone_dust', '32x minecraft:bamboo', '32x minecraft:stick', '32x minecraft:arrow', '32x minecraft:sugar', '64x minecraft:white_wool', '32x minecraft:egg', '16x minecraft:glass_bottle']
     gtr.electrolyzer('disksavior:slaughterhouse')
         .notConsumable('64x gtceu:slaughterhouse')
         .itemOutputs(ds_slaughterhouse)
@@ -300,89 +385,6 @@ ServerEvents.recipes(event => {
         .itemOutputs(ds_greenhouse)
         .EUt(GTValues.VA[GTValues.MV])
         .duration(6400)
-    //粒子对撞批处理，感谢产线撕裂，代码全是抄他的（
-    const super_particle_collider__recipedata = [
-        {
-            inputFluids: ["gtceu:protactinium 4096", "gtceu:helium_plasma 4096"], outputFluids: "gtceu:neptunium 4000",
-            EUt: 491520, duration: 200
-        }, {
-            inputFluids: ["gtceu:curium 4096", "gtceu:helium_plasma 4096"], outputFluids: "gtceu:einsteinium 4000",
-            EUt: 491520, duration: 200
-        }, {
-            inputFluids: ["gtceu:liquid_hydrogen 1000", "gtceu:helium_plasma 200"], outputFluids: "gtceu:antiproton 100",
-            EUt: 491520, duration: 200
-        }, {
-            inputFluids: ["gtceu:thorium 4096", "gtceu:helium_plasma 4096"], outputFluids: "gtceu:uranium 4000",
-            EUt: 491520, duration: 200
-        }, {
-            inputFluids: ["gtceu:americium 4096", "gtceu:helium_plasma 4096"], outputFluids: "gtceu:berkelium 4000",
-            EUt: 491520, duration: 200
-        }, {
-            inputFluids: ["gtceu:californium 4096", "gtceu:helium_plasma 4096"], outputFluids: "gtceu:fermium 4000",
-            EUt: 491520, duration: 200
-        }, {
-            inputFluids: ["gtceu:dubnium 4096", "gtceu:helium_plasma 4096"], outputFluids: "gtceu:bohrium 4000",
-            EUt: 491520, duration: 200
-        }, {
-            inputFluids: ["gtceu:einsteinium 4096", "gtceu:helium_plasma 4096"], outputFluids: "gtceu:mendelevium 4000",
-            EUt: 491520, duration: 200
-        }, {
-            inputFluids: ["gtceu:bismuth 4096", "gtceu:helium_plasma 4096"], outputFluids: "gtceu:astatine 4000",
-            EUt: 491520, duration: 200
-        }, {
-            inputFluids: ["gtceu:plutonium 4096", "gtceu:helium_plasma 4096"], outputFluids: "gtceu:curium 4000",
-            EUt: 491520, duration: 200
-        }, {
-            inputFluids: ["gtceu:phosphorus 200", "gtceu:lithium 200"], outputFluids: "gtceu:positive_electron 100",
-            EUt: 491520, duration: 200
-        }, {
-            inputFluids: ["gtceu:roentgenium 4096", "gtceu:helium_plasma 4096"], outputFluids: "gtceu:nihonium 4000",
-            EUt: 491520, duration: 200
-        }, {
-            inputFluids: ["gtceu:meitnerium 4096", "gtceu:helium_plasma 4096"], outputFluids: "gtceu:roentgenium 4000",
-            EUt: 491520, duration: 200
-        }, {
-            inputFluids: ["gtceu:berkelium 4096", "gtceu:helium_plasma 4096"], outputFluids: "gtceu:californium 4000",
-            EUt: 491520, duration: 200
-        }, {
-            inputFluids: ["gtceu:taranium 144", "gtceu:helium 1000"], outputFluids: "gtceu:taranium_rich_liquid_helium_4_plasma 1000",
-            EUt: 491520, duration: 200
-        }, {
-            inputFluids: ["gtceu:mendelevium 4096", "gtceu:helium_plasma 4096"], outputFluids: "gtceu:lawrencium 4000",
-            EUt: 491520, duration: 200
-        }, {
-            inputFluids: ["gtceu:uranium 4096", "gtceu:helium_plasma 4096"], outputFluids: "gtceu:plutonium 4000",
-            EUt: 491520, duration: 200
-        }, {
-            inputFluids: ["gtceu:fermium 4096", "gtceu:helium_plasma 4096"], outputFluids: "gtceu:nobelium 4000",
-            EUt: 491520, duration: 200
-        }, {
-            inputFluids: ["gtceu:positive_electron 100", "gtceu:antiproton 100"], outputFluids: "gtceu:antineutron 2",
-            EUt: 491520, duration: 200
-        }, {
-            inputFluids: ["gtceu:antihydrogen 2000", "gtceu:antineutron 2000"], outputFluids: "gtceu:antimatter 100",
-            EUt: 491520, duration: 200
-        }, {
-            inputFluids: ["gtceu:darmstadtium 4096", "gtceu:helium_plasma 4096"], outputFluids: "gtceu:copernicium 4000",
-            EUt: 491520, duration: 200
-        }
-    ]
-    super_particle_collider__recipedata.forEach(r => {
-        let iF1 = r.inputFluids.map(i => `${i.split(' ')[0]} ${Number(i.split(' ')[1]) * 1024}`)
-        gtr.mixer(`disksavior:${r.outputFluids.split(':')[1].split(' ')[0]}_batch_1`)
-            .notConsumable('gtceu:super_particle_collider')
-            .circuit(1)
-            .itemInputs('ae2:fluid_storage_cell_1k')
-            .inputFluids(iF1)
-            .itemOutputs(Item.of('ae2:fluid_storage_cell_1k', packed_cell_fluid_nbt(iF1)))
-            .duration(1)
-            .EUt(1)
-        gtr.super_particle_collider(`disksavior:${r.outputFluids.split(':')[1].split(' ')[0]}_batch_2`)
-            .inputs(GTItemof('ae2:fluid_storage_cell_1k', packed_cell_fluid_nbt(iF1)))
-            .EUt(r.EUt)
-            .duration(r.duration * 1024)
-            .outputFluids(`${r.outputFluids.split(' ')[0]} ${Number(r.outputFluids.split(' ')[1]) * 1024}`)
-    })
     //大型虚空采矿机电解，自带千倍批处理
     //耗时规则：一种矿1t，自带千倍批处理，大概就是一种矿100k/50s，一共142种矿，共7100s
     const all_ores = [
@@ -431,13 +433,13 @@ ServerEvents.recipes(event => {
         .notConsumable('gtceu:large_void_miner')
         .inputFluids('gtceu:steam 185254')
         .itemOutputs(all_ores)
-        .EUt(GTValues.VA[GTValues.IV])
+        .EUt(GTValues.VA[GTValues.ZPM])
         .duration((all_ores.length) * 64)
     //当然，也能用大型虚空采矿机运行
     gtr.random_ore('disksavior:random_ore')
         .circuit(30)
         .inputFluids('gtceu:steam 185254')
         .itemOutputs(all_ores)
-        .EUt(GTValues.VA[GTValues.IV])
+        .EUt(GTValues.VA[GTValues.ZPM])
         .duration((all_ores.length) * 64)
 })
