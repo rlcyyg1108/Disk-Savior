@@ -1,3 +1,8 @@
+//全局变量,用于给其他脚本做兼容，以及功能开关
+if (!global.disksavior) global.disksavior = {}
+if (!global.disksavior.enable) global.disksavior.enable = {}
+global.disksavior.enable.master = true
+global.disksavior.enable.otherone = false
 /*
 ╱/(◕‿‿◕)\╲ 
 
@@ -88,6 +93,13 @@ gtr.assembler('disksavior:自定义ID')
     .duration(时间)
 
 以下是待转换物品:
+
+
+
+
+
+
+
 
 
 
@@ -245,7 +257,8 @@ max并行控制仓下调···
 
 
 
-
+神秘正则
+^[A-Za-z]+(\d+): (\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2})$
 
 todo
 新手大礼包
@@ -272,12 +285,59 @@ todo
 
 
 
+一路向东
+向着你威光指向
+获得胜利已毫无意义
+知晓了不曾有过囚禁我的高墙
+你本分之火不断涌动
+我感受到 我能与在近处起舞的何物重逢
+已然遗忘的大雨 改写着我的履历
+就连那聚集在莲叶上的雨滴宇宙
+亦能看到属于你的无限
+
+第一挥 让雨之起源为之震颤
+第二挥 令海之怒意尽数臣服
+第三度恩泽降临时
+暂借这方寸尘世栖身
+以魔法之援手环抱四方
+不休之王 劳作之王
+直至人之庭园臻至完满
+彻夜通明时洞悉世间星辰
+再度拂晓际聆听太阳颂歌
+三界原野上化身为万物之父
+四柱擎天处支撑起苍穹寰宇
+
+文无第一，武无第二
+
+新增实例物品用于显示产物```
+扒温室产物，缺苹果···
+预制样板库更新日志描述错误，默认使用旧版不是默认关闭···
+更新日志加移除了him···
+搬山海鸿蒙产物···
+加gt复制工具```
+电解加龙蛋下界之星```
+鸿蒙产物不变，耗电/16384···
+aria文案改```
+净化水+蒸馏水···
+otherone改默认关闭···
+文本改不知生死···
+功能开关···
+绿罐子···
 
 
 
 
 
-
+去非电路催化剂
+重做样板大礼包
+太空电梯压缩升阶
+水与水热交换
+渔场加强去概率
+[文件]光污染
+标签使用教程任务
+鸿蒙转扭
+蒸汽线圈
+加tooltip，新东西加进去
 
 
 
@@ -288,20 +348,18 @@ todo
 
 
 */
-//全局变量,用于给其他脚本做兼容
-global.disksavior = true
 PlayerEvents.loggedIn(event => {
     const player = event.player;
+    player.tell("§7================================================")
     player.tell("§a欢迎使用『§r§e硬盘拯救者§r§a』!")
-    player.tell("§a当前版本为§r §ev19")
+    player.tell("§a当前版本为§r §ev20")
     player.tell("§c当前版本并不完善,可能有较多bug!")
     player.tell("§a本私货自带任务书,请仔细阅读")
-    player.tell("§7========================================")
     player.tell("§c⚠️与GTL私货版兼容性不良!")
     player.tell("§c⚠️不装GTL additions可能会报错!")
     player.tell("§c⚠️本私货需要在GTL core开启原始虚空采矿机,不然会报错！！！")
-    player.tell("§7========================================")
     player.tell("§e祝你游戏愉快!")
+    player.tell("§7================================================")
 })
 ServerEvents.recipes(event => {
     const gtr = event.recipes.gtceu
@@ -724,6 +782,22 @@ ServerEvents.recipes(event => {
         .itemOutputs('gtceu:law_cleaning_gravity_configuration_maintenance_hatch')
         .EUt(GTValues.VA[GTValues.ULV])
         .duration(200)
+    //单步去绿罐子液态宇宙中子素
+    gtr.stellar_forge('disksavior:fkgreenjar1')
+        .notConsumable('gtceu:neutronium_nanoswarm')
+        .itemInputs('kubejs:quantum_chromodynamic_charge')
+        .inputFluids('gtceu:dense_neutron_plasma 2000')
+        .itemOutputs('gtceu:cosmicneutronium')
+        .EUt(GTValues.VA[GTValues.UXV])
+        .duration(40)
+    gtr.dimensionally_transcendent_plasma_forge('disksavior:fkgreenjar2')
+        .notConsumable('avaritia:infinity_catalyst')
+        .circuit(1)
+        .inputFluids('gtceu:uu_matter 1000000', 'gtceu:dense_neutron_plasma 1000')
+        .outputFluids('gtceu:cosmicneutronium 5000', 'gtceu:dimensionallytranscendentresidue 100')
+        .EUt(GTValues.VA[GTValues.MAX])
+        .duration(800)
+        .blastFurnaceTemp(28000)
     //基岩钻机电解
     gtr.electrolyzer('disksavior:bedrock_dust')
         .notConsumable('gtceu:bedrock_drilling_rig')
@@ -889,11 +963,12 @@ ServerEvents.recipes(event => {
         .EUt(GTValues.VA[GTValues.UHV])
         .blastFurnaceTemp(800)
         .duration(2000)
-    //蒸汽离心出16种净化水
+    //蒸汽离心出16种净化水和蒸馏水 净化水终结者
     gtr.centrifuge('disksavior:water_distillation_super')
         .circuit(1)
         .inputFluids('gtceu:steam 18525400')
         .outputFluids(
+            'gtceu:distilled_water 34319044516',
             'gtceu:grade_16_purified_water 160000',
             'gtceu:grade_8_purified_water 1440000',
             'gtceu:grade_15_purified_water 320000',

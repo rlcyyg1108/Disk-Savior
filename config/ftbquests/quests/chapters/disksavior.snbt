@@ -957,43 +957,6 @@
 		{
 			dependencies: ["38166A02EA474C1E"]
 			description: [
-				"为鸿蒙之眼添加了集大成配方"
-				"&a自带批处理16384倍"
-				"&b配方功率是鸿蒙之眼运行的最低运行功率"
-				"所以有点高"
-				"实际输出数值要-1,因为2147483648x会爆"
-				"&b集成了来自群友@aach.aic的鸿蒙之眼+&r"
-				"&c产物太多 jei里显示不全&r"
-				""
-				"鸿蒙之眼+添加的产物在jei会前置显示"
-				"如果想看加了什么东西请看鸿蒙之眼的集大成配方"
-				"目前新增了&b两行物品"
-				"&r化反鸿蒙太小，看不全"
-			]
-			icon: "gtceu:eye_of_harmony"
-			id: "26D5F16B3DF8FE42"
-			subtitle: "天道纪元"
-			tasks: [
-				{
-					id: "1E7A964FF72B47E2"
-					item: "gtceu:eye_of_harmony"
-					optional_task: true
-					type: "item"
-				}
-				{
-					id: "76AB695A93299CC0"
-					item: "disksavior:quantum_chromodynamic_charge_super"
-					optional_task: true
-					type: "item"
-				}
-			]
-			title: "鸿蒙之眼加强"
-			x: 9.0d
-			y: -3.5d
-		}
-		{
-			dependencies: ["38166A02EA474C1E"]
-			description: [
 				"&9OPV&r可做"
 				"可发&b9221474836470000000&rEU/t"
 				"也就是接近long级发电"
@@ -2916,22 +2879,28 @@
 				""
 				"&c产物太多 jei里显示不全&r"
 				""
+				"为鸿蒙之眼添加了集大成配方"
+				"&b配方功率是鸿蒙之眼运行的最低运行功率"
+				"&b集成了来自群友@aach.aic的鸿蒙之眼+&r"
+				"以及@山海恒长在 的添加物，有删改"
+				""
+				"如果想看加了什么东西请看鸿蒙之眼的示例配方"
+				"该配方无法运行，仅供参考"
+				"相比原版鸿蒙添加的东西"
+				""
 				"有一大一小两个配方"
-				"大的相比小的不加耗电和耗时"
+				"大的相比小的功率/16384，不加耗时"
 				"因为鸿蒙之眼的耗电和耗时是不受配方耗时影响的"
-				"什么意思呢,就是配方耗时固定,只受你设置电路的超频影响"
+				"什么意思呢,就是配方耗时固定"
+				"只受你设置电路的超频影响"
 				"所以这个其实还挺还原"
+				"/16384是因为大配方肯定要给你一点效率提升"
+				"让你能用更多并行"
 			]
 			icon: "disksavior:quantum_chromodynamic_charge_super"
 			id: "19769CB12DDAA49D"
 			subtitle: "熵次元界大召唤"
 			tasks: [
-				{
-					id: "1DE769887A3679C6"
-					item: "gtceu:large_chemical_reactor"
-					optional_task: true
-					type: "item"
-				}
 				{
 					id: "41AFDF31C6A2A85D"
 					item: "kubejs:quantum_chromodynamic_charge"
@@ -2944,10 +2913,16 @@
 					optional_task: true
 					type: "item"
 				}
+				{
+					id: "19BEF7D6B0723EEA"
+					item: "gtceu:eye_of_harmony"
+					optional_task: true
+					type: "item"
+				}
 			]
-			title: "化反鸿蒙"
-			x: 10.0d
-			y: -4.0d
+			title: "化反鸿蒙 集大成"
+			x: 9.0d
+			y: -3.5d
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
@@ -2977,6 +2952,7 @@
 				"比聚爆粉便宜很多"
 				"而且不需要做铂处"
 				"到了&6HV&r就能做"
+				"但实际上你可能MV就可以？"
 			]
 			id: "7445959BDA67A481"
 			subtitle: "海牧师与知更鸟"
@@ -3556,9 +3532,12 @@
 			dependencies: ["38166A02EA474C1E"]
 			description: [
 				"集成了一些来自其他群友的脚本,感谢分享"
-				"&c与私货版不兼容&r，请删掉下面文件"
-				"kubejs\\server_scripts\\disksavior_otherone.js"
-				""
+				"&c与私货版不兼容&r"
+				"使用方法："
+				"kubejs\\server_scripts\\disksavior.js"
+				"在这个文件的开头，修改对应变量的布尔值即可开关"
+				"&c默认关闭"
+				"&r"
 				"&b@红烧提莫炖排骨"
 				" - 提取机配方缩减"
 				" - 锭粉碎成粉转移到锻造锤"
@@ -3839,7 +3818,8 @@
 				"但是删除了一些没用的"
 				"比如各类武器盔甲"
 				"还有不详旗帜"
-				""
+				"以及&d龙蛋&r和&b下界之星"
+				"&r"
 				"&b能产出回响碎片"
 				""
 				"&c产物太多 jei里显示不全&r"
@@ -3864,6 +3844,9 @@
 				"能获得所有温室能获得的植物"
 				"甚至有一些温室不能不能获得的"
 				"虽然那些基本都没用("
+				""
+				"注意，原版温室无法生产苹果"
+				"温室出苹果是爆破加的"
 				""
 				"&c产物太多 jei里显示不全&r"
 			]
@@ -4112,6 +4095,17 @@
 						id: "minecraft:wooden_axe"
 						tag: {
 							Damage: 0
+						}
+					}
+					type: "item"
+				}
+				{
+					id: "49E1E5EA12211D87"
+					item: {
+						Count: 1
+						id: "buildinggadgets2:gadget_copy_paste_gt"
+						tag: {
+							energy: 2147483647
 						}
 					}
 					type: "item"
@@ -5136,10 +5130,11 @@
 			description: [
 				"ZPM可做,但可能你做不起"
 				"去除了不太合题的物品防止白占你驱动器位置"
+				"&c没有&r&d龙蛋&r&c和&r&b下界之星&r&c！！！！！！！"
 			]
 			icon: "avaritia:ultimate_stew"
 			id: "2AF8BFC46BE169B2"
-			subtitle: "放声高歌吧 激昂地扬起尖利嗓音"
+			subtitle: "圣音涤净天地 \\n辉光耀 破晓立 \\n颂歌涤荡我心 "
 			tasks: [{
 				id: "522E7B0694E8661F"
 				item: {
@@ -6127,7 +6122,7 @@
 			id: "428E0E0C5A099DD2"
 			shape: "none"
 			size: 3.0d
-			subtitle: "sāifuroāidi jikusutīgen \\nnadisukurai shēditsurāi kurāīyā \\nhāpurārin shusōren \\ndasutikurai sāshitsufai kurāīyā "
+			subtitle: "赛弗洛艾迪 吉克斯特根 \\n纳迪斯克莱 谢迪茨莱 克拉伊雅 \\n豪普拉林 舒索伦 \\n达斯蒂克莱 萨西茨法伊 克拉伊雅 "
 			tasks: [
 				{
 					id: "4AC3E3E703A1A655"
@@ -6265,7 +6260,7 @@
 			]
 			icon: "minecraft:tnt"
 			id: "421C36E4777A0AD5"
-			subtitle: "圣音涤净天地 \\n辉光耀 破晓立 \\n颂歌涤荡我心 "
+			subtitle: "放声高歌吧 激昂地扬起尖利嗓音"
 			tasks: [{
 				id: "28ED4691499E4020"
 				item: {
@@ -6328,8 +6323,41 @@
 				}
 			]
 			title: "基岩钻机电解"
-			x: -4.0d
-			y: 10.0d
+			x: 11.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["38166A02EA474C1E"]
+			description: ["有一些jei写不下的配方就会用这个物品展示"]
+			id: "41C457A49F513F15"
+			subtitle: "人世间最痛苦的事 \\n莫过于知道的太多 \\n但能控制的太少 "
+			tasks: [{
+				id: "7DB6424C01E0E685"
+				item: "disksavior:show"
+				optional_task: true
+				type: "item"
+			}]
+			x: -2.0d
+			y: -2.0d
+		}
+		{
+			dependencies: ["38166A02EA474C1E"]
+			description: [
+				"有两个配方"
+				""
+				"我恨你，绿罐子"
+			]
+			id: "3AE0DB1F6B941D36"
+			subtitle: "彻夜通明时洞悉世间星辰"
+			tasks: [{
+				id: "34CAF1713EEC1711"
+				item: "gtceu:cosmicneutronium_bucket"
+				optional_task: true
+				type: "item"
+			}]
+			title: "单步去绿罐子液态宇宙中子素"
+			x: 0.0d
+			y: 11.5d
 		}
 	]
 	title: "硬盘拯救者"

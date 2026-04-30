@@ -5,13 +5,11 @@
 //移除了提取机的锭副产物的提取配方 比如板 管道 齿轮 方便写样板的时候更容易找到你要的
 //只保留了锭 粉 还有其他配方
 
-//其它私货是否加载，参考自kirin
-const loadedAddons = {
-    shb: !Ingredient.of('kubejs:cosmic_fragment').isEmpty(),
-}
-if (!loadedAddons.shb) {
+//开关
+if (!global.disksavior) global.disksavior = {}
+if (!global.disksavior.enable) global.disksavior.enable = {}
+if (global.disksavior.enable.otherone) {
     ServerEvents.recipes(event => {
-
         // 移除的物品
         const badParts = [
             '_plate', '_double_plate', '_dense_plate',

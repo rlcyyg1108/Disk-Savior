@@ -1,13 +1,14 @@
+JEIEvents.subtypes(event => {
+    event.useNBT('expatternprovider:infinity_cell')
+    event.useNBT('ae2:portable_item_cell_16k')
+})
 
-//如果和其他私货的函数名一样的话，会导致神秘的冲突和jei注册失败问题
-//就算是只读函数也不行
-//必须要加前缀了……
-
-// 生成仅包含单一类型(Item或Fluid)的元件包
-const ds_packed_infinity_cell = (cellname, type, list) => {
-    // 使用 Array.map 生成 key 字符串，避免手动循环拼接出错
-    let keysNBT = list.map(id => {
-        return `{
+JEIEvents.addItems(event => {
+    // 生成仅包含单一类型(Item或Fluid)的元件包
+    const ds_packed_infinity_cell = (cellname, type, list) => {
+        // 使用 Array.map 生成 key 字符串，避免手动循环拼接出错
+        let keysNBT = list.map(id => {
+            return `{
             "#c": "ae2:i",
             id: "expatternprovider:infinity_cell",
             tag: {
@@ -17,14 +18,14 @@ const ds_packed_infinity_cell = (cellname, type, list) => {
                 }
             }
         }`
-    }).join(",")
+        }).join(",")
 
-    // 生成 amounts 数组 [1L, 1L, ...]
-    let amtsNBT = list.map(() => "1L").join(",")
-    // 手动转义 Name JSON，确保引号正确
-    let nameJson = JSON.stringify({ text: cellname }) // 输出 '{"text":"名字"}'
+        // 生成 amounts 数组 [1L, 1L, ...]
+        let amtsNBT = list.map(() => "1L").join(",")
+        // 手动转义 Name JSON，确保引号正确
+        let nameJson = JSON.stringify({ text: cellname }) // 输出 '{"text":"名字"}'
 
-    let finalNBT = `{
+        let finalNBT = `{
         RepairCost: 0,
         amts: [L;${amtsNBT}],
         display: {Name: '${nameJson}'},
@@ -33,18 +34,13 @@ const ds_packed_infinity_cell = (cellname, type, list) => {
         keys: [${keysNBT}]
     }`
 
-    return Item.of('ae2:portable_item_cell_16k', finalNBT)
-}
-
-JEIEvents.subtypes(event => {
-    event.useNBT('expatternprovider:infinity_cell')
-    event.useNBT('ae2:portable_item_cell_16k')
-})
-
-JEIEvents.addItems(event => {
-    console.log('DiskSavior-正在向 JEI 注册自定义 AE 元件包...')
+        return Item.of('ae2:portable_item_cell_16k', finalNBT)
+    }
+    console.log('DiskSavior-硬盘拯救者-正在向 JEI 注册自定义 AE 元件包...')
+    //单个物品无限元件
     const ds_simpleItems = ['gtceu:turbine_rotor', 'minecraft:tnt']
     ds_simpleItems.forEach(id => event.add(Item.of('expatternprovider:infinity_cell', '{record:{"#c":"ae2:i",id:"' + id + '"}}')))
+    //元件包
     event.add(ds_packed_infinity_cell('染料元件包', 'f', ['gtceu:black_dye', 'gtceu:blue_dye', 'gtceu:brown_dye', 'gtceu:cyan_dye', 'gtceu:gray_dye', 'gtceu:green_dye', 'gtceu:light_blue_dye', 'gtceu:lime_dye', 'gtceu:magenta_dye', 'gtceu:orange_dye', 'gtceu:pink_dye', 'gtceu:purple_dye', 'gtceu:red_dye', 'gtceu:white_dye', 'gtceu:yellow_dye', 'gtceu:light_gray_dye']))
     event.add(ds_packed_infinity_cell('透镜元件包', 'i', [
         //16色透镜
@@ -53,20 +49,20 @@ JEIEvents.addItems(event => {
         'gtceu:diamond_lens', 'gtceu:nether_star_lens', 'gtceu:ruby_lens', 'gtceu:emerald_lens', 'gtceu:sapphire_lens', 'gtceu:amethyst_lens'
     ]))
     event.add(ds_packed_infinity_cell('温室&屠宰场元件包', 'i', [
-            //温室
-            'minecraft:oak_sapling', 'minecraft:oak_log', 'minecraft:spruce_sapling', 'minecraft:spruce_log', 'minecraft:birch_sapling', 'minecraft:birch_log', 'minecraft:jungle_sapling', 'minecraft:jungle_log', 'minecraft:acacia_sapling', 'minecraft:acacia_log', 'minecraft:dark_oak_sapling', 'minecraft:dark_oak_log', 'minecraft:mangrove_propagule', 'minecraft:mangrove_log', 'minecraft:cherry_sapling', 'minecraft:cherry_log', 'minecraft:pumpkin', 'minecraft:pumpkin_seeds', 'minecraft:beetroot', 'minecraft:beetroot_seeds', 'minecraft:sweet_berries', 'minecraft:glow_berries', 'minecraft:wheat', 'minecraft:wheat_seeds', 'minecraft:melon', 'minecraft:melon_seeds', 'minecraft:carrot', 'minecraft:sugar_cane', 'minecraft:kelp', 'minecraft:cactus', 'minecraft:potato', 'minecraft:cocoa_beans', 'minecraft:brown_mushroom', 'minecraft:red_mushroom', 'minecraft:nether_wart', 'minecraft:bamboo', 'minecraft:vine', 'minecraft:sea_pickle', 'gtceu:rubber_sapling', 'gtceu:rubber_log', 'gtceu:sticky_resin', 'minecraft:poisonous_potato', 'minecraft:grass', 'minecraft:melon_slice', 'minecraft:sunflower', 'minecraft:sponge', 'minecraft:honeycomb',
-            //屠宰场重要的五个前置
-            'minecraft:wither_skeleton_skull', 'minecraft:ghast_tear', 'minecraft:blaze_rod', 'minecraft:slime_ball', 'minecraft:ender_pearl',
-            //回响系列
-            'minecraft:echo_shard', 'minecraft:sculk_sensor', 'minecraft:sculk_catalyst', 'minecraft:sculk',
-            //其他
-            'minecraft:bone', 'minecraft:porkchop', 'minecraft:beef', 'minecraft:rabbit', 'minecraft:chicken', 'minecraft:mutton', 'minecraft:cod', 'minecraft:tropical_fish', 'minecraft:salmon', 'minecraft:poppy', 'minecraft:feather', 'minecraft:string', 'minecraft:leather', 'minecraft:rabbit_hide', 'minecraft:gunpowder', 'minecraft:rotten_flesh', 'minecraft:spider_eye', 'minecraft:rabbit_foot', 'minecraft:ink_sac', 'minecraft:glow_ink_sac', 'minecraft:nautilus_shell', 'minecraft:glowstone_dust', 'minecraft:stick', 'minecraft:sugar', 'minecraft:white_wool', 'minecraft:egg'
-        ]))
+        //温室
+        'minecraft:apple', 'minecraft:oak_sapling', 'minecraft:oak_log', 'minecraft:spruce_sapling', 'minecraft:spruce_log', 'minecraft:birch_sapling', 'minecraft:birch_log', 'minecraft:jungle_sapling', 'minecraft:jungle_log', 'minecraft:acacia_sapling', 'minecraft:acacia_log', 'minecraft:dark_oak_sapling', 'minecraft:dark_oak_log', 'minecraft:mangrove_propagule', 'minecraft:mangrove_log', 'minecraft:cherry_sapling', 'minecraft:cherry_log', 'minecraft:pumpkin', 'minecraft:pumpkin_seeds', 'minecraft:beetroot', 'minecraft:beetroot_seeds', 'minecraft:sweet_berries', 'minecraft:glow_berries', 'minecraft:wheat', 'minecraft:wheat_seeds', 'minecraft:melon', 'minecraft:melon_seeds', 'minecraft:carrot', 'minecraft:sugar_cane', 'minecraft:kelp', 'minecraft:cactus', 'minecraft:potato', 'minecraft:cocoa_beans', 'minecraft:brown_mushroom', 'minecraft:red_mushroom', 'minecraft:nether_wart', 'minecraft:bamboo', 'minecraft:vine', 'minecraft:sea_pickle', 'gtceu:rubber_sapling', 'gtceu:rubber_log', 'gtceu:sticky_resin', 'minecraft:poisonous_potato', 'minecraft:grass', 'minecraft:melon_slice', 'minecraft:sunflower', 'minecraft:sponge', 'minecraft:honeycomb',
+        //屠宰场重要的五个前置
+        'minecraft:wither_skeleton_skull', 'minecraft:ghast_tear', 'minecraft:blaze_rod', 'minecraft:slime_ball', 'minecraft:ender_pearl',
+        //回响系列
+        'minecraft:echo_shard', 'minecraft:sculk_sensor', 'minecraft:sculk_catalyst', 'minecraft:sculk',
+        //其他
+        'minecraft:bone', 'minecraft:porkchop', 'minecraft:beef', 'minecraft:rabbit', 'minecraft:chicken', 'minecraft:mutton', 'minecraft:cod', 'minecraft:tropical_fish', 'minecraft:salmon', 'minecraft:poppy', 'minecraft:feather', 'minecraft:string', 'minecraft:leather', 'minecraft:rabbit_hide', 'minecraft:gunpowder', 'minecraft:rotten_flesh', 'minecraft:spider_eye', 'minecraft:rabbit_foot', 'minecraft:ink_sac', 'minecraft:glow_ink_sac', 'minecraft:nautilus_shell', 'minecraft:glowstone_dust', 'minecraft:stick', 'minecraft:sugar', 'minecraft:white_wool', 'minecraft:egg'
+    ]))
 })
 
 ItemEvents.tooltip(event => {
     event.add('disksavior:quantum_chromodynamic_charge_super', '§7§o纯度……')
-    //event.add('disksavior:rare_earth_metal_dust_4x', '§7§o密度略高')
+    event.add('disksavior:show', '不可合成，仅供参考')
 
     event.addAdvanced('disksavior:steam_1', (item, advanced, text) => {
         if (event.shift) {
@@ -122,8 +118,8 @@ ItemEvents.tooltip(event => {
             text.add('§b用水代替蒸汽')
             text.add('§b提供32768*256倍超频')
             text.add('§7§oI have created over a thousand turbines')
-            text.add('§7§oUnknown to naquadah reactor')
-            text.add('§7§oNor known to hyper reactor')
+            text.add('§7§oUnknown to death')
+            text.add('§7§oNor known to life')
             text.add('§a按住 §eSHIFT§r §a查看谏言')
         }
     })
@@ -202,8 +198,8 @@ ItemEvents.tooltip(event => {
                 text.add('§b§oI am the bone of my steam')
                 text.add('§b§oSteel is my body, and water is my blood')
                 text.add('§b§oI have created over a thousand turbines')
-                text.add('§b§oUnknown to naquadah reactor')
-                text.add('§b§oNor known to hyper reactor')
+                text.add('§7§oUnknown to death')
+                text.add('§7§oNor known to life')
                 text.add('§b§oHave withstood MSPT to create many mega steam turbine')
                 text.add('§b§oYet, those hands will never hold EU')
                 text.add('§b§oSo as I pray')
@@ -212,8 +208,8 @@ ItemEvents.tooltip(event => {
                 text.add('§7§o§mI am the bone of my steam')
                 text.add('§7§o§mSteel is my body, and water is my blood')
                 text.add('§7§o§mI have created over a thousand turbines')
-                text.add('§7§o§mUnknown to naquadah reactor')
-                text.add('§7§o§mNor known to hyper reactor')
+                text.add('§7§oUnknown to death')
+                text.add('§7§oNor known to life')
                 text.add('§7§o§mHave withstood MSPT to create many mega steam turbine')
                 text.add('§7§o§mYet, those hands will never hold EU')
                 text.add('§7§o§mSo as I pray......')
