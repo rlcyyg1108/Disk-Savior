@@ -58,11 +58,25 @@ JEIEvents.addItems(event => {
         //其他
         'minecraft:bone', 'minecraft:porkchop', 'minecraft:beef', 'minecraft:rabbit', 'minecraft:chicken', 'minecraft:mutton', 'minecraft:cod', 'minecraft:tropical_fish', 'minecraft:salmon', 'minecraft:poppy', 'minecraft:feather', 'minecraft:string', 'minecraft:leather', 'minecraft:rabbit_hide', 'minecraft:gunpowder', 'minecraft:rotten_flesh', 'minecraft:spider_eye', 'minecraft:rabbit_foot', 'minecraft:ink_sac', 'minecraft:glow_ink_sac', 'minecraft:nautilus_shell', 'minecraft:glowstone_dust', 'minecraft:stick', 'minecraft:sugar', 'minecraft:white_wool', 'minecraft:egg'
     ]))
+    // 如果 kirin 完全不存在 → 执行你的配方
+    if (typeof global.kirin === 'undefined') {
+        // 无限编程电路元件包
+        let size = 33
+        let amtsList = Array(size).fill('1L').join(',')
+        let keysList = []
+        for (let i = 0; i < size; i++) {
+            keysList.push(`{"#c":"ae2:i",id:"expatternprovider:infinity_cell",tag:{record:{"#c":"ae2:i",id:"gtceu:programmed_circuit",tag:{Configuration:${i}}}}}`)
+        }
+        let nbtString = `{RepairCost:0,amts:[L;${amtsList}],display:{Name:'{"text":"§r无限编程电路元件包"}'},ic:${size}L,internalCurrentPower:20000.0d,keys:[${keysList.join(',')}]}`
+        event.add(Item.of('ae2:portable_item_cell_16k', nbtString))
+    }
 })
 
 ItemEvents.tooltip(event => {
     event.add('disksavior:quantum_chromodynamic_charge_super', '§7§o纯度……')
     event.add('disksavior:show', '不可合成，仅供参考')
+    event.add('disksavior:show', '右键该物品查看鸿蒙之眼的机器配方池')
+    event.add('disksavior:show', '会显示一些产出太多jei看不全的配方')
 
     event.addAdvanced('disksavior:steam_1', (item, advanced, text) => {
         if (event.shift) {
@@ -198,8 +212,8 @@ ItemEvents.tooltip(event => {
                 text.add('§b§oI am the bone of my steam')
                 text.add('§b§oSteel is my body, and water is my blood')
                 text.add('§b§oI have created over a thousand turbines')
-                text.add('§7§oUnknown to death')
-                text.add('§7§oNor known to life')
+                text.add('§b§oUnknown to death')
+                text.add('§b§oNor known to life')
                 text.add('§b§oHave withstood MSPT to create many mega steam turbine')
                 text.add('§b§oYet, those hands will never hold EU')
                 text.add('§b§oSo as I pray')

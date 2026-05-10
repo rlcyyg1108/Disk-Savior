@@ -5,84 +5,11 @@ global.disksavior.enable.master = true
 global.disksavior.enable.otherone = false
 /*
 ╱/(◕‿‿◕)\╲ 
-
-;~o~;;~ooon~oo;;******^^^*;onvzn~*^^~o~;;;;ovzzvvvnn~naavvnzazzaau1aaaazvvvn~oo
-~oonnooonoo~~;***;***;***~ooo~onooo~*~;;;;;onnnvzvnnzzauzvvnnzavvvzzvvaazzzznnv
-;~~~oooo~~o~;;**~~oo;;;~~;;;;~~~;***;~~;**~ovzvooooo~oovvoo~~onzaazauaznvzazzzz
-^~~;~~~;;~~~oo;;;;~~;;~ooo;^**;;;*;;;~~~~~;;~~~o~oovnnvo;**;~vvazvnnzvauaaaaano
-~~~;;;**;;;~ooo~~~;************o***;**~o~oo~~~onnnno;~n~*********;~naaznnnzuuu1
-;*~;**;~~~~;;;**;~o~~;o~;oo;^**;*****;~~~oooooooooo~~;************~;~nooonazaaz
-oo~~~~onooo~;~o~~~~ononoo~~~~~~~~~~~~~oooonnnnnno~**;;**********;;;;~*~zavo***;
-ononnoonoo~oonvonoooo~oooono;nz~;;;;~~ovvvvvoooooonooooooov~~~~o;*;o~*******n~;
-~onoooooooooonooooo~n+iiiiiiiiiiiii*z;on~ozo8nnnnz6ooonnnzn~~o~~~~;;~;;~n~zuavv
-nvoooooooovnnnnnoo-iiiiiiiiiiiiiiiiiii^o~oa~+3zuzv6vvooonzvvvvnnoo~oo~~~~~nvzaa
-aazvvnonvnnnnooo!iiiiiiiiiii1!68883iiiiuoov~on. -^^^^^^^-   ;vnzzzvvvzzzaaauv~v
-zzzvnvaaazvvvnnziiiiiii3%%883iiiiiii3888i*v  ^^^^^^^^^^^^^^^^^+v8vzvzvv!vzaao~z
-~o~vzzzaazzvvzviiiiiii8!iiiiii!1;^^^^^*v8i^     ++^^^^^^^^^^^^^z^%zv6zz!vonvzvz
-;;~~~vaaavnzzzuiiiiii!ii!ai!iiii!!ii!!iiii;*^^*^^-    .-^^^^^^^z^~$~ uu3uaaaavz
-ooon~onnnnvzzazi!!!ii!ii!ii!!iii1-iii!!!i!!^*^*^*^^;o^^^^^^+^^^^a^^^ ~^  1vazaa
-oonvnnoonnnnvva!!!!!!38$!;i!a31!v-+zi;n3!!i^!~v~^;^*^+~^^^+n^^^^*^^^^^+**^-nnnv
-+^+^^^+^*^^+^^;368!!3%$6.!zo8.z!--**1.8n!!!*n^~..n^^z;^+~^^+^^^;~^^^^^~* ;*;^+^
-*^^^.-+^.+-+--.-!;!!68-..ooo-+6---^z3i!v63!n.oo...v^*.~*~^^o^^^~a^+^^^-o**^o+--
-^^^^^-.+. +++--+!~3!3$-. 3!3..-----.!i...a;z3.-*...n~..;+^*^ovo~no^o^;^^v~;;*^^
-*+*.+-**+^-***^-8%!!!^---..-------------+3n--+......^. 1~.*--+*uun*o*o^o^ovnn;;
-+^^^^+++^^++++.o%%%8!o----------..-----.13...........--...~..*^**vnnvoonn^*^vn.
-^* .^^....^^^^+%%%%3!3va--------.+----6%!on;...........----.;*n;nv;~no^vnn***++
-++^^^^----+---6o---&%3a;*;;~.-..-.3$%%%33*n^~~-... .a.......o*+*;z**vn-^vn*;;^^
-***;*;;*;;**^z--.--~%%3+***~~~~~~~;o;#%3%$^+*;naav.....~uoo*z-z----.+o---+v.---
-+++^*^;*~~no1+--- .-$%$3*+***^;;o**o*833~-.1~~&*^**~;;*******3~---- +^^^^;^^^--
--. -+- + +------.;-1116%!6. **^*^   .$3-.---n~&*;***^o***;~+%...----.u^^-^--*^+
-+^^^+.-^ --------o.1111i$$1i11!!1111868.----^31111i3i+i11111u.o-------- ;-**^^*
-^++^^^^^+~~~.-----*61111113$i111111u66i----oo311111u11111111u --------+.-..~.^ 
-++ ^  ^~$!~~~~n+--.;3111336*^~33u11116------~331133u13u111111;..~~~~~~~;+.^-^z 
-**-++*;$$$$~~~~~~n.v333i;3;..o33111u-^.--... 833333*vo3111u!~n;~~~;~~~----+--z*
-;~;~~;%$$$$~--*~~~nv-.--u1-.+&%8333.-.~~~~~~;~~#&u$i-!~333!~~~--.^~;o--+-+---z^
-+*;o;6$$$$$;---~*o~v---.11--.;.-o~~o~~~~~~~~~~~- 1.-.1o.o^~~.+.--^niaaazvna+-a;
-.;;a6$$$$$$$-^;-on~n--.u1;---~----~^-.^~~~v;~~~-11---u;-..~;--~~.-oo^.+;~-n--v-
-~**~6$$$$$$$z--.--+^---11^---*u.--;-n~^-o3~~~~~-11---11--.~ -----+~~~~~~~~;-+a~
-*^;68$$$$$$$&-------.-+11^----uu.^----..-$~~;~~ 11.-.-1~..;------onn~^oo~~~-+z-
-*oo6$$$$$$$$$ ----------~-----!.-*.----.&&~~~~.--+----i1-+------oonvnnvn;nn-+ao
-~o~8&$$$$$$$$~------+------------..-----$$~~~~--------..-------~-- nn^ovnon--un
--n.8%$$$$$$$$&------ .----------;------$$$~~o~~~------..--------.-zvv^;~.zu^-zz
-
-导出所有配方,需要在kubejs目录下手动创建recipes文件夹,有点卡
-ServerEvents.recipes(event=>{
-    event.forEachRecipe({},recipe=>{
-        JsonIO.write("./recipes/" + String(recipe.getId()).replace(/:|\//g, '_') + ".json",recipe.json)
-    })
-})
-
 如果你克隆了本仓库并进行了修改,那么下面的的git指令就能帮你打包一个zip文件
 git ls-files --full-name | grep -vE '/$|^.gitignore$|^LICENSE$' > list.txt && 7z a -tzip 硬盘拯救者v.zip @list.txt && rm list.txt
 
 
-
-从这段我的世界GTCEu模组代码中,仅提取所有包含raw的粗矿物品ID(去重),忽略其他所有内容,生成标准JS数组,每个ID前面添加 16384x ,格式为 "16384x gtceu:raw_xxx",不要多余代码、不要注释、不要空值。
-
-
-
-从下面的代码中提取所有输入和输出,规则如下:
-1.物品(i)格式:"数量x 物品ID",流体(f)格式:"流体ID 数量"；
-2.排除包含circuit的内容；
-3.输入和输出如果有相同ID,互相抵消数量,直到其中一方为0,只保留抵消后剩余不为0的部分；
-4.最终只输出两个纯净JS数组:const inputs = [] 和 const outputs = []
-关于第三点,你要把这个复杂代码看出多个小数组,每个小数组都包含输入和输出,你先要进行通分,而且是对一个小数组进行的通分,随后再进行抵消,这是因为这是一条产线,现在做的事是进行计算,计算综合的输入和输出,所以你才需要进行通分和抵消
-你可以将其理解为配平,只不过,现在这是多个反应,你需要对每个反应进行配平,将多个反应视为一个黑盒,给出综合的输入和输出
-下面是待转换物品:
-
-
-
-
-
-从代码中提取所有输入输出,物品(i)格式:"数量x 物品ID",流体(f)格式:"流体ID 数量",适用于每一个项,也就是说每一项都有'',排除含`circuit`的内容；将数据拆分为多条独立配方,逐条完成通分配比后合并计算,若某配方输出为其他配方输入,抵消计算时忽略催化剂限制,直接对相同ID的输入输出进行数量抵消,仅保留抵消后数量不为0的结果；每项一行,最终按固定格式输出:
-    .itemInputs('数量x 物品')
-    .inputFluids('流体 数量')
-    .itemOutputs('数量x 输出物品')
-    .outputFluids('流体 数量')
-不要注释、不要修改结构、不要多余内容。
-
-
-
+神秘提示词
 按下面这个固定格式,把我给的转成KubeJS组装机配方,不要注释、不要修改结构,若无对应输入输出则删除对应方法，注意同id合并，若只有一个则无需数量x，只写id即可
 gtr.assembler('disksavior:自定义ID')
     .itemInputs('数量x 物品')
@@ -91,170 +18,7 @@ gtr.assembler('disksavior:自定义ID')
     .outputFluids('流体 数量')
     .EUt(GTValues.VA[GTValues.电压])
     .duration(时间)
-
 以下是待转换物品:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-done
-小集成矿处下调···
-石化脱硫数值调整···
-流体加热蒸汽换机器···
-硫酸铜直出电解```
-大马士革钢粉出不了···
-星球矿物不全···
-大化反镧系···
-大化反铟粉···
-大虚采电解···
-单步环戊二烯化锎···
-优化铊粉？···
-远古残害电解···
-普通空气加强···
-装配线压缩进阶装配线···
-霜原碎片我改成霜原星方块电解了···
-流体钻机电解重构···
-粒子对撞批处理修复bug···
-富勒烯有配方冲突啊···
-电解屠宰场缺鸡肉···
-装配线教程···
-样板调试工具教程···
-硝酸锕镭```
-部件装配线下调···
-量子点···
-粒子对撞批处理加主机必要条件···
-流体钻机电解说明,每次升级电压提供16倍输出,耗时不变···
-拉大样板调试工具的任务图标···
-改名,净化水终结者···
-新任务指引···
-超级并行控制仓下调IV···
-无限透镜原件包测试···
-还有个文案小问题,是“创造模式计算机”还是“创造计算机”,前面是单方块的,后面是多方块的···
-化反鸿蒙需要鸿蒙···
-γ射线光刻胶···
-温室元件包```
-小op下调```
-默认关闭的东西```
-改更新日志排版,github更新式···
-引用加空格···
-部件装配线主机无法合成```
-蒸汽发电升级用库存输入总成拉取提示```
-提示缺字,暂时解决方法···
-readme加前缀···
-工业屠宰机电解不出生鸡肉```
-这个是不是打错了,配方是在电解机里的,为什么是化反？···
-无限盘加描述···
-提示,搅拌机里要放一个粒子对撞的主机···
-高级舱室改英文名```
-粒子对撞批处理任务描述聚变改掉···
-电池箱怎么用···
-把超频发电的配方塞进发电阵列会炸服··
-用电网仓会爆···
-蒸汽警告···
-@rlcyyg1108 大佬,蒸汽涡轮转速过两千就会自动往下掉···
-更改了蒸汽发电升级所用的机器,现在不会间接性停机了,这个问题已经拖了接近一周了,抱歉,感谢测试@虾比事李跌~···
-单步硫酸铀加电路···
-幽匿系列```
-巴纳德c```
-碳氟化合物···
-采掘结晶,空岛```
-加警告加警告加警告加警告加警告加警告加警告加警告加警告加警告加警告加警告加警告加警告加警告···
-回响改屠宰场```
-太空电梯以及其他任务介绍，添加醒目字体颜色标记···
-推荐模组加领取限制，防止提前领取···
-蒸汽发电升级要放样板总成输出```
-硬盘改二选一···
-删矿处还原···
-t7任务前置错误···
-透镜元件包错误···
-单步钛-50```
-部件装配线降电压···
-大型虚空采矿机加电压···
-屠宰场温室改64```
-改成单步硝酸锕镭线···
-进阶装配线外壳降价···
-太空电梯催化剂改1```
-降价···
-太空电梯倍增```
-耗时改数组长···
-温室元件包涨价···
-原始虚采加t0···
-硫酸铀加线···
-删除蒸汽冷凝蒸馏水···
-木化任务删掉净化水···
-私货使用警告···
-发电使用指导···
-回响系列电解任务描述指引···
-小op礼包加库存输入总线可选```
-木化任务描述简化···
-中子活化器改闪电处理···
-液态量子···
-需要输入润滑油···
-工厂出润滑油···
-木化集大成该文本···
-搬私货版预制样板···
-液态量子电压```
-原始挖基础资源···
-创造模式计算机接交换机提示```
-无限tnt元件```
-不要输入四氧化二氮···
-粒子对撞批处理介绍···
-特种陶瓷卷板机做···
-
-小op加使用指导
-扭曲者兼容
-送小帮手···
-骨粉···
-地板连接提示···
-蓝冰改21个···
-地板教程优化···
-送个纸···
-电解流体钻机电压改MV···
-电解集气···
-原始矿机电解能用jei矿脉看产出···
-线任务里解释···
-净化水蒸汽电解···
-渔场、屠宰场、温室···
-max并行控制仓下调···
-升阶加产出，维度加电压···
-私货版不兼容警告···
-预制样板库可选提供提示···
-特供提示···
-单步硝酸锕镭加单步钫粉···
-删粒子对撞批处理···
-60s批处理···
-删掉可选完成勾选···
-化反结晶降ULV···
-@Rlcyyg1108 你奖励文件没有发出来···
-网络交换机有bug实在不行换创造模式计算机直连···
-下界之星不需要重力条件···
-三维度数据```
-空岛出基岩粉···
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 神秘正则
@@ -270,7 +34,7 @@ todo
 碎岩机电解
 样板大礼包
 液态拉多x聚合物
-
+小op加使用指导
 
 加推荐模组
 样板供应器自带编程电路卡的效果了？
@@ -309,20 +73,7 @@ todo
 
 文无第一，武无第二
 
-新增实例物品用于显示产物```
-扒温室产物，缺苹果···
-预制样板库更新日志描述错误，默认使用旧版不是默认关闭···
-更新日志加移除了him···
-搬山海鸿蒙产物···
-加gt复制工具```
-电解加龙蛋下界之星```
-鸿蒙产物不变，耗电/16384···
-aria文案改```
-净化水+蒸馏水···
-otherone改默认关闭···
-文本改不知生死···
-功能开关···
-绿罐子···
+
 
 
 
@@ -352,7 +103,7 @@ PlayerEvents.loggedIn(event => {
     const player = event.player;
     player.tell("§7================================================")
     player.tell("§a欢迎使用『§r§e硬盘拯救者§r§a』!")
-    player.tell("§a当前版本为§r §ev20")
+    player.tell("§a当前版本为§r §ev21")
     player.tell("§c当前版本并不完善,可能有较多bug!")
     player.tell("§a本私货自带任务书,请仔细阅读")
     player.tell("§c⚠️与GTL私货版兼容性不良!")
@@ -363,6 +114,11 @@ PlayerEvents.loggedIn(event => {
 })
 ServerEvents.recipes(event => {
     const gtr = event.recipes.gtceu
+    //铁锭烧锻铁锭
+    // 如果 kirin 完全不存在 → 执行你的配方
+    if (typeof global.kirin === 'undefined') {
+        event.smelting('gtceu:wrought_iron_ingot', 'minecraft:iron_ingot', 0, 200)
+    }
     //装配线压缩进阶装配线
     gtr.compressor('disksavior:advanced_assembly_line')
         .itemInputs('64x gtceu:assembly_line')
@@ -522,12 +278,6 @@ ServerEvents.recipes(event => {
         A: 'ae2:singularity',
         B: 'gtceu:ender_pearl_dust'
     })
-    //极高密度量子色动力学爆弹
-    gtr.compressor('disksavior:quantum_chromodynamic_charge_super')
-        .itemInputs('16384x kubejs:quantum_chromodynamic_charge')
-        .itemOutputs('disksavior:quantum_chromodynamic_charge_super')
-        .EUt(GTValues.VA[GTValues.OpV])
-        .duration(420)
     //灵魂沙
     gtr.mixer('disksavior:soul_sand')
         .itemInputs('minecraft:sand')
@@ -777,11 +527,20 @@ ServerEvents.recipes(event => {
         .duration(2000)
     //可配置重力绝对洁净维护仓下调LV
     gtr.assembler('disksavior:law_cleaning_gravity_configuration_maintenance_hatch')
-        .itemInputs('64x gtceu:maintenance_hatch')
+        .itemInputs('4x gtceu:maintenance_hatch')
         .inputFluids('gtceu:glue 21')
         .itemOutputs('gtceu:law_cleaning_gravity_configuration_maintenance_hatch')
         .EUt(GTValues.VA[GTValues.ULV])
         .duration(200)
+    //高分子爆破
+    //单步乙烯
+    gtr.chemical_reactor('disksavior:ethylene')
+        .itemInputs('gtceu:sulfur_dust', '4x gtceu:bio_chaff')
+        .inputFluids('minecraft:water 15000')
+        .itemOutputs('5x gtceu:wood_dust')
+        .outputFluids('gtceu:ethylene 3000')
+        .EUt(GTValues.VA[GTValues.MV])
+        .duration(4000)
     //单步去绿罐子液态宇宙中子素
     gtr.stellar_forge('disksavior:fkgreenjar1')
         .notConsumable('gtceu:neutronium_nanoswarm')
@@ -798,7 +557,7 @@ ServerEvents.recipes(event => {
         .EUt(GTValues.VA[GTValues.MAX])
         .duration(800)
         .blastFurnaceTemp(28000)
-    //基岩钻机电解
+    //基岩钻机电解 基岩粉
     gtr.electrolyzer('disksavior:bedrock_dust')
         .notConsumable('gtceu:bedrock_drilling_rig')
         .notConsumable('64x kubejs:bedrock_drill')
@@ -1412,7 +1171,7 @@ ServerEvents.recipes(event => {
         .EUt(GTValues.VA[GTValues.MV])
         .duration(200)
     //主世界数据
-    gtr.assembler('disksavior:fd_o')
+    gtr.mixer('disksavior:fd_o')
         .itemInputs(
             'gtceu:data_stick',
             '64x gtceu:stone_dust'
@@ -1426,7 +1185,7 @@ ServerEvents.recipes(event => {
         .EUt(GTValues.VA[GTValues.LV])
         .duration(20)
     //下界数据
-    gtr.assembler('disksavior:fd_n')
+    gtr.mixer('disksavior:fd_n')
         .itemInputs(
             '2x gtceu:data_stick',
             '64x gtceu:netherrack_dust'
@@ -1440,7 +1199,7 @@ ServerEvents.recipes(event => {
         .EUt(GTValues.VA[GTValues.MV])
         .duration(20)
     //末地数据
-    gtr.assembler('disksavior:fd_e')
+    gtr.mixer('disksavior:fd_e')
         .itemInputs(
             '4x gtceu:data_stick',
             '64x gtceu:endstone_dust'
