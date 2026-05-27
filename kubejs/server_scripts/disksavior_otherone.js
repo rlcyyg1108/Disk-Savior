@@ -6,8 +6,6 @@
 //只保留了锭 粉 还有其他配方
 
 //开关
-if (!global.disksavior) global.disksavior = {}
-if (!global.disksavior.enable) global.disksavior.enable = {}
 if (global.disksavior.enable.otherone) {
     ServerEvents.recipes(event => {
         // 移除的物品

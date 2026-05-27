@@ -29,6 +29,33 @@ ServerEvents.recipes(event => {
         ]))
         .EUt(GTValues.VA[GTValues.UV])
         .duration(185254)
+    //压缩升阶
+    const tiers = ["lv", "mv", "hv", "ev", "iv", "luv", "zpm", "uv", "uhv", "uev", "uiv", "uxv", "opv", "max"]
+    //部件装配线外壳
+    for (let i = 4; i < tiers.length - 1; i++) {
+        let inTier = tiers[i];
+        let outTier = tiers[i + 1];
+        gtr.mixer(`disksavior:component_assembly_line_casing_stack_${i - 3}`)
+            .itemInputs(`4x gtlcore:component_assembly_line_casing_${inTier}`)
+            .itemOutputs(`gtlcore:component_assembly_line_casing_${outTier}`)
+            .EUt(GTValues.VA[GTValues.IV])
+            .duration(200)
+    }
+    //并行控制仓
+    for (let i = 4; i < tiers.length - 1; i++) {
+        let inTier = tiers[i];
+        let outTier = tiers[i + 1];
+        gtr.mixer(`disksavior:parallel_hatch_stack_${i - 3}`)
+            .itemInputs(`4x gtceu:${inTier}_parallel_hatch`)
+            .itemOutputs(`gtceu:${outTier}_parallel_hatch`)
+            .EUt(GTValues.VA[GTValues.IV])
+            .duration(200)
+    }
+    gtr.mixer('disksavior:parallel_hatch_stack_super')
+        .itemInputs('4x gtceu:max_parallel_hatch')
+        .itemOutputs('gtladditions:super_parallel_hatch')
+        .EUt(GTValues.VA[GTValues.IV])
+        .duration(20)
     //流体钻机电解
     const ds_fdr_data = [
         {
@@ -58,28 +85,27 @@ ServerEvents.recipes(event => {
         { tier: 0, v: 'mv' },
         { tier: 1, v: 'hv' },
         { tier: 2, v: 'ev' },
-        //{ tier: 5, v: 'zpm' },
+        { tier: 5, v: 'zpm' }
     ]
-    const ds_fdr_batch_multiplier = 64//流体钻机电解批处理乘数
     let ds_fdr_totaloutf = []
     ds_fdr_machine.forEach(m => {
         ds_fdr_data.forEach(r => {
             ds_fdr_totaloutf = ds_fdr_totaloutf.concat(r.outf)
             gtr.electrolyzer(`disksavior:fdr_t${r.tier}_${m.v}`)
-                .notConsumable(`${ds_fdr_batch_multiplier}x gtceu:${m.v}_fluid_drilling_rig`)
+                .notConsumable(`${global.disksavior.batch_multiplier.fdr}x gtceu:${m.v}_fluid_drilling_rig`)
                 .notConsumable(r.notc)
-                .outputFluids(ds_fdr_totaloutf.map(i => `${i.split(' ')[0]} ${Number(i.split(' ')[1]) * ds_fdr_batch_multiplier * (16 ** m.tier)}`))
+                .outputFluids(ds_fdr_totaloutf.map(i => `${i.split(' ')[0]} ${Number(i.split(' ')[1]) * global.disksavior.batch_multiplier.fdr * (16 ** m.tier)}`))
                 .EUt(GTValues.VA[GTValues.MV] * (4 ** m.tier))
-                .duration(4 * ds_fdr_totaloutf.length * ds_fdr_batch_multiplier)
+                .duration(4 * ds_fdr_totaloutf.length * global.disksavior.batch_multiplier.fdr)
         })
     })
     //进阶无尽钻机钻全部维度流体
     const ds_fdr_uhv_data = ['gtceu:salt_water 400', 'gtceu:natural_gas 150', 'gtceu:oil_medium 200', 'gtceu:oil_light 250', 'gtceu:oil_heavy 150', 'gtceu:oil 200', 'gtceu:helium_3 100', 'gtceu:helium 200', 'gtceu:radon 200', 'minecraft:lava 650', 'gtceu:sulfuric_acid 200', 'gtceu:deuterium 150', 'gtceu:helium_3 100', 'gtceu:helium 200', 'gtceu:radon 200', 'gtceu:natural_gas 350', 'gtceu:neon 200', 'gtceu:radon 150', 'gtceu:xenon 200', 'gtceu:krypton 200', 'gtceu:hydrochloric_acid 200', 'gtceu:coal_gas 200', 'gtceu:methane 200', 'gtceu:benzene 150', 'gtceu:charcoal_byproducts 100', 'gtceu:chlorine 200', 'gtceu:fluorine 100', 'gtceu:nitric_acid 200', 'gtceu:neon 200', 'gtceu:radon 150', 'gtceu:xenon 200', 'gtceu:krypton 200', 'gtceu:hydrochloric_acid 200', 'gtceu:coal_gas 200', 'gtceu:unknowwater 200']
     gtr.electrolyzer('disksavior:uhv_all')
         .notConsumable('gtceu:advanced_infinite_driller')
-        .outputFluids(ds_fdr_uhv_data.map(i => `${i.split(' ')[0]} ${Number(i.split(' ')[1]) * ds_fdr_batch_multiplier * (16 ** 7)}`))
+        .outputFluids(ds_fdr_uhv_data.map(i => `${i.split(' ')[0]} ${Number(i.split(' ')[1]) * global.disksavior.batch_multiplier.fdr * (16 ** 7)}`))
         .EUt(GTValues.VA[GTValues.UHV])
-        .duration(ds_fdr_uhv_data.length * ds_fdr_batch_multiplier)
+        .duration(ds_fdr_uhv_data.length * global.disksavior.batch_multiplier.fdr)
     //集气电解
     const ds_gc_data = [
         {
@@ -99,23 +125,22 @@ ServerEvents.recipes(event => {
         //{ v: 'hv', value: 2 },
         //{ v: 'ev', value: 3 }
     ]
-    const ds_gc_batch_multiplier = 1//集气电解批处理乘数
     ds_gc_data.forEach(data => {
         ds_gc_machine.forEach(machine => {
             gtr.electrolyzer(`disksavior:gc_${machine.v}_${data.dim}`)
-                .notConsumable(`${ds_gc_batch_multiplier}x gtceu:${machine.v}_gas_collector`)
+                .notConsumable(`${global.disksavior.batch_multiplier.gc}x gtceu:${machine.v}_gas_collector`)
                 .notConsumable(data.notc)
-                .outputFluids(data.outf.map(i => `${i.split(' ')[0]} ${Number(i.split(' ')[1]) * ds_gc_batch_multiplier * (16 ** machine.value)}`))
+                .outputFluids(data.outf.map(i => `${i.split(' ')[0]} ${Number(i.split(' ')[1]) * global.disksavior.batch_multiplier.gc * (16 ** machine.value)}`))
                 .EUt(GTValues.VA[GTValues.LV] * (4 ** data.dim))
-                .duration(100 * data.outf.length * ds_gc_batch_multiplier)
+                .duration(100 * data.outf.length * global.disksavior.batch_multiplier.gc)
         })
     })
     const ds_gc_iv_outf = ['gtceu:air 160000', 'gtceu:liquid_air 10000', 'gtceu:nether_air 40000', 'gtceu:liquid_nether_air 2500', 'gtceu:ender_air 10000', 'gtceu:liquid_ender_air 625']
     gtr.electrolyzer('disksavior:gc_iv')
-        .notConsumable(`${ds_gc_batch_multiplier}x gtceu:large_gas_collector`)
-        .outputFluids(ds_gc_iv_outf.map(i => `${i.split(' ')[0]} ${Number(i.split(' ')[1]) * ds_gc_batch_multiplier * (16 ** 5)}`))
+        .notConsumable(`${global.disksavior.batch_multiplier.gc}x gtceu:large_gas_collector`)
+        .outputFluids(ds_gc_iv_outf.map(i => `${i.split(' ')[0]} ${Number(i.split(' ')[1]) * global.disksavior.batch_multiplier.gc * (16 ** 5)}`))
         .EUt(GTValues.VA[GTValues.LuV])
-        .duration(100 * ds_gc_iv_outf.length * ds_gc_batch_multiplier)
+        .duration(100 * ds_gc_iv_outf.length * global.disksavior.batch_multiplier.gc)
     //鸿蒙之眼集大成配方
     //集成了来自群友@aach.aic的鸿蒙之眼+，以及@山海恒长在 的添加物，有删改
     const ds_csi_addf = [
@@ -147,122 +172,94 @@ ServerEvents.recipes(event => {
         .duration(1200)
     //化反鸿蒙16384倍
     //相比普通版不加耗电和耗时，因为鸿蒙之眼的耗电和耗时是锁死的，所以这个其实还挺还原 
-    const ds_cs_batch_multiplier = 16384
     //极高密度量子色动力学爆弹
     gtr.compressor('disksavior:quantum_chromodynamic_charge_super')
-        .itemInputs(`${ds_cs_batch_multiplier}x kubejs:quantum_chromodynamic_charge`)
+        .itemInputs(`${global.disksavior.batch_multiplier.cs}x kubejs:quantum_chromodynamic_charge`)
         .itemOutputs('disksavior:quantum_chromodynamic_charge_super')
         .EUt(GTValues.VA[GTValues.OpV])
         .duration(420)
     gtr.large_chemical_reactor('disksavior:cosmos_simulation_super_pro_max_plus_glodversion_16384')
         .notConsumable('gtceu:eye_of_harmony')
         .itemInputs('disksavior:quantum_chromodynamic_charge_super')
-        .inputFluids(ds_csif.map(i => `${i.split(' ')[0]} ${Number(i.split(' ')[1]) * ds_cs_batch_multiplier}`))
-        .itemOutputs(ds_csi_addf.map(item => `${parseInt(item.split(' ')[0]) * ds_cs_batch_multiplier}x ${item.split(' ')[1]}`))
-        .itemOutputs(ds_csi_add.map(item => `${parseInt(item.split(' ')[0]) * ds_cs_batch_multiplier - 1}x ${item.split(' ')[1]}`))
-        .itemOutputs(ds_csi.map(item => `${parseInt(item.split(' ')[0]) * ds_cs_batch_multiplier - 1}x ${item.split(' ')[1]}`))
-        .outputFluids(ds_csf.map(i => `${i.split(' ')[0]} ${Number(i.split(' ')[1]) * ds_cs_batch_multiplier}`))
-        .EUt(5277655810867200 / ds_cs_batch_multiplier)
+        .inputFluids(ds_csif.map(i => `${i.split(' ')[0]} ${Number(i.split(' ')[1]) * global.disksavior.batch_multiplier.cs}`))
+        .itemOutputs(ds_csi_addf.map(item => `${parseInt(item.split(' ')[0]) * global.disksavior.batch_multiplier.cs}x ${item.split(' ')[1]}`))
+        .itemOutputs(ds_csi_add.map(item => `${parseInt(item.split(' ')[0]) * global.disksavior.batch_multiplier.cs - 1}x ${item.split(' ')[1]}`))
+        .itemOutputs(ds_csi.map(item => `${parseInt(item.split(' ')[0]) * global.disksavior.batch_multiplier.cs - 1}x ${item.split(' ')[1]}`))
+        .outputFluids(ds_csf.map(i => `${i.split(' ')[0]} ${Number(i.split(' ')[1]) * global.disksavior.batch_multiplier.cs}`))
+        .EUt(5277655810867200 / global.disksavior.batch_multiplier.cs)
         .duration(1200)
     //太空电梯集大成
-    const space_ores1 = [
-        //巴纳德c原木
-        '32768x kubejs:barnarda_log',
-        '280x gtceu:tetrahedrite_ore', '140x gtceu:copper_ore', '60x gtceu:bentonite_ore', '40x gtceu:magnetite_ore', '40x gtceu:olivine_ore', '20x gtceu:glauconite_sand_ore', '180x gtceu:almandine_ore', '120x gtceu:pyrope_ore', '60x gtceu:sapphire_ore', '60x gtceu:green_sapphire_ore', '70x gtceu:stibnite_ore', '120x gtceu:uraninite_ore', '90x gtceu:bastnasite_ore', '30x gtceu:molybdenum_ore', '60x gtceu:goethite_ore', '240x gtceu:yellow_limonite_ore', '240x gtceu:hematite_ore', '120x gtceu:malachite_ore', '120x gtceu:soapstone_ore', '80x gtceu:talc_ore', '80x gtceu:glauconite_sand_ore', '40x gtceu:pentlandite_ore', '30x gtceu:neodymium_ore', '60x gtceu:monazite_ore', '180x gtceu:redstone_ore', '120x gtceu:ruby_ore', '60x gtceu:grossular_ore', '40x gtceu:spessartine_ore', '40x gtceu:pyrolusite_ore', '20x gtceu:tantalite_ore', '250x gtceu:chalcopyrite_ore', '10x gtceu:zeolite_ore', '10x gtceu:cassiterite_ore', '50x gtceu:realgar_ore', '60x gtceu:cinnabar_ore', '80x ae2:sky_stone_block', '120x gtceu:saltpeter_ore', '80x gtceu:diatomite_ore', '80x gtceu:electrotine_ore', '40x gtceu:alunite_ore', '240x gtceu:coal_ore', '40x gtceu:rubidium_ore', '90x gtceu:beryllium_ore', '120x gtceu:emerald_ore', '40x gtceu:chalcopyrite_ore', '160x gtceu:iron_ore', '160x gtceu:pyrite_ore', '160x gtceu:copper_ore', '60x gtceu:grossular_ore', '40x gtceu:pyrolusite_ore', '20x gtceu:tantalite_ore', '240x gtceu:magnetite_ore', '160x gtceu:vanadium_magnetite_ore', '80x gtceu:gold_ore', '120x gtceu:lazurite_ore', '80x gtceu:sodalite_ore', '80x gtceu:lapis_ore', '40x gtceu:calcite_ore', '150x gtceu:wulfenite_ore', '30x gtceu:calorite_ore', '120x gtceu:galena_ore', '80x gtceu:silver_ore', '40x gtceu:lead_ore', '100x gtceu:molybdenite_ore', '50x gtceu:molybdenum_ore', '50x gtceu:powellite_ore', '90x gtceu:goethite_ore', '60x gtceu:yellow_limonite_ore', '60x gtceu:kyanite_ore', '40x gtceu:mica_ore', '40x gtceu:bauxite_ore', '20x gtceu:pollucite_ore', '120x gtceu:quartzite_ore', '80x gtceu:certus_quartz_ore', '140x gtceu:zircon_ore', '160x gtceu:cassiterite_ore', '60x gtceu:hematite_ore', '30x gtceu:gold_ore', '40x gtceu:barite_ore', '120x gtceu:red_garnet_ore', '80x gtceu:yellow_garnet_ore', '80x gtceu:amethyst_ore', '40x gtceu:opal_ore', '20x gtceu:alien_algae_ore', '210x gtceu:blue_topaz_ore', '140x gtceu:topaz_ore', '240x gtceu:basaltic_mineral_sand_ore', '160x gtceu:granitic_mineral_sand_ore', '160x gtceu:fullers_earth_ore', '80x gtceu:gypsum_ore', '150x gtceu:rock_salt_ore', '10x gtceu:salt_ore', '50x gtceu:lepidolite_ore', '50x gtceu:spodumene_ore', '140x gtceu:chalcocite_ore', '70x gtceu:bornite_ore', '180x gtceu:redstone_ore', '120x gtceu:ruby_ore', '60x gtceu:cinnabar_ore', '240x gtceu:nether_quartz_ore', '80x gtceu:quartzite_ore', '50x minecraft:ancient_debris', '120x gtceu:apatite_ore', '80x gtceu:tricalcium_phosphate_ore', '40x gtceu:pyrochlore_ore', '300x gtceu:sulfur_ore', '200x gtceu:pyrite_ore', '100x gtceu:sphalerite_ore', '180x gtceu:magnetite_ore', '120x gtceu:vanadium_magnetite_ore', '240x gtceu:cassiterite_sand_ore', '160x gtceu:garnet_sand_ore', '160x gtceu:asbestos_ore', '80x gtceu:diatomite_ore', '240x gtceu:oilsands_ore', '60x gtceu:gold_ore', '80x gtceu:infused_gold_ore', '160x gtceu:bauxite_ore', '80x gtceu:ilmenite_ore', '80x gtceu:aluminium_ore', '60x gtceu:bornite_ore', '40x gtceu:cooperite_ore', '120x gtceu:graphite_ore', '80x gtceu:diamond_ore', '40x gtceu:coal_ore', '40x gtceu:titanium_ore', '120x gtceu:garnierite_ore', '80x gtceu:nickel_ore', '80x gtceu:cobaltite_ore', '40x gtceu:pentlandite_ore', '40x gtceu:platinum_ore', '20x gtceu:palladium_ore', '120x gtceu:scheelite_ore', '80x gtceu:tungstate_ore', '40x gtceu:lithium_ore', '20x gtceu:tellurium_ore', '30x gtceu:tungsten_ore', '180x gtceu:pitchblende_ore', '180x gtceu:naquadah_ore', '120x gtceu:chromite_ore', '60x gtceu:plutonium_ore', '30x gtceu:enriched_naquadah_ore', '90x gtceu:trinium_compound_ore', '30x gtceu:indium_ore'
-    ]
-    const space_ores2 = ['20x gtceu:jasper_ore', '140x gtceu:red_garnet_ore', '60x gtceu:topaz_ore', '40x gtceu:emerald_ore', '40x gtceu:amethyst_ore', '20x gtceu:celestine_ore']
-    const space_ores3 = ['140x gtceu:iron_ore', '140x gtceu:tin_ore', '60x gtceu:nickel_ore', '60x gtceu:uruium_ore', '40x gtceu:force_ore', '20x gtceu:cobalt_ore', '120x gtceu:bloodstone_ore', '80x gtceu:redstone_ore', '120x gtceu:red_garnet_ore', '40x gtceu:gravel_ruby_ore', '40x gtceu:almandine_ore', '40x gtceu:pyrope_ore']
-    const space_ores4 = ['80x gtceu:naquadah_ore', '40x gtceu:adamantine_compounds_ore', '60x gtceu:rare_earth_metal_ore', '40x gtceu:monazite_ore', '40x gtceu:bastnasite_ore', '20x gtceu:enriched_naquadah_ore', '40x gtceu:earth_crystal_ore', '40x gtceu:ignis_crystal_ore', '80x gtceu:uraninite_ore', '40x gtceu:orichalcum_ore', '60x gtceu:mithril_ore', '80x gtceu:salt_ore']
-    const space_ores5 = ['80x gtceu:enderium_ore', '120x gtceu:sodalite_ore', '60x gtceu:celestine_ore', '80x gtceu:lapis_ore', '60x gtceu:bauxite_ore', '40x gtceu:pitchblende_ore', '40x gtceu:silver_ore', '60x gtceu:andesite_platinum_ore', '60x gtceu:tartarite_ore', '80x gtceu:vibranium_ore', '120x gtceu:aluminium_ore', '120x gtceu:iron_ore']
-    const space_ores6 = ['12x gtceu:lazurite_ore', '80x gtceu:sapphire_ore', '60x gtceu:starmetal_ore', '80x gtceu:green_sapphire_ore', '120x gtceu:yellow_garnet_ore', '80x gtceu:pollucite_ore']
-    gtr.miner_module('disksavior:space_ore_1_super')
-        .notConsumable('64x kubejs:space_drone_mk1')
-        .notConsumable('gtceu:space_elevator')
-        .inputFluids('gtceu:steam 185254')
-        .itemOutputs(space_ores1)
-        .EUt(GTValues.VA[GTValues.ZPM] * 4)
-        .duration(9600)
-    gtr.miner_module('disksavior:space_ore_2_super')
-        .notConsumable('64x kubejs:space_drone_mk2')
-        .notConsumable('gtceu:space_elevator')
-        .inputFluids('gtceu:steam 185254')
-        .itemOutputs(space_ores1.concat(space_ores2).map(item => `${parseInt(item.split(' ')[0]) * 8}x ${item.split(' ')[1]}`))
-        .EUt(GTValues.VA[GTValues.ZPM] * 16)
-        .duration(9600)
-    gtr.miner_module('disksavior:space_ore_3_super')
-        .notConsumable('64x kubejs:space_drone_mk3')
-        .notConsumable('gtceu:space_elevator')
-        .inputFluids('gtceu:steam 185254')
-        .itemOutputs(space_ores1.concat(space_ores2, space_ores3).map(item => `${parseInt(item.split(' ')[0]) * 64}x ${item.split(' ')[1]}`))
-        .EUt(GTValues.VA[GTValues.ZPM] * 64)
-        .duration(9600)
-    gtr.miner_module('disksavior:space_ore_4_super')
-        .notConsumable('64x kubejs:space_drone_mk4')
-        .notConsumable('gtceu:space_elevator')
-        .inputFluids('gtceu:steam 185254')
-        .itemOutputs(space_ores1.concat(space_ores2, space_ores3, space_ores4).map(item => `${parseInt(item.split(' ')[0]) * 512}x ${item.split(' ')[1]}`))
-        .EUt(GTValues.VA[GTValues.ZPM] * 256)
-        .duration(9600)
-    gtr.miner_module('disksavior:space_ore_5_super')
-        .notConsumable('64x kubejs:space_drone_mk5')
-        .notConsumable('gtceu:space_elevator')
-        .inputFluids('gtceu:steam 185254')
-        .itemOutputs(space_ores1.concat(space_ores2, space_ores3, space_ores4, space_ores5).map(item => `${parseInt(item.split(' ')[0]) * 4096}x ${item.split(' ')[1]}`))
-        .EUt(GTValues.VA[GTValues.ZPM] * 1024)
-        .duration(9600)
-    //断在此处，后续就没有继续加载了，因为这里溢出了
-    gtr.miner_module('disksavior:space_ore_6_super')
-        .notConsumable('64x kubejs:space_drone_mk6')
-        .notConsumable('gtceu:space_elevator')
-        .inputFluids('gtceu:steam 185254')
-        .itemOutputs(space_ores1.concat(space_ores2, space_ores3, space_ores4, space_ores5, space_ores6).map(item => `${parseInt(item.split(' ')[0]) * 32768}x ${item.split(' ')[1]}`))
-        .EUt(GTValues.VA[GTValues.ZPM] * 4096)
-        .duration(9600)
+    const ds_se_ore = {
+        1: [
+            //巴纳德c原木
+            '8192x kubejs:barnarda_log', '128x kubejs:glacio_spirit',
+            '280x gtceu:tetrahedrite_ore', '140x gtceu:copper_ore', '60x gtceu:bentonite_ore', '40x gtceu:magnetite_ore', '40x gtceu:olivine_ore', '20x gtceu:glauconite_sand_ore', '180x gtceu:almandine_ore', '120x gtceu:pyrope_ore', '60x gtceu:sapphire_ore', '60x gtceu:green_sapphire_ore', '70x gtceu:stibnite_ore', '120x gtceu:uraninite_ore', '90x gtceu:bastnasite_ore', '30x gtceu:molybdenum_ore', '60x gtceu:goethite_ore', '240x gtceu:yellow_limonite_ore', '240x gtceu:hematite_ore', '120x gtceu:malachite_ore', '120x gtceu:soapstone_ore', '80x gtceu:talc_ore', '80x gtceu:glauconite_sand_ore', '40x gtceu:pentlandite_ore', '30x gtceu:neodymium_ore', '60x gtceu:monazite_ore', '180x gtceu:redstone_ore', '120x gtceu:ruby_ore', '60x gtceu:grossular_ore', '40x gtceu:spessartine_ore', '40x gtceu:pyrolusite_ore', '20x gtceu:tantalite_ore', '250x gtceu:chalcopyrite_ore', '10x gtceu:zeolite_ore', '10x gtceu:cassiterite_ore', '50x gtceu:realgar_ore', '60x gtceu:cinnabar_ore', '80x ae2:sky_stone_block', '120x gtceu:saltpeter_ore', '80x gtceu:diatomite_ore', '80x gtceu:electrotine_ore', '40x gtceu:alunite_ore', '240x gtceu:coal_ore', '40x gtceu:rubidium_ore', '90x gtceu:beryllium_ore', '120x gtceu:emerald_ore', '40x gtceu:chalcopyrite_ore', '160x gtceu:iron_ore', '160x gtceu:pyrite_ore', '160x gtceu:copper_ore', '60x gtceu:grossular_ore', '40x gtceu:pyrolusite_ore', '20x gtceu:tantalite_ore', '240x gtceu:magnetite_ore', '160x gtceu:vanadium_magnetite_ore', '80x gtceu:gold_ore', '120x gtceu:lazurite_ore', '80x gtceu:sodalite_ore', '80x gtceu:lapis_ore', '40x gtceu:calcite_ore', '150x gtceu:wulfenite_ore', '30x gtceu:calorite_ore', '120x gtceu:galena_ore', '80x gtceu:silver_ore', '40x gtceu:lead_ore', '100x gtceu:molybdenite_ore', '50x gtceu:molybdenum_ore', '50x gtceu:powellite_ore', '90x gtceu:goethite_ore', '60x gtceu:yellow_limonite_ore', '60x gtceu:kyanite_ore', '40x gtceu:mica_ore', '40x gtceu:bauxite_ore', '20x gtceu:pollucite_ore', '120x gtceu:quartzite_ore', '80x gtceu:certus_quartz_ore', '140x gtceu:zircon_ore', '160x gtceu:cassiterite_ore', '60x gtceu:hematite_ore', '30x gtceu:gold_ore', '40x gtceu:barite_ore', '120x gtceu:red_garnet_ore', '80x gtceu:yellow_garnet_ore', '80x gtceu:amethyst_ore', '40x gtceu:opal_ore', '20x gtceu:alien_algae_ore', '210x gtceu:blue_topaz_ore', '140x gtceu:topaz_ore', '240x gtceu:basaltic_mineral_sand_ore', '160x gtceu:granitic_mineral_sand_ore', '160x gtceu:fullers_earth_ore', '80x gtceu:gypsum_ore', '150x gtceu:rock_salt_ore', '10x gtceu:salt_ore', '50x gtceu:lepidolite_ore', '50x gtceu:spodumene_ore', '140x gtceu:chalcocite_ore', '70x gtceu:bornite_ore', '180x gtceu:redstone_ore', '120x gtceu:ruby_ore', '60x gtceu:cinnabar_ore', '240x gtceu:nether_quartz_ore', '80x gtceu:quartzite_ore', '50x minecraft:ancient_debris', '120x gtceu:apatite_ore', '80x gtceu:tricalcium_phosphate_ore', '40x gtceu:pyrochlore_ore', '300x gtceu:sulfur_ore', '200x gtceu:pyrite_ore', '100x gtceu:sphalerite_ore', '180x gtceu:magnetite_ore', '120x gtceu:vanadium_magnetite_ore', '240x gtceu:cassiterite_sand_ore', '160x gtceu:garnet_sand_ore', '160x gtceu:asbestos_ore', '80x gtceu:diatomite_ore', '240x gtceu:oilsands_ore', '60x gtceu:gold_ore', '80x gtceu:infused_gold_ore', '160x gtceu:bauxite_ore', '80x gtceu:ilmenite_ore', '80x gtceu:aluminium_ore', '60x gtceu:bornite_ore', '40x gtceu:cooperite_ore', '120x gtceu:graphite_ore', '80x gtceu:diamond_ore', '40x gtceu:coal_ore', '40x gtceu:titanium_ore', '120x gtceu:garnierite_ore', '80x gtceu:nickel_ore', '80x gtceu:cobaltite_ore', '40x gtceu:pentlandite_ore', '40x gtceu:platinum_ore', '20x gtceu:palladium_ore', '120x gtceu:scheelite_ore', '80x gtceu:tungstate_ore', '40x gtceu:lithium_ore', '20x gtceu:tellurium_ore', '30x gtceu:tungsten_ore', '180x gtceu:pitchblende_ore', '180x gtceu:naquadah_ore', '120x gtceu:chromite_ore', '60x gtceu:plutonium_ore', '30x gtceu:enriched_naquadah_ore', '90x gtceu:trinium_compound_ore', '30x gtceu:indium_ore'
+        ],
+        2: ['20x gtceu:jasper_ore', '140x gtceu:red_garnet_ore', '60x gtceu:topaz_ore', '40x gtceu:emerald_ore', '40x gtceu:amethyst_ore', '20x gtceu:celestine_ore'],
+        3: ['140x gtceu:iron_ore', '140x gtceu:tin_ore', '60x gtceu:nickel_ore', '60x gtceu:uruium_ore', '40x gtceu:force_ore', '20x gtceu:cobalt_ore', '120x gtceu:bloodstone_ore', '80x gtceu:redstone_ore', '120x gtceu:red_garnet_ore', '40x gtceu:gravel_ruby_ore', '40x gtceu:almandine_ore', '40x gtceu:pyrope_ore'],
+        4: ['80x gtceu:naquadah_ore', '40x gtceu:adamantine_compounds_ore', '60x gtceu:rare_earth_metal_ore', '40x gtceu:monazite_ore', '40x gtceu:bastnasite_ore', '20x gtceu:enriched_naquadah_ore', '40x gtceu:earth_crystal_ore', '40x gtceu:ignis_crystal_ore', '80x gtceu:uraninite_ore', '40x gtceu:orichalcum_ore', '60x gtceu:mithril_ore', '80x gtceu:salt_ore'],
+        5: ['80x gtceu:enderium_ore', '120x gtceu:sodalite_ore', '60x gtceu:celestine_ore', '80x gtceu:lapis_ore', '60x gtceu:bauxite_ore', '40x gtceu:pitchblende_ore', '40x gtceu:silver_ore', '60x gtceu:andesite_platinum_ore', '60x gtceu:tartarite_ore', '80x gtceu:vibranium_ore', '120x gtceu:aluminium_ore', '120x gtceu:iron_ore'],
+        6: ['12x gtceu:lazurite_ore', '80x gtceu:sapphire_ore', '60x gtceu:starmetal_ore', '80x gtceu:green_sapphire_ore', '120x gtceu:yellow_garnet_ore', '80x gtceu:pollucite_ore']
+    }
+    const ds_se_ore_data = [1, 2, 3, 4, 5, 6]
+    let ds_se_totalouti = []
+    ds_se_ore_data.forEach(r => {
+        ds_se_totalouti = ds_se_totalouti.concat(ds_se_ore[r])
+        //console.log(totalOutput)
+        //console.log(totalOutput.length)
+        gtr.miner_module(`disksavior:ds_se_ore_${r}`)
+            .notConsumable(`64x kubejs:space_drone_mk${r}`)
+            .notConsumable('gtceu:space_elevator')
+            .inputFluids('gtceu:steam 185254')
+            .itemOutputs(ds_se_totalouti.map(item => `${parseInt(item.split(' ')[0]) * (8 ** (r - 1))}x ${item.split(' ')[1]}`))
+            .EUt(GTValues.VA[GTValues.ZPM] * (4 ** r))
+            .duration(9600)
+    })
     //此处的数组名的数字指的是该数字+1的级别太空无人机可采集
-    const space_fluids = ['gtceu:unknowwater 1000000', 'gtceu:barnarda_air 1000000', 'gtceu:hydrogen 1000000', 'gtceu:helium 1000000', 'gtceu:nitrogen 1000000', 'gtceu:methane 1000000', 'gtceu:sulfur_dioxide 1000000', 'gtceu:carbon_dioxide 1000000', 'gtceu:nitrogen_dioxide 1000000', 'gtceu:ammonia 1000000', 'gtceu:chlorine 1000000', 'gtceu:fluorine 1000000', 'gtceu:carbon_monoxide 1000000', 'gtceu:oxygen 1000000']
-    const space_fluid1s = ['gtceu:neon 100000', 'gtceu:argon 100000', 'gtceu:krypton 100000', 'gtceu:xenon 100000', 'gtceu:radon 100000', 'gtceu:helium_3 100000']
-    const space_fluid2s = ['gtceu:deuterium 100000', 'gtceu:tritium 100000', 'gtceu:heavy_fuel 100000', 'gtceu:light_fuel 100000', 'gtceu:naphtha 100000', 'gtceu:refinery_gas 100000', 'gtceu:coal_gas 100000', 'gtceu:bromine 100000']
-    const space_fluid5s = ['gtceu:white_dwarf_mtter 100000', 'gtceu:black_dwarf_mtter 100000']
-    gtr.drilling_module('disksavior:space_fluid_1_super')
+    const ds_se_fluids = ['gtceu:unknowwater 1000000', 'gtceu:barnarda_air 1000000', 'gtceu:hydrogen 1000000', 'gtceu:helium 1000000', 'gtceu:nitrogen 1000000', 'gtceu:methane 1000000', 'gtceu:sulfur_dioxide 1000000', 'gtceu:carbon_dioxide 1000000', 'gtceu:nitrogen_dioxide 1000000', 'gtceu:ammonia 1000000', 'gtceu:chlorine 1000000', 'gtceu:fluorine 1000000', 'gtceu:carbon_monoxide 1000000', 'gtceu:oxygen 1000000']
+    const ds_se_fluid1s = ['gtceu:neon 100000', 'gtceu:argon 100000', 'gtceu:krypton 100000', 'gtceu:xenon 100000', 'gtceu:radon 100000', 'gtceu:helium_3 100000']
+    const ds_se_fluid2s = ['gtceu:deuterium 100000', 'gtceu:tritium 100000', 'gtceu:heavy_fuel 100000', 'gtceu:light_fuel 100000', 'gtceu:naphtha 100000', 'gtceu:refinery_gas 100000', 'gtceu:coal_gas 100000', 'gtceu:bromine 100000']
+    const ds_se_fluid5s = ['gtceu:white_dwarf_mtter 100000', 'gtceu:black_dwarf_mtter 100000']
+    gtr.drilling_module('disksavior:ds_se_fluid_1')
         .notConsumable('64x kubejs:space_drone_mk1')
         .notConsumable('gtceu:space_elevator')
         .inputFluids('gtceu:steam 185254')
-        .outputFluids(space_fluids)
+        .outputFluids(ds_se_fluids)
         .EUt(GTValues.VA[GTValues.ZPM] * 4)
         .duration(9600)
-    gtr.drilling_module('disksavior:space_fluid_2_super')
+    gtr.drilling_module('disksavior:ds_se_fluid_2')
         .notConsumable('64x kubejs:space_drone_mk2')
         .notConsumable('gtceu:space_elevator')
         .inputFluids('gtceu:steam 185254')
-        .outputFluids(space_fluids.concat(space_fluid1s).map(i => `${i.split(' ')[0]} ${Number(i.split(' ')[1]) * 8}`))
+        .outputFluids(ds_se_fluids.concat(ds_se_fluid1s).map(i => `${i.split(' ')[0]} ${Number(i.split(' ')[1]) * 8}`))
         .EUt(GTValues.VA[GTValues.ZPM] * 16)
         .duration(9600)
-    gtr.drilling_module('disksavior:space_fluid_3_super')
+    gtr.drilling_module('disksavior:ds_se_fluid_3')
         .notConsumable('64x kubejs:space_drone_mk3')
         .notConsumable('gtceu:space_elevator')
         .inputFluids('gtceu:steam 185254')
-        .outputFluids(space_fluids.concat(space_fluid1s, space_fluid2s).map(i => `${i.split(' ')[0]} ${Number(i.split(' ')[1]) * 64}`))
+        .outputFluids(ds_se_fluids.concat(ds_se_fluid1s, ds_se_fluid2s).map(i => `${i.split(' ')[0]} ${Number(i.split(' ')[1]) * 64}`))
         .EUt(GTValues.VA[GTValues.ZPM] * 64)
         .duration(9600)
-    gtr.drilling_module('disksavior:space_fluid_4_super')
+    gtr.drilling_module('disksavior:ds_se_fluid_4')
         .notConsumable('64x kubejs:space_drone_mk4')
         .notConsumable('gtceu:space_elevator')
         .inputFluids('gtceu:steam 185254')
-        .outputFluids(space_fluids.concat(space_fluid1s, space_fluid2s).map(i => `${i.split(' ')[0]} ${Number(i.split(' ')[1]) * 512}`))
+        .outputFluids(ds_se_fluids.concat(ds_se_fluid1s, ds_se_fluid2s).map(i => `${i.split(' ')[0]} ${Number(i.split(' ')[1]) * 512}`))
         .EUt(GTValues.VA[GTValues.ZPM] * 256)
         .duration(9600)
-    gtr.drilling_module('disksavior:space_fluid_5_super')
+    gtr.drilling_module('disksavior:ds_se_fluid_5')
         .notConsumable('64x kubejs:space_drone_mk5')
         .notConsumable('gtceu:space_elevator')
         .inputFluids('gtceu:steam 185254')
-        .outputFluids(space_fluids.concat(space_fluid1s, space_fluid2s).map(i => `${i.split(' ')[0]} ${Number(i.split(' ')[1]) * 4096}`))
+        .outputFluids(ds_se_fluids.concat(ds_se_fluid1s, ds_se_fluid2s).map(i => `${i.split(' ')[0]} ${Number(i.split(' ')[1]) * 4096}`))
         .EUt(GTValues.VA[GTValues.ZPM] * 1024)
         .duration(9600)
-    gtr.drilling_module('disksavior:space_fluid_6_super')
+    gtr.drilling_module('disksavior:ds_se_fluid_6')
         .notConsumable('64x kubejs:space_drone_mk6')
         .notConsumable('gtceu:space_elevator')
         .inputFluids('gtceu:steam 185254')
-        .outputFluids(space_fluids.concat(space_fluid1s, space_fluid2s, space_fluid5s).map(i => `${i.split(' ')[0]} ${Number(i.split(' ')[1]) * 32768}`))
+        .outputFluids(ds_se_fluids.concat(ds_se_fluid1s, ds_se_fluid2s, ds_se_fluid5s).map(i => `${i.split(' ')[0]} ${Number(i.split(' ')[1]) * 32768}`))
         .EUt(GTValues.VA[GTValues.ZPM] * 4096)
         .duration(9600)
     //原始虚空采矿机电解
@@ -297,11 +294,11 @@ ServerEvents.recipes(event => {
         //console.log(totalOutput)
         //console.log(totalOutput.length)
         gtr.electrolyzer(`disksavior:primitive_void_t${r.tier}`)
-            .notConsumable('gtceu:primitive_void_ore')
+            .notConsumable(`${global.disksavior.batch_multiplier.pv}x gtceu:primitive_void_ore`)
             .notConsumable(r.notc)
-            .itemOutputs(ds_pv_totalouti)
-            .EUt(30 * (4 ** r.tier))
-            .duration(ds_pv_totalouti.length)
+            .itemOutputs(ds_pv_totalouti.map(item => `${parseInt(item.split(' ')[0]) * global.disksavior.batch_multiplier.pv}x ${item.split(' ')[1]}`))
+            .EUt(30 * (4 ** r.value))
+            .duration(ds_pv_totalouti.length * global.disksavior.batch_multiplier.pv)
     })
     //屠宰场电解
     const ds_slaughterhouse = [
@@ -371,13 +368,7 @@ ServerEvents.recipes(event => {
     gtr.electrolyzer('disksavior:large_void_miner')
         .notConsumable('gtceu:large_void_miner')
         .inputFluids('gtceu:steam 185254')
-        .itemOutputs(all_ores)
-        .EUt(GTValues.VA[GTValues.LuV])
-        .duration((all_ores.length))
-    //当然，也能用大型虚空采矿机运行
-    gtr.random_ore('disksavior:random_ore')
-        .circuit(30)
-        .itemOutputs(all_ores)
-        .EUt(GTValues.VA[GTValues.LuV])
-        .duration((all_ores.length))
+        .itemOutputs(all_ores.map(item => `${parseInt(item.split(' ')[0]) * global.disksavior.batch_multiplier.lvm}x ${item.split(' ')[1]}`))
+        .EUt(GTValues.VA[GTValues.ZPM])
+        .duration((all_ores.length * global.disksavior.batch_multiplier.lvm))
 })

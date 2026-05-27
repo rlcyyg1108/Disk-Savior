@@ -74,6 +74,7 @@ JEIEvents.addItems(event => {
 
 ItemEvents.tooltip(event => {
     event.add('disksavior:quantum_chromodynamic_charge_super', '§7§o纯度……')
+    event.add('disksavior:lecb', '§b§o挚友……')
     event.add('disksavior:show', '不可合成，仅供参考')
     event.add('disksavior:show', '右键该物品查看鸿蒙之眼的机器配方池')
     event.add('disksavior:show', '会显示一些产出太多jei看不全的配方')
@@ -217,17 +218,17 @@ ItemEvents.tooltip(event => {
                 text.add('§b§oHave withstood MSPT to create many mega steam turbine')
                 text.add('§b§oYet, those hands will never hold EU')
                 text.add('§b§oSo as I pray')
-                text.add('§b§o§lUnlimited steam Works')
+                text.add('§b§o§lUnlimited Steam Works')
             } else if (event.ctrl) {
                 text.add('§7§o§mI am the bone of my steam')
                 text.add('§7§o§mSteel is my body, and water is my blood')
                 text.add('§7§o§mI have created over a thousand turbines')
-                text.add('§7§oUnknown to death')
-                text.add('§7§oNor known to life')
+                text.add('§7§o§mUnknown to death')
+                text.add('§7§o§mNor known to life')
                 text.add('§7§o§mHave withstood MSPT to create many mega steam turbine')
                 text.add('§7§o§mYet, those hands will never hold EU')
                 text.add('§7§o§mSo as I pray......')
-                text.add('§8§o§m§kUnlimited steam Works')
+                text.add('§8§o§m§kUnlimited Steam Works')
                 text.add('§4......')
                 text.add('§c按住 §4SHIFT§r §c+§r §4CTRL§r §c+§r §4ALT§r §c查看心象')
             } else {
@@ -262,7 +263,7 @@ ItemEvents.tooltip(event => {
             text.add('§c用水代替蒸汽')
             text.add('§c提供§k2^57§r§c倍超频')
             text.add('§4......')
-            text.add('§4§o§kUnlimited steam Works')
+            text.add('§4§o§kUnlimited Steam Works')
             text.add('§c按住 §4SHIFT§r §c查看谏言')
         }
     })
