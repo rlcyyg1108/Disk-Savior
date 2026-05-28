@@ -450,6 +450,7 @@ ServerEvents.recipes(event => {
         .outputFluids('gtceu:quantanium 10000')
         .EUt(GTValues.VA[GTValues.UHV])
         .duration(1200)
+        .blastFurnaceTemp(12600)
     //中子活化转闪电处理
     gtr.lightning_processor('disksavior:hassium')
         .notConsumable('gtceu:neutron_activator')
@@ -1091,13 +1092,13 @@ ServerEvents.recipes(event => {
         .duration(800)
         .blastFurnaceTemp(28000)
     gtr.large_chemical_reactor('disksavior:fkj_cosmicneutronium')//混沌物质
-        .notConsuming('gtceu:cosmicneutronium_nanoswarm')
+        .notConsumable('gtceu:cosmicneutronium_nanoswarm')
         .inputFluids('gtceu:chaos_plasma 1000')
         .outputFluids('gtceu:chaos 1000')
         .EUt(GTValues.VA[GTValues.OpV])
         .duration(200)
     gtr.large_chemical_reactor('disksavior:fkj_uruium')//寰宇织网
-        .notConsuming('gtceu:uruium_nanoswarm')
+        .notConsumable('gtceu:uruium_nanoswarm')
         .inputFluids('gtceu:cosmic_mesh_plasma 1000')
         .outputFluids('gtceu:liquid_cosmic_mesh 1000')
         .EUt(GTValues.VA[GTValues.OpV])
@@ -1109,7 +1110,7 @@ ServerEvents.recipes(event => {
         .outputFluids('gtceu:dimensionallytranscendentresidue 100')
         .EUt(GTValues.VA[GTValues.MAX])
         .duration(200)
-        .blastFurnaceTemp(32000)
+        .blastFurnaceTemp(1)
     gtr.stellar_forge('disksavior:fkj_free_proton_gas')//气态高密度自由质子气
         .itemInputs('kubejs:naquadria_charge', 'kubejs:leptonic_charge', 'kubejs:charged_triplet_neutronium_sphere')
         .outputFluids('gtceu:free_proton_gas 10000')
@@ -1117,32 +1118,32 @@ ServerEvents.recipes(event => {
         .duration(200)
         .addData("SCTier", 1)
     gtr.large_chemical_reactor('disksavior:fkj_actinium_superhydride_dust')//超氢化锕粉
-        .notConsuming('gtceu:infuscolium_nanoswarm')
+        .notConsumable('gtceu:infuscolium_nanoswarm')
         .inputFluids('gtceu:actinium_superhydride_plasma 1000')
         .itemOutputs('13x gtceu:actinium_superhydride_dust')
         .EUt(GTValues.VA[GTValues.UIV])
         .duration(200)
     gtr.large_chemical_reactor('disksavior:fkj_draconiumawakened')//觉醒龙
-        .notConsuming('gtceu:draconium_nanoswarm')
+        .notConsumable('gtceu:draconium_nanoswarm')
         .inputFluids('gtceu:draconiumawakened_plasma 1000')
         .outputFluids('gtceu:draconiumawakened 1000')
         .EUt(GTValues.VA[GTValues.UXV])
         .duration(200)
-    gtr.large_chemical_reactor('disksavior:fkj_crystalmatrix')//晶体矩阵
-        .notConsuming('gtceu:enderium_nanoswarm')
+    gtr.large_chemical_reactor('disksavior:fkj_crystalmatrix')//水晶矩阵
+        .notConsumable('gtceu:enderium_nanoswarm')
         .inputFluids('gtceu:crystalmatrix_plasma 1000')
         .outputFluids('gtceu:crystalmatrix 1000')
         .EUt(GTValues.VA[GTValues.OpV])
         .duration(200)
     gtr.large_chemical_reactor('disksavior:fkj_echoite_plasma')//回响合金等离子体
-        .notConsuming('gtceu:naquadah_nanoswarm')
+        .notConsumable('gtceu:naquadah_nanoswarm')
         .itemInputs('16x gtceu:exquisite_echo_shard_gem')
         .inputFluids('gtceu:degenerate_rhenium_plasma 1000', 'gtceu:mana 16000', 'gtceu:enderium 1152', 'gtceu:infuscolium 1152')
         .outputFluids('gtceu:echoite_plasma 2304')
         .EUt(GTValues.VA[GTValues.UIV])
         .duration(200)
-    gtr.large_chemical_reactor('disksavior:fkj_liquid_degenerate_rhenium')//液态简并态徕
-        .notConsuming('gtceu:naquadah_nanoswarm')
+    gtr.large_chemical_reactor('disksavior:fkj_liquid_degenerate_rhenium')//液态简并态铼
+        .notConsumable('gtceu:naquadah_nanoswarm')
         .inputFluids('gtceu:degenerate_rhenium_plasma 1000')
         .outputFluids('gtceu:liquid_degenerate_rhenium 1000')
         .EUt(GTValues.VA[GTValues.UEV])
@@ -1154,13 +1155,13 @@ ServerEvents.recipes(event => {
         .EUt(GTValues.VA[GTValues.UHV])
         .duration(200)
     gtr.distort('disksavior:fkj_dense_neutron_plasma')//致密中子素等离子体
-        .notConsuming('avaritia:infinity_catalyst')
+        .notConsumable('avaritia:infinity_catalyst')
         .itemInputs('kubejs:naquadria_charge')
         .inputFluids('gtceu:heavy_quark_degenerate_matter_plasma 10000', 'gtceu:periodicium 1000', 'gtceu:neutronium 1000', 'gtceu:heavy_lepton_mixture 1000')
         .outputFluids('gtceu:dense_neutron_plasma 10000', 'gtceu:dimensionallytranscendentresidue 100')
         .EUt(GTValues.VA[GTValues.MAX])
         .duration(200)
-        .blastFurnaceTemp(26000)
+        .blastFurnaceTemp(1)
     gtr.stellar_forge('disksavior:fkj_legendarium_plasma')//传奇合金等离子体
         .itemInputs('kubejs:leptonic_charge', '2x gtceu:trinium_dust', '2x gtceu:adamantine_dust')
         .inputFluids('gtceu:naquadriatictaranium 576', 'gtceu:duranium 288', 'gtceu:tritanium 288', 'gtceu:orichalcum 288', 'gtceu:mithril 288', 'gtceu:adamantium 288', 'gtceu:vibranium 288', 'gtceu:neutronium 1000', 'gtceu:heavy_lepton_mixture 1000')

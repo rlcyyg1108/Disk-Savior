@@ -2,11 +2,30 @@
 	autofocus_id: "38166A02EA474C1E"
 	default_hide_dependency_lines: false
 	default_quest_shape: ""
+	disable_toast: true
 	filename: "disksavior"
 	group: ""
 	icon: "gtlcore:item_infinity_cell"
 	id: "6118ED8EA9970D67"
-	order_index: 6
+	images: [
+		{
+			height: 1.0d
+			image: "ftblibrary:icons/right"
+			rotation: 0.0d
+			width: 1.0d
+			x: -2.5d
+			y: 13.0d
+		}
+		{
+			height: 1.0d
+			image: "ftblibrary:icons/left"
+			rotation: 0.0d
+			width: 1.0d
+			x: 2.5d
+			y: 13.0d
+		}
+	]
+	order_index: 5
 	quest_links: [ ]
 	quests: [
 		{
@@ -3354,8 +3373,8 @@
 				}
 			]
 			title: "t7 t8电解"
-			x: -2.0d
-			y: 6.0d
+			x: 11.0d
+			y: 1.0d
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
@@ -3487,11 +3506,8 @@
 			dependencies: ["38166A02EA474C1E"]
 			description: [
 				"集成了一些来自其他群友的脚本,感谢分享"
-				"&c与私货版不兼容&r"
-				"使用方法："
-				"kubejs\\server_scripts\\disksavior.js"
-				"在这个文件的开头，修改对应变量的布尔值即可开关"
 				"&c默认关闭"
+				"需要在启动脚本开启"
 				"&r"
 				"&b@红烧提莫炖排骨"
 				" - 提取机配方缩减"
@@ -6148,8 +6164,8 @@
 				}
 			]
 			title: "回响系列电解"
-			x: -2.5d
-			y: 7.0d
+			x: 11.0d
+			y: -1.0d
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
@@ -6216,8 +6232,8 @@
 				type: "item"
 			}]
 			title: "中子活化器改闪电处理"
-			x: -3.0d
-			y: 8.0d
+			x: -2.0d
+			y: 6.0d
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
@@ -6260,8 +6276,8 @@
 				type: "item"
 			}]
 			title: "特种陶瓷卷板机做"
-			x: -3.5d
-			y: 9.0d
+			x: -2.5d
+			y: 7.0d
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
@@ -6310,21 +6326,89 @@
 		{
 			dependencies: ["38166A02EA474C1E"]
 			description: [
-				"有两个配方"
+				"任务所需物是所有添加了无罐子配方的主产物"
 				""
-				"我恨你，绿罐子"
+				"我恨你，罐子"
 			]
 			id: "3AE0DB1F6B941D36"
-			subtitle: "彻夜通明时洞悉世间星辰"
-			tasks: [{
-				id: "34CAF1713EEC1711"
-				item: "gtceu:cosmicneutronium_bucket"
-				optional_task: true
+			rewards: [{
+				id: "7F598C24452B3F30"
+				item: "disksavior:lecb"
 				type: "item"
 			}]
-			title: "单步去绿罐子液态宇宙中子素"
+			shape: "octagon"
+			size: 2.0d
+			subtitle: "彻夜通明时洞悉世间星辰"
+			tasks: [
+				{
+					id: "7AE6337C7C067673"
+					item: "gtceu:cosmicneutronium_bucket"
+					type: "item"
+				}
+				{
+					id: "219983965B1F5F13"
+					item: "gtceu:chaos_bucket"
+					type: "item"
+				}
+				{
+					id: "0FA886B9AA38E9A6"
+					item: "gtceu:liquid_cosmic_mesh_bucket"
+					type: "item"
+				}
+				{
+					id: "32A242199D4F8E85"
+					item: "avaritia:infinity_catalyst"
+					type: "item"
+				}
+				{
+					id: "2454FB8D789787EF"
+					item: "gtceu:free_proton_gas_bucket"
+					type: "item"
+				}
+				{
+					id: "2958DA22A6064E70"
+					item: "gtceu:actinium_superhydride_dust"
+					type: "item"
+				}
+				{
+					id: "0552DFCDA1C85695"
+					item: "gtceu:draconiumawakened_bucket"
+					type: "item"
+				}
+				{
+					id: "619CF6B8B1836B9C"
+					item: "gtceu:crystalmatrix_bucket"
+					type: "item"
+				}
+				{
+					id: "32E820FEDC5C33C4"
+					item: "gtceu:echoite_plasma_bucket"
+					type: "item"
+				}
+				{
+					id: "305B5D36ED65436B"
+					item: "gtceu:liquid_degenerate_rhenium_bucket"
+					type: "item"
+				}
+				{
+					id: "6C1203760ED74B8F"
+					item: "kubejs:neutronium_sphere"
+					type: "item"
+				}
+				{
+					id: "0D8D08C60A17D20D"
+					item: "gtceu:dense_neutron_plasma_bucket"
+					type: "item"
+				}
+				{
+					id: "47DC75F322DF2BE6"
+					item: "gtceu:legendarium_plasma_bucket"
+					type: "item"
+				}
+			]
+			title: "&l&b罐子终结者"
 			x: 0.0d
-			y: 11.5d
+			y: 13.0d
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]
@@ -6848,8 +6932,8 @@
 				type: "item"
 			}]
 			title: "单步乙烯"
-			x: 1.0d
-			y: 11.5d
+			x: 0.0d
+			y: 11.0d
 		}
 		{
 			dependencies: ["38166A02EA474C1E"]

@@ -22,7 +22,7 @@
 !config/ftbquests/quests/chapters/
 !config/ftbquests/quests/chapters/disksavior.snbt
 !config/ftbquests/quests/chapters/extendedaeplus.snbt.disabled
-#!config/ftbquests/quests/chapters/disksaviorpatterngift.snbt
+!config/ftbquests/quests/chapters/disksaviorpatterngift.snbt
 !config/ftbquests/quests/reward_tables/
 !config/ftbquests/quests/reward_tables/disk.snbt
 !config/worldedit/
