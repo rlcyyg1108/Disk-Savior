@@ -1144,6 +1144,7 @@ ServerEvents.recipes(event => {
         .duration(200)
     gtr.large_chemical_reactor('disksavior:fkj_liquid_degenerate_rhenium')//液态简并态铼
         .notConsumable('gtceu:naquadah_nanoswarm')
+        .circuit(1)
         .inputFluids('gtceu:degenerate_rhenium_plasma 1000')
         .outputFluids('gtceu:liquid_degenerate_rhenium 1000')
         .EUt(GTValues.VA[GTValues.UEV])
